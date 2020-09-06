@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectReaperKing", "ProjectReaperKing\ProjectReaperKing.csproj", "{E6F52C23-9E60-4666-9F3A-A38D1039869A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteBuilder.Core", "SiteBuilder.Core\SiteBuilder.Core.csproj", "{FE9301B2-DA74-4379-92E1-FA94E08A1788}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteBuilder", "SiteBuilder\SiteBuilder.csproj", "{77A094AC-D306-415E-A2C7-B620C6EB2741}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E6F52C23-9E60-4666-9F3A-A38D1039869A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6F52C23-9E60-4666-9F3A-A38D1039869A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6F52C23-9E60-4666-9F3A-A38D1039869A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6F52C23-9E60-4666-9F3A-A38D1039869A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE9301B2-DA74-4379-92E1-FA94E08A1788}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE9301B2-DA74-4379-92E1-FA94E08A1788}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE9301B2-DA74-4379-92E1-FA94E08A1788}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE9301B2-DA74-4379-92E1-FA94E08A1788}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77A094AC-D306-415E-A2C7-B620C6EB2741}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77A094AC-D306-415E-A2C7-B620C6EB2741}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77A094AC-D306-415E-A2C7-B620C6EB2741}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77A094AC-D306-415E-A2C7-B620C6EB2741}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
