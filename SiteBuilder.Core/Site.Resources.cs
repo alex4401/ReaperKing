@@ -1,0 +1,29 @@
+using System;
+using System.IO;
+
+namespace SiteBuilder.Core
+{
+    public abstract partial class Site
+    {
+        public string CopyFileToLocation(string inputFile, string uri)
+        {
+            inputFile = Path.Join(Environment.CurrentDirectory, inputFile);
+            var diskPath = Path.Join(DeploymentPath, uri);
+            var publicUri = Path.Join(ProjectConfig.Site.WebRoot, uri);
+            
+            Directory.CreateDirectory(Path.GetDirectoryName(diskPath));
+            
+            if (!File.Exists(diskPath))
+            {
+                File.Copy(inputFile, diskPath);
+            }
+
+            return publicUri;
+        }
+
+        public string CopyResource(string inputFile, string uri)
+        {
+            return CopyFileToLocation(Path.Join("resources", inputFile), Path.Join(ProjectConfig.Site.ResourceDirectory, uri));
+        }
+    }
+}
