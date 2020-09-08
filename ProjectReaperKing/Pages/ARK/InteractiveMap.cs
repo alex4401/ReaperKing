@@ -10,11 +10,11 @@ namespace ProjectReaperKing.Pages.ARK
 {
         public class InteractiveMapGenerator : IPageGenerator
         {
-            private ModInfo _arkMod;
-            private string _arkModRef;
-            private string _arkMapRef;
-            private MapInfo _arkMap;
-            private int _revisionId;
+            private readonly ModInfo _arkMod;
+            private readonly string _arkModRef;
+            private readonly string _arkMapRef;
+            private readonly MapInfo _arkMap;
+            private readonly int _revisionId;
 
             public InteractiveMapGenerator(string arkModRef, string arkMapRef, int revisionId)
             {
@@ -34,14 +34,12 @@ namespace ProjectReaperKing.Pages.ARK
                     Template = "mods/interactiveMap.cshtml",
                     Model = new InteractiveMapModel
                     {
-                        Super = new BaseModel
+                        Super = new BaseModel(site)
                         {
                             SiteName = _arkMod.Name,
                             DisplayTitle = $"{_arkMod.Name}, interactive spawning maps",
+                            RootUri = parentUri,
                         },
-                        
-                        Web = site.GetCommonInfo(),
-                        BaseUri = parentUri,
                         
                         ModInfo = _arkMod,
                         Map = _arkMap,

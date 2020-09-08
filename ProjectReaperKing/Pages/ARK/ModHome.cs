@@ -7,7 +7,7 @@ namespace ProjectReaperKing.Pages.ARK
 {
     public class ModHomeGenerator : IPageGenerator
     {
-        private ModInfo _arkMod;
+        private readonly ModInfo _arkMod;
 
         public ModHomeGenerator(ModInfo arkMod)
         {
@@ -26,10 +26,9 @@ namespace ProjectReaperKing.Pages.ARK
                     {
                         SiteName = _arkMod.Name,
                         DisplayTitle = $"{_arkMod.Name}, interactive spawning maps",
+                        RootUri = parentUri,
                     },
                     
-                    Web = site.GetCommonInfo(),
-                    BaseUri = parentUri,
                     ModInfo = _arkMod,
                     Maps = DataManagerARK.Instance.LoadedMaps,
                 },

@@ -12,14 +12,12 @@ namespace ProjectReaperKing.Pages.WikiTools
                 Template = "wiki/creatureStats.cshtml",
                 Model = new 
                 {
-                    Super = new BaseModel
+                    Super = new BaseModel(site)
                     {
                         SiteName = "Wiki Tools",
                         DisplayTitle = "{{CreatureStats}}",
+                        RootUri = parentUri,
                     },
-                    
-                    Web = site.GetCommonInfo(),
-                    BaseUri = parentUri,
                 },
             };
         }

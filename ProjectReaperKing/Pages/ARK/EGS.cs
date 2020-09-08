@@ -7,7 +7,7 @@ namespace ProjectReaperKing.Pages.ARK
 {
     public class EpicIniGenerator : IPageGenerator
     {
-        private ModInfo _arkMod;
+        private readonly ModInfo _arkMod;
         private ModInfo.Revision _revision;
 
         public EpicIniGenerator(ModInfo arkMod, ModInfo.Revision revision)
@@ -24,14 +24,13 @@ namespace ProjectReaperKing.Pages.ARK
                 Template = "mods/egs.cshtml",
                 Model = new ModHomeModel
                 {
-                    Super = new BaseModel
+                    Super = new BaseModel(site)
                     {
                         SiteName = _arkMod.Name,
                         DisplayTitle = $"{_arkMod.Name}, interactive spawning maps",
+                        RootUri = parentUri,
                     },
                     
-                    Web = site.GetCommonInfo(),
-                    BaseUri = parentUri,
                     ModInfo = _arkMod,
                     Maps = DataManagerARK.Instance.LoadedMaps,
                 },

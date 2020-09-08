@@ -26,7 +26,7 @@ namespace SiteBuilder.Core
                 uri = Path.Join(PathPrefix, uri);
             }
             
-            Site.BuildPage(uri, generator);
+            Site.BuildPage(generator, uri);
         }
 
         public void AddStrictTemplateDirectory(string root) => Site.AddTemplateDirectory(root);

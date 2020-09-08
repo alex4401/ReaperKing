@@ -5,10 +5,10 @@ namespace SiteBuilder.Core
 {
     public abstract partial class Site
     {
-        public async virtual void BuildPage(string uri, IPageGenerator generator)
+        public async virtual void SavePage(PageGenerationResult result, string uri)
         {
-            var result = generator.Generate(this, uri);
             string path = Path.Join(ProjectConfig.Site.DeploymentDirectory, uri);
+            string contents = await GetRazor().CompileRenderAsync(result.Template, result.Model);
             
             if (result.Uri != null)
             {
@@ -17,30 +17,25 @@ namespace SiteBuilder.Core
             Directory.CreateDirectory(path);
             
             path = Path.Join(path, result.Name + ".html");
-            string contents = await GetRazor().CompileRenderAsync(result.Template, result.Model);
 
             File.WriteAllText(path, contents);
         }
 
         [Obsolete]
-        public virtual void BuildIndex(string uri, IPageIndex index)
+        public void BuildPage(string uri, IPageGenerator generator)
         {
-            string uri2 = Path.Join(uri, index.GetPath());
-                
-            var pages = index.GetAll(this);
-            foreach (var page in pages)
-            {
-                BuildPage(uri2, page);
-            }
+            BuildPage(generator, uri);
         }
-
-        [Obsolete]
-        public void BuildIndices(string uri, IPageIndex[] indices)
+        
+        public void BuildPage(IPageGenerator generator, string uri = null)
         {
-            foreach (var index in indices)
+            var context = new SiteContext
             {
-                BuildIndex(uri, index);
-            }
+                Site = this,
+                PathPrefix = uri,
+            };
+            var result = generator.Generate(context);
+            SavePage(result, uri);
         }
 
         public void BuildWithProvider(ISiteContentProvider provider, string uri = null)

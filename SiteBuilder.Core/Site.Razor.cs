@@ -8,15 +8,6 @@ namespace SiteBuilder.Core
     {
         public RazorLightEngine GetRazor() => _razorEngine;
 
-        [Obsolete]
-        public virtual WebCommonModel GetCommonInfo()
-        {
-            return new WebCommonModel
-            {
-                Root = ProjectConfig.Site.WebRoot,
-            };
-        }
-
         public void AddTemplateDirectory(string root)
         {
             _razorProject.AddRoot(Path.Join(Environment.CurrentDirectory, root));
