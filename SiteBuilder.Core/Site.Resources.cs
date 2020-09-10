@@ -23,7 +23,16 @@ namespace SiteBuilder.Core
 
         public string CopyResource(string inputFile, string uri)
         {
-            return CopyFileToLocation(Path.Join("resources", inputFile), Path.Join(ProjectConfig.Site.ResourceDirectory, uri));
+            return CopyFileToLocation(Path.Join("resources", inputFile), 
+                                  Path.Join(ProjectConfig.Site.ResourceDirectory, uri));
+        }
+
+        public string CopyVersionedResource(string inputFile, string uri)
+        {
+            var inputPath = Path.Join(Environment.CurrentDirectory, "resources", inputFile);
+            var hash = HashUtils.GetHashOfFile(inputPath);
+            var assetUri = uri.Replace("[hash]", hash.Substring(0, 12));
+            return CopyResource(inputFile, assetUri);
         }
     }
 }

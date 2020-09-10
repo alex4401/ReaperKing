@@ -20,6 +20,7 @@ namespace SiteBuilder.Core
 
     public static class TemplateUtils
     {
+        [Obsolete]
         public static string LinkResource(string path)
         {
             var site = Site.Instance;

@@ -1,4 +1,5 @@
 using System.IO;
+using ProjectReaperKing.Models;
 using SiteBuilder.Core;
 
 namespace ProjectReaperKing
@@ -13,6 +14,7 @@ namespace ProjectReaperKing
         {
             return new BaseModel
             {
+                Ctx = ctx,
                 SiteName = SiteName,
                 DisplayTitle = DisplayTitle,
                 Root = ctx.Site.ProjectConfig.Site.WebRoot,
