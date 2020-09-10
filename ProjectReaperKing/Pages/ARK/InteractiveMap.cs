@@ -25,7 +25,7 @@ namespace ProjectReaperKing.Pages.ARK
                 _revisionId = revisionId;
             }
 
-            public PageGenerationResult Generate(Site site, string parentUri)
+            public PageGenerationResult Generate(SiteContext ctx)
             {
                 return new PageGenerationResult()
                 {
@@ -34,18 +34,14 @@ namespace ProjectReaperKing.Pages.ARK
                     Template = "mods/interactiveMap.cshtml",
                     Model = new InteractiveMapModel
                     {
-                        Super = new BaseModel(site)
-                        {
-                            SiteName = _arkMod.Name,
-                            DisplayTitle = $"{_arkMod.Name}, interactive spawning maps",
-                            RootUri = parentUri,
-                        },
+                        Super = ctx.AcquireBaseModel(SiteName: _arkMod.Name,
+                                                     DisplayTitle: $"{_arkMod.Name}, interactive spawning maps"),
                         
                         ModInfo = _arkMod,
                         Map = _arkMap,
                         Revision = _arkMod.Revisions[_revisionId],
                         Nests = DataManagerARK.Instance.GetNestLocations(_arkModRef, _arkMapRef).ToArray(),
-                        JsonUri = _copyDataBlobs(site),
+                        JsonUri = _copyDataBlobs(ctx.Site),
                     },
                 };
             }

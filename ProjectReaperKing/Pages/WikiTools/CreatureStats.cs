@@ -4,7 +4,7 @@ namespace ProjectReaperKing.Pages.WikiTools
 {
     public class CreatureStats : IPageGenerator
     {
-        public PageGenerationResult Generate(Site site, string parentUri)
+        public PageGenerationResult Generate(SiteContext ctx)
         {
             return new PageGenerationResult
             {
@@ -12,12 +12,8 @@ namespace ProjectReaperKing.Pages.WikiTools
                 Template = "wiki/creatureStats.cshtml",
                 Model = new 
                 {
-                    Super = new BaseModel(site)
-                    {
-                        SiteName = "Wiki Tools",
-                        DisplayTitle = "{{CreatureStats}}",
-                        RootUri = parentUri,
-                    },
+                    Super = ctx.AcquireBaseModel(SiteName: "Wiki Tools",
+                                                 DisplayTitle: "{{CreatureStats}}"),
                 },
             };
         }

@@ -5,7 +5,7 @@ namespace SiteBuilder.Core
 {
     public abstract partial class Site
     {
-        public async virtual void SavePage(PageGenerationResult result, string uri)
+        public async void SavePage(PageGenerationResult result, string uri)
         {
             string path = Path.Join(ProjectConfig.Site.DeploymentDirectory, uri);
             string contents = await GetRazor().CompileRenderAsync(result.Template, result.Model);

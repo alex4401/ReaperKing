@@ -16,21 +16,16 @@ namespace ProjectReaperKing.Pages.ARK
             _revision = revision;
         }
 
-        public PageGenerationResult Generate(Site site, string parentUri)
+        public PageGenerationResult Generate(SiteContext ctx)
         {
-            return new PageGenerationResult()
+            return new PageGenerationResult
             {
                 Name = "egs",
                 Template = "mods/egs.cshtml",
                 Model = new ModHomeModel
                 {
-                    Super = new BaseModel(site)
-                    {
-                        SiteName = _arkMod.Name,
-                        DisplayTitle = $"{_arkMod.Name}, interactive spawning maps",
-                        RootUri = parentUri,
-                    },
-                    
+                    Super = ctx.AcquireBaseModel(SiteName: _arkMod.Name,
+                                                 DisplayTitle: $"{_arkMod.Name}, interactive spawning maps"),
                     ModInfo = _arkMod,
                     Maps = DataManagerARK.Instance.LoadedMaps,
                 },

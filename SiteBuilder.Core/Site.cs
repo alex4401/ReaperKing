@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using RazorLight;
+using RazorLight.Caching;
 using ShellProgressBar;
 using SiteBuilder.Core.Razor;
 

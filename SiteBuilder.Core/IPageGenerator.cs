@@ -13,7 +13,6 @@ namespace SiteBuilder.Core
     
     public interface IPageGenerator
     {
-        public PageGenerationResult Generate(Site site, string parentUri);
         public PageGenerationResult Generate(SiteContext ctx);
     }
 }

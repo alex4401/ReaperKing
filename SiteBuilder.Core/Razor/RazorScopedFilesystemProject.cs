@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.FileProviders;
+using Microsoft.Extensions.Primitives;
 using RazorLight.Razor;
 
 namespace SiteBuilder.Core.Razor
@@ -77,7 +79,10 @@ namespace SiteBuilder.Core.Razor
 
 				if (item.Exists)
 				{
-					item.ExpirationToken = provider.Watch(templateKey);
+					// HACK: this is a dirty hack to fix apparent caching behavior with scoped paths
+					var cancelToken = new CancellationToken(true);
+					var changeToken = new CancellationChangeToken(cancelToken);
+					item.ExpirationToken = changeToken; //provider.Watch(templateKey);
 					break;
 				}
 			}
