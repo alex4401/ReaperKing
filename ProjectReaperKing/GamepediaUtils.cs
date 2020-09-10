@@ -64,7 +64,9 @@ namespace ProjectReaperKing
         public static string GetImageUrl(string filename, string version, int size)
         {
             string uri = GetImageUrl(filename);
-            return uri + $"/scale-to-width-down/{size}?cb={version}";
+            // BUG: Fandom's image cache is likely to drop the entry after few days.
+            //      Prefer non-versioned files or use Thumblr (Vignette replacement).
+            return uri + $"/scale-to-width-down/{size}"; //?cb={version}";
         }
         
         public static string GetImageUrl(MapInfo.TopomapInfo info)
