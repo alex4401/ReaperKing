@@ -6,8 +6,8 @@
     <e p="$PROJECT_DIR$" t="IncludeFlat">
       <e p="ProjectReaperKing" t="IncludeRecursive">
         <e p="Data" t="Include">
+          <e p="ARK.Revisions.cs" t="Include" />
           <e p="ARK.cs" t="Include" />
-          <e p="ARKRevisions.cs" t="Include" />
           <e p="Ark" t="Include">
             <e p="MapInterface.cs" t="Include" />
             <e p="ModInterface.cs" t="Include" />
@@ -146,8 +146,6 @@
         <e p="Site.cs" t="Include" />
         <e p="SiteBuilder.Core.csproj" t="IncludeRecursive" />
         <e p="SiteContext.cs" t="Include" />
-        <e p="TemplatePageExtensions.cs" t="Include" />
-        <e p="TemplateUtils.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">

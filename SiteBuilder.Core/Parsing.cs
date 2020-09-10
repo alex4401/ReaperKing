@@ -8,22 +8,6 @@ using YamlDotNet.Serialization.NamingConventions;
 
 namespace SiteBuilder.Core
 {
-    [Obsolete]
-    public static class YamlUtils
-    {
-        [Obsolete]
-        public static T ReadYamlFile<T>(string filePath)
-        {
-            return ParsingUtils.ReadYamlFile<T>(filePath);
-        }
-
-        [Obsolete]
-        public static T ReadYamlFile<T>(string filePath, string field)
-        {
-            return ParsingUtils.ReadYamlFile<T>(filePath, field);
-        }
-    }
-    
     public static class ParsingUtils
     {
         public static readonly IDeserializer YamlReader = 

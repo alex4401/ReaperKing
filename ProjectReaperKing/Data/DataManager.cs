@@ -17,13 +17,13 @@ namespace ProjectReaperKing.Data
         protected T ReadYamlFile<T>(string filePath)
         {
             string fullPath = Path.Join(GetDataDirectoryPath(), filePath) + ".yaml";
-            return YamlUtils.ReadYamlFile<T>(fullPath);
+            return ParsingUtils.ReadYamlFile<T>(fullPath);
         }
 
         protected T ReadYamlFile<T>(string filePath, string field)
         {
             string fullPath = Path.Join(GetDataDirectoryPath(), filePath) + ".yaml";
-            return YamlUtils.ReadYamlFile<T>(fullPath, field);
+            return ParsingUtils.ReadYamlFile<T>(fullPath, field);
         }
 
         protected T ReadJsonFile<T>(string filePath)
