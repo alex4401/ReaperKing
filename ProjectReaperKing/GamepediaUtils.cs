@@ -56,7 +56,9 @@ namespace ProjectReaperKing
         public static string GetImageUrl(string filename, string version)
         {
             string uri = GetImageUrl(filename);
-            return uri + $"?cb={version}";
+            // BUG: Fandom's image cache is likely to drop the entry after few days.
+            //      Prefer non-versioned files or use Thumblr (Vignette replacement).
+            return uri; //+ $"?cb={version}";
         }
         
         public static string GetImageUrl(string filename, string version, int size)
