@@ -21,12 +21,6 @@ namespace SiteBuilder.Core
             File.WriteAllText(path, contents);
         }
 
-        [Obsolete]
-        public void BuildPage(string uri, IPageGenerator generator)
-        {
-            BuildPage(generator, uri);
-        }
-        
         public void BuildPage(IPageGenerator generator, string uri = null)
         {
             var context = new SiteContext

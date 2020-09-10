@@ -18,7 +18,7 @@
     <ItemGroup>
       <Compile Remove="data\**" />
       <Compile Include="Data\ARK.cs" />
-      <Compile Include="Data\ARKRevisions.cs" />
+      <Compile Include="Data\ARK.Revisions.cs" />
       <Compile Include="Data\Ark\MapInterface.cs" />
       <Compile Include="Data\Ark\ModInterface.cs" />
       <Compile Include="Data\DataManager.cs" />
