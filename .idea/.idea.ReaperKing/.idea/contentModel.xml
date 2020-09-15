@@ -6,6 +6,7 @@
     <e p="$PROJECT_DIR$" t="IncludeFlat">
       <e p="ProjectReaperKing" t="IncludeRecursive">
         <e p="Data" t="Include">
+          <e p="ARK.Nests.cs" t="Include" />
           <e p="ARK.Revisions.cs" t="Include" />
           <e p="ARK.cs" t="Include" />
           <e p="Ark" t="Include">
@@ -13,6 +14,7 @@
             <e p="ModInterface.cs" t="Include" />
           </e>
           <e p="ArkTypes.cs" t="Include" />
+          <e p="CoordUtils.cs" t="Include" />
           <e p="DataManager.cs" t="Include" />
           <e p="Package.cs" t="Include" />
         </e>

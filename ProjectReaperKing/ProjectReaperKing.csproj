@@ -18,9 +18,11 @@
     <ItemGroup>
       <Compile Remove="data\**" />
       <Compile Include="Data\ARK.cs" />
+      <Compile Include="Data\ARK.Nests.cs" />
       <Compile Include="Data\ARK.Revisions.cs" />
       <Compile Include="Data\Ark\MapInterface.cs" />
       <Compile Include="Data\Ark\ModInterface.cs" />
+      <Compile Include="Data\CoordUtils.cs" />
       <Compile Include="Data\DataManager.cs" />
       <Compile Include="Data\Package.cs" />
       <Compile Include="Data\ArkTypes.cs" />

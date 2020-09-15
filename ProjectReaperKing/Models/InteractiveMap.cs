@@ -13,7 +13,7 @@ namespace ProjectReaperKing.Models
         public ModInfo ModInfo;
         public MapInfo Map;
         public ModInfo.Revision Revision;
-        public WorldLocation[] Nests;
+        public WorldLocation5[] Nests;
         public string JsonUri;
     }
 }

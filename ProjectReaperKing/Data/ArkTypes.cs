@@ -71,7 +71,14 @@ namespace ProjectReaperKing.Data
             
         }
 
-        public struct WorldLocation
+        public struct WorldLocation3
+        {
+            public float X { get; set; }
+            public float Y { get; set; }
+            public float Z { get; set; }
+        }
+
+        public struct WorldLocation5
         {
             public float X { get; set; }
             public float Y { get; set; }
@@ -83,7 +90,7 @@ namespace ProjectReaperKing.Data
         public struct NestSpotList
         {
             public string Level { get; set; }
-            public WorldLocation[] Locations { get; set; }
+            public WorldLocation3[] Locations { get; set; }
         }
     }
 }

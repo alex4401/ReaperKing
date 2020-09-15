@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using NUglify;
 
 namespace SiteBuilder.Core
 {
@@ -9,6 +10,16 @@ namespace SiteBuilder.Core
         {
             string path = Path.Join(ProjectConfig.Site.DeploymentDirectory, uri);
             string contents = await GetRazor().CompileRenderAsync(result.Template, result.Model);
+                
+            var uglifyResult = Uglify.Html(contents);
+            if (uglifyResult.HasErrors)
+            {
+                // TODO: print the errors
+            }
+            else
+            {
+                contents = uglifyResult.Code;
+            }
             
             if (result.Uri != null)
             {

@@ -11,34 +11,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3e958550-64c8-4e73-a9e3-7e8c1e88e10d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/creatureStats/StatDisplay.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjectReaperKing/SiteContextExtension.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/common/widgets/spawnMap/initData.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/common/widgets/spawnMap/nests.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/common/widgets/spawnMap/overview.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/common/widgets/spawnMap/supportTable.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectReaperKing/Data/ARK.Nests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectReaperKing/Data/CoordUtils.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ReaperKing/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ReaperKing/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ReaperKing/.idea/discord.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ReaperKing/.idea/discord.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ReaperKing/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ReaperKing/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ReaperKing/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ReaperKing/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ReaperKing/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ReaperKing/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing.Content/js/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectReaperKing.Content/js/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing.Content/js/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectReaperKing.Content/js/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/creatureStats/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/creatureStats/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/creatureStats/ModSelector.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/creatureStats/ModSelector.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing.Content/sass/widgets/_cg.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectReaperKing.Content/sass/widgets/_cg.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing.Content/sass/widgets/_gutter.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectReaperKing.Content/sass/widgets/_gutter.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing.Content/sass/widgets/_topbar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectReaperKing.Content/sass/widgets/_topbar.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing.Content/sass/widgets/tools/_app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectReaperKing.Content/sass/widgets/tools/_app.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/cg/notice.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/cg/notice.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/common/widgets/topbar.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/common/widgets/topbar.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/egs.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/egs.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/interactiveMap.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/interactiveMap.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing.Content/templates/wiki/common/widgets/topbar.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectReaperKing.Content/templates/wiki/common/widgets/topbar.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing/Models/BaseModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectReaperKing/Models/BaseModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing/Pages/ARK/EGS.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectReaperKing/Pages/ARK/EGS.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing/Pages/ARK/InteractiveMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectReaperKing/Pages/ARK/InteractiveMap.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing/Pages/ARK/ModHome.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectReaperKing/Pages/ARK/ModHome.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing/Pages/WikiTools/CreatureStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectReaperKing/Pages/WikiTools/CreatureStats.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SiteBuilder.Core/IPageGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SiteBuilder.Core/IPageGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SiteBuilder.Core/Razor/RazorScopedFilesystemProject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SiteBuilder.Core/Razor/RazorScopedFilesystemProject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectReaperKing.Content/templates/wiki/creatureStats.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectReaperKing.Content/templates/wiki/creatureStats.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectReaperKing/Data/ARK.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectReaperKing/Data/ARK.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectReaperKing/Data/ArkTypes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectReaperKing/Data/ArkTypes.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectReaperKing/Models/InteractiveMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectReaperKing/Models/InteractiveMap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectReaperKing/ProjectReaperKing.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectReaperKing/ProjectReaperKing.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SiteBuilder.Core/Site.Building.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SiteBuilder.Core/Site.Building.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SiteBuilder.Core/Site.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SiteBuilder.Core/Site.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SiteBuilder.Core/SiteBuilder.Core.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/SiteBuilder.Core/SiteBuilder.Core.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SiteBuilder/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SiteBuilder/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +42,6 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/cg/notice.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/common/widgets/spawnMapLegend.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/SiteBuilder.Core/Parsing.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/common/widgets/footer.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/SiteBuilder.Core/Site.cs" root0="FORCE_HIGHLIGHTING" />
@@ -60,7 +50,6 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/714153FB-3DE5-4537-8A59-8AE8F7F7655E/e9/ae64fbd7/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/common/widgets/topbar.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../WebApplication/WebApplication/Views/_ViewStart.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../WebApplication/WebApplication/Views/_ViewImports.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../WebApplication/WebApplication/Views/Home/Privacy.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../WebApplication/WebApplication/Views/Home/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
@@ -71,41 +60,23 @@
     <setting file="file://$PROJECT_DIR$/../WebApplication/WebApplication/Views/Shared/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../WebApplication/WebApplication/Models/ErrorViewModel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/common/head.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/common/layouts/default.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/common/layouts/default.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/home.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/common/widgets/spawnMap/overview.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/common/widgets/spawnMap/supportTable.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/common/widgets/spawnMap/nests.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/wiki/common/widgets/topbar.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/714153FB-3DE5-4537-8A59-8AE8F7F7655E/9c/f31da151/Interop.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/common/includes.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/wiki/common/includes.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/wiki/common/includes.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/wiki/creatureStats.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/SiteBuilder.Core/SuperModel.cs" />
-        <option value="$PROJECT_DIR$/SiteBuilder.Core/SiteContext.cs" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing/Pages/WikiTools/WikiToolsContentProvider.cs" />
-        <option value="$PROJECT_DIR$/SiteBuilder.Core/BaseModel.cs" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing/Models/InteractiveMap.cs" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing/Models/ModHome.cs" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing/Pages/ARK/ModContentProvider.cs" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/common/widgets/topbar.cshtml" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/sass/tool.scss" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/common/head.cshtml" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/common/layouts/default.cshtml" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/wiki/common/head.cshtml" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/common/includes.cshtml" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/wiki/common/includes.cshtml" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/js/package.json" />
-        <option value="$PROJECT_DIR$/SiteBuilder.Core/ShellHelper.cs" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/project.yaml" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/wiki/creatureStats.cshtml" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/creatureStats/widgets/ModSelector.vue" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/creatureStats/index.ts" />
         <option value="$PROJECT_DIR$/ProjectReaperKing.Content/js/webpack.config.js" />
         <option value="$PROJECT_DIR$/ProjectReaperKing.Content/js/tsconfig.json" />
         <option value="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/creatureStats/shims.ts" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/creatureStats/Types.ts" />
         <option value="$PROJECT_DIR$/ProjectReaperKing.Content/sass/widgets/tools/_app.scss" />
         <option value="$PROJECT_DIR$/SiteBuilder.Core/IPageGenerator.cs" />
         <option value="$PROJECT_DIR$/ProjectReaperKing/Pages/ARK/EGS.cs" />
@@ -116,23 +87,44 @@
         <option value="$PROJECT_DIR$/ProjectReaperKing/Pages/WikiTools/CreatureStats.cs" />
         <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/wiki/common/widgets/topbar.cshtml" />
         <option value="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/creatureStats/ModSelector.vue" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/creatureStats/Data.ts" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/creatureStats/App.vue" />
         <option value="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/creatureStats/DinoSelector.vue" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/creatureStats/StatDisplay.vue" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/creatureStats/Stats.vue" />
         <option value="$PROJECT_DIR$/SiteBuilder.Core/DisposableTemplateRoot.cs" />
-        <option value="$PROJECT_DIR$/SiteBuilder.Core/Site.Building.cs" />
         <option value="$PROJECT_DIR$/SiteBuilder.Core/Razor/MemoryCachingProviderEx.cs" />
         <option value="$PROJECT_DIR$/SiteBuilder.Core/Site.cs" />
         <option value="$PROJECT_DIR$/SiteBuilder.Core/Site.Razor.cs" />
         <option value="$PROJECT_DIR$/SiteBuilder.Core/Razor/RazorScopedFilesystemProject.cs" />
         <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/common/widgets/topbar.cshtml" />
         <option value="$PROJECT_DIR$/ProjectReaperKing.Content/sass/widgets/_topbar.scss" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/interactiveMap.cshtml" />
         <option value="$PROJECT_DIR$/ProjectReaperKing.Content/sass/widgets/_gutter.scss" />
+        <option value="$PROJECT_DIR$/SiteBuilder.Core/Parsing.cs" />
+        <option value="$PROJECT_DIR$/ProjectReaperKing/Data/DataManager.cs" />
+        <option value="$PROJECT_DIR$/SiteBuilder/Program.cs" />
+        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/wiki/common/includes.cshtml" />
+        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/creatureStats/Types.ts" />
+        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/creatureStats/Data.ts" />
+        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/sass/toolCreatureStats.scss" />
+        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/sass/tool.scss" />
+        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/creatureStats/App.vue" />
+        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/creatureStats/Stats.vue" />
+        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/creatureStats/StatDisplay.vue" />
+        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/sass/widgets/tools/_generic.scss" />
+        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/sass/widgets/tools/_creatureStats.scss" />
+        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/project.yaml" />
         <option value="$PROJECT_DIR$/ProjectReaperKing.Content/sass/widgets/_cg.scss" />
+        <option value="$PROJECT_DIR$/ProjectReaperKing/Data/ARK.cs" />
+        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/common/widgets/spawnMapInitData.cshtml" />
+        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/common/widgets/spawnMap/nests.cshtml" />
+        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/common/widgets/spawnMap/supportTable.cshtml" />
+        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/common/widgets/spawnMap/overview.cshtml" />
         <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/cg/notice.cshtml" />
+        <option value="$PROJECT_DIR$/ProjectReaperKing/Data/ArkTypes.cs" />
+        <option value="$PROJECT_DIR$/ProjectReaperKing/Data/CoordUtils.cs" />
+        <option value="$PROJECT_DIR$/ProjectReaperKing/Data/ARK.Nests.cs" />
+        <option value="$PROJECT_DIR$/ProjectReaperKing/Models/InteractiveMap.cs" />
+        <option value="$PROJECT_DIR$/SiteBuilder.Core/Site.Building.cs" />
+        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/egs.cshtml" />
+        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/wiki/creatureStats.cshtml" />
+        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/interactiveMap.cshtml" />
       </list>
     </option>
   </component>
@@ -160,7 +152,7 @@
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="discord-application" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.smartKeys_rider" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/ProjectReaperKing.Content/js/node_modules/typescript/lib" />
   </component>
   <component name="RunManager">
@@ -219,6 +211,9 @@
       <workItem from="1599579826618" duration="1622000" />
       <workItem from="1599582604949" duration="8834000" />
       <workItem from="1599662323873" duration="13116000" />
+      <workItem from="1599752564508" duration="4231000" />
+      <workItem from="1599766218366" duration="122000" />
+      <workItem from="1600004215794" duration="12633000" />
     </task>
     <servers />
   </component>
@@ -251,6 +246,10 @@
       <screen x="0" y="0" width="1920" height="1041" />
     </state>
     <state x="555" y="164" width="800" height="713" key="#Plugins/0.0.1920.1041@0.0.1920.1041" timestamp="1599582618463" />
+    <state x="707" y="174" width="506" height="693" key="#SCSS" timestamp="1599754601982">
+      <screen x="0" y="0" width="1920" height="1041" />
+    </state>
+    <state x="707" y="174" width="506" height="693" key="#SCSS/0.0.1920.1041@0.0.1920.1041" timestamp="1599754601982" />
     <state x="731" y="162" width="458" height="718" key="#Vue" timestamp="1599410009150">
       <screen x="0" y="0" width="1920" height="1041" />
     </state>
@@ -271,22 +270,22 @@
       <screen x="0" y="0" width="1920" height="1041" />
     </state>
     <state x="743" y="258" width="424" height="485" key="FileChooserDialogImpl/0.0.1920.1041@0.0.1920.1041" timestamp="1598891251550" />
-    <state width="1866" height="360" key="GridCell.Tab.0.bottom" timestamp="1599682008648">
+    <state width="933" height="123" key="GridCell.Tab.0.bottom" timestamp="1600021026093">
       <screen x="0" y="0" width="1920" height="1041" />
     </state>
-    <state width="1866" height="360" key="GridCell.Tab.0.bottom/0.0.1920.1041@0.0.1920.1041" timestamp="1599682008648" />
-    <state width="1866" height="360" key="GridCell.Tab.0.center" timestamp="1599682008648">
+    <state width="933" height="123" key="GridCell.Tab.0.bottom/0.0.1920.1041@0.0.1920.1041" timestamp="1600021026093" />
+    <state width="933" height="123" key="GridCell.Tab.0.center" timestamp="1600021026093">
       <screen x="0" y="0" width="1920" height="1041" />
     </state>
-    <state width="1866" height="360" key="GridCell.Tab.0.center/0.0.1920.1041@0.0.1920.1041" timestamp="1599682008648" />
-    <state width="1866" height="360" key="GridCell.Tab.0.left" timestamp="1599682008648">
+    <state width="933" height="123" key="GridCell.Tab.0.center/0.0.1920.1041@0.0.1920.1041" timestamp="1600021026093" />
+    <state width="933" height="123" key="GridCell.Tab.0.left" timestamp="1600021026092">
       <screen x="0" y="0" width="1920" height="1041" />
     </state>
-    <state width="1866" height="360" key="GridCell.Tab.0.left/0.0.1920.1041@0.0.1920.1041" timestamp="1599682008648" />
-    <state width="1866" height="360" key="GridCell.Tab.0.right" timestamp="1599682008648">
+    <state width="933" height="123" key="GridCell.Tab.0.left/0.0.1920.1041@0.0.1920.1041" timestamp="1600021026092" />
+    <state width="933" height="123" key="GridCell.Tab.0.right" timestamp="1600021026093">
       <screen x="0" y="0" width="1920" height="1041" />
     </state>
-    <state width="1866" height="360" key="GridCell.Tab.0.right/0.0.1920.1041@0.0.1920.1041" timestamp="1599682008648" />
+    <state width="933" height="123" key="GridCell.Tab.0.right/0.0.1920.1041@0.0.1920.1041" timestamp="1600021026093" />
     <state width="1866" height="360" key="GridCell.Tab.1.bottom" timestamp="1599682008649">
       <screen x="0" y="0" width="1920" height="1041" />
     </state>
@@ -363,44 +362,25 @@
       <screen x="0" y="0" width="1920" height="1041" />
     </state>
     <state x="834" y="276" width="242" height="489" key="RiderGenerateDialog/0.0.1920.1041@0.0.1920.1041" timestamp="1599387524404" />
-    <state x="454" y="156" width="1007" height="731" key="SettingsEditor" timestamp="1599582672166">
+    <state x="454" y="156" width="1007" height="731" key="SettingsEditor" timestamp="1599754612608">
       <screen x="0" y="0" width="1920" height="1041" />
     </state>
-    <state x="454" y="156" width="1007" height="731" key="SettingsEditor/0.0.1920.1041@0.0.1920.1041" timestamp="1599582672166" />
+    <state x="454" y="156" width="1007" height="731" key="SettingsEditor/0.0.1920.1041@0.0.1920.1041" timestamp="1599754612608" />
     <state x="100" y="100" width="1720" height="841" key="dock-window-1" timestamp="1599413714195">
       <screen x="0" y="0" width="1920" height="1041" />
     </state>
     <state x="100" y="100" width="1720" height="841" key="dock-window-1/0.0.1920.1041@0.0.1920.1041" timestamp="1599413714195" />
-    <state x="619" y="72" width="681" height="897" key="find.popup" timestamp="1599341461776">
+    <state x="619" y="72" width="681" height="897" key="find.popup" timestamp="1599753644349">
       <screen x="0" y="0" width="1920" height="1041" />
     </state>
-    <state x="619" y="72" width="681" height="897" key="find.popup/0.0.1920.1041@0.0.1920.1041" timestamp="1599341461776" />
+    <state x="619" y="72" width="681" height="897" key="find.popup/0.0.1920.1041@0.0.1920.1041" timestamp="1599753644349" />
     <state x="624" y="236" key="run.anything.popup" timestamp="1599580186151">
       <screen x="0" y="0" width="1920" height="1041" />
     </state>
     <state x="624" y="236" key="run.anything.popup/0.0.1920.1041@0.0.1920.1041" timestamp="1599580186151" />
-    <state x="623" y="229" width="672" height="678" key="search.everywhere.popup" timestamp="1599411302449">
+    <state x="623" y="229" width="672" height="678" key="search.everywhere.popup" timestamp="1599754629491">
       <screen x="0" y="0" width="1920" height="1041" />
     </state>
-    <state x="623" y="229" width="672" height="678" key="search.everywhere.popup/0.0.1920.1041@0.0.1920.1041" timestamp="1599411302449" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/SiteBuilder.Core/Site.Building.cs</url>
-          <line>12</line>
-          <properties documentPath="$PROJECT_DIR$/SiteBuilder.Core/Site.Building.cs" initialLine="12">
-            <startOffsets>
-              <option value="397" />
-            </startOffsets>
-            <endOffsets>
-              <option value="420" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="623" y="229" width="672" height="678" key="search.everywhere.popup/0.0.1920.1041@0.0.1920.1041" timestamp="1599754629491" />
   </component>
 </project>

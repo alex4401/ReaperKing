@@ -62,29 +62,5 @@ namespace ProjectReaperKing.Data
             }
         }
         
-
-        public IEnumerable<WorldLocation> GetNestLocations(string modId, string mapId)
-        {
-            var tags = new[]
-            {
-                RevisionTag.ModUpdate,
-                RevisionTag.ModInitDataUpdate,
-            };
-            var revision = FindModRevisionsByTags(modId, tags).Last();
-            var mapMainLevel = LoadedMaps[mapId].PersistentLevel;
-            
-            var liveNestsSet = revision.Item2.InitData.LiveNestSpotDefinitions;
-            foreach (var nestSet in liveNestsSet)
-            {
-                if (nestSet.Level == mapMainLevel)
-                {
-                    foreach (var location in nestSet.Locations)
-                    {
-                        // TODO: lat long
-                        yield return location;
-                    }
-                }
-            }
-        }
     }
 }

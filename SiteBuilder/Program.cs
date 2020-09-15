@@ -34,7 +34,7 @@ namespace SiteBuilder
                 
                 using (var pbar2 = pbar.Spawn(1, "Loading project information", BarOptions))
                 {
-                    project = YamlUtils.ReadYamlFile<Project>("project.yaml");
+                    project = ParsingUtils.ReadYamlFile<Project>("project.yaml");
                     pbar2.Tick("Project of the site loaded");
                 }
                 
