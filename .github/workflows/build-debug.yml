@@ -20,31 +20,12 @@ jobs:
     - name: Install dependencies
       run: dotnet restore
     - name: Build builder binary
-      run: dotnet build --configuration Debug --no-restore SiteBuilder
+      run: dotnet publish --configuration Debug --no-restore SiteBuilder -o artifacts\
     - name: Build Reaper King library
-      run: dotnet build --configuration Debug --no-restore ProjectReaperKing
-      
-    - name: Copy build artifacts
-      shell: bash
-      run: |
-          COR_PATH=SiteBuilder/bin/Debug/netcoreapp3.1
-          PRK_PATH=ProjectReaperKing/bin/Debug/netcoreapp3.1
-          mkdir -p artifacts/Core artifacts/RK
-          mv "$COR_PATH/*.dll" artifacts/Core/
-          mv "$COR_PATH/*.pdb" artifacts/Core/
-          mv "$COR_PATH/{cs,de,es,fr,it,pl}" artifacts/Core/
-          mv "$COR_PATH/{refs,runtimes}" artifacts/Core/
-          mv "$PRK_PATH/ProjectReaperKing.{dll,pdb}" artifacts/RK/
+      run: dotnet publish --configuration Debug --no-restore ProjectReaperKing -o artifacts\
 
     - uses: actions/upload-artifact@v2
       with:
-        name: CoreDebugWithPdb
-        path: artifacts/Core/
+        name: PRK-debug
+        path: artifacts/
         if-no-files-found: error
-      
-    - uses: actions/upload-artifact@v2
-      with:
-        name: RKDebugWithPdb
-        path: artifacts/RK/
-        if-no-files-found: error
-      
