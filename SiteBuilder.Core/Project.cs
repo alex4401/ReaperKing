@@ -25,7 +25,8 @@ namespace SiteBuilder.Core
         public struct BuildConfig
         {
             public bool MinifyHtml;
-            public string[] RunBefore;
+            public List<string> RunBefore;
+            public string[] AddRunBeforeCmds;
         }
     }
 }

@@ -43,12 +43,12 @@ namespace SiteBuilder.Core
             var prebuildCmds = ProjectConfig.Build.RunBefore;
             var nvResources = ProjectConfig.Resources.CopyNonVersioned;
             
-            if (prebuildCmds.Length > 0)
+            if (prebuildCmds.Count > 0)
             {
                 pbar.MaxTicks += 1;
 
                 var message = "Running pre-build commands";
-                using (var pbar2 = pbar.Spawn(prebuildCmds.Length, message, BarOptions))
+                using (var pbar2 = pbar.Spawn(prebuildCmds.Count, message, BarOptions))
                 {
                     foreach (var cmd in prebuildCmds)
                     {

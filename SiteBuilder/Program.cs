@@ -101,6 +101,13 @@ namespace SiteBuilder
             }
 
             project = ParsingUtils.ReadYamlFile<Project>(filename, project);
+            
+            if (project.Build.AddRunBeforeCmds.Length > 0)
+            {
+                project.Build.RunBefore.AddRange(project.Build.AddRunBeforeCmds);
+                project.Build.AddRunBeforeCmds = null;
+            }
+            
             return project;
         }
     }
