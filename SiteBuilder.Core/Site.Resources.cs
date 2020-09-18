@@ -9,7 +9,7 @@ namespace SiteBuilder.Core
         {
             inputFile = Path.Join(Environment.CurrentDirectory, inputFile);
             var diskPath = Path.Join(DeploymentPath, uri);
-            var publicUri = Path.Join(ProjectConfig.Site.WebRoot, uri);
+            var publicUri = Path.Join(ProjectConfig.Paths.Root, uri);
             
             Directory.CreateDirectory(Path.GetDirectoryName(diskPath));
             
@@ -24,7 +24,7 @@ namespace SiteBuilder.Core
         public string CopyResource(string inputFile, string uri)
         {
             return CopyFileToLocation(Path.Join("resources", inputFile), 
-                                  Path.Join(ProjectConfig.Site.ResourceDirectory, uri));
+                                  Path.Join(ProjectConfig.Paths.Resources, uri));
         }
 
         public string CopyVersionedResource(string inputFile, string uri)

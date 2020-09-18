@@ -5,8 +5,6 @@ using System.Linq;
 using ProjectReaperKing.Data;
 using ShellProgressBar;
 using SiteBuilder.Core;
-using YamlDotNet.Serialization;
-using YamlDotNet.Serialization.NamingConventions;
 
 namespace ProjectReaperKing.Data
 {

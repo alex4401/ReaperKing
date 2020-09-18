@@ -20,7 +20,7 @@ namespace SiteBuilder.Core
         internal static Site Instance = null;
         private RazorScopedFilesystemProject _razorProject = null;
         private RazorLightEngine _razorEngine = null;
-        public string DeploymentPath => ProjectConfig.Site.DeploymentDirectory;
+        public string DeploymentPath => ProjectConfig.Paths.Deployment;
         public Project ProjectConfig;
 
         public virtual void Initialize(Project project)
@@ -41,7 +41,7 @@ namespace SiteBuilder.Core
         public virtual void Build(ProgressBar pbar)
         {
             var prebuildCmds = ProjectConfig.Build.RunBefore;
-            var nvResources = ProjectConfig.Site.NonVersionedResources;
+            var nvResources = ProjectConfig.Resources.CopyNonVersioned;
             
             if (prebuildCmds.Length > 0)
             {

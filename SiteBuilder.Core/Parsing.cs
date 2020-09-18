@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.IO;
 using System.Text.Json;
-using YamlDotNet.Serialization;
-using YamlDotNet.Serialization.NamingConventions;
+using SharpYaml;
+using SharpYaml.Serialization;
 
 namespace SiteBuilder.Core
 {
     public static class ParsingUtils
     {
-        public static readonly IDeserializer YamlReader = 
-            new DeserializerBuilder()
-                .WithNamingConvention(CamelCaseNamingConvention.Instance)
-                .Build();
+        public static readonly Serializer YamlReader = new Serializer(
+            new SerializerSettings {
+                NamingConvention = new CamelCaseNamingConvention(),
+            });
         public static readonly JsonSerializerOptions JsonOptions = new JsonSerializerOptions
         {
             PropertyNameCaseInsensitive = true,
@@ -23,6 +23,11 @@ namespace SiteBuilder.Core
         {
             T package = YamlReader.Deserialize<T>(File.ReadAllText(filePath));
             return package;
+        }
+        
+        public static T ReadYamlFile<T>(string filePath, T output)
+        {
+            return YamlReader.DeserializeInto<T>(File.ReadAllText(filePath), output);
         }
 
         public static T ReadYamlFile<T>(string filePath, string field)

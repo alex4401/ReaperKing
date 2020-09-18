@@ -8,19 +8,22 @@ namespace SiteBuilder.Core
     {
         public async void SavePage(PageGenerationResult result, string uri)
         {
-            string path = Path.Join(ProjectConfig.Site.DeploymentDirectory, uri);
+            string path = Path.Join(DeploymentPath, uri);
             string contents = await GetRazor().CompileRenderAsync(result.Template, result.Model);
-                
-            var uglifyResult = Uglify.Html(contents);
-            if (uglifyResult.HasErrors)
+
+            if (ProjectConfig.Build.MinifyHtml)
             {
-                // TODO: print the errors
+                var uglifyResult = Uglify.Html(contents);
+                if (uglifyResult.HasErrors)
+                {
+                    // TODO: print the errors
+                }
+                else
+                {
+                    contents = uglifyResult.Code;
+                }
             }
-            else
-            {
-                contents = uglifyResult.Code;
-            }
-            
+
             if (result.Uri != null)
             {
                 path = Path.Join(path, result.Uri);

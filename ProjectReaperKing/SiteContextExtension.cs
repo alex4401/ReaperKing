@@ -17,9 +17,9 @@ namespace ProjectReaperKing
                 Ctx = ctx,
                 SiteName = SiteName,
                 DisplayTitle = DisplayTitle,
-                Root = ctx.Site.ProjectConfig.Site.WebRoot,
-                RootUri = Path.Join(ctx.Site.ProjectConfig.Site.WebRoot, ctx.PathPrefix),
-                ResourcesDirectory = ctx.Site.ProjectConfig.Site.ResourceDirectory,
+                Root = ctx.Site.ProjectConfig.Paths.Root,
+                RootUri = Path.Join(ctx.Site.ProjectConfig.Paths.Root, ctx.PathPrefix),
+                ResourcesDirectory = ctx.Site.ProjectConfig.Paths.Resources,
             };
         }
     }

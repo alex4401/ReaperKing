@@ -6,8 +6,6 @@ using ProjectReaperKing.Pages.ARK;
 using ProjectReaperKing.Pages.WikiTools;
 using ShellProgressBar;
 using SiteBuilder.Core;
-using YamlDotNet.Serialization;
-using YamlDotNet.Serialization.NamingConventions;
 
 namespace ProjectReaperKing
 {

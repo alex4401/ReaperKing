@@ -7,6 +7,7 @@ using System.Reflection.Metadata;
 using System.Runtime.Loader;
 using McMaster.Extensions.CommandLineUtils;
 using Microsoft.CodeAnalysis;
+using SharpYaml.Serialization;
 using ShellProgressBar;
 using SiteBuilder.Core;
 
@@ -18,13 +19,27 @@ namespace SiteBuilder
         
         static int Main(string[] args) => CommandLineApplication.Execute<Program>(args);
 
-        [Argument(0)]
+        #region Required Arguments & Options
+        // ReSharper disable UnassignedGetOnlyAutoProperty
+        
+        [Argument(order: 0)]
         [Required]
         public string AssemblyName { get; }
+        
+        [Option(LongName = "environment")]
+        [Required]
+        public string EnvironmentName { get; }
 
+        // ReSharper restore UnassignedGetOnlyAutoProperty
+        #endregion
+        #region Options
         [Option]
         public string DeploymentPath { get; } = "public";
 
+        [Option(LongName = "project")]
+        public string ProjectFilename { get; } = "project";
+        #endregion
+        
         void OnExecute()
         {
             using (var pbar = new ProgressBar(2, "Building site", BarOptions))
@@ -34,7 +49,8 @@ namespace SiteBuilder
                 
                 using (var pbar2 = pbar.Spawn(1, "Loading project information", BarOptions))
                 {
-                    project = ParsingUtils.ReadYamlFile<Project>("project.yaml");
+                    project = ParsingUtils.ReadYamlFile<Project>(ProjectFilename + ".yaml");
+                    project = SetProjectEnvironment(project, EnvironmentName);
                     pbar2.Tick("Project of the site loaded");
                 }
                 
@@ -72,6 +88,20 @@ namespace SiteBuilder
             }
 
             return null;
+        }
+
+        Project SetProjectEnvironment(Project project, string environmentName)
+        {
+            string filename = $"{ProjectFilename}.{environmentName}.yaml";
+            Project environment = ParsingUtils.ReadYamlFile<Project>(filename);
+
+            if (!String.IsNullOrEmpty(environment.Inherits) && environment.Inherits != "base")
+            {
+                project = SetProjectEnvironment(project, environment.Inherits);
+            }
+
+            project = ParsingUtils.ReadYamlFile<Project>(filename, project);
+            return project;
         }
     }
 }

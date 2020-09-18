@@ -7,8 +7,6 @@ using ProjectReaperKing.Data;
 using ProjectReaperKing.Data.ARK;
 using ShellProgressBar;
 using SiteBuilder.Core;
-using YamlDotNet.Serialization;
-using YamlDotNet.Serialization.NamingConventions;
 
 // TODO: just... uh... i don't know, refactor this in multiple ways
 
