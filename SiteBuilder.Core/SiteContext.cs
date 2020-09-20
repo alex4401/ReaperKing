@@ -1,5 +1,6 @@
 using System.ComponentModel;
 using System.IO;
+using System.Linq;
 using RazorLight;
 
 namespace SiteBuilder.Core
@@ -45,6 +46,11 @@ namespace SiteBuilder.Core
             }
             
             Site.BuildWithProvider(provider, uri);
+        }
+
+        public bool IsConstantDefined(string id)
+        {
+            return Site.ProjectConfig.Build.Define.Contains(id);
         }
     }
 }

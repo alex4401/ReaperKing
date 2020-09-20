@@ -34,7 +34,7 @@ namespace ProjectReaperKing.Pages.ARK
                 ctx.BuildPage(homePage);
                 BuildInteractiveMaps(ctx);
 
-                if (Info.WithEpicIni)
+                if (Info.WithEpicIni && ctx.IsConstantDefined(Features.EpicIni))
                 {
                     var egs = new EpicIniGenerator(Info, updates.Last().Item2);
                     ctx.BuildPage(egs);
