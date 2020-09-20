@@ -10,7 +10,7 @@ namespace ProjectReaperKing.Data
         {
             // Reference: Purlovia, export.wiki.maps.common.get_latlong_from_location
             //                      export.wiki.maps.gathering_complex.WorldSettingsExport.extract
-            return centimeters / (axisScale * 10) + (worldOrigin / (axisScale * 10));
+            return centimeters / (axisScale * 10) + (-worldOrigin / (axisScale * 10));
         }
 
         // ReSharper disable once InconsistentNaming
