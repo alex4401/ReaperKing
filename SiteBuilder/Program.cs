@@ -102,10 +102,16 @@ namespace SiteBuilder
 
             project = ParsingUtils.ReadYamlFile<Project>(filename, project);
             
-            if (project.Build.AddRunBeforeCmds.Length > 0)
+            if (project.Build.AddRunBeforeCmds != null && project.Build.AddRunBeforeCmds.Length > 0)
             {
                 project.Build.RunBefore.AddRange(project.Build.AddRunBeforeCmds);
                 project.Build.AddRunBeforeCmds = null;
+            }
+            
+            if (project.Build.AddDefines != null && project.Build.AddDefines.Length > 0)
+            {
+                project.Build.Define.AddRange(project.Build.AddDefines);
+                project.Build.AddDefines = null;
             }
             
             return project;

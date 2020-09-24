@@ -24,10 +24,12 @@ namespace SiteBuilder.Core
 
         public struct BuildConfig
         {
-            public string[] Define;
+            public List<string> Define;
             public bool MinifyHtml;
             public List<string> RunBefore;
+            
             public string[] AddRunBeforeCmds;
+            public string[] AddDefines;
         }
     }
 }
