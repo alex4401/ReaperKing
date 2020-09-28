@@ -6,7 +6,7 @@ using ProjectReaperKing.Data.ARK;
 using ProjectReaperKing.Models;
 using SiteBuilder.Core;
 
-namespace ProjectReaperKing.Pages.ARK
+namespace ProjectReaperKing.ContentGeneration.ARK
 {
         public class InteractiveMapGenerator : IPageGenerator
         {

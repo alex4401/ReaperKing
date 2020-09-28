@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using ProjectReaperKing.Data;
-using ProjectReaperKing.Pages.ARK;
-using ProjectReaperKing.Pages.WikiTools;
+using ProjectReaperKing.ContentGeneration.ARK;
+using ProjectReaperKing.ContentGeneration.WikiTools;
 using ShellProgressBar;
 using SiteBuilder.Core;
 

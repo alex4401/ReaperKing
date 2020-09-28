@@ -3,29 +3,28 @@ using ProjectReaperKing.Data.ARK;
 using ProjectReaperKing.Models;
 using SiteBuilder.Core;
 
-namespace ProjectReaperKing.Pages.ARK
+namespace ProjectReaperKing.ContentGeneration.ARK
 {
-    public class EpicIniGenerator : IPageGenerator
+    public class ModHomeGenerator : IPageGenerator
     {
         private readonly ModInfo _arkMod;
-        private ModInfo.Revision _revision;
 
-        public EpicIniGenerator(ModInfo arkMod, ModInfo.Revision revision)
+        public ModHomeGenerator(ModInfo arkMod)
         {
             _arkMod = arkMod;
-            _revision = revision;
         }
 
         public PageGenerationResult Generate(SiteContext ctx)
         {
-            return new PageGenerationResult
+            return new PageGenerationResult()
             {
-                Name = "egs",
-                Template = "mods/egs.cshtml",
+                Name = "index",
+                Template = "mods/home.cshtml",
                 Model = new ModHomeModel
                 {
                     Super = ctx.AcquireBaseModel(SiteName: _arkMod.Name,
                                                  DisplayTitle: $"{_arkMod.Name}, interactive spawning maps"),
+                    
                     ModInfo = _arkMod,
                     Maps = DataManagerARK.Instance.LoadedMaps,
                 },

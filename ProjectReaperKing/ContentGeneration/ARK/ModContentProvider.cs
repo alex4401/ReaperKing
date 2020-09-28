@@ -5,7 +5,7 @@ using ProjectReaperKing.Data;
 using ProjectReaperKing.Data.ARK;
 using SiteBuilder.Core;
 
-namespace ProjectReaperKing.Pages.ARK
+namespace ProjectReaperKing.ContentGeneration.ARK
 {
     public class ModContentProvider : ISiteContentProvider
     {

@@ -1,6 +1,6 @@
 using SiteBuilder.Core;
 
-namespace ProjectReaperKing.Pages.WikiTools
+namespace ProjectReaperKing.ContentGeneration.WikiTools
 {
     public class CreatureStats : IPageGenerator
     {

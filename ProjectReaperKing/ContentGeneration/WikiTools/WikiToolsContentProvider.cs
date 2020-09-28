@@ -4,7 +4,7 @@ using ProjectReaperKing.Data;
 using ProjectReaperKing.Data.ARK;
 using SiteBuilder.Core;
 
-namespace ProjectReaperKing.Pages.WikiTools
+namespace ProjectReaperKing.ContentGeneration.WikiTools
 {
     public class WikiToolsContentProvider : ISiteContentProvider
     {
@@ -15,8 +15,8 @@ namespace ProjectReaperKing.Pages.WikiTools
         {
             using (ctx.AddOptionalTemplateDirectory("templates/wiki"))
             {
-                var creatureStats = new CreatureStats();
-                ctx.BuildPage(creatureStats);
+                ctx.BuildPage(new CreatureStats());
+                ctx.BuildPage(new DvJsonFilterGenerator());
             }
         }
     }
