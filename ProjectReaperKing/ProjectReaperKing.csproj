@@ -25,6 +25,9 @@
       <Compile Include="Data\DataManager.cs" />
       <Compile Include="Data\Package.cs" />
       <Compile Include="Data\ArkTypes.cs" />
+      <Compile Include="Data\PrimalGameData\NpcSpawnEntriesContainerAddition.cs" />
+      <Compile Include="Data\PrimalGameData\NpcSpawnGroup.cs" />
+      <Compile Include="Data\PrimalGameData\PrimalGameDataExport.cs" />
     </ItemGroup>
 
     <ItemGroup>
