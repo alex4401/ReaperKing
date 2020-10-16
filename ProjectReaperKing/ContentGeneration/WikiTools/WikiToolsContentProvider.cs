@@ -15,6 +15,7 @@ namespace ProjectReaperKing.ContentGeneration.WikiTools
         {
             using (ctx.AddOptionalTemplateDirectory("templates/wiki"))
             {
+                ctx.BuildPage(new LegacyCreatureStats());
                 ctx.BuildPage(new CreatureStats());
                 ctx.BuildPage(new DvJsonFilterGenerator());
             }
