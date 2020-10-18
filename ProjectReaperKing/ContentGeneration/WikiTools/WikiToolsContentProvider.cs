@@ -18,6 +18,7 @@ namespace ProjectReaperKing.ContentGeneration.WikiTools
                 ctx.BuildPage(new LegacyCreatureStats());
                 ctx.BuildPage(new CreatureStats());
                 ctx.BuildPage(new DvJsonFilterGenerator());
+                ctx.BuildPage(new ColorTable());
             }
         }
     }
