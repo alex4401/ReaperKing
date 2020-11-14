@@ -13,79 +13,45 @@
     <list default="true" id="3e958550-64c8-4e73-a9e3-7e8c1e88e10d" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/colorTable/widgets/Shelf.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/colorTable/widgets/ShelfSegment.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReaperKing.Core/DisposableTemplateRoot.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReaperKing.Core/HashUtils.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReaperKing.Core/IPageGenerator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReaperKing.Core/ISiteContentProvider.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReaperKing.Core/PageGenerationResult.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReaperKing.Core/Parsing.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReaperKing.Core/Project.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReaperKing.Core/Razor/RazorScopedFilesystemProject.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReaperKing.Core/ReaperKing.Core.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReaperKing.Core/Reflection.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReaperKing.Core/SharpYamlExt/CamelCaseNamingConvention.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReaperKing.Core/ShellHelper.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReaperKing.Core/Site.Building.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReaperKing.Core/Site.Razor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReaperKing.Core/Site.Resources.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReaperKing.Core/Site.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReaperKing.Core/SiteContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/build-debug.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build-debug.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ReaperKing/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ReaperKing/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ReaperKing/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ReaperKing/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ReaperKing/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ReaperKing/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/colorTable/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/colorTable/App.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/colorTable/widgets/ColorTableView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/colorTable/widgets/ColorTableView.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/colorTable/widgets/ModDropdown.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/colorTable/widgets/ModDropdown.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing/ContentGeneration/ARK/EGS.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.StaticConfig/ContentGeneration/ARK/EGS.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing/ContentGeneration/ARK/InteractiveMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.StaticConfig/ContentGeneration/ARK/InteractiveMap.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing/ContentGeneration/ARK/ModContentProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.StaticConfig/ContentGeneration/ARK/ModContentProvider.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing/ContentGeneration/ARK/ModHome.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.StaticConfig/ContentGeneration/ARK/ModHome.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing/ContentGeneration/WikiTools/ColorTable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.StaticConfig/ContentGeneration/WikiTools/ColorTable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing/ContentGeneration/WikiTools/CreatureStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.StaticConfig/ContentGeneration/WikiTools/CreatureStats.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing/ContentGeneration/WikiTools/DvJsonFilterGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.StaticConfig/ContentGeneration/WikiTools/DvJsonFilterGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing/ContentGeneration/WikiTools/LegacyCreatureStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.StaticConfig/ContentGeneration/WikiTools/LegacyCreatureStats.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing/ContentGeneration/WikiTools/WikiToolsContentProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.StaticConfig/ContentGeneration/WikiTools/WikiToolsContentProvider.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing/Data/ARK.Nests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.StaticConfig/Data/ARK.Nests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing/Data/ARK.Revisions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.StaticConfig/Data/ARK.Revisions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing/Data/ARK.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.StaticConfig/Data/ARK.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing/Data/Ark/MapInterface.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.StaticConfig/Data/Ark/MapInterface.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing/Data/Ark/ModInterface.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.StaticConfig/Data/Ark/ModInterface.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing/Data/ArkTypes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.StaticConfig/Data/ArkTypes.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing/Data/CoordUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.StaticConfig/Data/CoordUtils.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing/Data/DataManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.StaticConfig/Data/DataManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing/Data/Package.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.StaticConfig/Data/Package.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing/Data/PrimalGameData/NpcSpawnEntriesContainerAddition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.StaticConfig/Data/PrimalGameData/NpcSpawnEntriesContainerAddition.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing/Data/PrimalGameData/NpcSpawnGroup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.StaticConfig/Data/PrimalGameData/NpcSpawnGroup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing/Data/PrimalGameData/PrimalGameDataExport.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.StaticConfig/Data/PrimalGameData/PrimalGameDataExport.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing/FandomUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.StaticConfig/FandomUtils.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing/Features.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.StaticConfig/Features.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing/Modding/ArkCrossContent/IniGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.StaticConfig/Modding/ArkCrossContent/IniGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing/Models/BaseModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.StaticConfig/Models/BaseModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing/Models/InteractiveMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.StaticConfig/Models/InteractiveMap.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing/Models/ModHome.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.StaticConfig/Models/ModHome.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing/ProjectReaperKing.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.StaticConfig/ReaperKing.StaticConfig.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing/Site.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.StaticConfig/Site.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectReaperKing/SiteContextExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.StaticConfig/SiteContextExtension.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.Core/ReaperKing.Core.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Core/ReaperKing.Core.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.Core/SiteContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Core/SiteContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.StaticConfig/ContentGeneration/ARK/EGS.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Generation.ARK/EGS.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.StaticConfig/ContentGeneration/ARK/InteractiveMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Generation.ARK/InteractiveMap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.StaticConfig/ContentGeneration/ARK/ModContentProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Generation.ARK/ModContentProvider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.StaticConfig/ContentGeneration/ARK/ModHome.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Generation.ARK/ModHome.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.StaticConfig/ContentGeneration/WikiTools/ColorTable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Generation.Tools/ColorTable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.StaticConfig/ContentGeneration/WikiTools/CreatureStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Generation.Tools/CreatureStats.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.StaticConfig/ContentGeneration/WikiTools/DvJsonFilterGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Generation.Tools/DvJsonFilterGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.StaticConfig/ContentGeneration/WikiTools/LegacyCreatureStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Generation.Tools/LegacyCreatureStats.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.StaticConfig/ContentGeneration/WikiTools/WikiToolsContentProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Generation.Tools/ToolsContentProvider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.StaticConfig/Data/ARK.Nests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Generation.ARK/Data/ARK.Nests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.StaticConfig/Data/ARK.Revisions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Generation.ARK/Data/ARK.Revisions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.StaticConfig/Data/ARK.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Generation.ARK/Data/ARK.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.StaticConfig/Data/Ark/MapInterface.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Generation.ARK/Data/MapInterface.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.StaticConfig/Data/Ark/ModInterface.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Generation.ARK/Data/ModInterface.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.StaticConfig/Data/ArkTypes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Generation.ARK/Data/ArkTypes.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.StaticConfig/Data/CoordUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Generation.ARK/Data/CoordUtils.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.StaticConfig/Data/DataManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Generation.ARK/Data/DataManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.StaticConfig/Data/Package.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Generation.ARK/Data/Package.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.StaticConfig/Data/PrimalGameData/NpcSpawnEntriesContainerAddition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Generation.ARK/Data/PrimalGameData/NpcSpawnEntriesContainerAddition.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.StaticConfig/Data/PrimalGameData/NpcSpawnGroup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Generation.ARK/Data/PrimalGameData/NpcSpawnGroup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.StaticConfig/Data/PrimalGameData/PrimalGameDataExport.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Generation.ARK/Data/PrimalGameData/PrimalGameDataExport.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.StaticConfig/FandomUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Generation.ARK/FandomUtils.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.StaticConfig/Features.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Generation.ARK/Features.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.StaticConfig/Modding/ArkCrossContent/IniGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Generation.ARK/DlcContentUnlockMods/IniGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.StaticConfig/Models/BaseModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Core/BaseModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.StaticConfig/Models/InteractiveMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Generation.ARK/Models/InteractiveMap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.StaticConfig/Models/ModHome.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Generation.ARK/Models/ModHome.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.StaticConfig/ReaperKing.StaticConfig.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.StaticConfig/ReaperKing.StaticConfig.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.StaticConfig/Site.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.StaticConfig/Site.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.StaticConfig/SiteContextExtension.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ReaperKing.sln" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SiteBuilder.Core/DisposableTemplateRoot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SiteBuilder.Core/HashUtils.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SiteBuilder.Core/IPageGenerator.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SiteBuilder.Core/ISiteContentProvider.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SiteBuilder.Core/PageGenerationResult.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SiteBuilder.Core/Parsing.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SiteBuilder.Core/Project.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SiteBuilder.Core/Razor/RazorScopedFilesystemProject.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SiteBuilder.Core/Reflection.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SiteBuilder.Core/SharpYamlExt/CamelCaseNamingConvention.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SiteBuilder.Core/ShellHelper.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SiteBuilder.Core/Site.Building.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SiteBuilder.Core/Site.Razor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SiteBuilder.Core/Site.Resources.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SiteBuilder.Core/Site.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SiteBuilder.Core/SiteBuilder.Core.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SiteBuilder.Core/SiteContext.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SiteBuilder/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Builder/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SiteBuilder/SiteBuilder.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Builder/ReaperKing.Builder.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,98 +62,78 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/cg/notice.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/common/widgets/spawnMapLegend.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ReaperKing.Core/Parsing.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/common/widgets/footer.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/wiki/colorTable.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/wiki/dvJson.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ReaperKing.Core/Site.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/common/widgets/topbar.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../WebApplication/WebApplication/Startup.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/714153FB-3DE5-4537-8A59-8AE8F7F7655E/e9/ae64fbd7/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/common/widgets/topbar.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/cg/notice.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ReaperKing.Core/Parsing.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/wiki/colorTable.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ReaperKing.Core/Site.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/common/widgets/spawnMapLegend.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/common/widgets/spawnMap/nests.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/common/widgets/spawnMap/overview.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/common/widgets/spawnMap/supportTable.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/wiki/dvJson.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/common/head.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/common/includes.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/common/layouts/default.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/common/widgets/topbar.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/common/widgets/footer.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/wiki/creatureStats.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../WebApplication/WebApplication/Startup.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/egs.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/wiki/common/widgets/topbar.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ReaperKing.Generation.ARK/FandomUtils.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/714153FB-3DE5-4537-8A59-8AE8F7F7655E/e9/ae64fbd7/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../WebApplication/WebApplication/Views/_ViewStart.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../WebApplication/WebApplication/Views/_ViewImports.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../WebApplication/WebApplication/Views/Home/Privacy.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../WebApplication/WebApplication/Views/Home/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ReaperKing.StaticConfig/Site.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/714153FB-3DE5-4537-8A59-8AE8F7F7655E/fd/d80eb299/_ThreadPoolWaitCallback.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../WebApplication/WebApplication/Views/Shared/_ValidationScriptsPartial.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/interactiveMap.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/egs.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../WebApplication/WebApplication/Views/Shared/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../WebApplication/WebApplication/Models/ErrorViewModel.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/common/head.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/common/layouts/default.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ReaperKing.StaticConfig/FandomUtils.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/home.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/common/widgets/spawnMap/overview.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/common/widgets/spawnMap/supportTable.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/common/widgets/spawnMap/nests.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ReaperKing.StaticConfig/Site.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/wiki/common/widgets/topbar.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/87DBB896-6B20-4A14-9B6A-7AB43642646D/75/a0602290/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/714153FB-3DE5-4537-8A59-8AE8F7F7655E/9c/f31da151/Interop.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/common/includes.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/wiki/common/includes.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/wiki/creatureStats.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/home.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/interactiveMap.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/SiteBuilder/Program.cs" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/wiki/common/includes.cshtml" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/creatureStats/Types.ts" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/creatureStats/Data.ts" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/sass/toolCreatureStats.scss" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/creatureStats/App.vue" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/creatureStats/Stats.vue" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/creatureStats/StatDisplay.vue" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/sass/widgets/tools/_generic.scss" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/sass/widgets/tools/_creatureStats.scss" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/sass/widgets/_cg.scss" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing/Data/ARK.cs" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/common/widgets/spawnMapInitData.cshtml" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/common/widgets/spawnMap/nests.cshtml" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/common/widgets/spawnMap/supportTable.cshtml" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/common/widgets/spawnMap/overview.cshtml" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/cg/notice.cshtml" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing/Data/ArkTypes.cs" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing/Data/CoordUtils.cs" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing/Data/ARK.Nests.cs" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing/Models/InteractiveMap.cs" />
-        <option value="$PROJECT_DIR$/SiteBuilder.Core/Site.Building.cs" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/egs.cshtml" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/wiki/creatureStats.cshtml" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/interactiveMap.cshtml" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing/ContentGeneration/WikiTools/ColorTable.cs" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing/ContentGeneration/WikiTools/WikiToolsContentProvider.cs" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/wiki/colorTable.cshtml" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/js/webpack.config.js" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/colorTable/index.ts" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/colorTable/widgets/ClassViewItem.vue" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/sass/tool.scss" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/sass/widgets/tools/widgets/_colorTable.scss" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/wiki/common/widgets/topbar.cshtml" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/home.cshtml" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/wiki/home.cshtml" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/colorTable/widgets/ColorTableView.vue" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/socials.txt" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/resources/relicsofthepast/cg1_egs_temp.html" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/resources/relicsofthepast/cg1_EpicConfig_temp.ini" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/resources/relicsofthepast/normalize.css" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/resources/relicsofthepast/maps-v4.css" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/project.yaml" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/colorTable/widgets/Shelf.vue" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/colorTable/widgets/ShelfSegment.vue" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/colorTable/widgets/ModDropdown.vue" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/colorTable/App.vue" />
-        <option value="$PROJECT_DIR$/ProjectReaperKing/FandomUtils.cs" />
-        <option value="$PROJECT_DIR$/ReaperKing.StaticConfiguration/FandomUtils.cs" />
-        <option value="$PROJECT_DIR$/ReaperKing.StaticConfig/Site.cs" />
-        <option value="$PROJECT_DIR$/.github/workflows/build-debug.yml" />
-      </list>
-    </option>
+    <changedPaths>
+      <option value="$PROJECT_DIR$/ReaperKing.Anhydrate/BaseModel.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.StaticConfig/SiteContextExtension.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Anhydrate/ReaperKing.Anhydrate.csproj" />
+      <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/Class1.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Generation.Tools/Class1.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Generation.Tools/WikiToolsContentProvider.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Generation.Tools/LegacyCreatureStats.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Generation.Tools/DvJsonFilterGenerator.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Generation.Tools/CreatureStats.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Generation.Tools/ColorTable.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Generation.Tools/ToolsContentProvider.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Core/SiteContext.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Core/BaseModel.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/Features.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/Modding/ArkCrossContent/IniGenerator.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/Data/DataManager.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/Data/Package.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/Data/ARK.Revisions.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/Data/ArkTypes.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/Data/ARK.Nests.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/Data/ARK.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/Data/CoordUtils.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/Data/Ark/ModInterface.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/Data/MapInterface.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/DlcContentUnlockMods/IniGenerator.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/Models/InteractiveMap.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/Models/ModHome.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/EGS.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/FandomUtils.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/InteractiveMap.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/ModContentProvider.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/ModHome.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.StaticConfig/Site.cs" />
+    </changedPaths>
   </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
@@ -213,7 +159,7 @@
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.smartKeys_rider" />
+    <property name="settings.editor.selected.configurable" value="preferences.environmentSetup" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/ProjectReaperKing.Content/js/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -306,7 +252,8 @@
       <workItem from="1603206592183" duration="3467000" />
       <workItem from="1603271255482" duration="1599000" />
       <workItem from="1603385648684" duration="4479000" />
-      <workItem from="1605366153622" duration="1607000" />
+      <workItem from="1605366153622" duration="1724000" />
+      <workItem from="1605368414561" duration="8244000" />
     </task>
     <servers />
   </component>
@@ -333,149 +280,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="555" y="164" width="800" height="713" key="#Plugins" timestamp="1599582618463">
-      <screen x="0" y="0" width="1920" height="1041" />
-    </state>
-    <state x="555" y="164" width="800" height="713" key="#Plugins/0.0.1920.1041@0.0.1920.1041" timestamp="1599582618463" />
-    <state x="707" y="174" width="506" height="693" key="#SCSS" timestamp="1599754601982">
-      <screen x="0" y="0" width="1920" height="1041" />
-    </state>
-    <state x="707" y="174" width="506" height="693" key="#SCSS/0.0.1920.1041@0.0.1920.1041" timestamp="1599754601982" />
-    <state x="731" y="162" width="458" height="718" key="#Vue" timestamp="1599410009150">
-      <screen x="0" y="0" width="1920" height="1041" />
-    </state>
-    <state x="731" y="162" width="458" height="718" key="#Vue/0.0.1920.1041@0.0.1920.1041" timestamp="1599410009150" />
-    <state x="418" y="179" width="1084" height="798" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605367122826">
-      <screen x="0" y="0" width="1920" height="1045" />
-    </state>
-    <state x="418" y="178" width="1084" height="798" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1041@0.0.1920.1041" timestamp="1603014997867" />
-    <state x="418" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1045@0.0.1920.1045" timestamp="1605367122826" />
-    <state x="684" y="315" width="645" height="412" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603271762148">
-      <screen x="0" y="0" width="1920" height="1041" />
-    </state>
-    <state x="684" y="315" width="645" height="412" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1041@0.0.1920.1041" timestamp="1603271762148" />
-    <state x="715" y="330" width="833" height="511" key="ExperimentsDialog" timestamp="1599238121463">
-      <screen x="0" y="0" width="1920" height="1041" />
-    </state>
-    <state x="715" y="330" width="833" height="511" key="ExperimentsDialog/0.0.1920.1041@0.0.1920.1041" timestamp="1599238121463" />
-    <state x="743" y="258" width="424" height="485" key="FileChooserDialogImpl" timestamp="1598891251550">
-      <screen x="0" y="0" width="1920" height="1041" />
-    </state>
-    <state x="743" y="258" width="424" height="485" key="FileChooserDialogImpl/0.0.1920.1041@0.0.1920.1041" timestamp="1598891251550" />
-    <state width="933" height="142" key="GridCell.Tab.0.bottom" timestamp="1603400217066">
-      <screen x="0" y="0" width="1920" height="1041" />
-    </state>
-    <state width="933" height="142" key="GridCell.Tab.0.bottom/0.0.1920.1041@0.0.1920.1041" timestamp="1603400217066" />
-    <state width="933" height="142" key="GridCell.Tab.0.center" timestamp="1603400217065">
-      <screen x="0" y="0" width="1920" height="1041" />
-    </state>
-    <state width="933" height="142" key="GridCell.Tab.0.center/0.0.1920.1041@0.0.1920.1041" timestamp="1603400217065" />
-    <state width="933" height="142" key="GridCell.Tab.0.left" timestamp="1603400217065">
-      <screen x="0" y="0" width="1920" height="1041" />
-    </state>
-    <state width="933" height="142" key="GridCell.Tab.0.left/0.0.1920.1041@0.0.1920.1041" timestamp="1603400217065" />
-    <state width="933" height="142" key="GridCell.Tab.0.right" timestamp="1603400217065">
-      <screen x="0" y="0" width="1920" height="1041" />
-    </state>
-    <state width="933" height="142" key="GridCell.Tab.0.right/0.0.1920.1041@0.0.1920.1041" timestamp="1603400217065" />
-    <state width="1866" height="360" key="GridCell.Tab.1.bottom" timestamp="1599682008649">
-      <screen x="0" y="0" width="1920" height="1041" />
-    </state>
-    <state width="1866" height="360" key="GridCell.Tab.1.bottom/0.0.1920.1041@0.0.1920.1041" timestamp="1599682008649" />
-    <state width="1866" height="360" key="GridCell.Tab.1.center" timestamp="1599682008649">
-      <screen x="0" y="0" width="1920" height="1041" />
-    </state>
-    <state width="1866" height="360" key="GridCell.Tab.1.center/0.0.1920.1041@0.0.1920.1041" timestamp="1599682008649" />
-    <state width="1866" height="360" key="GridCell.Tab.1.left" timestamp="1599682008648">
-      <screen x="0" y="0" width="1920" height="1041" />
-    </state>
-    <state width="1866" height="360" key="GridCell.Tab.1.left/0.0.1920.1041@0.0.1920.1041" timestamp="1599682008648" />
-    <state width="1866" height="360" key="GridCell.Tab.1.right" timestamp="1599682008649">
-      <screen x="0" y="0" width="1920" height="1041" />
-    </state>
-    <state width="1866" height="360" key="GridCell.Tab.1.right/0.0.1920.1041@0.0.1920.1041" timestamp="1599682008649" />
-    <state width="1866" height="360" key="GridCell.Tab.2.bottom" timestamp="1599682008650">
-      <screen x="0" y="0" width="1920" height="1041" />
-    </state>
-    <state width="1866" height="360" key="GridCell.Tab.2.bottom/0.0.1920.1041@0.0.1920.1041" timestamp="1599682008650" />
-    <state width="1866" height="360" key="GridCell.Tab.2.center" timestamp="1599682008649">
-      <screen x="0" y="0" width="1920" height="1041" />
-    </state>
-    <state width="1866" height="360" key="GridCell.Tab.2.center/0.0.1920.1041@0.0.1920.1041" timestamp="1599682008649" />
-    <state width="1866" height="360" key="GridCell.Tab.2.left" timestamp="1599682008649">
-      <screen x="0" y="0" width="1920" height="1041" />
-    </state>
-    <state width="1866" height="360" key="GridCell.Tab.2.left/0.0.1920.1041@0.0.1920.1041" timestamp="1599682008649" />
-    <state width="1866" height="360" key="GridCell.Tab.2.right" timestamp="1599682008649">
-      <screen x="0" y="0" width="1920" height="1041" />
-    </state>
-    <state width="1866" height="360" key="GridCell.Tab.2.right/0.0.1920.1041@0.0.1920.1041" timestamp="1599682008649" />
-    <state width="1866" height="360" key="GridCell.Tab.3.bottom" timestamp="1599682008650">
-      <screen x="0" y="0" width="1920" height="1041" />
-    </state>
-    <state width="1866" height="360" key="GridCell.Tab.3.bottom/0.0.1920.1041@0.0.1920.1041" timestamp="1599682008650" />
-    <state width="1866" height="360" key="GridCell.Tab.3.center" timestamp="1599682008650">
-      <screen x="0" y="0" width="1920" height="1041" />
-    </state>
-    <state width="1866" height="360" key="GridCell.Tab.3.center/0.0.1920.1041@0.0.1920.1041" timestamp="1599682008650" />
-    <state width="1866" height="360" key="GridCell.Tab.3.left" timestamp="1599682008650">
-      <screen x="0" y="0" width="1920" height="1041" />
-    </state>
-    <state width="1866" height="360" key="GridCell.Tab.3.left/0.0.1920.1041@0.0.1920.1041" timestamp="1599682008650" />
-    <state width="1866" height="360" key="GridCell.Tab.3.right" timestamp="1599682008650">
-      <screen x="0" y="0" width="1920" height="1041" />
-    </state>
-    <state width="1866" height="360" key="GridCell.Tab.3.right/0.0.1920.1041@0.0.1920.1041" timestamp="1599682008650" />
-    <state width="1866" height="360" key="GridCell.Tab.4.bottom" timestamp="1599682008651">
-      <screen x="0" y="0" width="1920" height="1041" />
-    </state>
-    <state width="1866" height="360" key="GridCell.Tab.4.bottom/0.0.1920.1041@0.0.1920.1041" timestamp="1599682008651" />
-    <state width="1866" height="360" key="GridCell.Tab.4.center" timestamp="1599682008650">
-      <screen x="0" y="0" width="1920" height="1041" />
-    </state>
-    <state width="1866" height="360" key="GridCell.Tab.4.center/0.0.1920.1041@0.0.1920.1041" timestamp="1599682008650" />
-    <state width="1866" height="360" key="GridCell.Tab.4.left" timestamp="1599682008650">
-      <screen x="0" y="0" width="1920" height="1041" />
-    </state>
-    <state width="1866" height="360" key="GridCell.Tab.4.left/0.0.1920.1041@0.0.1920.1041" timestamp="1599682008650" />
-    <state width="1866" height="360" key="GridCell.Tab.4.right" timestamp="1599682008651">
-      <screen x="0" y="0" width="1920" height="1041" />
-    </state>
-    <state width="1866" height="360" key="GridCell.Tab.4.right/0.0.1920.1041@0.0.1920.1041" timestamp="1599682008651" />
-    <state x="489" y="86" width="932" height="633" key="Registry" timestamp="1599238368380">
-      <screen x="0" y="0" width="1920" height="1041" />
-    </state>
-    <state x="489" y="86" width="932" height="633" key="Registry/0.0.1920.1041@0.0.1920.1041" timestamp="1599238368380" />
-    <state x="555" y="256" width="800" height="536" key="Rider.ProjectTemplateDialog.Size" timestamp="1605367158443">
-      <screen x="0" y="0" width="1920" height="1045" />
-    </state>
-    <state x="555" y="255" width="800" height="531" key="Rider.ProjectTemplateDialog.Size/0.0.1920.1041@0.0.1920.1041" timestamp="1598894349706" />
-    <state x="555" y="256" width="800" height="536" key="Rider.ProjectTemplateDialog.Size/0.0.1920.1045@0.0.1920.1045" timestamp="1605367158443" />
-    <state x="834" y="276" width="242" height="489" key="RiderGenerateDialog" timestamp="1599387524404">
-      <screen x="0" y="0" width="1920" height="1041" />
-    </state>
-    <state x="834" y="276" width="242" height="489" key="RiderGenerateDialog/0.0.1920.1041@0.0.1920.1041" timestamp="1599387524404" />
-    <state x="454" y="156" width="1007" height="731" key="SettingsEditor" timestamp="1599754612608">
-      <screen x="0" y="0" width="1920" height="1041" />
-    </state>
-    <state x="454" y="156" width="1007" height="731" key="SettingsEditor/0.0.1920.1041@0.0.1920.1041" timestamp="1599754612608" />
-    <state x="100" y="100" width="1720" height="841" key="dock-window-1" timestamp="1599413714195">
-      <screen x="0" y="0" width="1920" height="1041" />
-    </state>
-    <state x="100" y="100" width="1720" height="841" key="dock-window-1/0.0.1920.1041@0.0.1920.1041" timestamp="1599413714195" />
-    <state x="619" y="72" width="681" height="897" key="find.popup" timestamp="1599753644349">
-      <screen x="0" y="0" width="1920" height="1041" />
-    </state>
-    <state x="619" y="72" width="681" height="897" key="find.popup/0.0.1920.1041@0.0.1920.1041" timestamp="1599753644349" />
-    <state x="624" y="236" key="run.anything.popup" timestamp="1599580186151">
-      <screen x="0" y="0" width="1920" height="1041" />
-    </state>
-    <state x="624" y="236" key="run.anything.popup/0.0.1920.1041@0.0.1920.1041" timestamp="1599580186151" />
-    <state x="623" y="229" width="672" height="678" key="search.everywhere.popup" timestamp="1603013062733">
-      <screen x="0" y="0" width="1920" height="1041" />
-    </state>
-    <state x="623" y="229" width="672" height="678" key="search.everywhere.popup/0.0.1920.1041@0.0.1920.1041" timestamp="1603013062733" />
   </component>
 </project>

@@ -12,18 +12,6 @@
 
     <ItemGroup>
       <Compile Remove="data\**" />
-      <Compile Include="Data\ARK.cs" />
-      <Compile Include="Data\ARK.Nests.cs" />
-      <Compile Include="Data\ARK.Revisions.cs" />
-      <Compile Include="Data\Ark\MapInterface.cs" />
-      <Compile Include="Data\Ark\ModInterface.cs" />
-      <Compile Include="Data\CoordUtils.cs" />
-      <Compile Include="Data\DataManager.cs" />
-      <Compile Include="Data\Package.cs" />
-      <Compile Include="Data\ArkTypes.cs" />
-      <Compile Include="Data\PrimalGameData\NpcSpawnEntriesContainerAddition.cs" />
-      <Compile Include="Data\PrimalGameData\NpcSpawnGroup.cs" />
-      <Compile Include="Data\PrimalGameData\PrimalGameDataExport.cs" />
     </ItemGroup>
 
     <ItemGroup>
@@ -35,11 +23,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="ContentGeneration\PFTools" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\ReaperKing.Core\ReaperKing.Core.csproj" />
+      <ProjectReference Include="..\ReaperKing.Generation.ARK\ReaperKing.Generation.ARK.csproj" />
+      <ProjectReference Include="..\ReaperKing.Generation.Tools\ReaperKing.Generation.Tools.csproj" />
     </ItemGroup>
 
 </Project>

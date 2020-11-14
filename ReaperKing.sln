@@ -6,6 +6,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReaperKing.Core", "ReaperKi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReaperKing.Builder", "ReaperKing.Builder\ReaperKing.Builder.csproj", "{77A094AC-D306-415E-A2C7-B620C6EB2741}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReaperKing.Anhydrate", "ReaperKing.Anhydrate\ReaperKing.Anhydrate.csproj", "{3ED8B8A3-442C-404D-A490-4D3810484194}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReaperKing.Generation.ARK", "ReaperKing.Generation.ARK\ReaperKing.Generation.ARK.csproj", "{00441C0C-1958-4F50-B2B8-0853339788C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReaperKing.Generation.Tools", "ReaperKing.Generation.Tools\ReaperKing.Generation.Tools.csproj", "{7C9D4FA0-A483-4689-A612-F48222A0E92C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +30,17 @@ Global
 		{77A094AC-D306-415E-A2C7-B620C6EB2741}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77A094AC-D306-415E-A2C7-B620C6EB2741}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77A094AC-D306-415E-A2C7-B620C6EB2741}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3ED8B8A3-442C-404D-A490-4D3810484194}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3ED8B8A3-442C-404D-A490-4D3810484194}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3ED8B8A3-442C-404D-A490-4D3810484194}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3ED8B8A3-442C-404D-A490-4D3810484194}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00441C0C-1958-4F50-B2B8-0853339788C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00441C0C-1958-4F50-B2B8-0853339788C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00441C0C-1958-4F50-B2B8-0853339788C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00441C0C-1958-4F50-B2B8-0853339788C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C9D4FA0-A483-4689-A612-F48222A0E92C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C9D4FA0-A483-4689-A612-F48222A0E92C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C9D4FA0-A483-4689-A612-F48222A0E92C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C9D4FA0-A483-4689-A612-F48222A0E92C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

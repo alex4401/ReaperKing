@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using ShellProgressBar;
 using ReaperKing.Core;
-using ReaperKing.StaticConfig.ContentGeneration.ARK;
-using ReaperKing.StaticConfig.ContentGeneration.WikiTools;
-using ReaperKing.StaticConfig.Data;
+using ReaperKing.Generation.ARK;
+using ReaperKing.Generation.ARK.Data;
+using ReaperKing.Generation.Tools;
 
 namespace ReaperKing.StaticConfig
 {
@@ -27,7 +27,7 @@ namespace ReaperKing.StaticConfig
             
             using (var pbar2 = pbar.Spawn(1, "Building content for wiki tools", BarOptions))
             {
-                var generator = new WikiToolsContentProvider();
+                var generator = new ToolsContentProvider();
                 BuildWithProvider(generator, "/wiki/tools");
                 pbar2.Tick();
             }

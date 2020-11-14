@@ -1,7 +1,4 @@
-using System.ComponentModel;
 using System.IO;
-using System.Linq;
-using RazorLight;
 
 namespace ReaperKing.Core
 {
@@ -51,6 +48,23 @@ namespace ReaperKing.Core
         public bool IsConstantDefined(string id)
         {
             return Site.ProjectConfig.Build.Define != null && Site.ProjectConfig.Build.Define.Contains(id);
+        }
+        
+        // ReSharper disable InconsistentNaming
+        public BaseModel AcquireBaseModel(string SiteName, string DisplayTitle) 
+        // ReSharper restore InconsistentNaming
+        {
+            return new BaseModel
+            {
+                Ctx = this,
+                SiteName = SiteName,
+                DisplayTitle = DisplayTitle,
+                Root = Site.ProjectConfig.Paths.Root,
+                RootUri = (Site.ProjectConfig.Paths.Root != "/"
+                    ? Path.Join(Site.ProjectConfig.Paths.Root, PathPrefix)
+                    : PathPrefix),
+                ResourcesDirectory = Site.ProjectConfig.Paths.Resources,
+            };
         }
     }
 }
