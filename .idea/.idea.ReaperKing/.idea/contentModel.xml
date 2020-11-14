@@ -4,58 +4,20 @@
     <e p="$USER_HOME$/.cache/JetBrains/Rider2020.2/extResources" t="IncludeRecursive" />
     <e p="$USER_HOME$/.cache/JetBrains/Rider2020.2/resharper-host/local/Transient/Rider/v202/SolutionCaches/_ReaperKing.2131566862.00" t="ExcludeRecursive" />
     <e p="$PROJECT_DIR$" t="IncludeFlat">
-      <e p="ProjectReaperKing" t="IncludeRecursive">
-        <e p="Data" t="Include">
-          <e p="ARK.Nests.cs" t="Include" />
-          <e p="ARK.Revisions.cs" t="Include" />
-          <e p="ARK.cs" t="Include" />
-          <e p="Ark" t="Include">
-            <e p="MapInterface.cs" t="Include" />
-            <e p="ModInterface.cs" t="Include" />
-          </e>
-          <e p="ArkTypes.cs" t="Include" />
-          <e p="CoordUtils.cs" t="Include" />
-          <e p="DataManager.cs" t="Include" />
-          <e p="Package.cs" t="Include" />
-        </e>
-        <e p="GamepediaUtils.cs" t="Include" />
-        <e p="Models" t="Include">
-          <e p="BaseModel.cs" t="Include" />
-          <e p="InteractiveMap.cs" t="Include" />
-          <e p="ModHome.cs" t="Include" />
-        </e>
-        <e p="Pages" t="Include">
-          <e p="ARK" t="Include">
-            <e p="EGS.cs" t="Include" />
-            <e p="InteractiveMap.cs" t="Include" />
-            <e p="ModContentProvider.cs" t="Include" />
-            <e p="ModHome.cs" t="Include" />
-          </e>
-          <e p="WikiTools" t="Include">
-            <e p="CreatureStats.cs" t="Include" />
-            <e p="WikiToolsContentProvider.cs" t="Include" />
-          </e>
-        </e>
-        <e p="ProjectReaperKing.csproj" t="IncludeRecursive" />
-        <e p="Site.cs" t="Include" />
-        <e p="SiteContextExtension.cs" t="Include" />
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
-            <e p="netcoreapp3.1" t="Include">
-              <e p="ProjectReaperKing.AssemblyInfo.cs" t="Include" />
-            </e>
-          </e>
-        </e>
+      <e p="ProjectReaperKing.Content/js/node_modules/@types" t="IncludeRecursive">
+        <e p="js-yaml" t="IncludeRecursive" />
       </e>
       <e p="ProjectReaperKing.Content/js/node_modules/@vue/component-compiler-utils" t="IncludeRecursive" />
       <e p="ProjectReaperKing.Content/js/node_modules/acorn" t="IncludeRecursive" />
       <e p="ProjectReaperKing.Content/js/node_modules/chalk" t="IncludeRecursive" />
       <e p="ProjectReaperKing.Content/js/node_modules/commander" t="IncludeRecursive" />
+      <e p="ProjectReaperKing.Content/js/node_modules/decimal.js" t="IncludeRecursive" />
+      <e p="ProjectReaperKing.Content/js/node_modules/js-yaml" t="IncludeRecursive" />
       <e p="ProjectReaperKing.Content/js/node_modules/postcss" t="IncludeRecursive" />
       <e p="ProjectReaperKing.Content/js/node_modules/postcss-selector-parser" t="IncludeRecursive" />
       <e p="ProjectReaperKing.Content/js/node_modules/terser" t="IncludeRecursive" />
       <e p="ProjectReaperKing.Content/js/node_modules/ts-loader" t="IncludeRecursive" />
+      <e p="ProjectReaperKing.Content/js/node_modules/tslib" t="IncludeRecursive" />
       <e p="ProjectReaperKing.Content/js/node_modules/typescript/lib/lib.d.ts" t="IncludeRecursive" />
       <e p="ProjectReaperKing.Content/js/node_modules/typescript/lib/lib.dom.d.ts" t="IncludeRecursive" />
       <e p="ProjectReaperKing.Content/js/node_modules/typescript/lib/lib.dom.iterable.d.ts" t="IncludeRecursive" />
@@ -116,20 +78,20 @@
       <e p="ProjectReaperKing.Content/js/node_modules/vue-template-compiler" t="IncludeRecursive" />
       <e p="ProjectReaperKing.Content/js/node_modules/webpack" t="IncludeRecursive" />
       <e p="ProjectReaperKing.Content/js/node_modules/webpack-cli" t="IncludeRecursive" />
-      <e p="ReaperKing.sln" t="IncludeFlat" />
-      <e p="SiteBuilder" t="IncludeRecursive">
+      <e p="ProjectReaperKing.Content/js/node_modules/webpack-merge" t="IncludeRecursive" />
+      <e p="ReaperKing.Builder" t="IncludeRecursive">
         <e p="Program.cs" t="Include" />
-        <e p="SiteBuilder.csproj" t="IncludeRecursive" />
+        <e p="ReaperKing.Builder.csproj" t="IncludeRecursive" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
-              <e p="SiteBuilder.AssemblyInfo.cs" t="Include" />
+              <e p="ReaperKing.Builder.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>
       </e>
-      <e p="SiteBuilder.Core" t="IncludeRecursive">
+      <e p="ReaperKing.Core" t="IncludeRecursive">
         <e p="DisposableTemplateRoot.cs" t="Include" />
         <e p="HashUtils.cs" t="Include" />
         <e p="IPageGenerator.cs" t="Include" />
@@ -140,23 +102,86 @@
         <e p="Razor" t="Include">
           <e p="RazorScopedFilesystemProject.cs" t="Include" />
         </e>
+        <e p="ReaperKing.Core.csproj" t="IncludeRecursive" />
         <e p="Reflection.cs" t="Include" />
+        <e p="SharpYamlExt" t="Include">
+          <e p="CamelCaseNamingConvention.cs" t="Include" />
+        </e>
         <e p="ShellHelper.cs" t="Include" />
         <e p="Site.Building.cs" t="Include" />
         <e p="Site.Razor.cs" t="Include" />
         <e p="Site.Resources.cs" t="Include" />
         <e p="Site.cs" t="Include" />
-        <e p="SiteBuilder.Core.csproj" t="IncludeRecursive" />
         <e p="SiteContext.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
-              <e p="SiteBuilder.Core.AssemblyInfo.cs" t="Include" />
+              <e p="ReaperKing.Core.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>
       </e>
+      <e p="ReaperKing.StaticConfig" t="IncludeRecursive">
+        <e p="ContentGeneration" t="Include">
+          <e p="ARK" t="Include">
+            <e p="EGS.cs" t="Include" />
+            <e p="InteractiveMap.cs" t="Include" />
+            <e p="ModContentProvider.cs" t="Include" />
+            <e p="ModHome.cs" t="Include" />
+          </e>
+          <e p="PFTools" t="Include" />
+          <e p="WikiTools" t="Include">
+            <e p="ColorTable.cs" t="Include" />
+            <e p="CreatureStats.cs" t="Include" />
+            <e p="DvJsonFilterGenerator.cs" t="Include" />
+            <e p="LegacyCreatureStats.cs" t="Include" />
+            <e p="WikiToolsContentProvider.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Data" t="Include">
+          <e p="ARK.Nests.cs" t="Include" />
+          <e p="ARK.Revisions.cs" t="Include" />
+          <e p="ARK.cs" t="Include" />
+          <e p="Ark" t="Include">
+            <e p="MapInterface.cs" t="Include" />
+            <e p="ModInterface.cs" t="Include" />
+          </e>
+          <e p="ArkTypes.cs" t="Include" />
+          <e p="CoordUtils.cs" t="Include" />
+          <e p="DataManager.cs" t="Include" />
+          <e p="Package.cs" t="Include" />
+          <e p="PrimalGameData" t="Include">
+            <e p="NpcSpawnEntriesContainerAddition.cs" t="Include" />
+            <e p="NpcSpawnGroup.cs" t="Include" />
+            <e p="PrimalGameDataExport.cs" t="Include" />
+          </e>
+        </e>
+        <e p="FandomUtils.cs" t="Include" />
+        <e p="Features.cs" t="Include" />
+        <e p="Modding" t="Include">
+          <e p="ArkCrossContent" t="Include">
+            <e p="IniGenerator.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Models" t="Include">
+          <e p="BaseModel.cs" t="Include" />
+          <e p="InteractiveMap.cs" t="Include" />
+          <e p="ModHome.cs" t="Include" />
+        </e>
+        <e p="ReaperKing.StaticConfig.csproj" t="IncludeRecursive" />
+        <e p="Site.cs" t="Include" />
+        <e p="SiteContextExtension.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="ReaperKing.StaticConfig.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="ReaperKing.sln" t="IncludeFlat" />
       <e p="packages" t="ExcludeRecursive" />
     </e>
   </component>

@@ -20,9 +20,9 @@ jobs:
     - name: Install dependencies
       run: dotnet restore
     - name: Build builder binary
-      run: dotnet publish --configuration Debug --no-restore SiteBuilder -o artifacts\
+      run: dotnet publish --configuration Debug --no-restore ReaperKing.Builder -o artifacts\
     - name: Build Reaper King library
-      run: dotnet publish --configuration Debug --no-restore ProjectReaperKing -o artifacts\
+      run: dotnet publish --configuration Debug --no-restore ReaperKing.StaticConfig -o artifacts\
 
     - uses: actions/upload-artifact@v2
       with:
