@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Microsoft.Extensions.Logging;
 using RazorLight;
 using RazorLight.Caching;
 using ReaperKing.Core.Razor;
@@ -22,11 +23,13 @@ namespace ReaperKing.Core
         private RazorLightEngine _razorEngine = null;
         public string DeploymentPath => ProjectConfig.Paths.Deployment;
         public Project ProjectConfig;
+        public ILogger Log;
 
-        public virtual void Initialize(Project project)
+        public virtual void Initialize(Project project, ILogger logger)
         {
             Instance = this;
             ProjectConfig = project;
+            Log = logger;
             
             _razorProject = new RazorScopedFilesystemProject(new string[]
             {
@@ -38,49 +41,40 @@ namespace ReaperKing.Core
                 .Build();
         }
 
-        public virtual void Build(ProgressBar pbar)
+        public virtual void PreBuild()
         {
             var prebuildCmds = ProjectConfig.Build.RunBefore;
             var nvResources = ProjectConfig.Resources.CopyNonVersioned;
-            
+
             if (prebuildCmds.Count > 0)
             {
-                pbar.MaxTicks += 1;
-
-                var message = "Running pre-build commands";
-                using (var pbar2 = pbar.Spawn(prebuildCmds.Count, message, BarOptions))
+                Log.LogInformation("Executing commands scheduled to run before build");
+                foreach (var cmd in prebuildCmds)
                 {
-                    foreach (var cmd in prebuildCmds)
-                    {
-                        pbar2.Tick($"{message}: {cmd}");
-                        var exitCode = ShellHelper.Run(cmd);
+                    Log.LogInformation(cmd);
+                    var exitCode = ShellHelper.Run(cmd);
 
-                        if (exitCode != 0)
-                        {
-                            Environment.Exit(exitCode);
-                        }
+                    if (exitCode != 0)
+                    {
+                        Environment.Exit(exitCode);
                     }
                 }
-
-                pbar.Tick();
             }
 
             if (nvResources.Length > 0)
             {
-                pbar.MaxTicks += 1;
-
-                var message = "Copying non-versioned resources";
-                using (var pbar2 = pbar.Spawn(nvResources.Length, message, BarOptions))
+                Log.LogInformation("Copying non-versioned resources");
+                foreach (var file in nvResources)
                 {
-                    foreach (var file in nvResources)
-                    {
-                        pbar2.Tick($"{message}: {file}");
-                        CopyResource(file, file);
-                    }
+                    CopyResource(file, file);
                 }
-
-                pbar.Tick();
             }
         }
+
+        public virtual void Build()
+        { }
+
+        public virtual void PostBuild()
+        { }
     }
 }

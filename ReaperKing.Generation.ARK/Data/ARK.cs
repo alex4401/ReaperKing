@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.Extensions.Logging;
 using ShellProgressBar;
 
 // TODO: just... uh... i don't know, refactor this in multiple ways
@@ -38,18 +39,14 @@ namespace ReaperKing.Generation.ARK.Data
             }
         }
         
-        public override void Initialize(ChildProgressBar pbar)
+        public override void Initialize(ILogger log)
         {
-            base.Initialize(pbar);
-            var baseMessage = pbar.Message;
+            base.Initialize(log);
             
-            pbar.MaxTicks += LoadedMods.Count;
             foreach (var modId in LoadedMods.Keys.ToArray())
             {
-                pbar.Tick($"{baseMessage}: {modId}");
-                
                 var mod = LoadedMods[modId];
-                mod.Revisions = _initModRevisions(pbar, modId, baseMessage).ToList();
+                mod.Revisions = _initModRevisions(log, modId).ToList();
                 LoadedMods[modId] = mod;
             }
         }

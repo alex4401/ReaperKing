@@ -7,6 +7,8 @@ using System.Reflection.Metadata;
 using System.Runtime.Loader;
 using McMaster.Extensions.CommandLineUtils;
 using Microsoft.CodeAnalysis;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Console;
 using SharpYaml.Serialization;
 using ShellProgressBar;
 using ReaperKing.Core;
@@ -21,10 +23,13 @@ namespace ReaperKing.Builder
 
         #region Required Arguments & Options
         // ReSharper disable UnassignedGetOnlyAutoProperty
-        
+
         [Argument(order: 0)]
         [Required]
-        public string AssemblyName { get; }
+        public string SiteAssemblyName { get; }
+
+        [Option(LongName = "assembly-path")]
+        public string AssemblyPath { get; set; } = "";
         
         [Option(LongName = "environment")]
         [Required]
@@ -42,40 +47,65 @@ namespace ReaperKing.Builder
         
         void OnExecute()
         {
-            using (var pbar = new ProgressBar(2, "Building site", BarOptions))
+            AssemblyPath = Path.Join(Environment.CurrentDirectory, AssemblyPath);
+            
+            var log = ApplicationLogging.Initialize<Program>();
+            log.LogInformation("Reaper King building tool");
+            
+            log.LogInformation("Project configuration is now being loaded");
+            Project project = ParsingUtils.ReadYamlFile<Project>(ProjectFilename + ".yaml");
+            project = SetProjectEnvironment(project, EnvironmentName);
+            
+            log.LogInformation("Static configuration assembly is now being loaded");
+            if (!String.IsNullOrEmpty(AssemblyPath))
             {
-                Site site;
-                Project project;
-                
-                using (var pbar2 = pbar.Spawn(1, "Loading project information", BarOptions))
-                {
-                    project = ParsingUtils.ReadYamlFile<Project>(ProjectFilename + ".yaml");
-                    project = SetProjectEnvironment(project, EnvironmentName);
-                    pbar2.Tick("Project of the site loaded");
-                }
-                
-                using (var pbar2 = pbar.Spawn(2, "Loading .NET assembly", BarOptions))
-                {
-                    var assemblyPath = Path.Join(Environment.CurrentDirectory, AssemblyName);
-                    var siteAssembly = AssemblyLoadContext.Default.LoadFromAssemblyPath(assemblyPath);
-                    var siteClass = GetSiteClassFromAssembly(siteAssembly);
-                    pbar2.Tick("Initializing site info");
-
-                    site = Activator.CreateInstance(siteClass) as Site;
-                    site.Initialize(project);
-
-                    var metadataReference = MetadataReference.CreateFromFile(assemblyPath);
-                    site.GetRazor().Handler.Options.AdditionalMetadataReferences.Add(metadataReference);
-                        
-                    pbar2.Tick(".NET assembly of the site loaded");
-                }
-
-                pbar.Tick("Building site content");
-                site.Build(pbar);
-
-                pbar.Tick();
+                AppDomain.CurrentDomain.AssemblyResolve += LoadAssemblyInCustomSearchPath;
             }
 
+            var siteAssembly = AssemblyLoadContext.Default.LoadFromAssemblyName(new AssemblyName(SiteAssemblyName));
+            var siteClass = GetSiteClassFromAssembly(siteAssembly);
+            
+            log.LogInformation("Site singleton is being created");
+            Site site = Activator.CreateInstance(siteClass) as Site;
+            site.Initialize(project, log);
+            
+            // Add the assembly to RazorLight's metadata references
+            var metadataReference = MetadataReference.CreateFromFile(siteAssembly.Location);
+            //siteAssembly.GetReferencedAssemblies()
+            site.GetRazor().Handler.Options.AdditionalMetadataReferences.Add(metadataReference);
+            
+            log.LogInformation("Building site content");
+            using (log.BeginScope("Pre-build tasks"))
+            {
+                site.PreBuild();
+            }
+            
+            using (log.BeginScope("Build tasks"))
+            {
+                site.Build();
+            }
+            
+            using (log.BeginScope("Post-build tasks"))
+            {
+                site.PostBuild();
+            }
+        }
+        
+        public Assembly LoadAssemblyInCustomSearchPath(object sender, ResolveEventArgs args)
+        {
+            Assembly result = null;
+            
+            if (args != null && !string.IsNullOrEmpty(args.Name))
+            {
+                var assemblyName = args.Name.Split(new string[] { "," }, StringSplitOptions.None)[0];
+                var assemblyPath = Path.Combine(AssemblyPath, $"{assemblyName}.dll");
+                if (File.Exists(assemblyPath))
+                {
+                    result = Assembly.LoadFrom(assemblyPath);
+                }
+            }
+
+            return result;
         }
 
         Type GetSiteClassFromAssembly(Assembly siteAssembly)

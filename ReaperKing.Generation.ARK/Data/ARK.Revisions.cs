@@ -2,27 +2,26 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using Microsoft.Extensions.Logging;
 using ShellProgressBar;
 
 namespace ReaperKing.Generation.ARK.Data
 {
     public partial class DataManagerARK
     {
-        private IEnumerable<ModInfo.Revision> _initModRevisions(ChildProgressBar pbar, string modId, string baseMessage)
+        private IEnumerable<ModInfo.Revision> _initModRevisions(ILogger log, string modId)
         {
             var searchPath = Path.Join(GetDataDirectoryPath(), modId);
             string[] revFiles = Directory.GetFiles(searchPath, "revision.yaml", SearchOption.AllDirectories);
-            pbar.MaxTicks += revFiles.Length;
-
             Array.Sort(revFiles);
+            log.LogInformation($"{revFiles.Length} revisions have been found for {modId}");
 
             foreach(string filepath in revFiles)
             {
                 string revisionPath = filepath.Remove(0, GetDataDirectoryPath().Length);
                 revisionPath = revisionPath.Remove(revisionPath.Length - 5, 5);
-                pbar.Tick($"{baseMessage}: {modId}, rev {revisionPath}");
-                
                 var revision = ReadYamlFile<ModInfo.Revision>(revisionPath, "revision");
+                log.LogInformation($"Revision \"{revisionPath}\" of type \"{revision.Tag}\" has been loaded");
                 revision.PathOnDisk = revisionPath.Remove(revisionPath.Length - 8, 8);
 
                 if (revision.Tag == RevisionTag.ModUpdate
@@ -35,8 +34,6 @@ namespace ReaperKing.Generation.ARK.Data
                 
                 yield return revision;
             }
-            
-            pbar.Tick(baseMessage);
         }
 
         public IEnumerable<Tuple<int, ModInfo.Revision>> FindModRevisionsByTag(string modId, RevisionTag tag)

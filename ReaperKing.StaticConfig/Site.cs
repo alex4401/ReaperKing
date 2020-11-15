@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Microsoft.Extensions.Logging;
 using ShellProgressBar;
 using ReaperKing.Core;
 using ReaperKing.Generation.ARK;
@@ -10,34 +11,32 @@ using ReaperKing.Generation.Tools;
 namespace ReaperKing.StaticConfig
 {
     [Site]
-    public class ProjectReaperKingSite : Site
+    // ReSharper disable once UnusedType.Global
+    public class RkSiteBuildRecipe : Site
     {
-        public override void Build(ProgressBar pbar)
+        public override void PreBuild()
         {
-            base.Build(pbar);
+            base.PreBuild();
             
-            pbar.MaxTicks += 1;
+            var dataManager = DataManagerARK.Instance;
+            Log.LogInformation("Discovering and loading ARK data");
+            dataManager.Initialize(Log);
+        }
+
+        public override void Build()
+        {
             var dataManager = DataManagerARK.Instance;
             
-            using (var pbar2 = pbar.Spawn(1, "Discovering and loading data", BarOptions))
-            {
-                dataManager.Initialize(pbar2);
-            }
-            pbar.Tick();
-            
-            using (var pbar2 = pbar.Spawn(1, "Building content for wiki tools", BarOptions))
+            Log.LogInformation("Building ARK tools");
             {
                 var generator = new ToolsContentProvider();
                 BuildWithProvider(generator, "/wiki/tools");
-                pbar2.Tick();
             }
-            
-            using (var pbar2 = pbar.Spawn(dataManager.LoadedMods.Count, "Building content for mods", BarOptions))
+
+            Log.LogInformation("Building ARK mod content");
             {
                 foreach (string modTag in dataManager.LoadedMods.Keys)
                 {
-                    pbar2.Tick($"Building content for mod: {modTag}");
-                    
                     var uri = Path.Join("/ark", modTag);
                     var generator = new ModContentProvider(modTag);
                     BuildWithProvider(generator, uri);

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Microsoft.Extensions.Logging;
 using ShellProgressBar;
 
 using ReaperKing.Core;
@@ -35,23 +36,17 @@ namespace ReaperKing.Generation.ARK.Data
             return Path.Join(Environment.CurrentDirectory, "data", GetTag());
         }
 
-        public virtual void Initialize(ChildProgressBar pbar)
+        public virtual void Initialize(ILogger log)
         {
-            var baseMessage = pbar.Message;
-            pbar.MaxTicks += 2;
-            
-            pbar.Tick($"{baseMessage}: package information");
+            log.LogInformation("Package information is being loaded");
             PackageInfo = ReadYamlFile<Package>("package");
 
-            pbar.Tick($"{baseMessage}: objects");
-            pbar.MaxTicks += PackageInfo.Objects.Count;
+            log.LogInformation($"{PackageInfo.Objects.Count} objects referenced by the package");
             foreach (KeyValuePair<string, string> kvp in PackageInfo.Objects)
             {
-                pbar.Tick($"{baseMessage}: {kvp.Key}");
+                log.LogInformation($"Object \"{kvp.Key}\" is being loaded");
                 LoadObject(kvp.Key, kvp.Value);
             }
-
-            pbar.Tick(baseMessage);
         }
 
         public abstract void LoadObject(string objectName, string objectType);
