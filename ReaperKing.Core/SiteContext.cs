@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 
 namespace ReaperKing.Core
@@ -50,21 +51,10 @@ namespace ReaperKing.Core
             return Site.ProjectConfig.Build.Define != null && Site.ProjectConfig.Build.Define.Contains(id);
         }
         
-        // ReSharper disable InconsistentNaming
-        public BaseModel AcquireBaseModel(string SiteName, string DisplayTitle) 
-        // ReSharper restore InconsistentNaming
+        [Obsolete("AcquireBaseModel is going to be removed soon. Switch to the class-based model.")]
+        public BaseModel AcquireBaseModel(string siteName, string displayTitle) 
         {
-            return new BaseModel
-            {
-                Ctx = this,
-                SiteName = SiteName,
-                DisplayTitle = DisplayTitle,
-                Root = Site.ProjectConfig.Paths.Root,
-                RootUri = (Site.ProjectConfig.Paths.Root != "/"
-                    ? Path.Join(Site.ProjectConfig.Paths.Root, PathPrefix)
-                    : PathPrefix),
-                ResourcesDirectory = Site.ProjectConfig.Paths.Resources,
-            };
+            return new BaseModel(this);
         }
     }
 }

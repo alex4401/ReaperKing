@@ -18,8 +18,8 @@ namespace ReaperKing.Generation.ARK
             public InteractiveMapGenerator(string arkModRef, string arkMapRef, int revisionId)
             {
                 _arkModRef = arkModRef;
-                _arkMod = DataManagerARK.Instance.LoadedMods[arkModRef];
                 _arkMapRef = arkMapRef;
+                _arkMod = DataManagerARK.Instance.LoadedMods[arkModRef];
                 _arkMap = DataManagerARK.Instance.LoadedMaps[arkMapRef];
                 _revisionId = revisionId;
             }
@@ -31,11 +31,10 @@ namespace ReaperKing.Generation.ARK
                     Uri = "latest",
                     Name = _arkMap.InternalId,
                     Template = "mods/interactiveMap.cshtml",
-                    Model = new InteractiveMapModel
+                    Model = new InteractiveMapModel(ctx)
                     {
-                        Super = ctx.AcquireBaseModel(SiteName: _arkMod.Name,
-                                                     DisplayTitle: $"{_arkMod.Name}, interactive spawning maps"),
-                        
+                        SiteName = _arkMod.Name,
+                        DisplayTitle = $"{_arkMod.Name}, interactive spawning maps",
                         ModInfo = _arkMod,
                         Map = _arkMap,
                         Revision = _arkMod.Revisions[_revisionId],

@@ -1,15 +1,24 @@
 using System;
+using System.IO;
 
 namespace ReaperKing.Core
 {
-    public struct BaseModel
+    public class BaseModel
     {
-        public SiteContext Ctx;
-        [Obsolete] public string SiteName;
-        [Obsolete]  public string DisplayTitle;
-        public string Root;
-        public string RootUri;
-        public string ResourcesDirectory;
+        public BaseModel(SiteContext ctx)
+        {
+            Ctx = ctx;
+            Root = ctx.Site.ProjectConfig.Paths.Root;
+            RootUri = (ctx.Site.ProjectConfig.Paths.Root != "/"
+                ? Path.Join(ctx.Site.ProjectConfig.Paths.Root, ctx.PathPrefix)
+                : ctx.PathPrefix);
+            ResourcesDirectory = ctx.Site.ProjectConfig.Paths.Resources;
+        }
+        
+        public SiteContext Ctx { get; }
+        public string Root { get; }
+        public string RootUri { get; }
+        public string ResourcesDirectory { get; }
         
         public string CopyVersionedResource(string inputFile, string uri)
             => Ctx.CopyVersionedResource(inputFile, uri);

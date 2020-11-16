@@ -3,14 +3,17 @@ using ReaperKing.Generation.ARK.Data;
 
 namespace ReaperKing.Generation.ARK.Models
 {
-    public struct InteractiveMapModel
+    public class InteractiveMapModel : BaseModel
     {
-        public BaseModel Super;
+        public InteractiveMapModel(SiteContext ctx) : base(ctx)
+        { }
 
-        public ModInfo ModInfo;
-        public MapInfo Map;
-        public ModInfo.Revision Revision;
-        public WorldLocation5[] Nests;
-        public string JsonUri;
+        public string SiteName { get; set; }
+        public string DisplayTitle { get; set; }
+        public ModInfo ModInfo { get; set; }
+        public MapInfo Map { get; set; }
+        public ModInfo.Revision Revision { get; set; }
+        public WorldLocation5[] Nests { get; set; }
+        public string JsonUri { get; set; }
     }
 }

@@ -181,6 +181,9 @@
         <e p="CreatureStats.cs" t="Include" />
         <e p="DvJsonFilterGenerator.cs" t="Include" />
         <e p="LegacyCreatureStats.cs" t="Include" />
+        <e p="Models" t="Include">
+          <e p="ToolModel.cs" t="Include" />
+        </e>
         <e p="ReaperKing.Generation.Tools.csproj" t="IncludeRecursive" />
         <e p="ToolsContentProvider.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />

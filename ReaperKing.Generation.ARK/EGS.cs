@@ -21,10 +21,10 @@ namespace ReaperKing.Generation.ARK
             {
                 Name = "egs",
                 Template = "mods/egs.cshtml",
-                Model = new ModHomeModel
+                Model = new ModHomeModel(ctx)
                 {
-                    Super = ctx.AcquireBaseModel(SiteName: _arkMod.Name,
-                                                 DisplayTitle: $"{_arkMod.Name}, interactive spawning maps"),
+                    SiteName = _arkMod.Name,
+                    DisplayTitle = $"{_arkMod.Name}, interactive spawning maps",
                     ModInfo = _arkMod,
                     Maps = DataManagerARK.Instance.LoadedMaps,
                 },

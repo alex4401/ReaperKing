@@ -6,11 +6,14 @@ using ReaperKing.Generation.ARK.Data;
 
 namespace ReaperKing.Generation.ARK.Models
 {
-    public struct ModHomeModel
+    public class ModHomeModel : BaseModel
     {
-        public BaseModel Super;
+        public ModHomeModel(SiteContext ctx) : base(ctx)
+        { }
 
-        public ModInfo ModInfo;
-        public Dictionary<string, MapInfo> Maps;
+        public string SiteName { get; set; }
+        public string DisplayTitle { get; set; }
+        public ModInfo ModInfo { get; set; }
+        public Dictionary<string, MapInfo> Maps { get; set; }
     }
 }

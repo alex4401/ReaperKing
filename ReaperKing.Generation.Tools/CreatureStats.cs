@@ -1,4 +1,5 @@
 using ReaperKing.Core;
+using ReaperKing.Generation.Tools.Models;
 
 namespace ReaperKing.Generation.Tools
 {
@@ -10,10 +11,10 @@ namespace ReaperKing.Generation.Tools
             {
                 Name = "creature-stats",
                 Template = "wiki/creatureStats.cshtml",
-                Model = new 
+                Model = new ToolModel(ctx)
                 {
-                    Super = ctx.AcquireBaseModel(SiteName: "Wiki Tools",
-                                                 DisplayTitle: "{{CreatureStats}}"),
+                    SiteName = "Wiki Tools",
+                    DisplayTitle = "{{CreatureStats}}",
                 },
             };
         }

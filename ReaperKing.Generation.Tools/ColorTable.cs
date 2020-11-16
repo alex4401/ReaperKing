@@ -1,4 +1,5 @@
 using ReaperKing.Core;
+using ReaperKing.Generation.Tools.Models;
 
 namespace ReaperKing.Generation.Tools
 {
@@ -10,10 +11,10 @@ namespace ReaperKing.Generation.Tools
             {
                 Name = "color-table",
                 Template = "wiki/colorTable.cshtml",
-                Model = new 
+                Model = new ToolModel(ctx)
                 {
-                    Super = ctx.AcquireBaseModel(SiteName: "Wiki Tools",
-                                                 DisplayTitle: "[[Color IDs]]"),
+                    SiteName = "Wiki Tools",
+                    DisplayTitle = "[[Color IDs]]",
                 },
             };
         }

@@ -11,24 +11,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3e958550-64c8-4e73-a9e3-7e8c1e88e10d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/colorTable/widgets/Shelf.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/colorTable/widgets/ShelfSegment.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReaperKing.Builder/ApplicationLogging.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ReaperKing/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ReaperKing/.idea/contentModel.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ReaperKing.Generation.Tools/Models/ToolModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ReaperKing/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ReaperKing/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/colorTable/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/colorTable/App.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/colorTable/widgets/ColorTableView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/colorTable/widgets/ColorTableView.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/colorTable/widgets/ModDropdown.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectReaperKing.Content/js/wiki/colorTable/widgets/ModDropdown.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReaperKing.Anhydrate/ReaperKing.Anhydrate.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Anhydrate/ReaperKing.Anhydrate.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReaperKing.Builder/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Builder/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReaperKing.Core/ReaperKing.Core.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Core/ReaperKing.Core.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReaperKing.Core/Site.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Core/Site.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReaperKing.Generation.ARK/Data/ARK.Revisions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Generation.ARK/Data/ARK.Revisions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReaperKing.Generation.ARK/Data/ARK.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Generation.ARK/Data/ARK.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReaperKing.Generation.ARK/Data/DataManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Generation.ARK/Data/DataManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReaperKing.StaticConfig/Site.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.StaticConfig/Site.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReaperKing.sln" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReaperKing.sln.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.sln.DotSettings" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.Core/BaseModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Core/BaseModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.Core/SiteContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Core/SiteContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.Generation.ARK/EGS.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Generation.ARK/EGS.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.Generation.ARK/InteractiveMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Generation.ARK/InteractiveMap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.Generation.ARK/ModHome.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Generation.ARK/ModHome.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.Generation.ARK/Models/InteractiveMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Generation.ARK/Models/InteractiveMap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.Generation.ARK/Models/ModHome.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Generation.ARK/Models/ModHome.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +47,7 @@
     <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/common/includes.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/common/layouts/default.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/common/widgets/topbar.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/87DBB896-6B20-4A14-9B6A-7AB43642646D/46/81810d17/Dictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/common/widgets/footer.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectReaperKing.Content/templates/wiki/creatureStats.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../WebApplication/WebApplication/Startup.cs" root0="SKIP_HIGHLIGHTING" />
@@ -88,8 +83,6 @@
       <option value="$PROJECT_DIR$/ReaperKing.Generation.Tools/CreatureStats.cs" />
       <option value="$PROJECT_DIR$/ReaperKing.Generation.Tools/ColorTable.cs" />
       <option value="$PROJECT_DIR$/ReaperKing.Generation.Tools/ToolsContentProvider.cs" />
-      <option value="$PROJECT_DIR$/ReaperKing.Core/SiteContext.cs" />
-      <option value="$PROJECT_DIR$/ReaperKing.Core/BaseModel.cs" />
       <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/Features.cs" />
       <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/Modding/ArkCrossContent/IniGenerator.cs" />
       <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/Data/Package.cs" />
@@ -99,22 +92,27 @@
       <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/Data/Ark/ModInterface.cs" />
       <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/Data/MapInterface.cs" />
       <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/DlcContentUnlockMods/IniGenerator.cs" />
-      <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/Models/InteractiveMap.cs" />
-      <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/Models/ModHome.cs" />
-      <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/EGS.cs" />
       <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/FandomUtils.cs" />
-      <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/InteractiveMap.cs" />
       <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/ModContentProvider.cs" />
-      <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/ModHome.cs" />
       <option value="$PROJECT_DIR$/ReaperKing.Anhydrate/Class1.cs" />
       <option value="$PROJECT_DIR$/ReaperKing.Core/ReaperKing.Core.csproj" />
-      <option value="$PROJECT_DIR$/ReaperKing.Builder/ApplicationLogging.cs" />
       <option value="$PROJECT_DIR$/ReaperKing.Core/Site.cs" />
       <option value="$PROJECT_DIR$/ReaperKing.StaticConfig/Site.cs" />
       <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/Data/DataManager.cs" />
       <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/Data/ARK.cs" />
       <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/Data/ARK.Revisions.cs" />
       <option value="$PROJECT_DIR$/ReaperKing.Builder/Program.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Builder/ApplicationLogging.cs" />
+      <option value="$PROJECT_DIR$/ProjectReaperKing.Content/project.shipping.yaml" />
+      <option value="$PROJECT_DIR$/ReaperKing.Core/BaseModel.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Core/Site.Building.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Core/SiteContext.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/Models/ModHome.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/Models/InteractiveMap.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/ModHome.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/InteractiveMap.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/EGS.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Generation.Tools/Models/ToolModel.cs" />
     </changedPaths>
   </component>
   <component name="JsFlowSettings">
@@ -238,7 +236,9 @@
       <workItem from="1605368414561" duration="10582000" />
       <workItem from="1605399276611" duration="599000" />
       <workItem from="1605449860817" duration="2995000" />
-      <workItem from="1605461245671" duration="10428000" />
+      <workItem from="1605461245671" duration="10971000" />
+      <workItem from="1605476513053" duration="445000" />
+      <workItem from="1605524930729" duration="1325000" />
     </task>
     <servers />
   </component>
