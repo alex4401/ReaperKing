@@ -30,8 +30,8 @@ namespace ReaperKing.StaticConfig
             
             Log.LogInformation("Building ARK tools");
             {
-                var generator = new ToolsContentProvider();
-                BuildWithProvider(generator, "/wiki/tools");
+                BuildWithProvider(new ToolsContentProvider(), "/ark/tools");
+                BuildWithProvider(new ToolsRedirectsProvider(), "/wiki/tools");
             }
 
             Log.LogInformation("Building ARK mod content");

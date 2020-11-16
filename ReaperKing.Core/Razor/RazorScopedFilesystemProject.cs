@@ -91,7 +91,7 @@ namespace ReaperKing.Core.Razor
 			_mounts.RemoveAll(info => info.RealRoot == path);
 		}
 
-		public List<RazorIncludePathInfo> FindMountsForPath(string path)
+		public (string, List<RazorIncludePathInfo>) FindMountsForPath(string path)
 		{
 			var result = new List<RazorIncludePathInfo>();
 			var parts = path.Split('/', 2, StringSplitOptions.RemoveEmptyEntries);
@@ -110,8 +110,11 @@ namespace ReaperKing.Core.Razor
 			// If not namespaced, return all the mounts
 			if (pathNs == "")
 			{
-				return _mounts;
+				return (path, _mounts);
 			}
+			
+			// Remove the namespace from the path
+			path = parts[1];
 			
 			// Find mounts for the namespace
 			foreach (var info in _mounts)
@@ -124,7 +127,7 @@ namespace ReaperKing.Core.Razor
 				result.Add(info);
 			}
 			
-			return result;
+			return (path, result);
 		}
 
 		public override Task<RazorLightProjectItem> GetItemAsync(string templateKey)
@@ -135,8 +138,10 @@ namespace ReaperKing.Core.Razor
 			}
 
 			FileSystemRazorProjectItem item = null;
-			List<RazorIncludePathInfo> mounts = FindMountsForPath(templateKey);
-			foreach (var mount in _mounts)
+			var mounts = FindMountsForPath(templateKey);
+			templateKey = mounts.Item1;
+			
+			foreach (var mount in mounts.Item2)
 			{
 				string absolutePath = NormalizeKey(templateKey, mount.RealRoot);
 				PhysicalFileProvider provider = _providers[mount.RealRoot];

@@ -5,6 +5,7 @@ namespace ReaperKing.CommonTemplates
 {
     public class RedirectGenerator : IPageGenerator
     {
+        public string Uri { get; set; }
         public string Name { get; set; }
         public string TargetUrl { get; set; }
         
@@ -12,8 +13,9 @@ namespace ReaperKing.CommonTemplates
         {
             return new PageGenerationResult()
             {
+                Uri = Uri,
                 Name = Name,
-                Template = "redirect.cshtml",
+                Template = "ReaperKing.CommonTemplates/redirect.cshtml",
                 Model = new RedirectModel(ctx)
                 {
                     Target = TargetUrl,

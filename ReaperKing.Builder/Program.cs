@@ -1,24 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Reflection;
-using System.Reflection.Metadata;
 using System.Runtime.Loader;
-using McMaster.Extensions.CommandLineUtils;
 using Microsoft.CodeAnalysis;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Console;
-using SharpYaml.Serialization;
-using ShellProgressBar;
+using McMaster.Extensions.CommandLineUtils;
+
 using ReaperKing.Core;
 
 namespace ReaperKing.Builder
 {
     class Program
     {
-        private static readonly ProgressBarOptions BarOptions = Site.BarOptions;
-        
         static int Main(string[] args) => CommandLineApplication.Execute<Program>(args);
 
         #region Required Arguments & Options
@@ -73,9 +67,18 @@ namespace ReaperKing.Builder
             site.Initialize(project, log);
             
             // Add the assembly to RazorLight's metadata references
-            var metadataReference = MetadataReference.CreateFromFile(siteAssembly.Location);
-            //siteAssembly.GetReferencedAssemblies()
-            site.GetRazor().Handler.Options.AdditionalMetadataReferences.Add(metadataReference);
+            var metadataReferences = site.GetRazor().Handler.Options.AdditionalMetadataReferences;
+            metadataReferences.Add(MetadataReference.CreateFromFile(siteAssembly.Location));
+            
+            foreach (var otherAssembly in siteAssembly.GetReferencedAssemblies())
+            {
+                if (otherAssembly.Name != null && otherAssembly.Name.StartsWith("ReaperKing"))
+                {
+                    var otherAssemblyPath = Assembly.Load(otherAssembly).Location;
+                    metadataReferences.Add(MetadataReference.CreateFromFile(otherAssemblyPath));
+                }
+            }
+            
             
             log.LogInformation("Building site content");
             using (log.BeginScope("Pre-build tasks"))

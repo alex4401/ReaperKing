@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using Microsoft.Extensions.Logging;
 using NUglify;
 
 namespace ReaperKing.Core
@@ -8,6 +9,8 @@ namespace ReaperKing.Core
     {
         public async void SavePage(PageGenerationResult result, string uri)
         {
+            Log.LogInformation($"Saving page {result.Name} at {uri}/{result.Uri}");
+            
             string path = Path.Join(DeploymentPath, uri);
             string contents = await GetRazor().CompileRenderAsync(result.Template, result.Model);
 

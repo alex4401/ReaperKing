@@ -1,4 +1,5 @@
 using ReaperKing.Core;
+using ReaperKing.CommonTemplates.Extensions;
 
 namespace ReaperKing.Generation.Tools
 {
@@ -8,7 +9,6 @@ namespace ReaperKing.Generation.Tools
         {
             using (ctx.AddOptionalTemplateDirectory("templates/wiki"))
             {
-                
                 ctx.BuildPage(new LegacyCreatureStats());
                 ctx.BuildPage(new CreatureStats());
                 ctx.BuildPage(new DvJsonFilterGenerator());
