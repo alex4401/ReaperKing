@@ -23,6 +23,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\ReaperKing.CommonTemplates\ReaperKing.CommonTemplates.csproj" />
       <ProjectReference Include="..\ReaperKing.Core\ReaperKing.Core.csproj" />
       <ProjectReference Include="..\ReaperKing.Generation.ARK\ReaperKing.Generation.ARK.csproj" />
       <ProjectReference Include="..\ReaperKing.Generation.Tools\ReaperKing.Generation.Tools.csproj" />

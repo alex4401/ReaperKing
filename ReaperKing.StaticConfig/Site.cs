@@ -1,9 +1,8 @@
-using System;
-using System.Collections.Generic;
 using System.IO;
 using Microsoft.Extensions.Logging;
-using ShellProgressBar;
+
 using ReaperKing.Core;
+using ReaperKing.CommonTemplates.Extensions;
 using ReaperKing.Generation.ARK;
 using ReaperKing.Generation.ARK.Data;
 using ReaperKing.Generation.Tools;
@@ -25,6 +24,8 @@ namespace ReaperKing.StaticConfig
 
         public override void Build()
         {
+            this.EnableCommonTemplates();
+            
             var dataManager = DataManagerARK.Instance;
             
             Log.LogInformation("Building ARK tools");

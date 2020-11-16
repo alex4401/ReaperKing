@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="Templates/*.cshtml" Link="ReaperKing.CommonTemplates/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <ProjectReference Include="..\ReaperKing.Core\ReaperKing.Core.csproj" />
+    </ItemGroup>
+
+</Project>

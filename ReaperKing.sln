@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReaperKing.Generation.Tools
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReaperKing.Anhydrate", "ReaperKing.Anhydrate\ReaperKing.Anhydrate.csproj", "{871FC3F2-BEBB-4A62-9E87-A08C7DEFFA07}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReaperKing.CommonTemplates", "ReaperKing.CommonTemplates\ReaperKing.CommonTemplates.csproj", "{7BAF9082-99A2-4821-BF98-C028EDA53015}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,9 @@ Global
 		{871FC3F2-BEBB-4A62-9E87-A08C7DEFFA07}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{871FC3F2-BEBB-4A62-9E87-A08C7DEFFA07}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{871FC3F2-BEBB-4A62-9E87-A08C7DEFFA07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BAF9082-99A2-4821-BF98-C028EDA53015}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BAF9082-99A2-4821-BF98-C028EDA53015}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BAF9082-99A2-4821-BF98-C028EDA53015}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BAF9082-99A2-4821-BF98-C028EDA53015}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
