@@ -11,19 +11,16 @@ namespace ReaperKing.Core
 {
     public abstract partial class Site
     {
-        public static readonly ProgressBarOptions BarOptions = new ProgressBarOptions
-        {
-            ProgressCharacter = '─',
-            ProgressBarOnBottom = true,
-            CollapseWhenFinished = false
-        };
-        
         internal static Site Instance = null;
-        private RazorScopedFilesystemProject _razorProject = null;
-        private RazorLightEngine _razorEngine = null;
-        public string DeploymentPath => ProjectConfig.Paths.Deployment;
+        
         public Project ProjectConfig;
         public ILogger Log;
+        public string ContentRoot => ProjectConfig.ContentDirectory;
+        public string AssemblyRoot => ProjectConfig.AssemblyDirectory;
+        public string DeploymentPath => ProjectConfig.Paths.Deployment;
+        
+        private RazorScopedFilesystemProject _razorProject = null;
+        private RazorLightEngine _razorEngine = null;
 
         public virtual void Initialize(Project project, ILogger logger)
         {
@@ -31,10 +28,7 @@ namespace ReaperKing.Core
             ProjectConfig = project;
             Log = logger;
             
-            _razorProject = new RazorScopedFilesystemProject(new string[]
-            {
-                Environment.CurrentDirectory + "/templates",
-            });
+            _razorProject = new RazorScopedFilesystemProject(Path.Join(ContentRoot, "templates"));
             _razorEngine = new RazorLightEngineBuilder()
                 .UseProject(_razorProject)
                 .UseMemoryCachingProvider()

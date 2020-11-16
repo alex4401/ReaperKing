@@ -10,11 +10,13 @@ namespace ReaperKing.Builder
         public static ILogger Initialize<T>()
         {
             ILoggerFactory factory = LoggerFactory.Create(
-                builder => builder.AddConsole(options =>
+                builder =>
                 {
-                    options.IncludeScopes = true;
-                })
-            );
+                    builder.AddConsole(options =>
+                    {
+                        options.IncludeScopes = true;
+                    });
+                });
             Instance = factory.CreateLogger("ReaperKing");
             return Instance;
         }

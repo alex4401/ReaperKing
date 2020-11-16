@@ -6,6 +6,9 @@ namespace ReaperKing.Core
     public struct Project
     {
         public string Inherits;
+        public string ContentDirectory;
+        public string AssemblyDirectory;
+        
         public PathConfig Paths;
         public ResourceConfig Resources;
         public BuildConfig Build;

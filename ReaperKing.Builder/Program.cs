@@ -47,14 +47,17 @@ namespace ReaperKing.Builder
         
         void OnExecute()
         {
-            AssemblyPath = Path.Join(Environment.CurrentDirectory, AssemblyPath);
+            AssemblyPath = PathUtils.EnsureRooted(AssemblyPath);
+            string projectFilename = ProjectFilename + ".yaml";
             
             var log = ApplicationLogging.Initialize<Program>();
             log.LogInformation("Reaper King building tool");
             
             log.LogInformation("Project configuration is now being loaded");
-            Project project = ParsingUtils.ReadYamlFile<Project>(ProjectFilename + ".yaml");
+            Project project = ParsingUtils.ReadYamlFile<Project>(projectFilename);
             project = SetProjectEnvironment(project, EnvironmentName);
+            project.ContentDirectory = new FileInfo(projectFilename).Directory?.FullName;
+            project.AssemblyDirectory = AssemblyPath;
             
             log.LogInformation("Static configuration assembly is now being loaded");
             if (!String.IsNullOrEmpty(AssemblyPath))

@@ -10,57 +10,121 @@ using RazorLight.Razor;
 
 namespace ReaperKing.Core.Razor
 {
+	
+	public struct RazorIncludePathInfo
+	{
+		public string Namespace;
+		public string RealRoot;
+	}
+	
     public class RazorScopedFilesystemProject : RazorLightProject
 	{
 		public const string DefaultExtension = ".cshtml";
 		private readonly IFileProvider _fileProvider;
 		
 		public string Extension { get; set; }
-		private readonly List<string> _roots = new List<string>();
+		private readonly List<RazorIncludePathInfo> _mounts = new List<RazorIncludePathInfo>();
 		private readonly Dictionary<string, PhysicalFileProvider> _providers = new Dictionary<string, PhysicalFileProvider>();
 
-		public RazorScopedFilesystemProject(string[] roots)
-			: this(roots, DefaultExtension)
-		{
-		}
+		public RazorScopedFilesystemProject(string defaultRoot)
+			: this(defaultRoot, DefaultExtension)
+		{ }
 
-		public RazorScopedFilesystemProject(string[] roots, string extension)
+		public RazorScopedFilesystemProject(string defaultRoot, string extension)
 		{
 			Extension = extension ?? throw new ArgumentNullException(nameof(extension));
+			Mount(defaultRoot);
+		}
 
-			foreach (var root in roots)
+		public void Mount(RazorIncludePathInfo info)
+		{
+			if (!Directory.Exists(info.RealRoot))
 			{
-				AddRoot(root);
+				throw new DirectoryNotFoundException($"Directory {info.RealRoot} not found");
+			}
+
+			MountUnsafe(info);
+		}
+
+		public void Mount(string path)
+		{
+			Mount(new RazorIncludePathInfo
+			{
+				Namespace = "",
+				RealRoot = path,
+			});
+		}
+
+		public void MountUnsafe(RazorIncludePathInfo info)
+		{
+			if (Directory.Exists(info.RealRoot))
+			{
+				_mounts.Insert(0, info);
+				if (!_providers.ContainsKey(info.RealRoot))
+				{
+					_providers[info.RealRoot] = new PhysicalFileProvider(info.RealRoot);
+				}
 			}
 		}
 
-		public void AddRoot(string root)
+		public void MountUnsafe(string path)
 		{
-			if (!Directory.Exists(root))
+			MountUnsafe(new RazorIncludePathInfo
 			{
-				throw new DirectoryNotFoundException($"Root directory {root} not found");
+				Namespace = "",
+				RealRoot = path,
+			});
+		}
+
+		public void DestroyNamespace(string ns)
+		{
+			_mounts.RemoveAll(info => info.Namespace == ns);
+		}
+
+		public void DestroyNamespace(string ns, string path)
+		{
+			_mounts.RemoveAll(info => info.Namespace == ns && info.RealRoot == path);
+		}
+
+		public void DiscardRoot(string path)
+		{
+			_mounts.RemoveAll(info => info.RealRoot == path);
+		}
+
+		public List<RazorIncludePathInfo> FindMountsForPath(string path)
+		{
+			var result = new List<RazorIncludePathInfo>();
+			var parts = path.Split('/', 2, StringSplitOptions.RemoveEmptyEntries);
+			string pathNs = "";
+			
+			// Find if the input falls into a namespace
+			foreach (var info in _mounts)
+			{
+				if (info.Namespace == parts[0])
+				{
+					pathNs = info.Namespace;
+					break;
+				}
 			}
 			
-			_roots.Insert(0, root);
-			_providers[root] = new PhysicalFileProvider(root);
-		}
-
-		public void AddOptionalRoot(string root)
-		{
-			if (Directory.Exists(root))
+			// If not namespaced, return all the mounts
+			if (pathNs == "")
 			{
-				_roots.Insert(0, root);
-				_providers[root] = new PhysicalFileProvider(root);
+				return _mounts;
 			}
-		}
-
-		public void RemoveRoot(string root)
-		{
-			if (_roots.Contains(root))
+			
+			// Find mounts for the namespace
+			foreach (var info in _mounts)
 			{
-				_roots.Remove(root);
-				_providers.Remove(root);
+				if (info.Namespace != pathNs)
+				{
+					continue;
+				}
+				
+				result.Add(info);
 			}
+			
+			return result;
 		}
 
 		public override Task<RazorLightProjectItem> GetItemAsync(string templateKey)
@@ -71,15 +135,16 @@ namespace ReaperKing.Core.Razor
 			}
 
 			FileSystemRazorProjectItem item = null;
-			foreach (var root in _roots)
+			List<RazorIncludePathInfo> mounts = FindMountsForPath(templateKey);
+			foreach (var mount in _mounts)
 			{
-				var provider = _providers[root];
-				string absolutePath = NormalizeKey(templateKey, root);
+				string absolutePath = NormalizeKey(templateKey, mount.RealRoot);
+				PhysicalFileProvider provider = _providers[mount.RealRoot];
 				item = new FileSystemRazorProjectItem(templateKey, new FileInfo(absolutePath));
 
 				if (item.Exists)
 				{
-					// HACK: this is a dirty hack to fix apparent caching behavior with scoped paths
+					// HACK: this is a dirty hack to fix some caching that doesn't work with scoped paths
 					var cancelToken = new CancellationToken(true);
 					var changeToken = new CancellationChangeToken(cancelToken);
 					item.ExpirationToken = changeToken; //provider.Watch(templateKey);

@@ -104,6 +104,28 @@
           </e>
         </e>
       </e>
+      <e p="ReaperKing.CommonTemplates" t="IncludeRecursive">
+        <e p="Extensions" t="Include">
+          <e p="SiteCommonTemplatesExtension.cs" t="Include" />
+          <e p="SiteContextRedirectExtension.cs" t="Include" />
+        </e>
+        <e p="Models" t="Include">
+          <e p="RedirectModel.cs" t="Include" />
+        </e>
+        <e p="ReaperKing.CommonTemplates.csproj" t="IncludeRecursive" />
+        <e p="Redirect.cs" t="Include" />
+        <e p="Templates" t="Include">
+          <e p="redirect.cshtml" t="Include" />
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="ReaperKing.CommonTemplates.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
       <e p="ReaperKing.Core" t="IncludeRecursive">
         <e p="BaseModel.cs" t="Include" />
         <e p="DisposableTemplateRoot.cs" t="Include" />
@@ -112,6 +134,7 @@
         <e p="ISiteContentProvider.cs" t="Include" />
         <e p="PageGenerationResult.cs" t="Include" />
         <e p="Parsing.cs" t="Include" />
+        <e p="PathUtils.cs" t="Include" />
         <e p="Project.cs" t="Include" />
         <e p="Razor" t="Include">
           <e p="RazorScopedFilesystemProject.cs" t="Include" />

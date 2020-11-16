@@ -8,6 +8,7 @@ namespace ReaperKing.Generation.Tools
         {
             using (ctx.AddOptionalTemplateDirectory("templates/wiki"))
             {
+                
                 ctx.BuildPage(new LegacyCreatureStats());
                 ctx.BuildPage(new CreatureStats());
                 ctx.BuildPage(new DvJsonFilterGenerator());
