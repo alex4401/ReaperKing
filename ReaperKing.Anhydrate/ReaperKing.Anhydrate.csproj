@@ -4,4 +4,16 @@
         <TargetFramework>netcoreapp3.1</TargetFramework>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\ReaperKing.Core\ReaperKing.Core.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="Templates/*.cshtml" Link="ReaperKing.Anhydrate/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Templates\Layouts" />
+    </ItemGroup>
+
 </Project>
