@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 
 using ReaperKing.Core;
 using ReaperKing.CommonTemplates.Extensions;
+using ReaperKing.Core.Plugins;
 using ReaperKing.Generation.ARK;
 using ReaperKing.Generation.ARK.Data;
 using ReaperKing.Generation.Tools;
@@ -24,6 +25,7 @@ namespace ReaperKing.StaticConfig
 
         public override void Build()
         {
+            AddModule(new RkUglifyModule(this));
             this.EnableCommonTemplates();
             
             var dataManager = DataManagerARK.Instance;

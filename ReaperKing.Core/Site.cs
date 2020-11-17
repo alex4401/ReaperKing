@@ -1,11 +1,9 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
 using Microsoft.Extensions.Logging;
 using RazorLight;
-using RazorLight.Caching;
+
 using ReaperKing.Core.Razor;
-using ShellProgressBar;
 
 namespace ReaperKing.Core
 {

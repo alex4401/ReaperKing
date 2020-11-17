@@ -7,37 +7,6 @@ namespace ReaperKing.Core
 {
     public abstract partial class Site
     {
-        public async void SavePage(PageGenerationResult result, string uri)
-        {
-            Log.LogInformation($"Saving page {result.Name} at {uri}/{result.Uri}");
-            
-            string path = Path.Join(DeploymentPath, uri);
-            string contents = await GetRazor().CompileRenderAsync(result.Template, result.Model);
-
-            if (ProjectConfig.Build.MinifyHtml)
-            {
-                var uglifyResult = Uglify.Html(contents);
-                if (uglifyResult.HasErrors)
-                {
-                    // TODO: print the errors
-                }
-                else
-                {
-                    contents = uglifyResult.Code;
-                }
-            }
-
-            if (result.Uri != null)
-            {
-                path = Path.Join(path, result.Uri);
-            }
-            Directory.CreateDirectory(path);
-            
-            path = Path.Join(path, result.Name + ".html");
-
-            File.WriteAllText(path, contents);
-        }
-
         public void BuildPage(IPageGenerator generator, string uri = null)
         {
             var context = new SiteContext
