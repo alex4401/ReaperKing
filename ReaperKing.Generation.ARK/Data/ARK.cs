@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Extensions.Logging;
-using ShellProgressBar;
 
 // TODO: just... uh... i don't know, refactor this in multiple ways
 

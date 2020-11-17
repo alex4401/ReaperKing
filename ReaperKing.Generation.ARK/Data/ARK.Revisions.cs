@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using Microsoft.Extensions.Logging;
-using ShellProgressBar;
 
 namespace ReaperKing.Generation.ARK.Data
 {

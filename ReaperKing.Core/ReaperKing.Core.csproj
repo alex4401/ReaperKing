@@ -11,7 +11,6 @@
       <PackageReference Include="NUglify" Version="1.9.2" />
       <PackageReference Include="RazorLight" Version="2.0.0-beta9" />
       <PackageReference Include="SharpYaml" Version="1.6.6" />
-      <PackageReference Include="ShellProgressBar" Version="5.0.0" />
     </ItemGroup>
 
 </Project>
