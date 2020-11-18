@@ -18,6 +18,7 @@ namespace ReaperKing.Core
             public string Root;
             public string Deployment;
             public string Resources;
+            public string Sitemap;
         }
 
         public struct ResourceConfig

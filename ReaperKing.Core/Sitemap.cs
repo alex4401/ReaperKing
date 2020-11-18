@@ -48,7 +48,7 @@ namespace ReaperKing.Core
                 // of the target page.
                 writer.WriteStartElement("url");
                 writer.WriteStartElement("loc");
-                writer.WriteString(page.Uri);
+                writer.WriteString(Path.Join(ctx.Site.ProjectConfig.Paths.Sitemap, page.Uri));
                 writer.WriteEndElement();
                 writer.WriteEndElement();
             }

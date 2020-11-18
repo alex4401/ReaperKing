@@ -49,12 +49,12 @@ namespace ReaperKing.Core.Plugins
     {
         public static SitemapLocalExclusion OverrideSitemaps(this Site site, bool enable)
         {
-            return new SitemapLocalExclusion(site, enable);
+            return new SitemapLocalExclusion(site, !enable);
         }
         
         public static SitemapLocalExclusion OverrideSitemaps(this SiteContext ctx, bool enable)
         {
-            return new SitemapLocalExclusion(ctx, enable);
+            return new SitemapLocalExclusion(ctx, !enable);
         }
     }
 }
