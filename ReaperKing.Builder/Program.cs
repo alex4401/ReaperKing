@@ -86,14 +86,30 @@ namespace ReaperKing.Builder
             log.LogInformation("Building site content");
             using (log.BeginScope("Pre-build tasks"))
             {
-                if (!SkipPreBuild)
+                var prebuildCmds = project.Build.RunBefore;
+                if (prebuildCmds.Count > 0)
                 {
-                    site.PreBuild();
+                    if (!SkipPreBuild)
+                    {
+                        log.LogInformation("Executing commands scheduled to run before build");
+                        foreach (var cmd in prebuildCmds)
+                        {
+                            log.LogInformation(cmd);
+                            var exitCode = ShellHelper.Run(cmd);
+
+                            if (exitCode != 0)
+                            {
+                                Environment.Exit(exitCode);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        log.LogWarning("The pre-build tasks have been requested to be skipped.");
+                    }
                 }
-                else
-                {
-                    log.LogWarning("The pre-build tasks have been requested to be skipped.");
-                }
+
+                site.PreBuild();
             }
             
             using (log.BeginScope("Build tasks"))
@@ -106,7 +122,7 @@ namespace ReaperKing.Builder
                 site.PostBuild();
             }
         }
-        
+
         /**
          * Finds an assembly in the directory of the site
          * assembly, if the runtime fails to locate one on

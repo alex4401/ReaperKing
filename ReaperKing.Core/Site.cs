@@ -35,23 +35,7 @@ namespace ReaperKing.Core
 
         public virtual void PreBuild()
         {
-            var prebuildCmds = ProjectConfig.Build.RunBefore;
             var nvResources = ProjectConfig.Resources.CopyNonVersioned;
-
-            if (prebuildCmds.Count > 0)
-            {
-                Log.LogInformation("Executing commands scheduled to run before build");
-                foreach (var cmd in prebuildCmds)
-                {
-                    Log.LogInformation(cmd);
-                    var exitCode = ShellHelper.Run(cmd);
-
-                    if (exitCode != 0)
-                    {
-                        Environment.Exit(exitCode);
-                    }
-                }
-            }
 
             if (nvResources.Length > 0)
             {
