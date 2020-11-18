@@ -13,7 +13,7 @@ namespace ReaperKing.Core.Plugins
 
         public override void PostProcessDocument(string uri, ref IntermediateGenerationResult result)
         {
-            if (!IsEnabled)
+            if (!IsEnabled || result.Meta.Extension != "html")
             {
                 return;
             }

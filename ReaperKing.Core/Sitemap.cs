@@ -27,6 +27,7 @@ namespace ReaperKing.Core
             XmlWriter writer = XmlWriter.Create(memStream, new XmlWriterSettings
             {
                 Indent = true,
+                Encoding = Encoding.UTF8,
             });
             
             // Write the UrlSet element as per the schema.
