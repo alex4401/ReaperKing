@@ -20,6 +20,7 @@ namespace ReaperKing.Generation.ARK.Data
 
         public bool PublicIssueTracker;
         public bool WithEpicIni;
+        public bool ExcludeFromSitemaps;
 
         public List<Revision> Revisions;
 

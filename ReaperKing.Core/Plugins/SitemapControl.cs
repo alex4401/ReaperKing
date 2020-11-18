@@ -1,7 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.IO;
-using NUglify;
 
 namespace ReaperKing.Core.Plugins
 {

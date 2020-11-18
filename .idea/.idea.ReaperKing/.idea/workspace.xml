@@ -11,14 +11,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3e958550-64c8-4e73-a9e3-7e8c1e88e10d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ReaperKing.Builder/ConsoleFormatter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ReaperKing/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ReaperKing/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ReaperKing/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ReaperKing/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectReaperKing.Content/data/ark/ca/mod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectReaperKing.Content/data/ark/ca/mod.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectReaperKing.Content/project.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectReaperKing.Content/project.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ReaperKing.Anhydrate/Class1.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReaperKing.Core/PageGenerationResult.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Core/PageGenerationResult.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReaperKing.Core/Site.ModuleSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Core/Site.ModuleSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReaperKing.Core/Site.PageOutput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Core/Site.PageOutput.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReaperKing.StaticConfig/Site.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.StaticConfig/Site.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.Builder/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Builder/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.Core/Plugins/SitemapControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Core/Plugins/SitemapControl.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.Core/Project.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Core/Project.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.Core/Site.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Core/Site.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.Core/Sitemap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Core/Sitemap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.Generation.ARK/Data/ArkTypes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Generation.ARK/Data/ArkTypes.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReaperKing.Generation.ARK/ModContentProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ReaperKing.Generation.ARK/ModContentProvider.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,12 +74,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/ReaperKing.Core/Site.Resources.cs" />
-      <option value="$PROJECT_DIR$/ReaperKing.CommonTemplates/Extensions/SiteCommonTemplatesExtension.cs" />
-      <option value="$PROJECT_DIR$/ReaperKing.Generation.Tools/ToolsContentProvider.cs" />
-      <option value="$PROJECT_DIR$/ReaperKing.CommonTemplates/Extensions/SiteContextRedirectExtension.cs" />
-      <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/wiki/dvJson.cshtml" />
-      <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/wiki/legacyCreatureStats.cshtml" />
       <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/common/layouts/default.cshtml" />
       <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/common/head.cshtml" />
       <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/common/widgets/topbar.cshtml" />
@@ -83,7 +81,6 @@
       <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/wiki/common/includes.cshtml" />
       <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/egs.cshtml" />
       <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/common/widgets/spawnMap/overview.cshtml" />
-      <option value="$PROJECT_DIR$/ReaperKing.Builder/Program.cs" />
       <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/home.cshtml" />
       <option value="$PROJECT_DIR$/ReaperKing.CommonTemplates/Redirect.cs" />
       <option value="$PROJECT_DIR$/ProjectReaperKing.Content/templates/mods/cg/notice.cshtml" />
@@ -111,16 +108,23 @@
       <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/Data/ARK.cs" />
       <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/Data/ARK.Revisions.cs" />
       <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/Data/DataManager.cs" />
-      <option value="$PROJECT_DIR$/ReaperKing.Core/Site.cs" />
       <option value="$PROJECT_DIR$/ReaperKing.Core/Plugins/Sitemap.cs" />
-      <option value="$PROJECT_DIR$/ReaperKing.Core/Site.ModuleSystem.cs" />
-      <option value="$PROJECT_DIR$/ReaperKing.Core/PageGenerationResult.cs" />
-      <option value="$PROJECT_DIR$/ReaperKing.Core/Plugins/DocumentCollection.cs" />
-      <option value="$PROJECT_DIR$/ReaperKing.StaticConfig/Site.cs" />
       <option value="$PROJECT_DIR$/ReaperKing.Builder/ConsoleFormatter.cs" />
       <option value="$PROJECT_DIR$/ReaperKing.Builder/ApplicationLogging.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Core/PageGenerationResult.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Core/Site.ModuleSystem.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Core/Plugins/DocumentCollection.cs" />
       <option value="$PROJECT_DIR$/ReaperKing.Core/Site.PageOutput.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.StaticConfig/Site.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Core/Plugins/SitemapControl.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Core/Site.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Builder/Program.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Core/Project.cs" />
       <option value="$PROJECT_DIR$/ReaperKing.Core/Sitemap.cs" />
+      <option value="$PROJECT_DIR$/ProjectReaperKing.Content/project.yaml" />
+      <option value="$PROJECT_DIR$/ProjectReaperKing.Content/data/ark/ca/mod.yaml" />
+      <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/Data/ArkTypes.cs" />
+      <option value="$PROJECT_DIR$/ReaperKing.Generation.ARK/ModContentProvider.cs" />
     </changedPaths>
   </component>
   <component name="JsFlowSettings">
@@ -272,7 +276,7 @@
       <workItem from="1605641026777" duration="479000" />
       <workItem from="1605644815040" duration="5370000" />
       <workItem from="1605702445802" duration="5194000" />
-      <workItem from="1605727333732" duration="3056000" />
+      <workItem from="1605727333732" duration="10000000" />
     </task>
     <servers />
   </component>

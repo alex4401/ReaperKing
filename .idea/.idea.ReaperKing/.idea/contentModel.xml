@@ -144,6 +144,7 @@
         <e p="PathUtils.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="DocumentCollection.cs" t="Include" />
+          <e p="SitemapControl.cs" t="Include" />
           <e p="UglifyHtml.cs" t="Include" />
         </e>
         <e p="Project.cs" t="Include" />

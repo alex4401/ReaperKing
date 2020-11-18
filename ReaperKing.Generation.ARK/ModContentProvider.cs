@@ -2,6 +2,7 @@ using System.IO;
 using System.Linq;
 
 using ReaperKing.Core;
+using ReaperKing.Core.Plugins;
 using ReaperKing.Generation.ARK.Data;
 
 namespace ReaperKing.Generation.ARK
@@ -21,6 +22,14 @@ namespace ReaperKing.Generation.ARK
 
         public void BuildContent(SiteContext ctx)
         {
+            // Acquire a sitemap exclusion token (temporary state
+            // lock) if mod is unlisted from search engines.
+            SitemapLocalExclusion? sitemapLock = null;
+            if (Info.ExcludeFromSitemaps)
+            {
+                sitemapLock = ctx.OverrideSitemaps(false);
+            }
+            
             using (ctx.AddOptionalTemplateDirectories(new []
             {
                 "templates/mods",
@@ -39,6 +48,9 @@ namespace ReaperKing.Generation.ARK
                     ctx.BuildPage(egs);
                 }
             }
+
+            // Release the sitemap lock if one was acquired.
+            sitemapLock?.Dispose();
         }
 
         public void BuildInteractiveMaps(SiteContext ctx)
