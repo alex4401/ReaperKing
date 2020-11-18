@@ -4,9 +4,11 @@ namespace ReaperKing.Core
 {
     public struct PageGenerationResult
     {
+        public string Extension;
         public string Uri;
         public string Name;
         
+        public string Text;
         public string Template;
         public object Model;
     }
