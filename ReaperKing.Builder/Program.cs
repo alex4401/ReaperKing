@@ -21,9 +21,6 @@ namespace ReaperKing.Builder
         [Argument(order: 0)]
         [Required]
         public string SiteAssemblyName { get; }
-
-        [Option(LongName = "assembly-path")]
-        public string AssemblyPath { get; set; } = "";
         
         [Option(LongName = "environment")]
         [Required]
@@ -32,11 +29,17 @@ namespace ReaperKing.Builder
         // ReSharper restore UnassignedGetOnlyAutoProperty
         #endregion
         #region Options
+        [Option(LongName = "assembly-path")]
+        public string AssemblyPath { get; set; } = "";
+        
         [Option]
         public string DeploymentPath { get; } = "public";
 
         [Option(LongName = "project")]
         public string ProjectFilename { get; } = "project";
+
+        [Option(LongName = "skip-pre-build")]
+        public bool SkipPreBuild { get; } = false;
         #endregion
         
         void OnExecute()
@@ -83,7 +86,14 @@ namespace ReaperKing.Builder
             log.LogInformation("Building site content");
             using (log.BeginScope("Pre-build tasks"))
             {
-                site.PreBuild();
+                if (!SkipPreBuild)
+                {
+                    site.PreBuild();
+                }
+                else
+                {
+                    log.LogWarning("The pre-build tasks have been requested to be skipped.");
+                }
             }
             
             using (log.BeginScope("Build tasks"))
@@ -97,6 +107,15 @@ namespace ReaperKing.Builder
             }
         }
         
+        /**
+         * Finds an assembly in the directory of the site
+         * assembly, if the runtime fails to locate one on
+         * its own.
+         *
+         * Not exactly safe, but given that the Static Config
+         * assembly is already loaded and this is a fallback,
+         * there's not much to lose.
+         */
         public Assembly LoadAssemblyInCustomSearchPath(object sender, ResolveEventArgs args)
         {
             Assembly result = null;
@@ -114,6 +133,10 @@ namespace ReaperKing.Builder
             return result;
         }
 
+        /**
+         * Finds a class with the SiteAttribute in an assembly.
+         * Only one is permitted per assembly.
+         */
         Type GetSiteClassFromAssembly(Assembly siteAssembly)
         {
             foreach (Type type in siteAssembly.GetTypes()) {
@@ -126,24 +149,39 @@ namespace ReaperKing.Builder
             return null;
         }
 
+        /**
+         * Loads a project environment configuration while taking
+         * care of the basing.
+         * 
+         * Rather expensive, as a single call may parse each
+         * tree node (file) twice, but there's not much reason
+         * to optimize it at the moment as this method is
+         * expected to be rarely executed in program's lifetime.
+         */
         Project SetProjectEnvironment(Project project, string environmentName)
         {
+            // Load requested project to check its inheritance.
             string filename = $"{ProjectFilename}.{environmentName}.yaml";
             Project environment = ParsingUtils.ReadYamlFile<Project>(filename);
 
+            // Load base configuration if one is specified
             if (!String.IsNullOrEmpty(environment.Inherits) && environment.Inherits != "base")
             {
                 project = SetProjectEnvironment(project, environment.Inherits);
             }
 
+            // Load requested project while overriding existing
+            // fields.
             project = ParsingUtils.ReadYamlFile<Project>(filename, project);
             
+            // Append pre-build commands
             if (project.Build.AddRunBeforeCmds != null && project.Build.AddRunBeforeCmds.Length > 0)
             {
                 project.Build.RunBefore.AddRange(project.Build.AddRunBeforeCmds);
                 project.Build.AddRunBeforeCmds = null;
             }
             
+            // Append defines
             if (project.Build.AddDefines != null && project.Build.AddDefines.Length > 0)
             {
                 project.Build.Define.AddRange(project.Build.AddDefines);
