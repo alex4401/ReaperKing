@@ -26,23 +26,22 @@ namespace ReaperKing.StaticConfig
 
         public override void Build()
         {
+            AddModule(new RkSitemapExclusionModule(this));
             AddModule(new RkUglifyModule(this));
             AddModule(new RkDocumentCollectionModule(this));
             
             this.EnableCommonTemplates();
             //this.EnableAnhydrateTemplates();
             
-            var dataManager = DataManagerARK.Instance;
-            
             Log.LogInformation("Building ARK tools");
-            {
+            using (this.OverrideSitemaps(false)) {
                 BuildWithProvider(new ToolsContentProvider(), "/ark/tools");
                 BuildWithProvider(new ToolsRedirectsProvider(), "/wiki/tools");
             }
 
             Log.LogInformation("Building ARK mod content");
             {
-                foreach (string modTag in dataManager.LoadedMods.Keys)
+                foreach (string modTag in DataManagerARK.Instance.LoadedMods.Keys)
                 {
                     var uri = Path.Join("/ark", modTag);
                     var generator = new ModContentProvider(modTag);

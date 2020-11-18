@@ -80,8 +80,13 @@
       <e p="ProjectReaperKing.Content/js/node_modules/webpack-cli" t="IncludeRecursive" />
       <e p="ProjectReaperKing.Content/js/node_modules/webpack-merge" t="IncludeRecursive" />
       <e p="ReaperKing.Anhydrate" t="IncludeRecursive">
-        <e p="Class1.cs" t="Include" />
+        <e p="Extensions" t="Include">
+          <e p="SiteAnhydrateExtension.cs" t="Include" />
+        </e>
         <e p="ReaperKing.Anhydrate.csproj" t="IncludeRecursive" />
+        <e p="Templates" t="Include">
+          <e p="Layouts" t="Include" />
+        </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -93,6 +98,7 @@
       </e>
       <e p="ReaperKing.Builder" t="IncludeRecursive">
         <e p="ApplicationLogging.cs" t="Include" />
+        <e p="ConsoleFormatter.cs" t="Include" />
         <e p="Program.cs" t="Include" />
         <e p="ReaperKing.Builder.csproj" t="IncludeRecursive" />
         <e p="bin" t="ExcludeRecursive" />
@@ -112,6 +118,7 @@
         <e p="Models" t="Include">
           <e p="RedirectModel.cs" t="Include" />
         </e>
+        <e p="ReaperKing.CommonTemplates" t="Include" />
         <e p="ReaperKing.CommonTemplates.csproj" t="IncludeRecursive" />
         <e p="Redirect.cs" t="Include" />
         <e p="Templates" t="Include">
@@ -135,21 +142,30 @@
         <e p="PageGenerationResult.cs" t="Include" />
         <e p="Parsing.cs" t="Include" />
         <e p="PathUtils.cs" t="Include" />
+        <e p="Plugins" t="Include">
+          <e p="DocumentCollection.cs" t="Include" />
+          <e p="UglifyHtml.cs" t="Include" />
+        </e>
         <e p="Project.cs" t="Include" />
         <e p="Razor" t="Include">
           <e p="RazorScopedFilesystemProject.cs" t="Include" />
         </e>
         <e p="ReaperKing.Core.csproj" t="IncludeRecursive" />
         <e p="Reflection.cs" t="Include" />
+        <e p="RkDocumentProcessorModule.cs" t="Include" />
+        <e p="RkModule.cs" t="Include" />
         <e p="SharpYamlExt" t="Include">
           <e p="CamelCaseNamingConvention.cs" t="Include" />
         </e>
         <e p="ShellHelper.cs" t="Include" />
         <e p="Site.Building.cs" t="Include" />
+        <e p="Site.ModuleSystem.cs" t="Include" />
+        <e p="Site.PageOutput.cs" t="Include" />
         <e p="Site.Razor.cs" t="Include" />
         <e p="Site.Resources.cs" t="Include" />
         <e p="Site.cs" t="Include" />
         <e p="SiteContext.cs" t="Include" />
+        <e p="Sitemap.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
