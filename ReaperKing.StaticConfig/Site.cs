@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 
 using ReaperKing.Core;
 using ReaperKing.CommonTemplates.Extensions;
+using ReaperKing.Anhydrate.Extensions;
 using ReaperKing.Core.Plugins;
 using ReaperKing.Generation.ARK;
 using ReaperKing.Generation.ARK.Data;
@@ -26,7 +27,10 @@ namespace ReaperKing.StaticConfig
         public override void Build()
         {
             AddModule(new RkUglifyModule(this));
+            AddModule(new RkDocumentCollectionModule(this));
+            
             this.EnableCommonTemplates();
+            //this.EnableAnhydrateTemplates();
             
             var dataManager = DataManagerARK.Instance;
             
@@ -44,6 +48,12 @@ namespace ReaperKing.StaticConfig
                     var generator = new ModContentProvider(modTag);
                     BuildWithProvider(generator, uri);
                 }
+            }
+
+            Log.LogInformation("Creating a sitemap");
+            {
+                var module = GetModuleInstance<RkDocumentCollectionModule>();
+                BuildPage(new SitemapGenerator(module));
             }
         }
     }

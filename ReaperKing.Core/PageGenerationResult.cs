@@ -7,6 +7,7 @@ namespace ReaperKing.Core
         public string Extension;
         public string Uri;
         public string Name;
+        public bool SkipInSitemap;
         
         public string Text;
         public string Template;
