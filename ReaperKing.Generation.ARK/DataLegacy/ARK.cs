@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Extensions.Logging;
@@ -6,6 +7,7 @@ using Microsoft.Extensions.Logging;
 
 namespace ReaperKing.Generation.ARK.Data
 {
+    [Obsolete("DataManager will soon be replaced with Noglin.")]
     public partial class DataManagerARK : DataManager
     {
         public static readonly DataManagerARK Instance = new DataManagerARK();

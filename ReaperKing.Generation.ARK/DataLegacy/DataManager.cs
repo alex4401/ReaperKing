@@ -7,6 +7,7 @@ using ReaperKing.Core;
 
 namespace ReaperKing.Generation.ARK.Data
 {
+    [Obsolete("DataManager will soon be replaced with Noglin.")]
     public abstract class DataManager
     {
         protected Package PackageInfo;

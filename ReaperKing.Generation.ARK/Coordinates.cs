@@ -1,10 +1,12 @@
-namespace ReaperKing.Generation.ARK.Data
+using ReaperKing.Generation.ARK.Data;
+
+namespace ReaperKing.Generation.ARK
 {
     public static class CoordUtils
     {
         public static float ConvertCentimetersToGeo(float centimeters,
-                                                    float worldOrigin,
-                                                    float axisScale)
+            float worldOrigin,
+            float axisScale)
         {
             // Reference: Purlovia, export.wiki.maps.common.get_latlong_from_location
             //                      export.wiki.maps.gathering_complex.WorldSettingsExport.extract
@@ -12,8 +14,7 @@ namespace ReaperKing.Generation.ARK.Data
         }
 
         // ReSharper disable once InconsistentNaming
-        public static WorldLocation5 ConvertXYZToGeo(WorldLocation3 location,
-                                                     MapInfo.GeoInfo geoInfo)
+        public static WorldLocation5 ConvertXYZToGeo(WorldLocation3 location, MapInfo.GeoInfo geoInfo)
         {
             return new WorldLocation5
             {
