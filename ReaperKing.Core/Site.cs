@@ -9,7 +9,7 @@ namespace ReaperKing.Core
 {
     public abstract partial class Site
     {
-        internal static Site Instance = null;
+        public static Site Instance = null;
         
         public Project ProjectConfig;
         public ILogger Log;
