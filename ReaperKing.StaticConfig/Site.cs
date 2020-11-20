@@ -29,7 +29,12 @@ namespace ReaperKing.StaticConfig
             AddModule(new RkSitemapExclusionModule(this));
             AddModule(new RkUglifyModule(this));
             AddModule(new RkDocumentCollectionModule(this));
-            
+
+            if (IsProjectConstantDefined("WIP_IMAGE_OPTIMIZATION"))
+            {
+                AddModule(new RkImageOptimizationModule(this));
+            }
+
             this.EnableCommonTemplates();
             //this.EnableAnhydrateTemplates();
             
