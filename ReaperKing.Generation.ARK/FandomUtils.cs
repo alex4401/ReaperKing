@@ -3,6 +3,7 @@ using System.IO;
 using System.Net;
 using System.Security.Cryptography;
 using System.Text;
+using Microsoft.Extensions.Logging;
 
 using ReaperKing.Core;
 using ReaperKing.Generation.ARK.Data;
@@ -98,14 +99,17 @@ namespace ReaperKing.Generation.ARK
             string name = info.Name.Substring(0, info.Name.Length - ext.Length);
             string publicKey = $"{info.Bucket}/{name}-[hash]{ext}";
             string resourceUri = $"/mirror/{publicKey}";
-
-            string localKey = Path.Join(info.Bucket, $"{name}{info.X}{info.Version}{ext}");
-            string diskPath = Path.Join("resources", localKey);
+            
+            string localKey = Path.Join("_cache", info.Bucket, $"{name}-{info.X}px{info.Version}{ext}");
+            string diskPath = Path.Join(Site.Instance.ContentRoot, "resources", localKey);
+            
             if (!File.Exists(diskPath))
             {
+                Directory.CreateDirectory(Path.GetDirectoryName(diskPath));
+                
                 using (var client = new WebClient())
                 {
-                    Directory.CreateDirectory(Path.GetDirectoryName(diskPath));
+                    Site.Instance.Log.LogInformation($"Downloading {name} ({info.X}px) from Fandom");
                     client.DownloadFile(origin, diskPath);
                 }
             }
