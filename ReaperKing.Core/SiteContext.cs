@@ -48,7 +48,7 @@ namespace ReaperKing.Core
 
         public bool IsConstantDefined(string id)
         {
-            return Site.ProjectConfig.Build.Define != null && Site.ProjectConfig.Build.Define.Contains(id);
+            return Site.IsProjectConstantDefined(id);
         }
         
         [Obsolete("AcquireBaseModel is going to be removed soon. Switch to the class-based model.")]

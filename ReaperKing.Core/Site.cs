@@ -33,6 +33,11 @@ namespace ReaperKing.Core
                 .Build();
         }
 
+        public bool IsProjectConstantDefined(string id)
+        {
+            return ProjectConfig.Build.Define != null && ProjectConfig.Build.Define.Contains(id);
+        }
+
         public virtual void PreBuild()
         {
             var nvResources = ProjectConfig.Resources.CopyNonVersioned;
