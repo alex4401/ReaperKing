@@ -1,6 +1,3 @@
-using System.Diagnostics;
-using System.Drawing;
-using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using Microsoft.Extensions.Logging;
@@ -61,14 +58,16 @@ namespace ReaperKing.Core.Plugins
 
                             if (_invokeConvert(filePath, optimizedPath))
                             {
-                                ProcessResource(optimizedPath, ref diskPath, ref uri);
+                                uri = uri.Substring(0, uri.Length - Path.GetExtension(uri).Length) + ".jpg";
+                                diskPath = optimizedPath;
+
+                                ProcessResource(Path.Join("resources/_cache", cacheKey), ref diskPath, ref uri);
                                 return;
                             }
 
                             Log.LogWarning($"Failed to convert non-transparent PNG \"{resourceKey}\" to a JPEG file. Falling back to Oxipng.");
                         }
                         
-                        Log.LogInformation($"Resource \"{resourceKey}\" contains transparent pixels. Format will be kept.");
                         success = _invokeOxipng(filePath, optimizedPath);
                         break;
                     
