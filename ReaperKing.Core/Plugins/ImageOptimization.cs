@@ -1,7 +1,7 @@
-using System;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using Microsoft.Extensions.Logging;
 
 namespace ReaperKing.Core.Plugins
 {
@@ -10,9 +10,10 @@ namespace ReaperKing.Core.Plugins
         public bool UseOxipng { get; } = true;
         public string OxipngBinaryPath { get; } = "/usr/bin/oxipng";
         public int PngCompressionLevel { get; } = 3;
-        
-        public bool UseMozJpeg { get; }
-        public string MozJpegBinaryPath { get; }
+
+        public bool UseMozJpeg { get; } = true;
+        public string JpegRecompressBinaryPath { get; } = "/usr/bin/jpeg-recompress";
+        public int JpegMinCompressionLevel { get; } = 60;
         
         public string CacheDirectory { get; }
 
@@ -38,7 +39,7 @@ namespace ReaperKing.Core.Plugins
                 StartInfo = new ProcessStartInfo
                 {
                     FileName = OxipngBinaryPath,
-                    Arguments = $"-o {PngCompressionLevel} \"{source}\" --out \"{target}\"",
+                    Arguments = $"--strip safe -o {PngCompressionLevel} \"{source}\" --out \"{target}\"",
                     RedirectStandardOutput = true,
                     UseShellExecute = false,
                     CreateNoWindow = true,
@@ -50,6 +51,31 @@ namespace ReaperKing.Core.Plugins
             return process.ExitCode == 0;
         }
 
+        private bool _invokeJpegRecompress(string source, string target)
+        {
+            if (!UseMozJpeg)
+            {
+                return false;
+            }
+            
+            var process = new Process()
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    FileName = JpegRecompressBinaryPath,
+                    Arguments = $"-s -a -q high -m smallfry -n {JpegMinCompressionLevel} -l 10 \"{source}\" \"{target}\"",
+                    RedirectStandardOutput = true,
+                    UseShellExecute = false,
+                    CreateNoWindow = true,
+                }
+            };
+            
+            process.Start();
+            process.WaitForExit();
+            return process.ExitCode == 0;
+        }
+
+        
         public override void ProcessResource(string filePath, ref string diskPath, ref string uri)
         {
             // Check if the file is located within the resources directory
@@ -64,7 +90,6 @@ namespace ReaperKing.Core.Plugins
             string extension = Path.GetExtension(filePath)?.Substring(1);
             string fileDir = Path.GetDirectoryName(filePath);
             
-            Console.WriteLine(filePath);
             // Check if the file extension is allowed
             if (!AllowedFileExtensions.Contains(extension))
             {
@@ -76,21 +101,28 @@ namespace ReaperKing.Core.Plugins
 
             if (!File.Exists(optimizedPath))
             {
+                Log.LogInformation($"Compressing image: \"{resourceKey}\"");
+
                 bool success = false;
                 switch (extension)
                 {
                     case "png":
                         success = _invokeOxipng(filePath, optimizedPath);
                         break;
-                
+                    
+                    case "jpeg":
+                    case "jpg":
+                        success = _invokeJpegRecompress(filePath, optimizedPath);
+                        break;
+
                     default:
-                        // log: unknown extension
+                        Log.LogWarning("A file extension has been included for image optimization, but no optimizer is implemented.");
                         break;
                 }
 
                 if (!success)
                 {
-                    // log: failure
+                    Log.LogError($"Failed to optimize \"{resourceKey}\": see above for more information. Original resource will be used.");
                     return;
                 }
             }

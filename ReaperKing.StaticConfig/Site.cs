@@ -15,6 +15,20 @@ namespace ReaperKing.StaticConfig
     // ReSharper disable once UnusedType.Global
     public class RkSiteBuildRecipe : Site
     {
+        public override void Initialize(Project project, ILogger logger)
+        {
+            base.Initialize(project, logger);
+            
+            AddModule(new RkSitemapExclusionModule(this));
+            AddModule(new RkUglifyModule(this));
+            AddModule(new RkDocumentCollectionModule(this));
+
+            if (IsProjectConstantDefined("WIP_IMAGE_OPTIMIZATION"))
+            {
+                AddModule(new RkImageOptimizationModule(this));
+            }
+        }
+
         public override void PreBuild()
         {
             base.PreBuild();
@@ -26,14 +40,6 @@ namespace ReaperKing.StaticConfig
 
         public override void Build()
         {
-            AddModule(new RkSitemapExclusionModule(this));
-            AddModule(new RkUglifyModule(this));
-            AddModule(new RkDocumentCollectionModule(this));
-
-            if (IsProjectConstantDefined("WIP_IMAGE_OPTIMIZATION"))
-            {
-                AddModule(new RkImageOptimizationModule(this));
-            }
 
             this.EnableCommonTemplates();
             //this.EnableAnhydrateTemplates();
