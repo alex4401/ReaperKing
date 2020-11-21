@@ -68,6 +68,7 @@ namespace ReaperKing.Core.Plugins
                             Log.LogWarning($"Failed to convert non-transparent PNG \"{resourceKey}\" to a JPEG file. Falling back to Oxipng.");
                         }
                         
+                        Log.LogInformation($"Resource \"{resourceKey}\" contains transparent pixels. Format will be kept.");
                         success = _invokeOxipng(filePath, optimizedPath);
                         break;
                     
