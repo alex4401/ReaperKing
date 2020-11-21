@@ -1,20 +1,15 @@
 using System.Diagnostics;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using Microsoft.Extensions.Logging;
 
 namespace ReaperKing.Core.Plugins
 {
-    public class RkImageOptimizationModule : RkResourceProcessorModule
+    public partial class RkImageOptimizationModule : RkResourceProcessorModule
     {
-        public bool UseOxipng { get; } = true;
-        public string OxipngBinaryPath { get; } = "/usr/bin/oxipng";
-        public int PngCompressionLevel { get; } = 3;
-
-        public bool UseMozJpeg { get; } = true;
-        public string JpegRecompressBinaryPath { get; } = "/usr/bin/jpeg-recompress";
-        public int JpegMinCompressionLevel { get; } = 60;
-        
+        public const int CacheVersion = 2;
         public string CacheDirectory { get; }
 
         public string[] AllowedFileExtensions { get; } = {
@@ -26,55 +21,6 @@ namespace ReaperKing.Core.Plugins
             CacheDirectory = Path.Join(Site.ContentRoot, "resources", "_cache");
             Directory.CreateDirectory(CacheDirectory);
         }
-
-        private bool _invokeOxipng(string source, string target)
-        {
-            if (!UseOxipng)
-            {
-                return false;
-            }
-            
-            var process = new Process()
-            {
-                StartInfo = new ProcessStartInfo
-                {
-                    FileName = OxipngBinaryPath,
-                    Arguments = $"--strip safe -o {PngCompressionLevel} \"{source}\" --out \"{target}\"",
-                    RedirectStandardOutput = true,
-                    UseShellExecute = false,
-                    CreateNoWindow = true,
-                }
-            };
-            
-            process.Start();
-            process.WaitForExit();
-            return process.ExitCode == 0;
-        }
-
-        private bool _invokeJpegRecompress(string source, string target)
-        {
-            if (!UseMozJpeg)
-            {
-                return false;
-            }
-            
-            var process = new Process()
-            {
-                StartInfo = new ProcessStartInfo
-                {
-                    FileName = JpegRecompressBinaryPath,
-                    Arguments = $"-s -a -q high -m smallfry -n {JpegMinCompressionLevel} -l 10 \"{source}\" \"{target}\"",
-                    RedirectStandardOutput = true,
-                    UseShellExecute = false,
-                    CreateNoWindow = true,
-                }
-            };
-            
-            process.Start();
-            process.WaitForExit();
-            return process.ExitCode == 0;
-        }
-
         
         public override void ProcessResource(string filePath, ref string diskPath, ref string uri)
         {
@@ -96,7 +42,7 @@ namespace ReaperKing.Core.Plugins
                 return;
             }
             
-            string cacheKey = HashUtils.GetSha256HashOfString(resourceKey) + "." + extension;
+            string cacheKey = HashUtils.GetSha256HashOfString(resourceKey + CacheVersion) + "." + extension;
             string optimizedPath = Path.Join(CacheDirectory, cacheKey);
 
             if (!File.Exists(optimizedPath))
@@ -107,6 +53,21 @@ namespace ReaperKing.Core.Plugins
                 switch (extension)
                 {
                     case "png":
+                        bool usesTransparency = _hasAlphaChannel(filePath);
+                        if (!usesTransparency)
+                        {
+                            cacheKey = HashUtils.GetSha256HashOfString(resourceKey + CacheVersion) + ".jpg";
+                            optimizedPath = Path.Join(CacheDirectory, cacheKey);
+
+                            if (_invokeConvert(filePath, optimizedPath))
+                            {
+                                ProcessResource(optimizedPath, ref diskPath, ref uri);
+                                return;
+                            }
+
+                            Log.LogWarning($"Failed to convert non-transparent PNG \"{resourceKey}\" to a JPEG file. Falling back to Oxipng.");
+                        }
+                        
                         success = _invokeOxipng(filePath, optimizedPath);
                         break;
                     
