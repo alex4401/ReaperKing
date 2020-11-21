@@ -10,7 +10,7 @@ namespace ReaperKing.Core.Plugins
     public partial class RkImageOptimizationModule : RkResourceProcessorModule
     {
         public bool UseMozJpeg { get; } = true;
-        public string JpegRecompressBinaryPath { get; } = "/usr/bin/jpeg-recompress";
+        public string JpegRecompressBinaryPath { get; } = "jpeg-recompress";
         public int JpegMinCompressionLevel { get; } = 60;
         
         private bool _invokeJpegRecompress(string source, string target)

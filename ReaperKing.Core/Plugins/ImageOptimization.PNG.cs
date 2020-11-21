@@ -10,7 +10,7 @@ namespace ReaperKing.Core.Plugins
     public partial class RkImageOptimizationModule : RkResourceProcessorModule
     {
         public bool UseOxipng { get; } = true;
-        public string OxipngBinaryPath { get; } = "/usr/bin/oxipng";
+        public string OxipngBinaryPath { get; } = "oxipng";
         public int PngCompressionLevel { get; } = 3;
         
         private bool _invokeOxipng(string source, string target)

@@ -15,7 +15,7 @@ namespace ReaperKing.Core.Plugins
             {
                 StartInfo = new ProcessStartInfo
                 {
-                    FileName = "/usr/bin/convert",
+                    FileName = "convert",
                     Arguments = $"\"{source}\" \"{target}\"",
                     RedirectStandardOutput = true,
                     UseShellExecute = false,
