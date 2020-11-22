@@ -10,7 +10,7 @@ namespace ReaperKing.Generation.Tools
             return new PageGenerationResult
             {
                 Name = "color-table",
-                Template = "wiki/colorTable.cshtml",
+                Template = "/ARKTools/colorTable.cshtml",
                 Model = new ToolModel(ctx)
                 {
                     SiteName = "Wiki Tools",

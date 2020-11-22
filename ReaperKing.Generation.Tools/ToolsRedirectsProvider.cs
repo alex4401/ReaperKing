@@ -10,7 +10,6 @@ namespace ReaperKing.Generation.Tools
         {
             string root = ctx.Site.ProjectConfig.Paths.Root;
             
-            ctx.RedirectPage("dv-json", Path.Join(root, "ark/tools/dv-json.html"));
             ctx.RedirectPage("color-table", Path.Join(root, "ark/tools/color-table.html"));
             ctx.RedirectPage("creature-stats", Path.Join(root, "ark/tools/creature-stats.html"));
             ctx.RedirectPage("legacy", "stats", Path.Join(root, "ark/tools/legacy/stats.html"));

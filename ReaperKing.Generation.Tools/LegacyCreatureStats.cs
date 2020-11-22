@@ -11,7 +11,7 @@ namespace ReaperKing.Generation.Tools
             {
                 Uri = "legacy",
                 Name = "stats",
-                Template = "wiki/legacyCreatureStats.cshtml",
+                Template = "/ARKTools/legacyCreatureStats.cshtml",
                 Model = new ToolModel(ctx)
                 {
                     SiteName = "Legacy Tools",

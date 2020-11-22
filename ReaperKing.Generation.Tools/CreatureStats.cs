@@ -10,7 +10,7 @@ namespace ReaperKing.Generation.Tools
             return new PageGenerationResult
             {
                 Name = "creature-stats",
-                Template = "wiki/creatureStats.cshtml",
+                Template = "/ARKTools/creatureStats.cshtml",
                 Model = new ToolModel(ctx)
                 {
                     SiteName = "Wiki Tools",
