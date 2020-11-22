@@ -1,4 +1,4 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReaperKing.StaticConfig", "ReaperKing.StaticConfig\ReaperKing.StaticConfig.csproj", "{E6F52C23-9E60-4666-9F3A-A38D1039869A}"
 EndProject
@@ -13,6 +13,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReaperKing.Anhydrate", "ReaperKing.Anhydrate\ReaperKing.Anhydrate.csproj", "{871FC3F2-BEBB-4A62-9E87-A08C7DEFFA07}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReaperKing.CommonTemplates", "ReaperKing.CommonTemplates\ReaperKing.CommonTemplates.csproj", "{7BAF9082-99A2-4821-BF98-C028EDA53015}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReaperKing.Plugins.ImageOptimization", "ReaperKing.Plugins.ImageOptimization\ReaperKing.Plugins.ImageOptimization.csproj", "{BA321F63-5D71-49E4-B005-950BFFAEDD80}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,5 +50,9 @@ Global
 		{7BAF9082-99A2-4821-BF98-C028EDA53015}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BAF9082-99A2-4821-BF98-C028EDA53015}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BAF9082-99A2-4821-BF98-C028EDA53015}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA321F63-5D71-49E4-B005-950BFFAEDD80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA321F63-5D71-49E4-B005-950BFFAEDD80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA321F63-5D71-49E4-B005-950BFFAEDD80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA321F63-5D71-49E4-B005-950BFFAEDD80}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

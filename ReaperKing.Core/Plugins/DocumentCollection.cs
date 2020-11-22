@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 
-namespace ReaperKing.Core.Plugins
+using ReaperKing.Core;
+
+namespace ReaperKing.Plugins
 {
     public struct DocumentMetadata
     {

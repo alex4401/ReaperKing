@@ -1,11 +1,10 @@
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.IO;
-using System.Linq;
-using Microsoft.Extensions.Logging;
 
-namespace ReaperKing.Core.Plugins
+using ReaperKing.Core;
+
+namespace ReaperKing.Plugins
 {
     public partial class RkImageOptimizationModule : RkResourceProcessorModule
     {

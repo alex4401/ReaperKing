@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <RootNamespace>ReaperKing.Core.Plugins.ImageOptimization</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ReaperKing.Core\ReaperKing.Core.csproj" />
+    </ItemGroup>
+
+</Project>

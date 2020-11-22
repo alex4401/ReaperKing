@@ -2,7 +2,7 @@ using System.IO;
 using System.Text;
 using System.Xml;
 
-using ReaperKing.Core.Plugins;
+using ReaperKing.Plugins;
 
 namespace ReaperKing.Core
 {

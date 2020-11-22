@@ -1,6 +1,8 @@
 using System;
 
-namespace ReaperKing.Core.Plugins
+using ReaperKing.Core;
+
+namespace ReaperKing.Plugins
 {
     public struct SitemapLocalExclusion : IDisposable
     {

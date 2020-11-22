@@ -2,8 +2,8 @@ using System.IO;
 using System.Linq;
 
 using ReaperKing.Core;
-using ReaperKing.Core.Plugins;
 using ReaperKing.Generation.ARK.Data;
+using ReaperKing.Plugins;
 
 namespace ReaperKing.Generation.ARK
 {
