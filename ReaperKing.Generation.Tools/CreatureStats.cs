@@ -13,7 +13,7 @@ namespace ReaperKing.Generation.Tools
                 Template = "/ARKTools/creatureStats.cshtml",
                 Model = new ToolModel(ctx)
                 {
-                    SiteName = "Wiki Tools",
+                    SiteName = "ARK Tools",
                     DisplayTitle = "{{CreatureStats}}",
                 },
             };

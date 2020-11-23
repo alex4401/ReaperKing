@@ -13,6 +13,7 @@ namespace ReaperKing.Generation.Tools
                 ctx.BuildPage(new LegacyCreatureStats());
                 ctx.BuildPage(new CreatureStats());
                 ctx.BuildPage(new ColorTable());
+                ctx.BuildPage(new VexApplication());
             }
         }
     }
