@@ -34,7 +34,7 @@ namespace ReaperKing.Generation.ARK
                     Model = new InteractiveMapModel(ctx)
                     {
                         SiteName = _arkMod.Name,
-                        DisplayTitle = $"{_arkMod.Name}, interactive spawning maps",
+                        DisplayTitle = $"{_arkMap.Name}, spawn maps — {_arkMod.Name}",
                         ModInfo = _arkMod,
                         Map = _arkMap,
                         Revision = _arkMod.Revisions[_revisionId],
