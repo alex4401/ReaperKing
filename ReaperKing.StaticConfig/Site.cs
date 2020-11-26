@@ -18,6 +18,9 @@ namespace ReaperKing.StaticConfig
         public RkSiteBuildRecipe(Project project, ILogger logger)
             : base(project, logger)
         {
+            // HACK: Compatibility.
+            FandomUtils.SiteInstance = this;
+            
             AddModule(new RkSitemapExclusionModule(this));
             AddModule(new RkUglifyModule(this));
             AddModule(new RkDocumentCollectionModule(this));

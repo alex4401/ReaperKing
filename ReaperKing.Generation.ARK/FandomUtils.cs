@@ -12,6 +12,9 @@ namespace ReaperKing.Generation.ARK
 {
     public static class FandomUtils
     {
+        [Obsolete("This is a temporary replacement for Site.Instance which has been removed. Do not use in new code.")]
+        public static Site SiteInstance;
+        
         public static string GetMd5HashOfString(string data)
         {
             byte[] encoded = new UTF8Encoding().GetBytes(data);
@@ -101,7 +104,7 @@ namespace ReaperKing.Generation.ARK
             string resourceUri = $"/mirror/{publicKey}";
             
             string localKey = Path.Join("_cache", info.Bucket, $"{name}-{info.X}px{info.Version}{ext}");
-            string diskPath = Path.Join(Site.Instance.ContentRoot, "resources", localKey);
+            string diskPath = Path.Join(SiteInstance.ContentRoot, "resources", localKey);
             
             if (!File.Exists(diskPath))
             {
@@ -109,7 +112,7 @@ namespace ReaperKing.Generation.ARK
                 
                 using (var client = new WebClient())
                 {
-                    Site.Instance.Log.LogInformation($"Downloading {name} ({info.X}px) from Fandom");
+                    SiteInstance.Log.LogInformation($"Downloading {name} ({info.X}px) from Fandom");
                     client.DownloadFile(origin, diskPath);
                 }
             }

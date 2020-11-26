@@ -2,26 +2,10 @@ using System;
 
 namespace ReaperKing.Core
 {
-    [Obsolete("Use TemplateDefaultMount for fallback mounts, or TemplateNamespaceMount for scoped mounts.")]
-    public struct DisposableTemplateRoot : IDisposable
-    {
-        private TemplateDefaultMount _m;
-
-        public DisposableTemplateRoot(Site site, string root)
-            : this(site, new [] { root })
-        { }
-
-        public DisposableTemplateRoot(Site site, string[] roots)
-        {
-            _m = new TemplateDefaultMount(site, roots);
-        }
-        
-        public void Dispose()
-        {
-            _m.Dispose();
-        }
-    }
-    
+    /**
+     * Registers a mount on default include namespace for its
+     * lifetime.
+     */
     public struct TemplateDefaultMount : IDisposable
     {
         private Site _site;
@@ -54,6 +38,10 @@ namespace ReaperKing.Core
         }
     }
     
+    /**
+     * Registers a mount on a specific include namespace for its
+     * lifetime.
+     */
     public struct TemplateNamespaceMount : IDisposable
     {
         private Site _site;

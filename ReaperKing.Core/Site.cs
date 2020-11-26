@@ -9,9 +9,6 @@ namespace ReaperKing.Core
 {
     public abstract partial class Site
     {
-        [Obsolete("This field will be removed soon.")]
-        public static Site Instance = null;
-        
         public Project ProjectConfig { get; }
         public ILogger Log { get; }
         public string ContentRoot => ProjectConfig.ContentDirectory;
@@ -28,12 +25,10 @@ namespace ReaperKing.Core
         /**
          * Instance of the RazorLight engine.
          */
-        public RazorLightEngine RazorEngine { get; private set; }
+        public RazorLightEngine RazorEngine { get; }
 
         public Site(Project project, ILogger logger)
         {
-            Instance = this;
-            
             ProjectConfig = project;
             Log = logger;
             

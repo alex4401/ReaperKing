@@ -39,20 +39,6 @@ namespace ReaperKing.Core
         public void RemoveTemplateNamespace(string ns, string root)
             => Site.RemoveTemplateNamespace(ns, root);
         #endregion
-        #region Obsolete Template Include Path Management Methods
-        [Obsolete("Replaced with AddTemplateDefaultIncludePath")]
-        public void AddStrictTemplateDirectory(string root)
-            => Site.AddTemplateDefaultIncludePath(root);
-        [Obsolete("Replaced with TryAddTemplateDefaultIncludePath")]
-        public TemplateDefaultMount AddOptionalTemplateDirectory(string root)
-            => TryAddTemplateDefaultIncludePath(root);
-        [Obsolete("Replaced with TryAddTemplateDefaultIncludePaths")]
-        public TemplateDefaultMount AddOptionalTemplateDirectories(string[] roots)
-            => TryAddTemplateDefaultIncludePaths(roots);
-        [Obsolete("Replaced with RemoveTemplateDefaultIncludePath")]
-        public void RemoveTemplateDirectory(string root)
-            => RemoveTemplateDefaultIncludePath(root);
-        #endregion
 
         #region Building Methods
         public void BuildPage(IPageGenerator generator, string uri = null)
@@ -85,12 +71,6 @@ namespace ReaperKing.Core
             return Site.ProjectConfig.Paths.Root != "/"
                     ? Path.Join(Site.ProjectConfig.Paths.Root, PathPrefix)
                     : PathPrefix;
-        }
-
-        [Obsolete("AcquireBaseModel is going to be removed soon. Switch to the class-based model.")]
-        public BaseModel AcquireBaseModel(string siteName, string displayTitle) 
-        {
-            return new BaseModel(this);
         }
     }
 }
