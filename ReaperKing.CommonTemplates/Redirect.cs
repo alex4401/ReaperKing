@@ -5,13 +5,13 @@ namespace ReaperKing.CommonTemplates
 {
     public class RedirectGenerator : IPageGenerator
     {
-        public string Uri { get; set; }
-        public string Name { get; set; }
-        public string TargetUrl { get; set; }
+        public string Uri { get; init; }
+        public string Name { get; init; }
+        public string TargetUrl { get; init; }
         
         public PageGenerationResult Generate(SiteContext ctx)
         {
-            return new PageGenerationResult()
+            return new()
             {
                 Uri = Uri,
                 Name = Name,

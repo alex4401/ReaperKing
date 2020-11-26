@@ -23,17 +23,17 @@ using System;
 namespace SharpYaml.Serialization
 {
     /// <summary>
-    /// A naming convention where all members are outputed in camelCase.
+    /// A naming convention where all members are outputted in camelCase.
     /// </summary>
     public class CamelCaseNamingConvention : IMemberNamingConvention
     {
-        private static readonly Char[] boundary = new[] { '_' };
+        private static readonly Char[] Boundary = new[] { '_' };
 
-        public StringComparer Comparer { get { return StringComparer.Ordinal; } }
+        public StringComparer Comparer => StringComparer.Ordinal;
 
         public string Convert(string name)
         {
-            name = String.Join("", name.Trim(boundary).Split(boundary, StringSplitOptions.RemoveEmptyEntries));
+            name = String.Join("", name.Trim(Boundary).Split(Boundary, StringSplitOptions.RemoveEmptyEntries));
 
             return name.Substring(0, 1).ToLowerInvariant() + name.Substring(1);
         }

@@ -4,7 +4,7 @@ namespace ReaperKing.Core
 {
     public abstract partial class Site
     {
-        private readonly List<RkModule> _modules = new List<RkModule>();
+        private readonly List<RkModule> _modules = new();
 
         protected void AddModule<T>(T module)
             where T : RkModule

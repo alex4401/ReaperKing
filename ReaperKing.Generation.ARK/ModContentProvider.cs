@@ -30,7 +30,8 @@ namespace ReaperKing.Generation.ARK
                 sitemapLock = ctx.OverrideSitemaps(false);
             }
             
-            using (ctx.AddOptionalTemplateDirectories(new []
+            using (ctx.TryAddTemplateIncludeNamespace("ARKMods", "templates/Mods"))
+            using (ctx.TryAddTemplateDefaultIncludePaths(new []
             {
                 "templates/mods",
                 Path.Join("templates/mods", ModTag),

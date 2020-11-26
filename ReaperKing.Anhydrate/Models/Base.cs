@@ -2,30 +2,31 @@ using ReaperKing.Core;
 
 namespace ReaperKing.Anhydrate.Models
 {
-    public class AnhydrateModel : BaseModel
+    public record AnhydrateModel : BaseModel
     {
-        public AnhydrateModel(SiteContext ctx) : base(ctx)
-        { }
-
         /**
          * Name of the site section.
          */
-        public string SectionName { get; set; }
+        public string SectionName { get; init; }
         
         /**
          * Name of the document.
          */
-        public string DocumentTitle { get; set; }
+        public string DocumentTitle { get; init; }
         
         /**
          * Whether the default document name format should be
          * ignored, causing DocumentTitle to be used instead.
          */
-        public bool OverrideDocumentTitle { get; set; }
+        public bool OverrideDocumentTitle { get; init; }
 
         /**
          * Site navigation items.
          */
         public NavigationItem[] Navigation;
+        
+        public AnhydrateModel(SiteContext ctx)
+            : base(ctx)
+        { }
     }
 }

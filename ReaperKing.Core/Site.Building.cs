@@ -4,7 +4,7 @@ namespace ReaperKing.Core
     {
         public void BuildPage(IPageGenerator generator, string uri = null)
         {
-            var context = new SiteContext
+            SiteContext context = new()
             {
                 Site = this,
                 PathPrefix = uri,
@@ -15,7 +15,7 @@ namespace ReaperKing.Core
 
         public void BuildWithProvider(ISiteContentProvider provider, string uri = null)
         {
-            var context = new SiteContext
+            SiteContext context = new()
             {
                 Site = this,
                 PathPrefix = uri,

@@ -1,32 +1,32 @@
+using ReaperKing.Anhydrate.Models;
 using ReaperKing.Core;
 using ReaperKing.Generation.ARK.Data;
 using ReaperKing.Generation.ARK.Models;
 
 namespace ReaperKing.Generation.ARK
 {
-    public class ModHomeGenerator : IPageGenerator
+    public class ModHomeGenerator : ModContentGenerator
     {
-        private readonly ModInfo _arkMod;
-
-        public ModHomeGenerator(ModInfo arkMod)
-        {
-            _arkMod = arkMod;
-        }
-
-        public PageGenerationResult Generate(SiteContext ctx)
+        public ModHomeGenerator(ModInfo arkMod) : base(arkMod)
+        { }
+        
+        public override PageGenerationResult Generate(SiteContext ctx)
         {
             return new PageGenerationResult()
             {
                 Name = "index",
-                Template = "mods/home.cshtml",
+                Template = "/ARKMods/Home",
                 Model = new ModHomeModel(ctx)
                 {
-                    SiteName = _arkMod.Name,
-                    DisplayTitle = $"{_arkMod.Name}, interactive spawning maps",
-                    ModInfo = _arkMod,
+                    SectionName = Mod.Name,
+                    DocumentTitle = "",
+                    Navigation = GetNavigation(ctx),
+                    
+                    ModInfo = Mod,
                     Maps = DataManagerARK.Instance.LoadedMaps,
                 },
             };
         }
+
     }
 }

@@ -8,13 +8,11 @@ namespace ReaperKing.Core
 {
     public class SitemapGenerator : IPageGenerator
     {
-        private RkDocumentCollectionModule _collectionModule;
+        private readonly RkDocumentCollectionModule _collectionModule;
         
         public SitemapGenerator(RkDocumentCollectionModule collectionModule)
-        {
-            _collectionModule = collectionModule;
-        }
-        
+            => _collectionModule = collectionModule;
+
         /**
          * Generates a sitemap from metadata collected by the
          * Document Collection Module.
@@ -24,7 +22,7 @@ namespace ReaperKing.Core
             // Create a temporary in-memory stream and an XML
             // writer with enabled indentation.
             using var memStream = new MemoryStream();
-            XmlWriter writer = XmlWriter.Create(memStream, new XmlWriterSettings
+            XmlWriter writer = XmlWriter.Create(memStream, new()
             {
                 Indent = true,
                 Encoding = Encoding.UTF8,
@@ -58,7 +56,7 @@ namespace ReaperKing.Core
             writer.WriteEndDocument();
             writer.Flush();
 
-            return new PageGenerationResult
+            return new()
             {
                 Extension = "xml",
                 Name = "sitemap",

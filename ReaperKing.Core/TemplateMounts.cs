@@ -42,28 +42,21 @@ namespace ReaperKing.Core
      * Registers a mount on a specific include namespace for its
      * lifetime.
      */
-    public struct TemplateNamespaceMount : IDisposable
+    public readonly struct TemplateNamespaceMount : IDisposable
     {
-        private Site _site;
-        private string _ns;
-        private string _root;
+        private readonly Site _site;
+        private readonly string _ns;
+        private readonly string _root;
 
         public TemplateNamespaceMount(Site site, string ns, string root)
         {
-            _site = site;
-            _ns = ns;
-            _root = root;
-
+            (_site, _ns, _root) = (site, ns, root);
             _site.TryAddTemplateIncludeNamespace(ns, root);
         }
 
         public void Dispose()
         {
             _site.RemoveTemplateNamespace(_ns, _root);
-
-            _ns = null;
-            _root = null;
-            _site = null;
         }
     }
 }

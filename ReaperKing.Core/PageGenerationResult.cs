@@ -2,13 +2,13 @@ namespace ReaperKing.Core
 {
     public struct PageGenerationResult
     {
-        public string Extension;
-        public string Uri;
-        public string Name;
-        public bool SkipInSitemap;
+        public string Extension { get; set; }
+        public string Uri { get; init; }
+        public string Name { get; init; }
+        public bool SkipInSitemap { get; set; }
         
-        public string Text;
-        public string Template;
-        public object Model;
+        public string Text { get; init; }
+        public string Template { get; init; }
+        public object Model { get; init; }
     }
 }

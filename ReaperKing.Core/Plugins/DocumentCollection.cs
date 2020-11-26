@@ -6,15 +6,16 @@ namespace ReaperKing.Plugins
 {
     public struct DocumentMetadata
     {
-        public PageGenerationResult Meta { get; set; }
-        public string Uri { get; set; }
+        public PageGenerationResult Meta { get; init; }
+        public string Uri { get; init; }
     }
     
     public class RkDocumentCollectionModule : RkDocumentProcessorModule
     {
-        public List<DocumentMetadata> Collected { get; } = new List<DocumentMetadata>();
+        public List<DocumentMetadata> Collected { get; } = new();
         
-        public RkDocumentCollectionModule(Site site) : base(site)
+        public RkDocumentCollectionModule(Site site)
+            : base(site)
         { }
 
         public override void PostProcessDocument(string uri, ref IntermediateGenerationResult result)

@@ -8,9 +8,6 @@ namespace ReaperKing.Core
         protected ILogger Log { get; }
 
         public RkModule(Site site)
-        {
-            Site = site;
-            Log = site.Log;
-        }
+            => (Site, Log) = (site, site.Log);
     }
 }

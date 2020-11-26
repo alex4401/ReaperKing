@@ -7,7 +7,7 @@ namespace ReaperKing.Generation.Tools
     {
         public PageGenerationResult Generate(SiteContext ctx)
         {
-            return new PageGenerationResult
+            return new()
             {
                 Name = "creature-stats",
                 Template = "/ARKTools/creatureStats.cshtml",

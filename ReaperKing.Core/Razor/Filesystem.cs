@@ -22,14 +22,10 @@ namespace ReaperKing.Core.Razor
 		public const string DefaultExtension = ".cshtml";
 		
 		public string Extension { get; set; }
-		private readonly List<RazorIncludePathInfo> _mounts = new List<RazorIncludePathInfo>();
-		private readonly Dictionary<string, PhysicalFileProvider> _providers = new Dictionary<string, PhysicalFileProvider>();
+		private readonly List<RazorIncludePathInfo> _mounts = new();
+		private readonly Dictionary<string, PhysicalFileProvider> _providers = new();
 
-		public RazorScopedFilesystemProject(string defaultRoot)
-			: this(defaultRoot, DefaultExtension)
-		{ }
-
-		public RazorScopedFilesystemProject(string defaultRoot, string extension)
+		public RazorScopedFilesystemProject(string defaultRoot, string extension = DefaultExtension)
 		{
 			Extension = extension ?? throw new ArgumentNullException(nameof(extension));
 			Mount(defaultRoot);

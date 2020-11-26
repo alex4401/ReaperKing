@@ -6,7 +6,7 @@ namespace ReaperKing.Plugins
 {
     public class RkUglifyModule : RkDocumentProcessorModule
     {
-        public bool IsEnabled { get; set; }
+        public bool IsEnabled { get; init; }
 
         public RkUglifyModule(Site site) : base(site)
         {

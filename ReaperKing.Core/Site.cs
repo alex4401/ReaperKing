@@ -29,8 +29,7 @@ namespace ReaperKing.Core
 
         public Site(Project project, ILogger logger)
         {
-            ProjectConfig = project;
-            Log = logger;
+            (ProjectConfig, Log) = (project, logger);
             
             _razorProject = new RazorScopedFilesystemProject(Path.Join(ContentRoot, "templates"));
             RazorEngine = new RazorLightEngineBuilder()

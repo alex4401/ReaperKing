@@ -23,8 +23,8 @@ namespace ReaperKing.Generation.ARK
                 Template = "mods/egs.cshtml",
                 Model = new ModHomeModel(ctx)
                 {
-                    SiteName = _arkMod.Name,
-                    DisplayTitle = $"{_arkMod.Name}, interactive spawning maps",
+                    SectionName = _arkMod.Name,
+                    DocumentTitle = $"{_arkMod.Name}, interactive spawning maps",
                     ModInfo = _arkMod,
                     Maps = DataManagerARK.Instance.LoadedMaps,
                 },
