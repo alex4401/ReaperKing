@@ -1,6 +1,3 @@
-using System;
-using System.IO;
-
 namespace ReaperKing.Core
 {
     public class BaseModel
@@ -9,9 +6,7 @@ namespace ReaperKing.Core
         {
             Ctx = ctx;
             Root = ctx.Site.ProjectConfig.Paths.Root;
-            RootUri = (ctx.Site.ProjectConfig.Paths.Root != "/"
-                ? Path.Join(ctx.Site.ProjectConfig.Paths.Root, ctx.PathPrefix)
-                : ctx.PathPrefix);
+            RootUri = ctx.GetRootUri();
             ResourcesDirectory = ctx.Site.ProjectConfig.Paths.Resources;
         }
         

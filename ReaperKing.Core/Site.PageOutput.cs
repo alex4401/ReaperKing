@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using Microsoft.Extensions.Logging;
+using RazorLight;
 
 namespace ReaperKing.Core
 {
@@ -37,7 +38,8 @@ namespace ReaperKing.Core
             // Move the content to the intermediate object
             if (!String.IsNullOrWhiteSpace(result.Template))
             {
-                intermediate.Content = await GetRazor().CompileRenderAsync(result.Template, result.Model);
+                ITemplatePage template = await RazorEngine.CompileTemplateAsync(result.Template);
+                intermediate.Content = await RazorEngine.RenderTemplateAsync(template, result.Model);
             }
             else
             {
@@ -52,7 +54,7 @@ namespace ReaperKing.Core
             
             // Write the document to disk.
             Directory.CreateDirectory(Path.GetDirectoryName(intermediate.FilePath));
-            File.WriteAllText(intermediate.FilePath, intermediate.Content);
+            await File.WriteAllTextAsync(intermediate.FilePath, intermediate.Content);
         }
     }
 }

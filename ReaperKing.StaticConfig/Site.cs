@@ -15,10 +15,9 @@ namespace ReaperKing.StaticConfig
     // ReSharper disable once UnusedType.Global
     public class RkSiteBuildRecipe : Site
     {
-        public override void Initialize(Project project, ILogger logger)
+        public RkSiteBuildRecipe(Project project, ILogger logger)
+            : base(project, logger)
         {
-            base.Initialize(project, logger);
-            
             AddModule(new RkSitemapExclusionModule(this));
             AddModule(new RkUglifyModule(this));
             AddModule(new RkDocumentCollectionModule(this));
@@ -40,9 +39,8 @@ namespace ReaperKing.StaticConfig
 
         public override void Build()
         {
-
             this.EnableCommonTemplates();
-            //this.EnableAnhydrateTemplates();
+            this.EnableAnhydrateTemplates();
             
             Log.LogInformation("Building ARK tools");
             using (this.OverrideSitemaps(false)) {
@@ -59,6 +57,11 @@ namespace ReaperKing.StaticConfig
                     BuildWithProvider(generator, uri);
                 }
             }
+        }
+
+        public override void PostBuild()
+        {
+            base.PostBuild();
 
             Log.LogInformation("Creating a sitemap");
             {

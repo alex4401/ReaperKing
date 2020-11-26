@@ -11,9 +11,10 @@ using ReaperKing.Core;
 
 namespace ReaperKing.Builder
 {
-    class Program
+    sealed class Program
     {
-        static int Main(string[] args) => CommandLineApplication.Execute<Program>(args);
+        static int Main(string[] args)
+            => CommandLineApplication.Execute<Program>(args);
 
         #region Required Arguments & Options
         // ReSharper disable UnassignedGetOnlyAutoProperty
@@ -65,12 +66,16 @@ namespace ReaperKing.Builder
             var siteAssembly = AssemblyLoadContext.Default.LoadFromAssemblyName(new AssemblyName(SiteAssemblyName));
             var siteClass = GetSiteClassFromAssembly(siteAssembly);
             
-            log.LogInformation("Site singleton is being created");
-            Site site = Activator.CreateInstance(siteClass) as Site;
-            site.Initialize(project, log);
+            log.LogInformation("Static Site Configuration object is being created");
+            var instance = Activator.CreateInstance(siteClass, project, log);
+            if (!(instance is Site site))
+            {
+                log.LogCritical("Static Configuration instance is not valid.");
+                return;
+            }
             
             // Add the assembly to RazorLight's metadata references
-            var metadataReferences = site.GetRazor().Handler.Options.AdditionalMetadataReferences;
+            var metadataReferences = site.RazorEngine.Handler.Options.AdditionalMetadataReferences;
             metadataReferences.Add(MetadataReference.CreateFromFile(siteAssembly.Location));
             
             foreach (var otherAssembly in siteAssembly.GetReferencedAssemblies())
@@ -132,7 +137,7 @@ namespace ReaperKing.Builder
          * assembly is already loaded and this is a fallback,
          * there's not much to lose.
          */
-        public Assembly LoadAssemblyInCustomSearchPath(object sender, ResolveEventArgs args)
+        private Assembly LoadAssemblyInCustomSearchPath(object sender, ResolveEventArgs args)
         {
             Assembly result = null;
             
@@ -153,7 +158,7 @@ namespace ReaperKing.Builder
          * Finds a class with the SiteAttribute in an assembly.
          * Only one is permitted per assembly.
          */
-        Type GetSiteClassFromAssembly(Assembly siteAssembly)
+        private static Type GetSiteClassFromAssembly(Assembly siteAssembly)
         {
             foreach (Type type in siteAssembly.GetTypes()) {
                 if (type.GetCustomAttributes(typeof(SiteAttribute), true).Length > 0)
@@ -174,7 +179,7 @@ namespace ReaperKing.Builder
          * to optimize it at the moment as this method is
          * expected to be rarely executed in program's lifetime.
          */
-        Project SetProjectEnvironment(Project project, string environmentName)
+        private Project SetProjectEnvironment(Project project, string environmentName)
         {
             // Load requested project to check its inheritance.
             string filename = $"{ProjectFilename}.{environmentName}.yaml";

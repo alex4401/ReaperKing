@@ -1,5 +1,3 @@
-using System;
-
 namespace ReaperKing.Core
 {
     public struct PageGenerationResult

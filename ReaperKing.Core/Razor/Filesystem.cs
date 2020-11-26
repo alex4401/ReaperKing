@@ -20,7 +20,6 @@ namespace ReaperKing.Core.Razor
     public class RazorScopedFilesystemProject : RazorLightProject
 	{
 		public const string DefaultExtension = ".cshtml";
-		private readonly IFileProvider _fileProvider;
 		
 		public string Extension { get; set; }
 		private readonly List<RazorIncludePathInfo> _mounts = new List<RazorIncludePathInfo>();

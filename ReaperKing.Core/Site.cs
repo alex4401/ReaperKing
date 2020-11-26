@@ -9,35 +9,54 @@ namespace ReaperKing.Core
 {
     public abstract partial class Site
     {
+        [Obsolete("This field will be removed soon.")]
         public static Site Instance = null;
         
-        public Project ProjectConfig;
-        public ILogger Log;
+        public Project ProjectConfig { get; }
+        public ILogger Log { get; }
         public string ContentRoot => ProjectConfig.ContentDirectory;
         public string AssemblyRoot => ProjectConfig.AssemblyDirectory;
         public string DeploymentPath => ProjectConfig.Paths.Deployment;
-        
-        private RazorScopedFilesystemProject _razorProject = null;
-        private RazorLightEngine _razorEngine = null;
 
-        public virtual void Initialize(Project project, ILogger logger)
+        /**
+         * RazorLight project instance.
+         * Scoped filesystem project is used to provide namespace
+         * support and allow overlapping mounts.
+         */
+        private readonly RazorScopedFilesystemProject _razorProject;
+        
+        /**
+         * Instance of the RazorLight engine.
+         */
+        public RazorLightEngine RazorEngine { get; private set; }
+
+        public Site(Project project, ILogger logger)
         {
             Instance = this;
+            
             ProjectConfig = project;
             Log = logger;
             
             _razorProject = new RazorScopedFilesystemProject(Path.Join(ContentRoot, "templates"));
-            _razorEngine = new RazorLightEngineBuilder()
+            RazorEngine = new RazorLightEngineBuilder()
                 .UseProject(_razorProject)
                 .UseMemoryCachingProvider()
                 .Build();
         }
 
+        /**
+         * Checks if a constant is defined in project configuration.
+         */
         public bool IsProjectConstantDefined(string id)
         {
             return ProjectConfig.Build.Define != null && ProjectConfig.Build.Define.Contains(id);
         }
 
+        #region Building virtuals
+        /**
+         * Prepares for content building. This method is executed
+         * before Build().
+         */
         public virtual void PreBuild()
         {
             var nvResources = ProjectConfig.Resources.CopyNonVersioned;
@@ -52,10 +71,63 @@ namespace ReaperKing.Core
             }
         }
 
+        /**
+         * Builds the site content.
+         */
         public virtual void Build()
         { }
 
+        /**
+         * Wraps up content building process. This method is executed
+         * after Build().
+         */
         public virtual void PostBuild()
         { }
+        #endregion
+        
+        #region Razor template namespacing management
+        public void AddTemplateIncludeNamespace(string ns, string root)
+        {
+            _razorProject.Mount(new RazorIncludePathInfo
+            {
+                Namespace = ns,
+                RealRoot = PathUtils.EnsureRooted(root),
+            });
+        }
+
+        public void TryAddTemplateIncludeNamespace(string ns, string root)
+        {
+            _razorProject.MountUnsafe(new RazorIncludePathInfo
+            {
+                Namespace = ns,
+                RealRoot = PathUtils.EnsureRooted(root),
+            });
+        }
+
+        public void AddTemplateDefaultIncludePath(string root)
+        {
+            _razorProject.Mount(PathUtils.EnsureRooted(root));
+        }
+
+        public void TryAddTemplateDefaultIncludePath(string root)
+        {
+            _razorProject.MountUnsafe(PathUtils.EnsureRooted(root));
+        }
+
+        public void RemoveTemplateNamespace(string ns)
+        {
+            _razorProject.DestroyNamespace(ns);
+        }
+
+        public void RemoveTemplateNamespace(string ns, string path)
+        {
+            _razorProject.DestroyNamespace(ns, path);
+        }
+
+        public void RemoveTemplateDefaultIncludePath(string root)
+        {
+            _razorProject.DestroyNamespace("", PathUtils.EnsureRooted(root));
+        }
+        #endregion
     }
 }

@@ -79,7 +79,14 @@ namespace ReaperKing.Core
         {
             return Site.IsProjectConstantDefined(id);
         }
-        
+
+        public string GetRootUri()
+        {
+            return Site.ProjectConfig.Paths.Root != "/"
+                    ? Path.Join(Site.ProjectConfig.Paths.Root, PathPrefix)
+                    : PathPrefix;
+        }
+
         [Obsolete("AcquireBaseModel is going to be removed soon. Switch to the class-based model.")]
         public BaseModel AcquireBaseModel(string siteName, string displayTitle) 
         {
