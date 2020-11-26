@@ -1,0 +1,29 @@
+@using ReaperKing.Anhydrate
+@using ReaperKing.Anhydrate.Models
+
+@inherits AnhydratePage<AnhydrateModel>
+<!doctype html>
+<html lang="en">
+    <head>
+        @{
+            await IncludeAsync("/ReaperKing.Anhydrate/Document/Meta", Model);
+            await IncludeAsync("/ReaperKing.Anhydrate/Document/Includes", Model);
+        }
+
+        @await RenderSectionAsync("ExtraDocumentHead", required: false)
+    </head>
+
+    <body>
+        <div id="global-header">
+            @{ RenderWidget("/ReaperKing.Anhydrate/Widgets", "SiteHeader"); }
+            
+            <div id="head-nav">
+                @{ RenderWidget("/ReaperKing.Anhydrate/Widgets", "SiteNavigation"); }
+            </div>
+        </div>
+
+        @RenderBody()
+
+        @{ await IncludeAsync("common/widgets/footer.cshtml", Model); }
+    </body>
+</html>

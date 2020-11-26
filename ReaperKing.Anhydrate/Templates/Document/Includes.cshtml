@@ -1,0 +1,7 @@
+@using RazorLight
+@using ReaperKing.Anhydrate.Models
+
+@inherits TemplatePage<AnhydrateModel>
+<link rel="stylesheet"
+      type="text/css"
+	  href="@Model.CopyVersionedResource("built.site.css", "site.[hash].css")" />
