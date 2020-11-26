@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReaperKing.CommonTemplates"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReaperKing.Plugins.ImageOptimization", "ReaperKing.Plugins.ImageOptimization\ReaperKing.Plugins.ImageOptimization.csproj", "{BA321F63-5D71-49E4-B005-950BFFAEDD80}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReaperKing.Plugins", "ReaperKing.Plugins\ReaperKing.Plugins.csproj", "{3EC210BF-8F87-4E22-953F-0A30E3F38C12}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,5 +56,9 @@ Global
 		{BA321F63-5D71-49E4-B005-950BFFAEDD80}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA321F63-5D71-49E4-B005-950BFFAEDD80}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA321F63-5D71-49E4-B005-950BFFAEDD80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EC210BF-8F87-4E22-953F-0A30E3F38C12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EC210BF-8F87-4E22-953F-0A30E3F38C12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EC210BF-8F87-4E22-953F-0A30E3F38C12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EC210BF-8F87-4E22-953F-0A30E3F38C12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

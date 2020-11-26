@@ -6,9 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\ReaperKing.Anhydrate\ReaperKing.Anhydrate.csproj" />
       <ProjectReference Include="..\ReaperKing.Core\ReaperKing.Core.csproj" />
-      <ProjectReference Include="..\ReaperKing.Plugins\ReaperKing.Plugins.csproj" />
     </ItemGroup>
 
 </Project>

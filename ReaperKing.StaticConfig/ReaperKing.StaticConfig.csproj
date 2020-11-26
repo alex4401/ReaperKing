@@ -25,6 +25,7 @@
       <ProjectReference Include="..\ReaperKing.Generation.ARK\ReaperKing.Generation.ARK.csproj" />
       <ProjectReference Include="..\ReaperKing.Generation.Tools\ReaperKing.Generation.Tools.csproj" />
       <ProjectReference Include="..\ReaperKing.Plugins.ImageOptimization\ReaperKing.Plugins.ImageOptimization.csproj" />
+      <ProjectReference Include="..\ReaperKing.Plugins\ReaperKing.Plugins.csproj" />
     </ItemGroup>
 
 </Project>
