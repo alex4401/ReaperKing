@@ -7,9 +7,6 @@
     
     <ItemGroup>
         <None Include="Templates\**\*" Link="ReaperKing.Anhydrate\%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
-        <None Update="Templates\Widgets\SiteNavigation.cshtml">
-          <Link>ReaperKing.Anhydrate\Widgets\SiteHeader.cshtml</Link>
-        </None>
     </ItemGroup>
 
     <ItemGroup>

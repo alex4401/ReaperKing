@@ -19,6 +19,11 @@ namespace ReaperKing.Anhydrate.Models
          * ignored, causing DocumentTitle to be used instead.
          */
         public bool OverrideDocumentTitle { get; init; }
+        
+        /**
+         * CSS class of the icon element in site header widget.
+         */
+        public string HeaderIconClass { get; init; }
 
         /**
          * Site navigation items.

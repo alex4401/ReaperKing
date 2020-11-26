@@ -38,7 +38,6 @@ namespace ReaperKing.Anhydrate
                 throw new ArgumentNullException(nameof(widgetName));
             }
 
-            Console.WriteLine($"{ns}/{widgetName}");
             RenderPartial($"WidgetOverride.{widgetName}", $"{ns}/{widgetName}");
         }
     }

@@ -1,3 +1,4 @@
+using System;
 using ReaperKing.Core;
 
 namespace ReaperKing.Anhydrate.Extensions
@@ -9,7 +10,18 @@ namespace ReaperKing.Anhydrate.Extensions
         
         public static void EnableAnhydrateTemplates(this Site site)
         {
-            site.AddTemplateIncludeNamespace(Namespace, site.GetInternalResourcePath(RealDirectory));
+            string selfDir = site.GetInternalResourcePath(RealDirectory);
+            // TODO: Make this more generic.
+            foreach (string define in site.ProjectConfig.Build.Define)
+            {
+                if (define.StartsWith("ANHYDRATE_PATH"))
+                {
+                    selfDir = define.Split('=', 2)[1];
+                    break;
+                }
+            }
+            
+            site.AddTemplateIncludeNamespace(Namespace, selfDir);
         }
     }
 }

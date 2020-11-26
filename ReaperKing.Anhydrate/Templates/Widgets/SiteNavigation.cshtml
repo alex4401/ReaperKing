@@ -2,4 +2,23 @@
 @using ReaperKing.Anhydrate.Models
 
 @inherits AnhydratePage<AnhydrateModel>
-<ul></ul>
+@functions {
+    private bool IsCurrentNavItem(NavigationItem navItem)
+    {
+        return navItem.IsCurrentRoute || Model.DocumentTitle == navItem.Label;
+    }
+}
+<ul>
+    @foreach (NavigationItem navItem in Model.Navigation)
+    {
+        @if (navItem.IsEnabled)
+        {
+            <li>
+                <a href="@navItem.Destination"
+                   class="@(IsCurrentNavItem(navItem) ? "current" : null)">
+                    @navItem.Label
+                </a>
+            </li>
+        }
+    }
+</ul>

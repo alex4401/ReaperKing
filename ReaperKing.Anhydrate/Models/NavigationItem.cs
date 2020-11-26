@@ -2,15 +2,12 @@ namespace ReaperKing.Anhydrate.Models
 {
     public readonly struct NavigationItem
     {
-        public string Label { get; }
-        public string Destination { get; }
-        public bool IsEnabled { get; }
+        public readonly string Label { get; }
+        public readonly string Destination { get; }
+        public readonly bool IsEnabled { get; }
+        public readonly bool IsCurrentRoute { get; }
 
-        public NavigationItem(string label, string destination, bool enabled = true)
-        {
-            Label = label;
-            Destination = destination;
-            IsEnabled = enabled;
-        }
+        public NavigationItem(string label, string destination, bool enabled = true, bool current = false)
+            => (Label, Destination, IsEnabled, IsCurrentRoute) = (label, destination, enabled, current);
     }
 }

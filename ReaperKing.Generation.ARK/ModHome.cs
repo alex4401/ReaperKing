@@ -12,14 +12,15 @@ namespace ReaperKing.Generation.ARK
         
         public override PageGenerationResult Generate(SiteContext ctx)
         {
-            return new PageGenerationResult()
+            return new()
             {
                 Name = "index",
                 Template = "/ARKMods/Home",
                 Model = new ModHomeModel(ctx)
                 {
                     SectionName = Mod.Name,
-                    DocumentTitle = "",
+                    DocumentTitle = "Spawn Maps",
+                    HeaderIconClass = "icon-mod",
                     Navigation = GetNavigation(ctx),
                     
                     ModInfo = Mod,

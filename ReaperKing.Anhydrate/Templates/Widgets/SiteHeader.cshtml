@@ -2,5 +2,5 @@
 @using ReaperKing.Anhydrate.Models
 
 @inherits AnhydratePage<AnhydrateModel>
-<span class="icon icon-ph"></span>
+<span class="icon @(Model.HeaderIconClass ?? null)"></span>
 <a id="section-title" class="lead" href="@Model.RootUri">@Model.SectionName</a>

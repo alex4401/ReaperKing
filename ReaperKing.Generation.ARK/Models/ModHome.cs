@@ -8,6 +8,9 @@ namespace ReaperKing.Generation.ARK.Models
 {
     public record ModHomeModel : AnhydrateModel
     {
+        [Obsolete]
+        public string DisplayTitle { get; init; }
+        
         public ModInfo ModInfo { get; init; }
         public Dictionary<string, MapInfo> Maps { get; init; }
         
