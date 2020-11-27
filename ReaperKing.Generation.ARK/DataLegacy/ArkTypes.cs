@@ -17,6 +17,7 @@ namespace ReaperKing.Generation.ARK.Data
 
         public string Git;
         public ulong SteamId;
+        public string OgImageResource;
 
         public bool PublicIssueTracker;
         public bool WithEpicIni;
