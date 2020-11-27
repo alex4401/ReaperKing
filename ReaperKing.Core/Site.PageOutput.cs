@@ -38,11 +38,23 @@ namespace ReaperKing.Core
             // Move the content to the intermediate object
             if (!String.IsNullOrWhiteSpace(result.Template))
             {
+                // The document is templated; render with Razor.
+
+                // Copy the model and set DocumentUri if the model descends
+                // from our BaseModel.
+                object model = result.Model;
+                if (model is BaseModel recordModel)
+                {
+                    model = recordModel with { DocumentUri = intermediate.Uri };
+                }
+                
+                // Compile the template and render the document.
                 ITemplatePage template = await RazorEngine.CompileTemplateAsync(result.Template);
-                intermediate.Content = await RazorEngine.RenderTemplateAsync(template, result.Model);
+                intermediate.Content = await RazorEngine.RenderTemplateAsync(template, model);
             }
             else
             {
+                // Only text is provided.
                 intermediate.Content = result.Text;
             }
 

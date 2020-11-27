@@ -2,7 +2,9 @@
 @using ReaperKing.Anhydrate.Models
 
 @inherits TemplatePage<AnhydrateModel>
-@functions {
+@functions
+{
+    
     private string GetDocumentTitle()
     {
         if (String.IsNullOrEmpty(Model.DocumentTitle))
@@ -17,6 +19,17 @@
 
         return $"{Model.DocumentTitle} — {Model.SectionName}";
     }
+    
+    private string GetOpenGraphsTitle()
+    {
+        if (String.IsNullOrEmpty(Model.DocumentTitle))
+        {
+            return Model.SectionName;
+        }
+        
+        return Model.DocumentTitle;
+    }
+    
 }
 
 <meta charset="utf-8"/>
@@ -24,3 +37,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>@GetDocumentTitle()</title>
+
+@if (!String.IsNullOrEmpty(Model.OpenGraphsType) && !String.IsNullOrEmpty(Model.OpenGraphsImage))
+{
+    <meta property="og:title" content="@GetOpenGraphsTitle()" />
+    @if (!String.IsNullOrEmpty(Model.DocumentTitle))
+    {
+        <meta property="og:site_name" content="@Model.SectionName" />
+    }
+    <meta property="og:type" content="@Model.OpenGraphsType" />
+    <meta property="og:url" content="@Model.DocumentUri" />
+    <meta property="og:image" content="@Model.OpenGraphsImage" />
+}

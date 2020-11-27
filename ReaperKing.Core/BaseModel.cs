@@ -6,6 +6,7 @@ namespace ReaperKing.Core
         public string Root { get; }
         public string RootUri { get; }
         public string ResourcesDirectory { get; }
+        public string DocumentUri { get; init; }
         
         public BaseModel(SiteContext ctx)
             => (Ctx,
