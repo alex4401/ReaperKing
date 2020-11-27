@@ -11,11 +11,20 @@ namespace ReaperKing.Core
     public abstract partial class Site
     {
         public Project ProjectConfig { get; }
-        protected ILogger Log { get; }
-        public ILoggerFactory LogFactory { get; }
         public string ContentRoot => ProjectConfig.ContentDirectory;
         public string AssemblyRoot => ProjectConfig.AssemblyDirectory;
         public string DeploymentPath => ProjectConfig.Paths.Deployment;
+        
+        /**
+         * A logger factory to be used by modules and other classes
+         * dependent on the Site.
+         */
+        public ILoggerFactory LogFactory { get; }
+        
+        /**
+         * A logger instance in the site's domain.
+         */
+        protected ILogger Log { get; }
 
         /**
          * RazorLight project instance.
