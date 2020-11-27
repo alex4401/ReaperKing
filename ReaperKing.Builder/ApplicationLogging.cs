@@ -1,23 +1,24 @@
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Console;
 
 namespace ReaperKing.Builder
 {
-    public static class ApplicationLogging
+    internal static class ApplicationLogging
     {
-        public static ILogger Instance;
+        internal static ILoggerFactory Factory;
         
-        public static ILogger Initialize<T>()
+        internal static void Initialize()
         {
-            ILoggerFactory factory = LoggerFactory.Create(
+            Factory = LoggerFactory.Create(
                 builder =>
                 {
-                    builder.AddConsole(options =>
+                    builder.AddSimpleConsole(options =>
                     {
-                        options.IncludeScopes = true;
+                        options.ColorBehavior = LoggerColorBehavior.Disabled;
+                        options.SingleLine = true;
+                        options.IncludeScopes = false;
                     });
                 });
-            Instance = factory.CreateLogger("ReaperKing");
-            return Instance;
         }
     }
 }

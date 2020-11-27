@@ -8,7 +8,8 @@ namespace ReaperKing.Plugins
     {
         public bool IsEnabled { get; init; }
 
-        public RkUglifyModule(Site site) : base(site)
+        public RkUglifyModule(Site site)
+            : base(typeof(RkUglifyModule), site)
         {
             IsEnabled = Site.ProjectConfig.Build.MinifyHtml;
         }

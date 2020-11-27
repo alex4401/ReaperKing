@@ -1,10 +1,9 @@
 using System.IO;
 using System.Text;
 using System.Xml;
+using ReaperKing.Core;
 
-using ReaperKing.Plugins;
-
-namespace ReaperKing.Core
+namespace ReaperKing.Plugins
 {
     public class SitemapGenerator : IPageGenerator
     {

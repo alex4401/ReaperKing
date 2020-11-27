@@ -17,8 +17,6 @@ namespace ReaperKing.Core
     {
         public async void SavePage(PageGenerationResult result, string uri)
         {
-            Log.LogInformation($"Saving page {result.Name} at {uri}/{result.Uri}");
-            
             // Ensure the file extension is set
             if (String.IsNullOrEmpty(result.Extension))
             {
@@ -34,6 +32,8 @@ namespace ReaperKing.Core
             };
             intermediate.FilePath = Path.Join(DeploymentPath, intermediate.Uri);
             intermediate.Uri = Path.Combine(ProjectConfig.Paths.Root, intermediate.Uri);
+            
+            Log.LogInformation($"Saving document: \"{intermediate.Uri}\"");
             
             // Move the content to the intermediate object
             if (!String.IsNullOrWhiteSpace(result.Template))

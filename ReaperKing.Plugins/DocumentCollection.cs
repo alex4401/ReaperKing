@@ -15,7 +15,7 @@ namespace ReaperKing.Plugins
         public List<DocumentMetadata> Collected { get; } = new();
         
         public RkDocumentCollectionModule(Site site)
-            : base(site)
+            : base(typeof(RkDocumentCollectionModule), site)
         { }
 
         public override void PostProcessDocument(string uri, ref IntermediateGenerationResult result)

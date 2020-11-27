@@ -31,7 +31,7 @@ namespace ReaperKing.Plugins
         public bool ShouldExclude { get; set; } = false;
         
         public RkSitemapExclusionModule(Site site)
-            : base(site)
+            : base(typeof(RkSitemapExclusionModule), site)
         { }
 
         public override void PostProcessDocument(string uri, ref IntermediateGenerationResult result)

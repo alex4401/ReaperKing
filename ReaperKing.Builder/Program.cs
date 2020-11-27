@@ -42,35 +42,44 @@ namespace ReaperKing.Builder
         [Option(LongName = "skip-pre-build")]
         public bool SkipPreBuild { get; } = false;
         #endregion
+
+        private ILogger Log { get; set; }
         
         void OnExecute()
         {
+            // Initialize a logging factory and get a logger for ourselves
+            ApplicationLogging.Initialize();
+            Log = ApplicationLogging.Factory.CreateLogger("ReaperKing.Builder");
+
+            // Clean up arguments
             AssemblyPath = PathUtils.EnsureRooted(AssemblyPath);
             string projectFilename = ProjectFilename + ".yaml";
+            Log.LogInformation("Reaper King building tool");
             
-            var log = ApplicationLogging.Initialize<Program>();
-            log.LogInformation("Reaper King building tool");
-            
-            log.LogInformation("Project configuration is now being loaded");
+            // Load the project configuration from a file
+            Log.LogInformation("Project configuration is now being loaded");
             Project project = ParsingUtils.ReadYamlFile<Project>(projectFilename);
             project = SetProjectEnvironment(project, EnvironmentName);
             project.ContentDirectory = new FileInfo(projectFilename).Directory?.FullName;
             project.AssemblyDirectory = AssemblyPath;
             
-            log.LogInformation("Static configuration assembly is now being loaded");
+            // Insert a custom assembly resolver if Assembly Path is given.
             if (!String.IsNullOrEmpty(AssemblyPath))
             {
                 AppDomain.CurrentDomain.AssemblyResolve += LoadAssemblyInCustomSearchPath;
             }
-
+            
+            // Load the project assembly and find the Site class.
+            Log.LogInformation("Static configuration assembly is now being loaded");
             var siteAssembly = AssemblyLoadContext.Default.LoadFromAssemblyName(new AssemblyName(SiteAssemblyName));
             var siteClass = GetSiteClassFromAssembly(siteAssembly);
-            
-            log.LogInformation("Static Site Configuration object is being created");
-            var instance = Activator.CreateInstance(siteClass, project, log);
+
+            Log.LogInformation($"Found a build recipe in the assembly: {siteClass.FullName}");
+            Log.LogInformation("Static Site Configuration object is being created");
+            var instance = Activator.CreateInstance(siteClass, project, ApplicationLogging.Factory);
             if (!(instance is Site site))
             {
-                log.LogCritical("Static Configuration instance is not valid.");
+                Log.LogCritical("Static Configuration instance is not valid.");
                 return;
             }
             
@@ -87,19 +96,17 @@ namespace ReaperKing.Builder
                 }
             }
             
-            
-            log.LogInformation("Building site content");
-            using (log.BeginScope("Pre-build tasks"))
+            Log.LogInformation("Executing pre-build tasks");
             {
                 var prebuildCmds = project.Build.RunBefore;
                 if (prebuildCmds.Count > 0)
                 {
                     if (!SkipPreBuild)
                     {
-                        log.LogInformation("Executing commands scheduled to run before build");
+                        Log.LogInformation("Executing commands scheduled to run before build");
                         foreach (var cmd in prebuildCmds)
                         {
-                            log.LogInformation(cmd);
+                            Log.LogInformation(cmd);
                             var exitCode = ShellHelper.Run(cmd);
 
                             if (exitCode != 0)
@@ -110,22 +117,20 @@ namespace ReaperKing.Builder
                     }
                     else
                     {
-                        log.LogWarning("The pre-build tasks have been requested to be skipped.");
+                        Log.LogWarning("The pre-build tasks have been requested to be skipped.");
                     }
                 }
 
                 site.PreBuild();
             }
             
-            using (log.BeginScope("Build tasks"))
-            {
-                site.Build();
-            }
+            Log.LogInformation("Building site content");
+            site.Build();
             
-            using (log.BeginScope("Post-build tasks"))
-            {
-                site.PostBuild();
-            }
+            Log.LogInformation("Executing post-build tasks");
+            site.PostBuild();
+            
+            Log.LogInformation("Site has been successfully built.");
         }
 
         /**
@@ -161,7 +166,7 @@ namespace ReaperKing.Builder
         private static Type GetSiteClassFromAssembly(Assembly siteAssembly)
         {
             foreach (Type type in siteAssembly.GetTypes()) {
-                if (type.GetCustomAttributes(typeof(SiteAttribute), true).Length > 0)
+                if (type.GetCustomAttributes(typeof(SiteRecipeAttribute), true).Length > 0)
                 {
                     return type;
                 }

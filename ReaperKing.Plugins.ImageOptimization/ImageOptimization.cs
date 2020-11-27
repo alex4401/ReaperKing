@@ -15,7 +15,8 @@ namespace ReaperKing.Plugins
             "jpg", "jpeg", "png",
         };
 
-        public RkImageOptimizationModule(Site site) : base(site)
+        public RkImageOptimizationModule(Site site)
+            : base(typeof(RkImageOptimizationModule), site)
         {
             CacheDirectory = Path.Join(Site.ContentRoot, "resources", "_cache");
             Directory.CreateDirectory(CacheDirectory);

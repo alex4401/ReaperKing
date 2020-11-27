@@ -2,9 +2,7 @@
 @using ReaperKing.Anhydrate.Models
 
 @inherits TemplatePage<AnhydrateModel>
-@functions
-{
-    
+@functions {
     private string GetDocumentTitle()
     {
         if (String.IsNullOrEmpty(Model.DocumentTitle))
@@ -29,7 +27,6 @@
         
         return Model.DocumentTitle;
     }
-    
 }
 
 <meta charset="utf-8"/>

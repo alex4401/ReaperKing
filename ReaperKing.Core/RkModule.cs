@@ -1,3 +1,4 @@
+using System;
 using Microsoft.Extensions.Logging;
 
 namespace ReaperKing.Core
@@ -7,7 +8,7 @@ namespace ReaperKing.Core
         protected Site Site { get; }
         protected ILogger Log { get; }
 
-        public RkModule(Site site)
-            => (Site, Log) = (site, site.Log);
+        protected RkModule(Type selfType, Site site)
+            => (Site, Log) = (site, site.LogFactory.CreateLogger(selfType.FullName));
     }
 }

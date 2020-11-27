@@ -11,12 +11,12 @@ using ReaperKing.Plugins;
 
 namespace ReaperKing.StaticConfig
 {
-    [Site]
+    [SiteRecipe]
     // ReSharper disable once UnusedType.Global
-    public class RkSiteBuildRecipe : Site
+    public class RkBuildRecipe : Site
     {
-        public RkSiteBuildRecipe(Project project, ILogger logger)
-            : base(project, logger)
+        public RkBuildRecipe(Project project, ILoggerFactory loggerFactory)
+            : base(typeof(RkBuildRecipe), project, loggerFactory)
         {
             // HACK: Compatibility.
             FandomUtils.SiteInstance = this;
