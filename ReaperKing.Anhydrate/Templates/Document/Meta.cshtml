@@ -40,6 +40,7 @@
 
 @if (!String.IsNullOrEmpty(Model.OpenGraphsType) && !String.IsNullOrEmpty(Model.OpenGraphsImage))
 {
+    <!-- Open Graphs metadata tags -->
     <meta property="og:title" content="@GetOpenGraphsTitle()" />
     @if (!String.IsNullOrEmpty(Model.DocumentTitle))
     {
@@ -48,4 +49,10 @@
     <meta property="og:type" content="@Model.OpenGraphsType" />
     <meta property="og:url" content="@Model.DocumentUri" />
     <meta property="og:image" content="@Model.OpenGraphsImage" />
+
+    <!-- Twitter metadata tags -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="@Model.DocumentUri" />
+    <meta property="twitter:title" content="@GetDocumentTitle()" />
+    <meta property="twitter:image" content="@Model.OpenGraphsImage" />
 }
