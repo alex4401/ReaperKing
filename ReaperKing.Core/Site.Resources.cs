@@ -1,11 +1,35 @@
 using System;
 using System.IO;
+using System.Linq;
 using Microsoft.Extensions.Logging;
+using NUglify.JavaScript.Syntax;
 
 namespace ReaperKing.Core
 {
     public abstract partial class Site
     {
+        public string ResolveResourceVirtualPath(string inputPath)
+        {
+            if (inputPath[0] == '/')
+            {
+                return inputPath;
+            }
+
+            string[] parts = inputPath.Split('/', 2, StringSplitOptions.RemoveEmptyEntries);
+            if (parts[0].Last() == ':')
+            {
+                foreach (var module in GetModuleInstances<RkResourceResolverModule>())
+                {
+                    if (module.ResolveResource(parts[0], parts[1], out var result))
+                    {
+                        return result;
+                    }
+                }
+            }
+
+            return inputPath;
+        }
+        
         /**
          * Returns a path of a resource packed with the assemblies,
          * outside of project content directory.
@@ -63,6 +87,7 @@ namespace ReaperKing.Core
          */
         public string CopyResource(string inputFile, string uri)
         {
+            inputFile = ResolveResourceVirtualPath(inputFile);
             return CopyFileToLocation(Path.Join("resources", inputFile), 
                                      Path.Join(ProjectConfig.Paths.Resources, uri));
         }
@@ -73,6 +98,8 @@ namespace ReaperKing.Core
          */
         public string CopyVersionedResource(string inputFile, string uri)
         {
+            inputFile = ResolveResourceVirtualPath(inputFile);
+            
             var inputPath = Path.Join(ContentRoot, "resources", inputFile);
             var hash = HashUtils.GetHashOfFile(inputPath);
             var assetUri = uri.Replace("[hash]", hash.Substring(0, 12));

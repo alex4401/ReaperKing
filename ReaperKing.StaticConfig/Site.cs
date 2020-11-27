@@ -18,13 +18,11 @@ namespace ReaperKing.StaticConfig
         public RkBuildRecipe(Project project, ILoggerFactory loggerFactory)
             : base(typeof(RkBuildRecipe), project, loggerFactory)
         {
-            // HACK: Compatibility.
-            FandomUtils.SiteInstance = this;
-            
+            AddModule(new RkFandomImageVirtualFsModule(this));
             AddModule(new RkSitemapExclusionModule(this));
             AddModule(new RkUglifyModule(this));
             AddModule(new RkDocumentCollectionModule(this));
-
+            
             if (IsProjectConstantDefined("WIP_IMAGE_OPTIMIZATION"))
             {
                 AddModule(new RkImageOptimizationModule(this));
@@ -37,7 +35,7 @@ namespace ReaperKing.StaticConfig
             
             var dataManager = DataManagerARK.Instance;
             Log.LogInformation("Discovering and loading ARK data");
-            dataManager.Initialize(Log);
+            dataManager.Initialize(LogFactory.CreateLogger<DataManagerARK>());
         }
 
         public override void Build()

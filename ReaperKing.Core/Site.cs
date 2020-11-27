@@ -11,8 +11,7 @@ namespace ReaperKing.Core
     public abstract partial class Site
     {
         public Project ProjectConfig { get; }
-        [Obsolete("Going forward, this default logger will be protected. Use LogFactory instead.")]
-        public ILogger Log { get; }
+        protected ILogger Log { get; }
         public ILoggerFactory LogFactory { get; }
         public string ContentRoot => ProjectConfig.ContentDirectory;
         public string AssemblyRoot => ProjectConfig.AssemblyDirectory;

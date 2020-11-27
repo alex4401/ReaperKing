@@ -42,7 +42,7 @@ namespace ReaperKing.Plugins
                 return;
             }
             
-            string cacheKey = HashUtils.GetSha256HashOfString(resourceKey + CacheVersion) + "." + extension;
+            string cacheKey = HashUtils.GetHashOfStringSha256(resourceKey + CacheVersion) + "." + extension;
             string optimizedPath = Path.Join(CacheDirectory, cacheKey);
 
             if (!File.Exists(optimizedPath))
@@ -56,7 +56,7 @@ namespace ReaperKing.Plugins
                         bool usesTransparency = _hasAlphaChannel(filePath);
                         if (!usesTransparency)
                         {
-                            cacheKey = HashUtils.GetSha256HashOfString(resourceKey + CacheVersion) + ".jpg";
+                            cacheKey = HashUtils.GetHashOfStringSha256(resourceKey + CacheVersion) + ".jpg";
                             optimizedPath = Path.Join(CacheDirectory, cacheKey);
 
                             if (_invokeConvert(filePath, optimizedPath))
