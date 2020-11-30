@@ -1,0 +1,17 @@
+@using ReaperKing.Anhydrate
+@using ReaperKing.Anhydrate.Models
+
+@inherits AnhydratePage<AnhydrateModel>
+<div class="cell cell-footer cell-nb">
+    <p class="p13">
+        <strong>© @Raw(Model.Footer.CopyrightMessage)</strong>
+    </p>
+        
+    @foreach (string text in Model.Footer.Paragraphs)
+    {
+        @if (!String.IsNullOrEmpty(text))
+        {
+            <p class="p13">@Raw(text)</p>
+        }
+    }
+</div>

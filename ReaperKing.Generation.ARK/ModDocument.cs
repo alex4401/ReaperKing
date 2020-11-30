@@ -44,5 +44,11 @@ namespace ReaperKing.Generation.ARK
             return Context.CopyVersionedResource(Mod.OgImageResource,
                                                  $"/og_images/{fileName}-[hash]{fileExtension}");
         }
+
+        public override FooterInfo GetFooter()
+            => new() 
+            {
+                CopyrightMessage = @"2020 <a href=""https://github.com/alex4401"">alex4401</a>",
+            };
     }
 }

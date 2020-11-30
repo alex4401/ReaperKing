@@ -60,7 +60,7 @@ namespace ReaperKing.Generation.ARK
             
             foreach (var (mapRef, revisionId) in worldRevMap)
             {
-                var map = new InteractiveMapGenerator(ModTag, mapRef, revisionId);
+                var map = new InteractiveMapGenerator(Info, ModTag, mapRef, revisionId);
                 ctx.BuildPage(map);
             }
             

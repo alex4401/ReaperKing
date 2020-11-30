@@ -20,7 +20,13 @@ namespace ReaperKing.Anhydrate
         public virtual string GetOpenGraphsType() => "";
         public virtual string GetOpenGraphsImage() => "";
 
-        public virtual PageGenerationResult Generate(SiteContext ctx)
+        public virtual FooterInfo GetFooter()
+            => new()
+            {
+                CopyrightMessage = "Fill your copyright message in GetFooter()",
+            };
+
+                public virtual PageGenerationResult Generate(SiteContext ctx)
         {
             Context = ctx;
             
@@ -31,6 +37,7 @@ namespace ReaperKing.Anhydrate
                 Template = GetTemplateName(),
                 Model = GetModel() with {
                     Navigation = GetNavigation(),
+                    Footer = GetFooter(),
                     OpenGraphsType = GetOpenGraphsType(),
                     OpenGraphsImage = GetOpenGraphsImage(),
                 },

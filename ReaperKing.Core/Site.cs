@@ -8,6 +8,11 @@ using ReaperKing.Core.Razor;
 
 namespace ReaperKing.Core
 {
+    [RkConfigurable(ns: "rk", properties: new[]
+    {
+        typeof(WebPathConfiguration),
+        typeof(BuildConfiguration),
+    })]
     public abstract partial class Site
     {
         public Project ProjectConfig { get; }

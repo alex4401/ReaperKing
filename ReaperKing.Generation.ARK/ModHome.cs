@@ -1,3 +1,4 @@
+using ReaperKing.Anhydrate.Models;
 using ReaperKing.Generation.ARK.Data;
 using ReaperKing.Generation.ARK.Models;
 
@@ -11,6 +12,14 @@ namespace ReaperKing.Generation.ARK
 
         public override string GetName() => "index";
         public override string GetTemplateName() => "/ARKMods/Home";
+        public override FooterInfo GetFooter()
+            => base.GetFooter() with {
+                    Paragraphs = new[]
+                    {
+                        @"The topological maps come from " +
+                        @"<a href=""https://ark.gamepedia.com"">the Official ARK Wiki</a>",
+                    },
+                };
 
         public override ModHomeModel GetModel() => new(Context)
         {

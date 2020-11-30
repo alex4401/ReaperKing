@@ -1,9 +1,11 @@
 using System;
 using RazorLight;
+using ReaperKing.Anhydrate.Models;
 
 namespace ReaperKing.Anhydrate
 {
     public abstract class AnhydratePage<T> : TemplatePage<T>
+        where T : AnhydrateModel
     {
         public async void RenderPartial(string sectionName, string templateName)
         {
@@ -39,6 +41,11 @@ namespace ReaperKing.Anhydrate
             }
 
             RenderPartial($"WidgetOverride.{widgetName}", $"{ns}/{widgetName}");
+        }
+
+        public string VersionedResource(string path, string uriTemplate)
+        {
+            return Model.Ctx.CopyVersionedResource(path, uriTemplate);
         }
     }
 }

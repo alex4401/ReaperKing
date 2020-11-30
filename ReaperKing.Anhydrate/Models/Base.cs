@@ -20,6 +20,20 @@ namespace ReaperKing.Anhydrate.Models
          */
         public bool OverrideDocumentTitle { get; init; }
 
+        /**
+         * 
+         */
+        public FooterInfo Footer { get; init; }
+        
+        /**
+         * Configuration for the layout in whatever format one
+         * takes.
+         *
+         * BUG: This property is always writable due to a Razor's
+         *      compiler bug.
+         */
+        public dynamic LayoutConfig { get; set; }
+
         public string OpenGraphsType { get; init; }
         public string OpenGraphsImage { get; init; }
         

@@ -22,8 +22,30 @@
             </div>
         </div>
 
-        @RenderBody()
+        <div class="gutter-container">
+            @if (Model.LayoutConfig is GutterLayoutSection[] sectionSetups)
+            {
+                foreach (GutterLayoutSection section in sectionSetups)
+                {
+                    string cssClass = section.Type switch {
+                        GutterLayoutSection.ColumnType.Full => "col-full",
+                        GutterLayoutSection.ColumnType.Grid => "col-grid",
+                        _ => throw new ArgumentOutOfRangeException(nameof(section.Type)),
+                    };
 
-        @{ await IncludeAsync("common/widgets/footer.cshtml", Model); }
+                    <div class="@cssClass">
+                        @await RenderSectionAsync(section.Id, required: true)
+                    </div>
+                }
+            } else {
+                @RenderBody()
+            }
+        </div>
+
+        <div class="gutter-container">
+            <div class="col-narrow">
+                @{ RenderWidget("/ReaperKing.Anhydrate/Widgets", "SiteFooter"); }
+            </div>
+        </div>
     </body>
 </html>
