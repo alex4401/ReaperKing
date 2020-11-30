@@ -25,16 +25,26 @@
         <div class="gutter-container">
             @if (Model.LayoutConfig is GutterLayoutSection[] sectionSetups)
             {
-                foreach (GutterLayoutSection section in sectionSetups)
+                foreach (GutterLayoutSection setup in sectionSetups)
                 {
-                    string cssClass = section.Type switch {
-                        GutterLayoutSection.ColumnType.Full => "col-full",
-                        GutterLayoutSection.ColumnType.Grid => "col-grid",
-                        _ => throw new ArgumentOutOfRangeException(nameof(section.Type)),
+                    string cssClass = setup.Type switch {
+                        GutterLayoutSection.SectionType.Full => "col-full",
+                        GutterLayoutSection.SectionType.Grid => "col-grid",
+                        GutterLayoutSection.SectionType.Row => "col-row",
+                        GutterLayoutSection.SectionType.NarrowFit => "col-narrow col-fit",
+                        GutterLayoutSection.SectionType.Narrower => "col-narrow2",
+                        GutterLayoutSection.SectionType.Break => "flex-break",
+                        GutterLayoutSection.SectionType.BreakMobile => "flex-break2",
+                        GutterLayoutSection.SectionType.Custom => setup.CustomClass,
+                        
+                        _ => throw new ArgumentOutOfRangeException(nameof(setup.Type)),
                     };
 
-                    <div class="@cssClass">
-                        @await RenderSectionAsync(section.Id, required: true)
+                    <div class="@cssClass" id="@setup.HtmlId">
+                        @if (!String.IsNullOrEmpty(setup.Id))
+                        {
+                            @await RenderSectionAsync(setup.Id, required: true)
+                        }
                     </div>
                 }
             } else {
