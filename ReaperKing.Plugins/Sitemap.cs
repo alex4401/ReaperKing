@@ -5,7 +5,7 @@ using ReaperKing.Core;
 
 namespace ReaperKing.Plugins
 {
-    public class SitemapGenerator : IPageGenerator
+    public class SitemapGenerator : IDocumentGenerator
     {
         private readonly RkDocumentCollectionModule _collectionModule;
         
@@ -16,7 +16,7 @@ namespace ReaperKing.Plugins
          * Generates a sitemap from metadata collected by the
          * Document Collection Module.
          */
-        public PageGenerationResult Generate(SiteContext ctx)
+        public DocumentGenerationResult Generate(SiteContext ctx)
         {
             // Create a temporary in-memory stream and an XML
             // writer with enabled indentation.

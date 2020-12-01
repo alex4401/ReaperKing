@@ -4,7 +4,7 @@ using ReaperKing.Generation.ARK.Models;
 
 namespace ReaperKing.Generation.ARK
 {
-    public class EpicIniGenerator : IPageGenerator
+    public class EpicIniGenerator : IDocumentGenerator
     {
         private readonly ModInfo _arkMod;
         private ModInfo.Revision _revision;
@@ -15,9 +15,9 @@ namespace ReaperKing.Generation.ARK
             _revision = revision;
         }
 
-        public PageGenerationResult Generate(SiteContext ctx)
+        public DocumentGenerationResult Generate(SiteContext ctx)
         {
-            return new PageGenerationResult
+            return new DocumentGenerationResult
             {
                 Name = "egs",
                 Template = "mods/egs.cshtml",

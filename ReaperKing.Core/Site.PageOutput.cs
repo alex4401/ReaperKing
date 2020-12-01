@@ -7,7 +7,7 @@ namespace ReaperKing.Core
 {
     public struct IntermediateGenerationResult
     {
-        public PageGenerationResult Meta { get; set; }
+        public DocumentGenerationResult Meta { get; set; }
         public string FilePath { get; set; }
         public string Uri { get; set; }
         public string Content { get; set; }
@@ -15,7 +15,7 @@ namespace ReaperKing.Core
     
     public abstract partial class Site
     {
-        public async void SavePage(PageGenerationResult result, string uri)
+        public async void SavePage(DocumentGenerationResult result, string uri)
         {
             // Ensure the file extension is set
             if (String.IsNullOrEmpty(result.Extension))

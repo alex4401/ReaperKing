@@ -41,7 +41,7 @@ namespace ReaperKing.Core
         #endregion
 
         #region Building Methods
-        public void BuildPage(IPageGenerator generator, string uri = null)
+        public void BuildPage(IDocumentGenerator generator, string uri = null)
         {
             if (PathPrefix != null)
             {

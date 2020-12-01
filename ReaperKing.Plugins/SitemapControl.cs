@@ -38,7 +38,7 @@ namespace ReaperKing.Plugins
         {
             if (ShouldExclude)
             {
-                PageGenerationResult moved = result.Meta;
+                DocumentGenerationResult moved = result.Meta;
                 moved.SkipInSitemap = true;
                 result.Meta = moved;
             }

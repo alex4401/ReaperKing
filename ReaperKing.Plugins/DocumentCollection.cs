@@ -6,7 +6,7 @@ namespace ReaperKing.Plugins
 {
     public struct DocumentMetadata
     {
-        public PageGenerationResult Meta { get; init; }
+        public DocumentGenerationResult Meta { get; init; }
         public string Uri { get; init; }
     }
     

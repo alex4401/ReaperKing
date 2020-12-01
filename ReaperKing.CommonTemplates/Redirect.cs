@@ -3,13 +3,13 @@ using ReaperKing.CommonTemplates.Models;
 
 namespace ReaperKing.CommonTemplates
 {
-    public class RedirectGenerator : IPageGenerator
+    public class RedirectGenerator : IDocumentGenerator
     {
         public string Uri { get; init; }
         public string Name { get; init; }
         public string TargetUrl { get; init; }
         
-        public PageGenerationResult Generate(SiteContext ctx)
+        public DocumentGenerationResult Generate(SiteContext ctx)
         {
             return new()
             {

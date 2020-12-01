@@ -3,9 +3,9 @@ using ReaperKing.Generation.Tools.Models;
 
 namespace ReaperKing.Generation.Tools
 {
-    public class CreatureStats : IPageGenerator
+    public class CreatureStats : IDocumentGenerator
     {
-        public PageGenerationResult Generate(SiteContext ctx)
+        public DocumentGenerationResult Generate(SiteContext ctx)
         {
             return new()
             {

@@ -1,6 +1,6 @@
 namespace ReaperKing.Core
 {
-    public struct PageGenerationResult
+    public struct DocumentGenerationResult
     {
         public string Extension { get; set; }
         public string Uri { get; init; }

@@ -5,7 +5,7 @@ using ReaperKing.Core;
 
 namespace ReaperKing.Anhydrate
 {
-    public abstract class AnhydrateDocument<T> : IPageGenerator
+    public abstract class AnhydrateDocument<T> : IDocumentGenerator
         where T : AnhydrateModel
     {
         protected SiteContext Context { get; private set; }
@@ -26,7 +26,7 @@ namespace ReaperKing.Anhydrate
                 CopyrightMessage = "Fill your copyright message in GetFooter()",
             };
 
-                public virtual PageGenerationResult Generate(SiteContext ctx)
+        public virtual DocumentGenerationResult Generate(SiteContext ctx)
         {
             Context = ctx;
             
@@ -35,6 +35,7 @@ namespace ReaperKing.Anhydrate
                 Uri = GetUri(),
                 Name = GetName(),
                 Template = GetTemplateName(),
+                
                 Model = GetModel() with {
                     Navigation = GetNavigation(),
                     Footer = GetFooter(),

@@ -2,7 +2,7 @@ namespace ReaperKing.Core
 {
     public abstract partial class Site
     {
-        public void BuildPage(IPageGenerator generator, string uri = null)
+        public void BuildPage(IDocumentGenerator generator, string uri = null)
         {
             SiteContext context = new()
             {

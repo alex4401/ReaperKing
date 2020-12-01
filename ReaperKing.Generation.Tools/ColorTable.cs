@@ -3,9 +3,9 @@ using ReaperKing.Generation.Tools.Models;
 
 namespace ReaperKing.Generation.Tools
 {
-    public class ColorTable : IPageGenerator
+    public class ColorTable : IDocumentGenerator
     {
-        public PageGenerationResult Generate(SiteContext ctx)
+        public DocumentGenerationResult Generate(SiteContext ctx)
         {
             return new()
             {

@@ -8,6 +8,10 @@ namespace ReaperKing.Core
 {
     public abstract partial class Site
     {
+        /**
+         * Resolves a resource that might be located in a virtual
+         * asset namespace to a local key.
+         */
         public string ResolveResourceVirtualPath(string inputPath)
         {
             if (inputPath[0] == '/')
@@ -25,6 +29,8 @@ namespace ReaperKing.Core
                         return result;
                     }
                 }
+
+                throw new ArgumentException($"Resource key could not be resolved: {inputPath}");
             }
 
             return inputPath;
