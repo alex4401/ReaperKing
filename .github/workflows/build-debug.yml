@@ -23,6 +23,8 @@ jobs:
       run: dotnet publish --configuration Debug --no-restore ReaperKing.Builder -o artifacts\
     - name: Build Reaper King library
       run: dotnet publish --configuration Debug --no-restore ReaperKing.StaticConfig -o artifacts\
+    - name: Copy licenses
+      run: cp LICENSE LICENSE.PERSO artifacts/
 
     - uses: actions/upload-artifact@v2
       with:
