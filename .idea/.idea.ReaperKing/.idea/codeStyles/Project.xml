@@ -3,5 +3,12 @@
     <HTMLCodeStyleSettings>
       <option name="HTML_DO_NOT_INDENT_CHILDREN_OF" value="html" />
     </HTMLCodeStyleSettings>
+    <codeStyleSettings language="JavaScript">
+      <option name="SOFT_MARGINS" value="120" />
+    </codeStyleSettings>
+    <codeStyleSettings language="Markdown">
+      <option name="RIGHT_MARGIN" value="96" />
+      <option name="SOFT_MARGINS" value="96" />
+    </codeStyleSettings>
   </code_scheme>
 </component>

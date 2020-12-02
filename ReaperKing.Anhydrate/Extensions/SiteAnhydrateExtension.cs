@@ -16,6 +16,7 @@
  * along with this program. If not, see http://www.gnu.org/licenses/.
  */
 
+using System;
 using ReaperKing.Core;
 
 namespace ReaperKing.Anhydrate.Extensions
@@ -29,11 +30,18 @@ namespace ReaperKing.Anhydrate.Extensions
         {
             string selfDir = site.GetInternalResourcePath(RealDirectory);
             // TODO: Make this more generic.
-            foreach (string define in site.ProjectConfig.Build.Define)
+            var defines = site.ProjectConfig.Build.Define;
+            for (int index = defines.Count - 1; index >= 0; index--)
             {
+                string define = defines[index];
                 if (define.StartsWith("ANHYDRATE_PATH"))
                 {
-                    selfDir = define.Split('=', 2)[1];
+                    string part2 = define.Split('=', 2)[1];
+                    if (!String.IsNullOrEmpty(part2))
+                    {
+                        selfDir = part2;
+                    }
+
                     break;
                 }
             }
