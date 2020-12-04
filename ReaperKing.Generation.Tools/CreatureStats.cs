@@ -1,22 +1,37 @@
-using ReaperKing.Core;
-using ReaperKing.Generation.Tools.Models;
+/*!
+ * This file is a part of the open-sourced engine modules for
+ * https://alex4401.github.io, and those modules' repository may be found
+ * at https://github.com/alex4401/ReaperKing.
+ *
+ * The project is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU Affero General Public License as published
+ * by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see http://www.gnu.org/licenses/.
+ */
+
+using ReaperKing.Anhydrate.Models;
 
 namespace ReaperKing.Generation.Tools
 {
-    public class CreatureStats : IDocumentGenerator
+    public class CreatureStats : ToolDocument<AnhydrateModel>
     {
-        public DocumentGenerationResult Generate(SiteContext ctx)
-        {
-            return new()
+        public override string GetName() => "creature-stats";
+        public override string GetTemplateName() => "/ARKTools/CreatureStats";
+
+        public override AnhydrateModel GetModel()
+            => new(Context)
             {
-                Name = "creature-stats",
-                Template = "/ARKTools/creatureStats.cshtml",
-                Model = new ToolModel(ctx)
-                {
-                    SiteName = "ARK Tools",
-                    DisplayTitle = "{{CreatureStats}}",
-                },
+                SectionName = "ARK Tools",
+                DocumentTitle = "Creature Stats",
+                HeaderIconClass = "icon-mod",
             };
-        }
     }
 }
