@@ -51,6 +51,8 @@ namespace ReaperKing.Anhydrate.Models
          *      compiler bug.
          */
         public dynamic LayoutConfig { get; set; }
+        
+        public string LayoutCssClasses { get; set; }
 
         public string OpenGraphsType { get; init; }
         public string OpenGraphsImage { get; init; }

@@ -40,7 +40,7 @@
             </div>
         </div>
 
-        <div class="gutter-container">
+        <div class="gutter-container @Model.LayoutCssClasses">
             @if (Model.LayoutConfig is GutterLayoutSection[] sectionSetups)
             {
                 foreach (GutterLayoutSection setup in sectionSetups)
