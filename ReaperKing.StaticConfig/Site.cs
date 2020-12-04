@@ -1,3 +1,22 @@
+/*!
+ * This file is a part of the open-sourced engine modules for
+ * https://alex4401.github.io, and those modules' repository may be found
+ * at https://github.com/alex4401/ReaperKing.
+ *
+ * The project is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU Affero General Public License as published
+ * by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see http://www.gnu.org/licenses/.
+ */
+
 using System.IO;
 using Microsoft.Extensions.Logging;
 
@@ -42,21 +61,20 @@ namespace ReaperKing.StaticConfig
         {
             this.EnableCommonTemplates();
             this.EnableAnhydrateTemplates();
-            
+
             Log.LogInformation("Building ARK tools");
-            using (this.OverrideSitemaps(false)) {
+            using (this.OverrideSitemaps(false))
+            {
                 BuildWithProvider(new ToolsContentProvider(), "/ark/tools");
                 BuildWithProvider(new ToolsRedirectsProvider(), "/wiki/tools");
             }
 
             Log.LogInformation("Building ARK mod content");
+            foreach (string modTag in DataManagerARK.Instance.LoadedMods.Keys)
             {
-                foreach (string modTag in DataManagerARK.Instance.LoadedMods.Keys)
-                {
-                    var uri = Path.Join("/ark", modTag);
-                    var generator = new ModContentProvider(modTag);
-                    BuildWithProvider(generator, uri);
-                }
+                var uri = Path.Join("/ark", modTag);
+                var generator = new ModContentProvider(modTag);
+                BuildWithProvider(generator, uri);
             }
         }
 
