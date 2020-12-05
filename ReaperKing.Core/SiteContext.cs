@@ -16,14 +16,15 @@
  * along with this program. If not, see http://www.gnu.org/licenses/.
  */
 
+using System;
 using System.IO;
 
 namespace ReaperKing.Core
 {
     public struct SiteContext
     {
-        public Site Site;
-        public string PathPrefix;
+        public Site Site { get; init; }
+        public string PathPrefix { get; init; }
 
         #region Resource Management
         public string CopyFileToLocation(string inputFile, string uri)
@@ -58,23 +59,36 @@ namespace ReaperKing.Core
         #endregion
 
         #region Building Methods
-        public void BuildPage(IDocumentGenerator generator, string uri = null)
+        public void EmitDocument(IDocumentGenerator generator, string uri = null)
         {
             if (PathPrefix != null)
             {
                 uri = Path.Join(PathPrefix, uri);
             }
             
-            Site.BuildPage(generator, uri);
+            Site.EmitDocument(generator, uri);
         }
-        public void BuildWithProvider(ISiteContentProvider provider, string uri = null)
+        
+        public void EmitDocumentsFrom(ISiteContentProvider provider, string uri = null)
         {
             if (PathPrefix != null)
             {
-                uri = uri == null ? PathPrefix : Path.Join(PathPrefix);
+                uri = Path.Join(PathPrefix, uri);
             }
             
-            Site.BuildWithProvider(provider, uri);
+            Site.EmitDocumentsFrom(provider, uri);
+        }
+        
+        [Obsolete("Replaced with EmitDocument. This alias will be removed at later date.")]
+        public void BuildPage(IDocumentGenerator generator, string uri = null)
+        {
+            EmitDocument(generator, uri);
+        }
+        
+        [Obsolete("Replaced with EmitDocumentsFrom. This alias will be removed at later date.")]
+        public void BuildWithProvider(ISiteContentProvider provider, string uri = null)
+        {
+            EmitDocumentsFrom(provider, uri);
         }
         #endregion
 

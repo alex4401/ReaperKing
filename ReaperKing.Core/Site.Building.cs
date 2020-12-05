@@ -16,29 +16,54 @@
  * along with this program. If not, see http://www.gnu.org/licenses/.
  */
 
+using System;
+
 namespace ReaperKing.Core
 {
     public abstract partial class Site
     {
-        public void BuildPage(IDocumentGenerator generator, string uri = null)
+        /**
+         * Creates a SiteContext backed by this instance.
+         */
+        protected SiteContext GetContext(string uri = null)
         {
-            SiteContext context = new()
+            return new()
             {
                 Site = this,
                 PathPrefix = uri,
             };
+        }
+        
+        /**
+         * Creates a temporary context to a IDocumentGenerator and writes
+         * the result to disk.
+         */
+        public void EmitDocument(IDocumentGenerator generator, string uri = null)
+        {
+            var context = GetContext(uri);
             var result = generator.Generate(context);
             SavePage(result, uri);
         }
+        
+        /**
+         * Creates and passes a context to a ISiteContentProvider.
+         */
+        public void EmitDocumentsFrom(ISiteContentProvider provider, string uri = null)
+        {
+            var context = GetContext(uri);
+            provider.BuildContent(context);
+        }
+        
+        [Obsolete("Replaced with EmitDocument(...). This alias will be removed at later date.")]
+        public void BuildPage(IDocumentGenerator generator, string uri = null)
+        {
+            EmitDocument(generator, uri);
+        }
 
+        [Obsolete("Replaced with EmitDocumentsFrom(...). This alias will be removed at later date.")]
         public void BuildWithProvider(ISiteContentProvider provider, string uri = null)
         {
-            SiteContext context = new()
-            {
-                Site = this,
-                PathPrefix = uri,
-            };
-            provider.BuildContent(context);
+            EmitDocumentsFrom(provider, uri);
         }
     }
 }
