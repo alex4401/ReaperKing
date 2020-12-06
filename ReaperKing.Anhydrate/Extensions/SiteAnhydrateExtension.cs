@@ -31,7 +31,7 @@ namespace ReaperKing.Anhydrate.Extensions
             string selfDir = site.GetInternalResourcePath(RealDirectory);
 
             AnhydrateConfiguration config = site.ProjectConfig.Get<AnhydrateConfiguration>();
-            if (String.IsNullOrEmpty(config.IncludePath))
+            if (!String.IsNullOrEmpty(config.IncludePath))
             {
                 selfDir = config.IncludePath;
             }
