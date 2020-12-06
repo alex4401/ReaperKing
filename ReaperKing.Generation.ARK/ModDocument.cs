@@ -67,6 +67,9 @@ namespace ReaperKing.Generation.ARK
             => new() 
             {
                 CopyrightMessage = @"2020 <a href=""https://github.com/alex4401"">alex4401</a>",
+                Paragraphs = new [] {
+                    "This site is not affiliated with ARK: Survival Evolved or Wildcard Properties, LLC.",
+                },
             };
     }
 }

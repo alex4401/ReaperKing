@@ -54,6 +54,7 @@ namespace ReaperKing.Generation.ARK
                     {
                         @"The topological map comes from " +
                         @"<a href=""https://ark.gamepedia.com"">the Official ARK Wiki</a>",
+                        "This site is not affiliated with ARK: Survival Evolved or Wildcard Properties, LLC.",
                     },
                 };
 
