@@ -41,6 +41,8 @@ namespace ReaperKing.Generation.ARK
 
         public void BuildContent(SiteContext ctx)
         {
+            BuildConfigurationArk config = ctx.GetConfiguration<BuildConfigurationArk>();
+            
             // Acquire a sitemap exclusion token (temporary state
             // lock) if mod is unlisted from search engines.
             SitemapLocalExclusion? sitemapLock = null;
@@ -48,7 +50,7 @@ namespace ReaperKing.Generation.ARK
             {
                 sitemapLock = ctx.OverrideSitemaps(false);
             }
-            
+
             using (ctx.TryAddTemplateIncludeNamespace("ARKMods", "templates/Mods"))
             using (ctx.TryAddTemplateDefaultIncludePaths(new []
             {
@@ -62,11 +64,11 @@ namespace ReaperKing.Generation.ARK
                 ctx.BuildPage(homePage);
                 BuildInteractiveMaps(ctx);
 
-                /*if (Info.WithEpicIni && ctx.IsConstantDefined(StaticSwitchesArk.EpicIni))
+                if (Info.WithEpicIni && config.GenerateInis)
                 {
                     var egs = new EpicIniGenerator(Info, updates.Last().Item2);
                     ctx.BuildPage(egs);
-                }*/
+                }
             }
 
             // Release the sitemap lock if one was acquired.

@@ -44,6 +44,16 @@ namespace ReaperKing.Anhydrate
                 CopyrightMessage = "Fill your copyright message in GetFooter()",
             };
 
+        public virtual T GenerateModel()
+        {
+            return GetModel() with {
+                Navigation = GetNavigation(),
+                Footer = GetFooter(),
+                OpenGraphsType = GetOpenGraphsType(),
+                OpenGraphsImage = GetOpenGraphsImage(),
+            };
+        }
+
         public virtual DocumentGenerationResult Generate(SiteContext ctx)
         {
             Context = ctx;
@@ -54,12 +64,7 @@ namespace ReaperKing.Anhydrate
                 Name = GetName(),
                 Template = GetTemplateName(),
                 
-                Model = GetModel() with {
-                    Navigation = GetNavigation(),
-                    Footer = GetFooter(),
-                    OpenGraphsType = GetOpenGraphsType(),
-                    OpenGraphsImage = GetOpenGraphsImage(),
-                },
+                Model = GenerateModel(),
             };
         }
     }

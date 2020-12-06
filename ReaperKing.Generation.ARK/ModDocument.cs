@@ -22,14 +22,17 @@ using System.IO;
 
 using ReaperKing.Anhydrate;
 using ReaperKing.Anhydrate.Models;
+using ReaperKing.Core;
 using ReaperKing.Generation.ARK.Data;
+using ReaperKing.Generation.ARK.Models;
 
 namespace ReaperKing.Generation.ARK
 {
     public abstract class ModDocument<T> : AnhydrateDocument<T>
-        where T : AnhydrateModel
+        where T : AnhydrateModModel
     {
         protected ModInfo Mod { get; }
+        protected BuildConfigurationArk Configuration { get; private set; }
 
         public ModDocument(ModInfo arkMod)
         {
@@ -42,8 +45,8 @@ namespace ReaperKing.Generation.ARK
             {
                 new NavigationItem("Spawn Maps", Context.GetRootUri()),
                 new NavigationItem("Workshop", $"https://steamcommunity.com/sharedfiles/filedetails/?id={Mod.SteamId}"),
-                //new NavigationItem("Epic.INI", $"{Context.GetRootUri()}/egs.html",
-                //                   Context.IsConstantDefined(StaticSwitchesArk.EpicIni)),
+                new NavigationItem("Epic.INI", $"{Context.GetRootUri()}/egs.html",
+                                   Configuration.GenerateInis),
             };
         }
         
@@ -71,5 +74,18 @@ namespace ReaperKing.Generation.ARK
                     "This site is not affiliated with ARK: Survival Evolved or Wildcard Properties, LLC.",
                 },
             };
+
+        public override T GenerateModel()
+        {
+            return base.GenerateModel() with {
+                Configuration = Configuration,
+            };
+        }
+
+        public override DocumentGenerationResult Generate(SiteContext ctx)
+        {
+            Configuration = ctx.GetConfiguration<BuildConfigurationArk>();
+            return base.Generate(ctx);
+        }
     }
 }

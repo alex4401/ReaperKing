@@ -24,7 +24,7 @@ namespace ReaperKing.Core
     public class SiteRecipeAttribute : Attribute
     { }
 
-    [AttributeUsage(AttributeTargets.Class, Inherited = true)]
+    [AttributeUsage(AttributeTargets.Class, Inherited = true, AllowMultiple = true)]
     public class RkConfigurableAttribute : Attribute
     {
         public Type[] Properties { get; }

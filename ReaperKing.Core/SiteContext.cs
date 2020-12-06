@@ -98,5 +98,10 @@ namespace ReaperKing.Core
                     ? Path.Join(Site.WebConfig.Root, PathPrefix)
                     : PathPrefix;
         }
+
+        public T GetConfiguration<T>()
+        {
+            return Site.ProjectConfig.Get<T>();
+        }
     }
 }

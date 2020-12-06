@@ -23,9 +23,8 @@ using ReaperKing.Generation.ARK.Data;
 
 namespace ReaperKing.Generation.ARK.Models
 {
-    public record InteractiveMapModel : AnhydrateModel
+    public record InteractiveMapModel : AnhydrateModModel
     {
-        public ModInfo ModInfo { get; init; }
         public MapInfo Map { get; init; }
         public ModInfo.Revision Revision { get; init; }
         public WorldLocation5[] Nests { get; init; }

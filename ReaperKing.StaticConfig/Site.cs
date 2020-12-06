@@ -33,14 +33,7 @@ using ReaperKing.Plugins;
 namespace ReaperKing.StaticConfig
 {
     [SiteRecipe]
-    /*[RkConfigurable(new[]
-    {
-        typeof(RkFandomImageVirtualFsModule),
-        typeof(RkSitemapExclusionModule),
-        typeof(RkUglifyModule),
-        typeof(RkDocumentCollectionModule),
-        typeof(RkImageOptimizationModule),
-    })]*/
+    [RkConfigurable(typeof(BuildConfigurationArk))]
     [SuppressMessage("ReSharper", "UnusedType.Global")]
     public class RkBuildRecipe : Site
     {

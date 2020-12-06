@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 using ReaperKing.Core;
 
 namespace ReaperKing.Anhydrate

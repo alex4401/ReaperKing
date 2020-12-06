@@ -17,13 +17,19 @@
  * along with this program. If not, see http://www.gnu.org/licenses/.
  */
 
-namespace ReaperKing.Generation.ARK
+using ReaperKing.Anhydrate.Models;
+using ReaperKing.Core;
+using ReaperKing.Generation.ARK.Data;
+
+namespace ReaperKing.Generation.ARK.Models
 {
-    public static class StaticSwitchesArk
+    public record AnhydrateModModel : AnhydrateModel
     {
-        public const string EpicIni = "EPIC_INI";
-        public const string SupportTable = "SUPPORT_TABLE";
-        public const string ExperimentalMessage = "EXPERIMENTAL";
-        public const string CgPart2Announcement2021 = "CG2_2021_CAMPAIGN";
+        public ModInfo ModInfo { get; init; }
+        public BuildConfigurationArk Configuration { get; init; }
+        
+        public AnhydrateModModel(SiteContext ctx)
+            : base(ctx)
+        { }
     }
 }
