@@ -27,20 +27,23 @@ namespace ReaperKing.Core
     [AttributeUsage(AttributeTargets.Class, Inherited = true)]
     public class RkConfigurableAttribute : Attribute
     {
-        public string Namespace { get; }
         public Type[] Properties { get; }
         
-        public RkConfigurableAttribute(string ns, Type[] properties)
-            => (Namespace, Properties) = (ns, properties);
+        public RkConfigurableAttribute(Type property)
+            => Properties = new[] { property };
+        
+        public RkConfigurableAttribute(Type[] properties)
+            => Properties = properties;
     }
     
     [AttributeUsage(AttributeTargets.Class, Inherited = false)]
     public class RkProjectPropertyAttribute : Attribute
     {
         public string Name { get; }
+        public string Namespace { get; }
 
-        public RkProjectPropertyAttribute(string name)
-            => (Name) = name;
+        public RkProjectPropertyAttribute(string ns, string name)
+            => (Name, Namespace) = (name, ns);
     }
 
 }

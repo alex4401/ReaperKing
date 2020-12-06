@@ -49,7 +49,7 @@ namespace ReaperKing.Core
                 FilePath = Path.Join(DeploymentPath, uri),
             };
             intermediate.FilePath = Path.Join(DeploymentPath, intermediate.Uri);
-            intermediate.Uri = Path.Combine(ProjectConfig.Paths.Root, intermediate.Uri);
+            intermediate.Uri = Path.Combine(WebConfig.Root, intermediate.Uri);
             
             Log.LogInformation($"Saving document: \"{intermediate.Uri}\"");
             

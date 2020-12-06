@@ -32,9 +32,9 @@ namespace ReaperKing.Core
                 RootUri,
                 ResourcesDirectory)
                 = (ctx,
-                    ctx.Site.ProjectConfig.Paths.Root,
+                    ctx.Site.WebConfig.Root,
                     ctx.GetRootUri(),
-                    ctx.Site.ProjectConfig.Paths.Resources);
+                    ctx.Site.WebConfig.Resources);
         
         public string CopyVersionedResource(string inputFile, string uri)
             => Ctx.CopyVersionedResource(inputFile, uri);

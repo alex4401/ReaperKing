@@ -42,8 +42,8 @@ namespace ReaperKing.Generation.ARK
             {
                 new NavigationItem("Spawn Maps", Context.GetRootUri()),
                 new NavigationItem("Workshop", $"https://steamcommunity.com/sharedfiles/filedetails/?id={Mod.SteamId}"),
-                new NavigationItem("Epic.INI", $"{Context.GetRootUri()}/egs.html",
-                                   Context.IsConstantDefined(StaticSwitchesArk.EpicIni)),
+                //new NavigationItem("Epic.INI", $"{Context.GetRootUri()}/egs.html",
+                //                   Context.IsConstantDefined(StaticSwitchesArk.EpicIni)),
             };
         }
         

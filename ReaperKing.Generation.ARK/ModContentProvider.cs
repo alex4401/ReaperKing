@@ -62,11 +62,11 @@ namespace ReaperKing.Generation.ARK
                 ctx.BuildPage(homePage);
                 BuildInteractiveMaps(ctx);
 
-                if (Info.WithEpicIni && ctx.IsConstantDefined(StaticSwitchesArk.EpicIni))
+                /*if (Info.WithEpicIni && ctx.IsConstantDefined(StaticSwitchesArk.EpicIni))
                 {
                     var egs = new EpicIniGenerator(Info, updates.Last().Item2);
                     ctx.BuildPage(egs);
-                }
+                }*/
             }
 
             // Release the sitemap lock if one was acquired.

@@ -29,21 +29,11 @@ namespace ReaperKing.Anhydrate.Extensions
         public static void EnableAnhydrateTemplates(this Site site)
         {
             string selfDir = site.GetInternalResourcePath(RealDirectory);
-            // TODO: Make this more generic.
-            var defines = site.ProjectConfig.Build.Define;
-            for (int index = defines.Count - 1; index >= 0; index--)
-            {
-                string define = defines[index];
-                if (define.StartsWith("ANHYDRATE_PATH"))
-                {
-                    string part2 = define.Split('=', 2)[1];
-                    if (!String.IsNullOrEmpty(part2))
-                    {
-                        selfDir = part2;
-                    }
 
-                    break;
-                }
+            AnhydrateConfiguration config = site.ProjectConfig.Get<AnhydrateConfiguration>();
+            if (String.IsNullOrEmpty(config.IncludePath))
+            {
+                selfDir = config.IncludePath;
             }
             
             site.AddTemplateIncludeNamespace(Namespace, selfDir);

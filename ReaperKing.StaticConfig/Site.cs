@@ -17,9 +17,11 @@
  * along with this program. If not, see http://www.gnu.org/licenses/.
  */
 
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using Microsoft.Extensions.Logging;
 
+using ReaperKing.Anhydrate;
 using ReaperKing.Core;
 using ReaperKing.CommonTemplates.Extensions;
 using ReaperKing.Anhydrate.Extensions;
@@ -31,21 +33,28 @@ using ReaperKing.Plugins;
 namespace ReaperKing.StaticConfig
 {
     [SiteRecipe]
-    // ReSharper disable once UnusedType.Global
+    /*[RkConfigurable(new[]
+    {
+        typeof(RkFandomImageVirtualFsModule),
+        typeof(RkSitemapExclusionModule),
+        typeof(RkUglifyModule),
+        typeof(RkDocumentCollectionModule),
+        typeof(RkImageOptimizationModule),
+    })]*/
+    [SuppressMessage("ReSharper", "UnusedType.Global")]
     public class RkBuildRecipe : Site
     {
-        public RkBuildRecipe(Project project, ILoggerFactory loggerFactory)
+        public RkBuildRecipe(ProjectConfigurationManager project,
+                             ILoggerFactory loggerFactory)
             : base(typeof(RkBuildRecipe), project, loggerFactory)
         {
             AddModule(new RkFandomImageVirtualFsModule(this));
             AddModule(new RkSitemapExclusionModule(this));
             AddModule(new RkUglifyModule(this));
             AddModule(new RkDocumentCollectionModule(this));
+            AddModule(new RkImageOptimizationModule(this));
             
-            if (IsProjectConstantDefined("WIP_IMAGE_OPTIMIZATION"))
-            {
-                AddModule(new RkImageOptimizationModule(this));
-            }
+            ProjectConfig.AddType<AnhydrateConfiguration>();
         }
 
         public override void PreBuild()
@@ -65,8 +74,8 @@ namespace ReaperKing.StaticConfig
             Log.LogInformation("Building ARK tools");
             using (this.OverrideSitemaps(false))
             {
-                BuildWithProvider(new ToolsContentProvider(), "/ark/tools");
-                BuildWithProvider(new ToolsRedirectsProvider(), "/wiki/tools");
+                EmitDocumentsFrom(new ToolsContentProvider(), "/ark/tools");
+                EmitDocumentsFrom(new ToolsRedirectsProvider(), "/wiki/tools");
             }
 
             Log.LogInformation("Building ARK mod content");
@@ -74,7 +83,7 @@ namespace ReaperKing.StaticConfig
             {
                 var uri = Path.Join("/ark", modTag);
                 var generator = new ModContentProvider(modTag);
-                BuildWithProvider(generator, uri);
+                EmitDocumentsFrom(generator, uri);
             }
         }
 
@@ -85,7 +94,7 @@ namespace ReaperKing.StaticConfig
             Log.LogInformation("Creating a sitemap");
             {
                 var module = GetModuleInstance<RkDocumentCollectionModule>();
-                BuildPage(new SitemapGenerator(module));
+                EmitDocument(new SitemapGenerator(module));
             }
         }
     }

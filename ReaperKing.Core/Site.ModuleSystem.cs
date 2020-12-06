@@ -27,6 +27,7 @@ namespace ReaperKing.Core
         protected void AddModule<T>(T module)
             where T : RkModule
         {
+            ProjectConfig.ScanType(typeof(T));
             _modules.Add(module);
         }
         

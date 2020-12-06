@@ -22,14 +22,24 @@ using ReaperKing.Core;
 
 namespace ReaperKing.Plugins
 {
+    [RkProjectProperty("modules", "uglify")]
+    public record RkUglifyConfiguration
+    {
+        public bool Enable { get; init; } = false;
+    }
+    
+    [RkConfigurable(typeof(RkUglifyConfiguration))]
     public class RkUglifyModule : RkDocumentProcessorModule
     {
-        public bool IsEnabled { get; init; }
+        public bool IsEnabled { get; private set; }
 
         public RkUglifyModule(Site site)
             : base(typeof(RkUglifyModule), site)
+        { }
+
+        public override void AcceptConfiguration(ProjectConfigurationManager config)
         {
-            IsEnabled = Site.ProjectConfig.Build.MinifyHtml;
+            IsEnabled = config.Get<RkUglifyConfiguration>().Enable;
         }
 
         public override void PostProcessDocument(string uri, ref IntermediateGenerationResult result)

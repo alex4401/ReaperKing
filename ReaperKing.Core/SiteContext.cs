@@ -92,15 +92,10 @@ namespace ReaperKing.Core
         }
         #endregion
 
-        public bool IsConstantDefined(string id)
-        {
-            return Site.IsProjectConstantDefined(id);
-        }
-
         public string GetRootUri()
         {
-            return Site.ProjectConfig.Paths.Root != "/"
-                    ? Path.Join(Site.ProjectConfig.Paths.Root, PathPrefix)
+            return Site.WebConfig.Root != "/"
+                    ? Path.Join(Site.WebConfig.Root, PathPrefix)
                     : PathPrefix;
         }
     }

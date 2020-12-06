@@ -90,7 +90,7 @@ namespace ReaperKing.Core
             
             // Combine into final path and public URI
             var diskPath = Path.Join(DeploymentPath, uri);
-            var publicUri = Path.Join(ProjectConfig.Paths.Root, uri);
+            var publicUri = Path.Join(WebConfig.Root, uri);
             
             // Ensure the directory exists.
             Directory.CreateDirectory(Path.GetDirectoryName(diskPath));
@@ -112,7 +112,7 @@ namespace ReaperKing.Core
         {
             inputFile = ResolveResourceVirtualPath(inputFile);
             return CopyFileToLocation(Path.Join("resources", inputFile), 
-                                     Path.Join(ProjectConfig.Paths.Resources, uri));
+                                     Path.Join(WebConfig.Resources, uri));
         }
 
         /**

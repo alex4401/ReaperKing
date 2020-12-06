@@ -28,5 +28,8 @@ namespace ReaperKing.Core
 
         protected RkModule(Type selfType, Site site)
             => (Site, Log) = (site, site.LogFactory.CreateLogger(selfType.FullName));
+
+        public virtual void AcceptConfiguration(ProjectConfigurationManager config)
+        { }
     }
 }

@@ -64,7 +64,7 @@ namespace ReaperKing.Plugins
                 // of the target page.
                 writer.WriteStartElement("url");
                 writer.WriteStartElement("loc");
-                writer.WriteString(Path.Join(ctx.Site.ProjectConfig.Paths.Sitemap, page.Uri));
+                writer.WriteString(Path.Join(ctx.Site.WebConfig.ExternalAddress, page.Uri));
                 writer.WriteEndElement();
                 writer.WriteEndElement();
             }

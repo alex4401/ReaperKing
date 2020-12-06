@@ -26,17 +26,21 @@ using ReaperKing.Core.Razor;
 
 namespace ReaperKing.Core
 {
-    [RkConfigurable(ns: "rk", properties: new[]
+    [RkConfigurable(new[]
     {
-        typeof(WebPathConfiguration),
-        typeof(BuildConfiguration),
+        typeof(WebConfiguration),
+        typeof(ResourcesConfiguration),
+        typeof(ImmutableRuntimeConfiguration),
     })]
     public abstract partial class Site
     {
-        public Project ProjectConfig { get; }
-        public string ContentRoot => ProjectConfig.ContentDirectory;
-        public string AssemblyRoot => ProjectConfig.AssemblyDirectory;
-        public string DeploymentPath => ProjectConfig.Paths.Deployment;
+        public ProjectConfigurationManager ProjectConfig { get; }
+        public ImmutableRuntimeConfiguration ImmutableConfig { get; }
+        public WebConfiguration WebConfig { get; }
+        
+        public string ContentRoot => ImmutableConfig.ContentRoot;
+        public string AssemblyRoot => ImmutableConfig.AssemblyRoot;
+        public string DeploymentPath => ImmutableConfig.DeploymentPath;
         
         /**
          * A logger factory to be used by modules and other classes
@@ -62,29 +66,26 @@ namespace ReaperKing.Core
         public RazorLightEngine RazorEngine { get; }
 
         [SuppressMessage("ReSharper", "UnusedMember.Global")]
-        public Site(Project project, ILoggerFactory loggerFactory)
+        public Site(ProjectConfigurationManager project,
+                    ILoggerFactory loggerFactory)
             : this(typeof(Site), project, loggerFactory)
         { }
 
-        protected Site(Type selfType, Project project, ILoggerFactory loggerFactory)
+        protected Site(Type selfType,
+                       ProjectConfigurationManager project,
+                       ILoggerFactory loggerFactory)
         {
             (ProjectConfig, LogFactory) = (project, loggerFactory);
             Log = LogFactory.CreateLogger(selfType.FullName);
+            
+            ImmutableConfig = project.Get<ImmutableRuntimeConfiguration>();
+            WebConfig = project.Get<WebConfiguration>();
             
             _razorProject = new RazorScopedFilesystemProject(Path.Join(ContentRoot, "templates"));
             RazorEngine = new RazorLightEngineBuilder()
                 .UseProject(_razorProject)
                 .UseMemoryCachingProvider()
                 .Build();
-        }
-
-        /**
-         * Checks if a constant is defined in project configuration.
-         */
-        [Obsolete("Going forward, this will be replaced with methods directly on the Project Config.")]
-        public bool IsProjectConstantDefined(string id)
-        {
-            return ProjectConfig.Build.Define != null && ProjectConfig.Build.Define.Contains(id);
         }
 
         #region Building virtuals
@@ -94,15 +95,22 @@ namespace ReaperKing.Core
          */
         public virtual void PreBuild()
         {
-            var nvResources = ProjectConfig.Resources.CopyNonVersioned;
+            ResourcesConfiguration resourceConfig = ProjectConfig.Get<ResourcesConfiguration>();
+            var nvResources = resourceConfig.CopyNonVersioned;
 
-            if (nvResources.Length > 0)
+            if (nvResources.Count > 0)
             {
                 Log.LogInformation("Copying non-versioned resources");
                 foreach (var file in nvResources)
                 {
                     CopyResource(file, file);
                 }
+            }
+            
+            // Notify modules that the configuration is now available.
+            foreach (RkModule module in _modules)
+            {
+                module.AcceptConfiguration(ProjectConfig);
             }
         }
 

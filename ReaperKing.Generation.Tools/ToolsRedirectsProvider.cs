@@ -28,7 +28,7 @@ namespace ReaperKing.Generation.Tools
     {
         public void BuildContent(SiteContext ctx)
         {
-            string root = ctx.Site.ProjectConfig.Paths.Root;
+            string root = ctx.Site.WebConfig.Root;
             
             ctx.RedirectPage("color-table", Path.Join(root, "ark/tools/color-table.html"));
             ctx.RedirectPage("creature-stats", Path.Join(root, "ark/tools/creature-stats.html"));
