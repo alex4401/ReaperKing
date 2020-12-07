@@ -29,10 +29,10 @@ namespace ReaperKing.Generation.Tools
             using (ctx.TryAddTemplateIncludeNamespace("ARKTools", "templates/tools"))
             using (ctx.TryAddTemplateDefaultIncludePath("templates/tools"))
             {
-                ctx.BuildPage(new LegacyCreatureStats());
-                ctx.BuildPage(new CreatureStats());
-                ctx.BuildPage(new ColorTable());
-                ctx.BuildPage(new VexApplication());
+                ctx.EmitDocument(new LegacyCreatureStats());
+                ctx.EmitDocument(new CreatureStats());
+                ctx.EmitDocument(new ColorTable());
+                ctx.EmitDocument(new VexApplication());
             }
         }
     }

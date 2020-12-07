@@ -17,12 +17,7 @@
  * along with this program. If not, see http://www.gnu.org/licenses/.
  */
 
-using System;
 using System.IO;
-using System.Net;
-using System.Security.Cryptography;
-using System.Text;
-using Microsoft.Extensions.Logging;
 
 using ReaperKing.Core;
 using ReaperKing.Generation.ARK.Data;

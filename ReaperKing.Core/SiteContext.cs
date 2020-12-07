@@ -78,18 +78,6 @@ namespace ReaperKing.Core
             
             Site.EmitDocumentsFrom(provider, uri);
         }
-        
-        [Obsolete("Replaced with EmitDocument. This alias will be removed at later date.")]
-        public void BuildPage(IDocumentGenerator generator, string uri = null)
-        {
-            EmitDocument(generator, uri);
-        }
-        
-        [Obsolete("Replaced with EmitDocumentsFrom. This alias will be removed at later date.")]
-        public void BuildWithProvider(ISiteContentProvider provider, string uri = null)
-        {
-            EmitDocumentsFrom(provider, uri);
-        }
         #endregion
 
         public string GetRootUri()

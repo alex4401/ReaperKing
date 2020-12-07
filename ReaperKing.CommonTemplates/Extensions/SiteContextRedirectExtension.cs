@@ -24,7 +24,7 @@ namespace ReaperKing.CommonTemplates.Extensions
     {
         public static void RedirectPage(this SiteContext ctx, string source, string target)
         {
-            ctx.BuildPage(new RedirectGenerator
+            ctx.EmitDocument(new RedirectGenerator
             {
                 Name = source,
                 TargetUrl = target,
@@ -33,7 +33,7 @@ namespace ReaperKing.CommonTemplates.Extensions
         
         public static void RedirectPage(this SiteContext ctx, string uri, string source, string target)
         {
-            ctx.BuildPage(new RedirectGenerator
+            ctx.EmitDocument(new RedirectGenerator
             {
                 Uri = uri,
                 Name = source,

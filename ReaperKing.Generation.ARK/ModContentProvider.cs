@@ -61,13 +61,13 @@ namespace ReaperKing.Generation.ARK
                 var updates = _dataManager.FindModRevisionsByTag(ModTag, RevisionTag.ModUpdate);
                 var homePage = new ModHomeGenerator(Info);
 
-                ctx.BuildPage(homePage);
+                ctx.EmitDocument(homePage);
                 BuildInteractiveMaps(ctx);
 
                 if (Info.WithEpicIni && config.GenerateInis)
                 {
                     var egs = new EpicIniGenerator(Info, updates.Last().Item2);
-                    ctx.BuildPage(egs);
+                    ctx.EmitDocument(egs);
                 }
             }
 
@@ -82,7 +82,7 @@ namespace ReaperKing.Generation.ARK
             foreach (var (mapRef, revisionId) in worldRevMap)
             {
                 var map = new InteractiveMapGenerator(Info, ModTag, mapRef, revisionId);
-                ctx.BuildPage(map);
+                ctx.EmitDocument(map);
             }
             
             // Map out new-style revisions to worlds.
