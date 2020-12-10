@@ -18,6 +18,7 @@
  */
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Net;
 using Microsoft.Extensions.Logging;
@@ -36,6 +37,7 @@ namespace ReaperKing.Generation.ARK
      */
     public class RkFandomImageVirtualFsModule : RkResourceResolverModule
     {
+        private const string UriNamespace = "fandom:";
         private const bool CachedUpstream = false;
         private static string UpstreamUrl
             => CachedUpstream
@@ -46,11 +48,27 @@ namespace ReaperKing.Generation.ARK
             : base(typeof(RkFandomImageVirtualFsModule), site)
         { }
         
-        private struct ImageInfo
+        public struct ImageInfo
         {
-            public string Bucket { get; init; }
-            public string Name { get; init; }
-            public int X { get; init; }
+            [NotNull] public string Bucket { get; init; }
+            [NotNull] public string Name { get; init; }
+            [NotNull] public int X { get; init; }
+
+            public static ImageInfo ConstructFromUri(string virtualPath)
+            {
+                if (virtualPath.StartsWith(UriNamespace))
+                {
+                    virtualPath = virtualPath.Substring(UriNamespace.Length);
+                }
+                
+                string[] parts = virtualPath.Split('/', StringSplitOptions.RemoveEmptyEntries);
+                return new()
+                {
+                    Bucket = parts[0],
+                    Name = parts[1],
+                    X = parts.Length > 2 ? int.Parse(parts[2]) : 0,
+                };
+            }
         }
         
         private string GetImageUrl(ImageInfo info)
@@ -73,22 +91,16 @@ namespace ReaperKing.Generation.ARK
 
             return result + "?format=original";
         }
+
+        public override bool CanAccept(string ns, string virtualPath)
+        {
+            return ns == UriNamespace;
+        }
         
         public override bool ResolveResource(string ns, string virtualPath, out string result)
         {
             result = "";
-            if (ns != "fandom:")
-            {
-                return false;
-            }
-
-            string[] parts = virtualPath.Split('/', StringSplitOptions.RemoveEmptyEntries);
-            ImageInfo info = new()
-            {
-                Bucket = parts[0],
-                Name = parts[1],
-                X = parts.Length > 2 ? int.Parse(parts[2]) : 0,
-            };
+            ImageInfo info = ImageInfo.ConstructFromUri(virtualPath);
             
             string origin = GetImageUrl(info);
             string ext = Path.GetExtension(info.Name);
