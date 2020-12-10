@@ -38,17 +38,19 @@ namespace ReaperKing.Core
          * Creates a temporary context to a IDocumentGenerator and writes
          * the result to disk.
          */
-        public void EmitDocument(IDocumentGenerator generator, string uri = null)
+        public void EmitDocument<T>(T generator, string uri = null)
+            where T : IDocumentGenerator
         {
             var context = GetContext(uri);
             var result = generator.Generate(context);
             SavePage(result, uri);
         }
-        
+
         /**
          * Creates and passes a context to a ISiteContentProvider.
          */
-        public void EmitDocumentsFrom(ISiteContentProvider provider, string uri = null)
+        public void EmitDocumentsFrom<T>(T provider, string uri = null)
+            where T : ISiteContentProvider
         {
             var context = GetContext(uri);
             provider.BuildContent(context);

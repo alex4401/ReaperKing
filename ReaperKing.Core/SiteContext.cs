@@ -59,7 +59,8 @@ namespace ReaperKing.Core
         #endregion
 
         #region Building Methods
-        public void EmitDocument(IDocumentGenerator generator, string uri = null)
+        public void EmitDocument<T>(T generator, string uri = null)
+            where T : IDocumentGenerator
         {
             if (PathPrefix != null)
             {
@@ -69,7 +70,8 @@ namespace ReaperKing.Core
             Site.EmitDocument(generator, uri);
         }
         
-        public void EmitDocumentsFrom(ISiteContentProvider provider, string uri = null)
+        public void EmitDocumentsFrom<T>(T provider, string uri = null)
+            where T : ISiteContentProvider
         {
             if (PathPrefix != null)
             {
