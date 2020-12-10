@@ -75,5 +75,7 @@
                 @{ RenderWidget("/ReaperKing.Anhydrate/Widgets", "SiteFooter"); }
             </div>
         </div>
+        
+        @await RenderSectionAsync("PostDocument", required: false)
     </body>
 </html>
