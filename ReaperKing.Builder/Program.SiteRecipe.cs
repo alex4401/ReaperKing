@@ -19,10 +19,12 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Runtime.Loader;
 using Microsoft.CodeAnalysis;
 using Microsoft.Extensions.Logging;
+using RazorLight;
 
 using ReaperKing.Core;
 
@@ -50,15 +52,29 @@ namespace ReaperKing.Builder
 
         private void AddTypeMetadataToRazor(Assembly assembly)
         {
-            var metadataReferences = SiteObject.RazorEngine.Handler.Options.AdditionalMetadataReferences;
+            IEngineHandler engineHandler = SiteObject.RazorEngine.Handler;
+            var metadataReferences = engineHandler.Options.AdditionalMetadataReferences;
+            
             metadataReferences.Add(MetadataReference.CreateFromFile(assembly.Location));
             
-            foreach (var otherAssembly in assembly.GetReferencedAssemblies())
+            foreach (AssemblyName refAssemblyName in assembly.GetReferencedAssemblies())
             {
-                if (otherAssembly.Name != null && otherAssembly.Name.StartsWith("ReaperKing"))
+                if (refAssemblyName.Name != null)
                 {
-                    var otherAssemblyPath = Assembly.Load(otherAssembly).Location;
-                    metadataReferences.Add(MetadataReference.CreateFromFile(otherAssemblyPath));
+                    string assemblyName = refAssemblyName.Name;
+                    
+                    if (assemblyName.StartsWith("ReaperKing.")
+                        || BuildConfig.RazorWhitelist.Any(
+                            prefix => assemblyName.StartsWith(prefix)
+                        )
+                    )
+                    {
+                        Assembly refAssembly = Assembly.Load(refAssemblyName);
+                        string refAssemblyPath = refAssembly.Location;
+                        metadataReferences.Add(MetadataReference.CreateFromFile(refAssemblyPath));
+                        
+                        AddTypeMetadataToRazor(refAssembly);
+                    }
                 }
             }
         }
