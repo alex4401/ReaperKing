@@ -41,6 +41,11 @@ namespace ReaperKing.Core
             {
                 foreach (var module in GetModuleInstances<RkResourceResolverModule>())
                 {
+                    if (!module.CanAccept(parts[0], parts[1]))
+                    {
+                        continue;
+                    }
+                    
                     if (module.ResolveResource(parts[0], parts[1], out var result))
                     {
                         return result;

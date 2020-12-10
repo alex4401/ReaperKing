@@ -25,6 +25,8 @@ namespace ReaperKing.Core
         protected RkResourceResolverModule(Type selfType, Site site)
             : base(selfType, site)
         { }
+
+        public abstract bool CanAccept(string ns, string virtualPath);
         
         public abstract bool ResolveResource(string ns, string virtualPath, out string result);
     }
