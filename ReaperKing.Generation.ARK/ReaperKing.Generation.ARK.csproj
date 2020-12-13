@@ -6,6 +6,8 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Noglin.Ark\Noglin.Ark.csproj" />
+      <ProjectReference Include="..\Noglin.Core\Noglin.Core.csproj" />
       <ProjectReference Include="..\ReaperKing.Anhydrate\ReaperKing.Anhydrate.csproj" />
       <ProjectReference Include="..\ReaperKing.Core\ReaperKing.Core.csproj" />
       <ProjectReference Include="..\ReaperKing.Plugins\ReaperKing.Plugins.csproj" />

@@ -17,6 +17,7 @@
  * along with this program. If not, see http://www.gnu.org/licenses/.
  */
 
+using Noglin.Ark.Schemas;
 using ReaperKing.Anhydrate.Models;
 using ReaperKing.Core;
 using ReaperKing.Generation.ARK.Data;
@@ -25,7 +26,7 @@ namespace ReaperKing.Generation.ARK.Models
 {
     public record AnhydrateModModel : AnhydrateModel
     {
-        public ModInfo ModInfo { get; init; }
+        public ModSpecificationSchema ModInfo { get; init; }
         public BuildConfigurationArk Configuration { get; init; }
         
         public AnhydrateModModel(SiteContext ctx)

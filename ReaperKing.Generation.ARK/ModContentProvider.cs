@@ -17,77 +17,56 @@
  * along with this program. If not, see http://www.gnu.org/licenses/.
  */
 
-using System.IO;
 using System.Linq;
-
+using Noglin.Ark;
+using Noglin.Ark.Schemas;
+using Noglin.Core;
 using ReaperKing.Core;
 using ReaperKing.Generation.ARK.Data;
-using ReaperKing.Plugins;
 
 namespace ReaperKing.Generation.ARK
 {
     public class ModContentProvider : ISiteContentProvider
     {
-        public readonly string ModTag;
-        public readonly ModInfo Info;
-        private readonly DataManagerARK _dataManager;
+        public ArkDataContentGenerator Manager { get; init; }
+        public BuildConfigurationArk Config { get; init; }
+        public PackageRegistry ArkRegistry { get; init; }
+        public ModSpecificationSchema Info { get; init; }
+        public string Tag { get; init; }
         
-        public ModContentProvider(string modTag)
+        public ModContentProvider(ArkDataContentGenerator outer, ModSpecificationSchema modSpec)
         {
-            ModTag = modTag;
-            Info = DataManagerARK.Instance.LoadedMods[modTag];
-            _dataManager = DataManagerARK.Instance;
+            Manager = outer;
+            Config = outer.Config;
+            ArkRegistry = outer.ArkRegistry;
+            Info = modSpec;
+            Tag = modSpec.Meta.Tag;
         }
 
         public void BuildContent(SiteContext ctx)
         {
-            BuildConfigurationArk config = ctx.GetConfiguration<BuildConfigurationArk>();
+            var groups = ArkRegistry.FindByModId<RawSpawningGroupsData>(Info.Meta.WorkshopId).First();
             
-            // Acquire a sitemap exclusion token (temporary state
-            // lock) if mod is unlisted from search engines.
-            SitemapLocalExclusion? sitemapLock = null;
-            if (Info.ExcludeFromSitemaps)
-            {
-                sitemapLock = ctx.OverrideSitemaps(false);
-            }
-
             using (ctx.TryAddTemplateIncludeNamespace("ARKMods", "templates/Mods"))
-            using (ctx.TryAddTemplateDefaultIncludePaths(new []
             {
-                "templates/mods",
-                Path.Join("templates/mods", ModTag),
-            }))
-            {
-                var updates = _dataManager.FindModRevisionsByTag(ModTag, RevisionTag.ModUpdate);
-                var homePage = new ModHomeGenerator(Info);
-
-                ctx.EmitDocument(homePage);
+                ctx.EmitDocument<ModHomeGenerator>(new(Info));
+                
                 BuildInteractiveMaps(ctx);
 
-                if (Info.WithEpicIni && config.GenerateInis)
+                if (Config.GenerateInis && Info.Generation.GenerateInis)
                 {
-                    var egs = new EpicIniGenerator(Info, updates.Last().Item2);
-                    ctx.EmitDocument(egs);
+                    ctx.EmitDocument<StandaloneIniGenerator>(new(Info, groups));
                 }
             }
 
-            // Release the sitemap lock if one was acquired.
-            sitemapLock?.Dispose();
         }
 
         public void BuildInteractiveMaps(SiteContext ctx)
         {
-            var worldRevMap = _dataManager.MapLegacyRevisionsToMaps(ModTag);
-            
-            foreach (var (mapRef, revisionId) in worldRevMap)
+            foreach (DataMap dataMap in Info.DataMaps)
             {
-                var map = new InteractiveMapGenerator(Info, ModTag, mapRef, revisionId);
-                ctx.EmitDocument(map);
+                //ctx.EmitDocument<InteractiveMapGenerator>(new(Info, dataMap), "/latest");
             }
-            
-            // Map out new-style revisions to worlds.
-            var updates = _dataManager.FindModRevisionsByTag(ModTag, RevisionTag.ModUpdate);
-
         }
     }
 }

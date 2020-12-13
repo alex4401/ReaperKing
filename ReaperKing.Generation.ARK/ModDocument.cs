@@ -19,7 +19,7 @@
 
 using System;
 using System.IO;
-
+using Noglin.Ark.Schemas;
 using ReaperKing.Anhydrate;
 using ReaperKing.Anhydrate.Models;
 using ReaperKing.Core;
@@ -31,12 +31,12 @@ namespace ReaperKing.Generation.ARK
     public abstract class ModDocument<T> : AnhydrateDocument<T>
         where T : AnhydrateModModel
     {
-        protected ModInfo Mod { get; }
+        protected ModSpecificationSchema Mod { get; }
         protected BuildConfigurationArk Configuration { get; private set; }
 
-        public ModDocument(ModInfo arkMod)
+        public ModDocument(ModSpecificationSchema info)
         {
-            Mod = arkMod;
+            Mod = info;
         }
 
         public override NavigationItem[] GetNavigation()
@@ -44,8 +44,8 @@ namespace ReaperKing.Generation.ARK
             return new[]
             {
                 new NavigationItem("Spawn Maps", Context.GetRootUri()),
-                new NavigationItem("Workshop", $"https://steamcommunity.com/sharedfiles/filedetails/?id={Mod.SteamId}"),
-                new NavigationItem("Epic.INI", $"{Context.GetRootUri()}/egs.html",
+                new NavigationItem("Workshop", $"https://steamcommunity.com/sharedfiles/filedetails/?id={Mod.Meta.WorkshopId}"),
+                new NavigationItem("Standalone.Ini", $"{Context.GetRootUri()}/latest/ini.html",
                                    Configuration.GenerateInis),
             };
         }
@@ -54,7 +54,7 @@ namespace ReaperKing.Generation.ARK
 
         public override string GetOpenGraphsImage()
         {
-            if (String.IsNullOrEmpty(Mod.OgImageResource))
+            /*if (String.IsNullOrEmpty(Mod.OgImageResource))
             {
                 return "";
             }
@@ -63,7 +63,8 @@ namespace ReaperKing.Generation.ARK
             string fileName = Path.GetFileNameWithoutExtension(Mod.OgImageResource);
             
             return Context.CopyVersionedResource(Mod.OgImageResource,
-                                                 $"/og_images/{fileName}-[hash]{fileExtension}");
+                                                 $"/og_images/{fileName}-[hash]{fileExtension}");*/
+            return "";
         }
 
         public override FooterInfo GetFooter()

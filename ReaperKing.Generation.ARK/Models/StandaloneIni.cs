@@ -21,9 +21,11 @@ using ReaperKing.Core;
 
 namespace ReaperKing.Generation.ARK.Models
 {
-    public record ModHomeModel : AnhydrateModModel
+    public record StandaloneIniModel : AnhydrateModModel
     {
-        public ModHomeModel(SiteContext ctx)
+        public string IniContents { get; init; }
+        
+        public StandaloneIniModel(SiteContext ctx)
             : base(ctx)
         { }
     }

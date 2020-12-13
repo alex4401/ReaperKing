@@ -20,31 +20,27 @@
 
 using System.IO;
 using System.Linq;
-
+using Noglin.Ark;
+using Noglin.Ark.Schemas;
 using ReaperKing.Anhydrate.Models;
 using ReaperKing.Core;
 using ReaperKing.Generation.ARK.Data;
 using ReaperKing.Generation.ARK.Models;
 
 namespace ReaperKing.Generation.ARK
-{
+{/*
     public class InteractiveMapGenerator : ModDocument<InteractiveMapModel>
     {
-        private readonly string _arkModRef;
-        private readonly string _arkMapRef;
-        private readonly MapInfo _arkMap;
-        private readonly int _revisionId;
+        private readonly DataMap _map;
 
-        public InteractiveMapGenerator(ModInfo arkMod, string arkModRef, string arkMapRef, int revisionId)
-            : base(arkMod)
+        public InteractiveMapGenerator(ModSpecificationSchema mod,
+                                       DataMap map)
+            : base(mod)
         {
-            _arkModRef = arkModRef;
-            _arkMapRef = arkMapRef;
-            _arkMap = DataManagerARK.Instance.LoadedMaps[arkMapRef];
-            _revisionId = revisionId;
+            _map = map;
         }
 
-        public override string GetName() => _arkMap.InternalId;
+        public override string GetName() => _map.Tag;
         public override string GetTemplateName() => "/ARKMods/SpawningMap";
         public override string GetUri()
             => "latest";
@@ -87,5 +83,5 @@ namespace ReaperKing.Generation.ARK
             Nests = DataManagerARK.Instance.GetNestLocations(_arkModRef, _arkMapRef).ToArray(),
             JsonUri = _copyDataBlobs(Context.Site),
         };
-    }
+    }*/
 }

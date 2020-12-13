@@ -17,6 +17,7 @@
  * along with this program. If not, see http://www.gnu.org/licenses/.
  */
 
+using Noglin.Ark.Schemas;
 using ReaperKing.Anhydrate.Models;
 using ReaperKing.Generation.ARK.Data;
 using ReaperKing.Generation.ARK.Models;
@@ -25,8 +26,8 @@ namespace ReaperKing.Generation.ARK
 {
     public class ModHomeGenerator : ModDocument<ModHomeModel>
     {
-        public ModHomeGenerator(ModInfo arkMod)
-            : base(arkMod)
+        public ModHomeGenerator(ModSpecificationSchema info)
+            : base(info)
         { }
 
         public override string GetName() => "index";
@@ -41,14 +42,14 @@ namespace ReaperKing.Generation.ARK
                     },
                 };
 
-        public override ModHomeModel GetModel() => new(Context)
-        {
-            SectionName = Mod.Name,
-            DocumentTitle = "Spawn Maps",
-            HeaderIconClass = "icon-mod",
-                    
-            ModInfo = Mod,
-            Maps = DataManagerARK.Instance.LoadedMaps,
-        };
+        public override ModHomeModel GetModel()
+            => new(Context)
+            {
+                SectionName = Mod.Meta.Name,
+                DocumentTitle = "Spawn Maps",
+                HeaderIconClass = "icon-mod",
+                
+                ModInfo = Mod,
+            };
     }
 }
