@@ -85,7 +85,7 @@ namespace ReaperKing.Core
         public string GetRootUri()
         {
             return Site.WebConfig.Root != "/"
-                    ? Path.Join(Site.WebConfig.Root, PathPrefix)
+                    ? Path.Combine(Site.WebConfig.Root, PathPrefix)
                     : PathPrefix;
         }
 

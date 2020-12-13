@@ -74,8 +74,7 @@ namespace ReaperKing.Core
             }
             
             // Try builder's root
-            workingPath = Path.Join(AppDomain.CurrentDomain.BaseDirectory, path);
-            return workingPath;
+            return Path.Join(AppDomain.CurrentDomain.BaseDirectory, path);
         }
         
         /**
@@ -94,8 +93,8 @@ namespace ReaperKing.Core
             }
             
             // Combine into final path and public URI
-            var diskPath = Path.Join(DeploymentPath, uri);
-            var publicUri = Path.Join(WebConfig.Root, uri);
+            string diskPath = Path.Join(DeploymentPath, uri);
+            string publicUri = Path.Combine(WebConfig.Root, uri);
             
             // Ensure the directory exists.
             Directory.CreateDirectory(Path.GetDirectoryName(diskPath));
@@ -106,6 +105,7 @@ namespace ReaperKing.Core
                 Log.LogInformation($"Copying an asset: {filePath}");
                 File.Copy(filePath, diskPath);
             }
+            
             return publicUri;
         }
 
@@ -117,7 +117,7 @@ namespace ReaperKing.Core
         {
             inputFile = ResolveResourceVirtualPath(inputFile);
             return CopyFileToLocation(Path.Join("resources", inputFile), 
-                                     Path.Join(WebConfig.Resources, uri));
+                                     Path.Combine(WebConfig.Resources, uri));
         }
 
         /**
