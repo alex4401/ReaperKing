@@ -5,14 +5,15 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization;
 using Microsoft.Extensions.Logging;
-using ReaperKing.Core;
 using SharpYaml;
 using SharpYaml.Events;
 using SharpYaml.Serialization;
 
+using ReaperKing.Core;
+
 namespace Noglin.Core
 {
-    public class PackageLoader
+    public class YamlPackageLoader : IPackageLoader
     {
         private struct SchemaDescriptor
         {
@@ -25,15 +26,15 @@ namespace Noglin.Core
         private ILogger Log { get; init; }
         private readonly List<SchemaDescriptor> _types = new();
 
-        public PackageLoader(ILoggerFactory factory)
+        public YamlPackageLoader(ILoggerFactory factory)
         {
-            Log = factory.CreateLogger<PackageLoader>();
+            Log = factory.CreateLogger<YamlPackageLoader>();
         }
 
         public void AddType(Type type)
         {
             // Retrieve the project property attribute.
-            var attributes = type.GetCustomAttributes<NoglinSchemaAttribute>().ToArray();
+            var attributes = type.GetCustomAttributes<NoglinYamlAttribute>().ToArray();
 
             if (attributes.Length < 1)
             {
@@ -41,7 +42,7 @@ namespace Noglin.Core
                                             "attribute and thus cannot be exposed to project configurations.");
             }
 
-            foreach (NoglinSchemaAttribute attribute in attributes)
+            foreach (NoglinYamlAttribute attribute in attributes)
             {
                 // Push a descriptor of the property T.
                 _types.Add(new SchemaDescriptor
@@ -84,7 +85,7 @@ namespace Noglin.Core
             return LoadFile(path) as T;
         }
 
-        public Type CheckFileSchemaType(EventReader eventStream)
+        private Type CheckFileSchemaType(EventReader eventStream)
         {
             Scalar key = eventStream.Expect<Scalar>();
             Scalar value = eventStream.Expect<Scalar>();
