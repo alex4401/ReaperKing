@@ -2,8 +2,8 @@ using Noglin.Core;
 
 namespace Noglin.Ark.Schemas
 {
-    [NoglinSchema(Noglin.Ark.ApiVersion.V1.ModSpecification)]
-    public record ModSpecification : PackageSchema
+    [NoglinYaml(Noglin.Ark.ApiVersion.V1.ModSpecification)]
+    public record ModSpecificationSchema : PackageSchema
     {
         public ModMetadataInfo Meta { get; init; }
         public GitRepository Git { get; init; }

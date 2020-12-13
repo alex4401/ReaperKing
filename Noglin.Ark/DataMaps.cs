@@ -9,5 +9,8 @@ namespace Noglin.Ark
         public string Level { get; init; }
         public CoordSetup Setup { get; init; }
         public TopomapSetup Topomap { get; init; }
+
+        public string Tag
+            => Name.ToLower().Replace(" ", String.Empty);
     }
 }

@@ -4,6 +4,5 @@ namespace Noglin.Ark
     {
         public float[] Lat { get; init; }
         public float[] Long { get; init; }
-        public float[] Borders { get; init; }
     }
 }
