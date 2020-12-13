@@ -21,6 +21,9 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using Microsoft.Extensions.Logging;
 
+using Noglin.Ark.Schemas;
+using Noglin.Core;
+
 using ReaperKing.Anhydrate;
 using ReaperKing.Core;
 using ReaperKing.CommonTemplates.Extensions;
@@ -33,10 +36,15 @@ using ReaperKing.Plugins;
 namespace ReaperKing.StaticConfig
 {
     [SiteRecipe]
-    [RkConfigurable(typeof(BuildConfigurationArk))]
+    [RkConfigurable(new [] {
+        typeof(BuildConfigurationArk),
+        typeof(AnhydrateConfiguration),
+    })]
     [SuppressMessage("ReSharper", "UnusedType.Global")]
     public class RkBuildRecipe : Site
     {
+        private ArkDataContentGenerator _arkContentGenerator;
+        
         public RkBuildRecipe(ProjectConfigurationManager project,
                              ILoggerFactory loggerFactory)
             : base(typeof(RkBuildRecipe), project, loggerFactory)
@@ -47,16 +55,14 @@ namespace ReaperKing.StaticConfig
             AddModule(new RkDocumentCollectionModule(this));
             AddModule(new RkImageOptimizationModule(this));
             
-            ProjectConfig.AddType<AnhydrateConfiguration>();
+            _arkContentGenerator = new ArkDataContentGenerator(this, loggerFactory);
         }
 
         public override void PreBuild()
         {
             base.PreBuild();
             
-            var dataManager = DataManagerARK.Instance;
-            Log.LogInformation("Discovering and loading ARK data");
-            dataManager.Initialize(LogFactory.CreateLogger<DataManagerARK>());
+            _arkContentGenerator.PreBuild();
         }
 
         public override void Build()
@@ -72,12 +78,7 @@ namespace ReaperKing.StaticConfig
             }
 
             Log.LogInformation("Building ARK mod content");
-            foreach (string modTag in DataManagerARK.Instance.LoadedMods.Keys)
-            {
-                var uri = Path.Join("/ark", modTag);
-                var generator = new ModContentProvider(modTag);
-                EmitDocumentsFrom(generator, uri);
-            }
+            EmitDocumentsFrom(_arkContentGenerator, "/ark");
         }
 
         public override void PostBuild()
