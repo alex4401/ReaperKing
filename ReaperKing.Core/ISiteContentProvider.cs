@@ -16,10 +16,11 @@
  * along with this program. If not, see http://www.gnu.org/licenses/.
  */
 
+using System;
+
 namespace ReaperKing.Core
 {
-    public interface ISiteContentProvider
-    {
-        public void BuildContent(SiteContext ctx);
-    }
+    [Obsolete("Going forward, this interface will be renamed to IDocumentProvider.")]
+    public interface ISiteContentProvider : IDocumentProvider
+    { }
 }

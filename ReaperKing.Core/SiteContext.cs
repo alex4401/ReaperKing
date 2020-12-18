@@ -71,7 +71,7 @@ namespace ReaperKing.Core
         }
         
         public void EmitDocumentsFrom<T>(T provider, string uri = null)
-            where T : ISiteContentProvider
+            where T : IDocumentProvider
         {
             if (PathPrefix != null)
             {

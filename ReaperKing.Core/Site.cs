@@ -236,8 +236,8 @@ namespace ReaperKing.Core
         public void EmitDocument<T>(T generator, string uri = null)
             where T : IDocumentGenerator
         {
-            var context = GetContext(uri);
-            var result = generator.Generate(context);
+            SiteContext context = GetContext(uri);
+            DocumentGenerationResult result = generator.Generate(context);
             SavePage(result, uri);
         }
 
@@ -245,9 +245,9 @@ namespace ReaperKing.Core
          * Creates and passes a context to a ISiteContentProvider.
          */
         public void EmitDocumentsFrom<T>(T provider, string uri = null)
-            where T : ISiteContentProvider
+            where T : IDocumentProvider
         {
-            var context = GetContext(uri);
+            SiteContext context = GetContext(uri);
             provider.BuildContent(context);
         }
         #endregion
