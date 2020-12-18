@@ -22,7 +22,8 @@ using ReaperKing.Core;
 
 namespace ReaperKing.Plugins
 {
-    public partial class RkImageOptimizationModule : RkResourceProcessorModule
+    public partial class RkImageOptimizationModule
+        : RkModule, IRkResourceProcessorModule
     {
         private bool _invokeConvert(string source, string target)
         {

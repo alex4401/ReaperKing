@@ -35,7 +35,8 @@ namespace ReaperKing.Generation.ARK
      *  fandom://wiki_id/filename.extension
      *  fandom://wiki_id/filename.extension/width
      */
-    public class RkFandomImageVirtualFsModule : RkResourceResolverModule
+    public class RkFandomImageVirtualFsModule
+        : RkModule, IRkResourceResolverModule
     {
         private const string UriNamespace = "fandom:";
         private const bool CachedUpstream = false;
@@ -92,12 +93,12 @@ namespace ReaperKing.Generation.ARK
             return result + "?format=original";
         }
 
-        public override bool CanAccept(string ns, string virtualPath)
+        public bool CanAccept(string ns, string virtualPath)
         {
             return ns == UriNamespace;
         }
         
-        public override bool ResolveResource(string ns, string virtualPath, out string result)
+        public bool ResolveResource(string ns, string virtualPath, out string result)
         {
             result = "";
             ImageInfo info = ImageInfo.ConstructFromUri(virtualPath);

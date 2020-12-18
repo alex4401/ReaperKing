@@ -28,15 +28,18 @@ namespace ReaperKing.Plugins
         public string Uri { get; init; }
     }
     
-    public class RkDocumentCollectionModule : RkDocumentProcessorModule
+    public class RkDocumentCollectionModule
+        : IRkDocumentProcessorModule
     {
         public List<DocumentMetadata> Collected { get; } = new();
         
         public RkDocumentCollectionModule(Site site)
-            : base(typeof(RkDocumentCollectionModule), site)
         { }
 
-        public override void PostProcessDocument(string uri, ref IntermediateGenerationResult result)
+        public void AcceptConfiguration(ProjectConfigurationManager config)
+        { }
+
+        public void PostProcessDocument(string uri, ref IntermediateGenerationResult result)
         {
             Collected.Add(new DocumentMetadata
             {

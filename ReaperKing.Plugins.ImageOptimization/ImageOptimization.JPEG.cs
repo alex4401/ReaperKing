@@ -22,7 +22,8 @@ using ReaperKing.Core;
 
 namespace ReaperKing.Plugins
 {
-    public partial class RkImageOptimizationModule : RkResourceProcessorModule
+    public partial class RkImageOptimizationModule
+        : RkModule, IRkResourceProcessorModule
     {
         public bool UseMozJpeg { get; } = true;
         public string JpegRecompressBinaryPath { get; } = "jpeg-recompress";

@@ -44,7 +44,8 @@ namespace ReaperKing.Plugins
         }
     }
     
-    public class RkSitemapExclusionModule : RkDocumentProcessorModule
+    public class RkSitemapExclusionModule
+        : RkModule, IRkDocumentProcessorModule
     {
         public bool ShouldExclude { get; set; } = false;
         
@@ -52,7 +53,7 @@ namespace ReaperKing.Plugins
             : base(typeof(RkSitemapExclusionModule), site)
         { }
 
-        public override void PostProcessDocument(string uri, ref IntermediateGenerationResult result)
+        public void PostProcessDocument(string uri, ref IntermediateGenerationResult result)
         {
             if (ShouldExclude)
             {

@@ -29,7 +29,8 @@ namespace ReaperKing.Plugins
     }
     
     [RkConfigurable(typeof(RkUglifyConfiguration))]
-    public class RkUglifyModule : RkDocumentProcessorModule
+    public class RkUglifyModule
+        : RkModule, IRkDocumentProcessorModule
     {
         public bool IsEnabled { get; private set; }
 
@@ -42,7 +43,7 @@ namespace ReaperKing.Plugins
             IsEnabled = config.Get<RkUglifyConfiguration>().Enable;
         }
 
-        public override void PostProcessDocument(string uri, ref IntermediateGenerationResult result)
+        public void PostProcessDocument(string uri, ref IntermediateGenerationResult result)
         {
             if (!IsEnabled || result.Meta.Extension != "html")
             {

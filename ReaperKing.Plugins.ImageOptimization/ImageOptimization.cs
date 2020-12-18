@@ -24,7 +24,8 @@ using ReaperKing.Core;
 
 namespace ReaperKing.Plugins
 {
-    public partial class RkImageOptimizationModule : RkResourceProcessorModule
+    public partial class RkImageOptimizationModule
+        : RkModule, IRkResourceProcessorModule
     {
         public const int CacheVersion = 2;
         public string CacheDirectory { get; }
@@ -40,7 +41,7 @@ namespace ReaperKing.Plugins
             Directory.CreateDirectory(CacheDirectory);
         }
         
-        public override void ProcessResource(string filePath, ref string diskPath, ref string uri)
+        public void ProcessResource(string filePath, ref string diskPath, ref string uri)
         {
             // Check if the file is located within the resources directory
             if (!filePath.StartsWith("resources/"))
@@ -51,7 +52,7 @@ namespace ReaperKing.Plugins
             // Split the file path
             string resourceKey = filePath.Substring("resources/".Length);
             string fileName = Path.GetFileName(filePath);
-            string extension = Path.GetExtension(filePath)?.Substring(1);
+            string extension = Path.GetExtension(filePath)?.Substring(1).ToLower();
             string fileDir = Path.GetDirectoryName(filePath);
             
             // Check if the file extension is allowed

@@ -24,7 +24,8 @@ using ReaperKing.Core;
 
 namespace ReaperKing.Plugins
 {
-    public partial class RkImageOptimizationModule : RkResourceProcessorModule
+    public partial class RkImageOptimizationModule
+        : RkModule, IRkResourceProcessorModule
     {
         public bool UseOxipng { get; } = true;
         public string OxipngBinaryPath { get; } = "oxipng";
