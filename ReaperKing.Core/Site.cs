@@ -17,6 +17,7 @@
  */
 
 using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using Microsoft.Extensions.Logging;
@@ -59,6 +60,11 @@ namespace ReaperKing.Core
          * support and allow overlapping mounts.
          */
         private readonly RazorScopedFilesystemProject _razorProject;
+        
+        /**
+         * List of all currently installed modules.
+         */
+        private readonly List<IRkModule> _modules = new();
         
         /**
          * Instance of the RazorLight engine.
@@ -108,7 +114,7 @@ namespace ReaperKing.Core
             }
             
             // Notify modules that the configuration is now available.
-            foreach (RkModule module in _modules)
+            foreach (IRkModule module in _modules)
             {
                 module.AcceptConfiguration(ProjectConfig);
             }
@@ -207,6 +213,90 @@ namespace ReaperKing.Core
         public void RemoveTemplateDefaultIncludePath(string root)
         {
             _razorProject.DestroyNamespace("", PathUtils.EnsureRooted(root));
+        }
+        #endregion
+        
+        #region Document building helper methods
+        /**
+         * Creates a SiteContext backed by this instance.
+         */
+        protected SiteContext GetContext(string uri = null)
+        {
+            return new()
+            {
+                Site = this,
+                PathPrefix = uri,
+            };
+        }
+        
+        /**
+         * Creates a temporary context to a IDocumentGenerator and writes
+         * the result to disk.
+         */
+        public void EmitDocument<T>(T generator, string uri = null)
+            where T : IDocumentGenerator
+        {
+            var context = GetContext(uri);
+            var result = generator.Generate(context);
+            SavePage(result, uri);
+        }
+
+        /**
+         * Creates and passes a context to a ISiteContentProvider.
+         */
+        public void EmitDocumentsFrom<T>(T provider, string uri = null)
+            where T : ISiteContentProvider
+        {
+            var context = GetContext(uri);
+            provider.BuildContent(context);
+        }
+        #endregion
+        
+        #region Module installation
+        /**
+         * Pushes an instance of an engine module onto local stack.
+         */
+        protected void AddModule<T>(T module)
+            where T : IRkModule
+        {
+            ProjectConfig.ScanType(typeof(T));
+            _modules.Add(module);
+        }
+        
+        /**
+         * Retrieves first instance of an installed engine module
+         * of generic type T.
+         *
+         * If such instance is not found an exception is thrown.
+         */
+        public T GetModuleInstance<T>()
+            where T : IRkModule
+        {
+            foreach (IRkModule module in _modules)
+            {
+                if (module is T rkModule)
+                {
+                    return rkModule;
+                }
+            }
+
+            throw new NullReferenceException(nameof(T));
+        }
+        
+        /**
+         * Retrieves all instances of installed engine modules of
+         * generic type T.
+         */
+        public IEnumerable<T> GetModuleInstances<T>()
+            where T : IRkModule
+        {
+            foreach (IRkModule module in _modules)
+            {
+                if (module is T rkModule)
+                {
+                    yield return rkModule;
+                }
+            }
         }
         #endregion
     }

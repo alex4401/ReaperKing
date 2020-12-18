@@ -20,7 +20,9 @@ using System;
 
 namespace ReaperKing.Core
 {
-    public abstract class RkDocumentProcessorModule : RkModule
+    [Obsolete("Switch to a pure RkModule and implement IRkDocumentProcessorModule.")]
+    public abstract class RkDocumentProcessorModule
+        : RkModule, IRkDocumentProcessorModule
     {
         protected RkDocumentProcessorModule(Type selfType, Site site)
             : base(selfType, site)

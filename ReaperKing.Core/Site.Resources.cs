@@ -39,7 +39,7 @@ namespace ReaperKing.Core
             string[] parts = inputPath.Split('/', 2, StringSplitOptions.RemoveEmptyEntries);
             if (parts[0].Last() == ':')
             {
-                foreach (var module in GetModuleInstances<RkResourceResolverModule>())
+                foreach (var module in GetModuleInstances<IRkResourceResolverModule>())
                 {
                     if (!module.CanAccept(parts[0], parts[1]))
                     {
@@ -87,7 +87,7 @@ namespace ReaperKing.Core
         {
             string filePath = Path.Join(ContentRoot, inputFile);
             
-            foreach (var module in GetModuleInstances<RkResourceProcessorModule>())
+            foreach (var module in GetModuleInstances<IRkResourceProcessorModule>())
             {
                 module.ProcessResource(inputFile, ref filePath, ref uri);
             }
@@ -117,7 +117,7 @@ namespace ReaperKing.Core
         {
             inputFile = ResolveResourceVirtualPath(inputFile);
             return CopyFileToLocation(Path.Join("resources", inputFile), 
-                                     Path.Combine(WebConfig.Resources, uri));
+                                     Path.Join(WebConfig.Resources, uri));
         }
 
         /**

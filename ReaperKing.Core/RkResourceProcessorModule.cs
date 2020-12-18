@@ -20,7 +20,9 @@ using System;
 
 namespace ReaperKing.Core
 {
-    public abstract class RkResourceProcessorModule : RkModule
+    [Obsolete("Switch to a pure RkModule and implement IRkResourceProcessorModule.")]
+    public abstract class RkResourceProcessorModule
+        : RkModule, IRkResourceProcessorModule
     {
         protected RkResourceProcessorModule(Type selfType, Site site)
             : base(selfType, site)

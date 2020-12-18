@@ -77,7 +77,7 @@ namespace ReaperKing.Core
             }
 
             // Execute the post-processors
-            foreach (var module in GetModuleInstances<RkDocumentProcessorModule>())
+            foreach (var module in GetModuleInstances<IRkDocumentProcessorModule>())
             {
                 module.PostProcessDocument(uri, ref intermediate);
             }

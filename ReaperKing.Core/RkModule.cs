@@ -21,7 +21,7 @@ using Microsoft.Extensions.Logging;
 
 namespace ReaperKing.Core
 {
-    public abstract class RkModule
+    public abstract class RkModule : IRkModule
     {
         protected Site Site { get; }
         protected ILogger Log { get; }
