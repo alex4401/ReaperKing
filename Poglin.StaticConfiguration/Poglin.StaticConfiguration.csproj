@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <PreserveCompilationContext>true</PreserveCompilationContext>
+        <LangVersion>9</LangVersion>
+        <RootNamespace>ReaperKing.StaticConfig</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Compile Remove="data\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="data\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="data\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Noglin.Ark\Noglin.Ark.csproj" />
+      <ProjectReference Include="..\Noglin.Core\Noglin.Core.csproj" />
+      <ProjectReference Include="..\Poglin.Generation.ARK\Poglin.Generation.ARK.csproj" />
+      <ProjectReference Include="..\Poglin.Generation.Tools\Poglin.Generation.Tools.csproj" />
+      <ProjectReference Include="..\ReaperKing.Anhydrate\ReaperKing.Anhydrate.csproj" />
+      <ProjectReference Include="..\ReaperKing.CommonTemplates\ReaperKing.CommonTemplates.csproj" />
+      <ProjectReference Include="..\ReaperKing.Core\ReaperKing.Core.csproj" />
+      <ProjectReference Include="..\ReaperKing.Plugins.ImageOptimization\ReaperKing.Plugins.ImageOptimization.csproj" />
+      <ProjectReference Include="..\ReaperKing.Plugins\ReaperKing.Plugins.csproj" />
+    </ItemGroup>
+
+</Project>

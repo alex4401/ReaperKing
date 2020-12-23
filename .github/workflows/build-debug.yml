@@ -19,10 +19,10 @@ jobs:
     
     - name: Install dependencies
       run: dotnet restore
-    - name: Build builder binary
+    - name: Build builder binary (GPLv3)
       run: dotnet publish --configuration Debug --no-restore ReaperKing.Builder -o artifacts\
-    - name: Build Reaper King library
-      run: dotnet publish --configuration Debug --no-restore ReaperKing.StaticConfig -o artifacts\
+    - name: Build Poglin library (AGPLv3)
+      run: dotnet publish --configuration Debug --no-restore Poglin.StaticConfiguration -o artifacts\
     - name: Copy licenses
       run: cp LICENSE LICENSE.PERSO artifacts/
 
