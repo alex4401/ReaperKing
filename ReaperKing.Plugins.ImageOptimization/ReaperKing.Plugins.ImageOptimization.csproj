@@ -10,4 +10,16 @@
       <ProjectReference Include="..\ReaperKing.Core\ReaperKing.Core.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Update="ImageOptimization.Imagemagick.cs">
+        <DependentUpon>ImageOptimization.cs</DependentUpon>
+      </Compile>
+      <Compile Update="ImageOptimization.JPEG.cs">
+        <DependentUpon>ImageOptimization.cs</DependentUpon>
+      </Compile>
+      <Compile Update="ImageOptimization.PNG.cs">
+        <DependentUpon>ImageOptimization.cs</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
 </Project>

@@ -4,7 +4,7 @@
         <TargetFramework>net5.0</TargetFramework>
         <PreserveCompilationContext>true</PreserveCompilationContext>
         <LangVersion>9</LangVersion>
-        <RootNamespace>ReaperKing.StaticConfig</RootNamespace>
+        <RootNamespace>Poglin.StaticConfiguration</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

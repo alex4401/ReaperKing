@@ -12,4 +12,13 @@
       <PackageReference Include="System.Drawing.Common" Version="5.0.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Update="Site.Resources.cs">
+        <DependentUpon>Site.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Site.PageOutput.cs">
+        <DependentUpon>Site.cs</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
 </Project>

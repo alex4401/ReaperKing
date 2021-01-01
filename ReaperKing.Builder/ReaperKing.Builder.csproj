@@ -15,4 +15,16 @@
       <ProjectReference Include="..\ReaperKing.Core\ReaperKing.Core.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Update="Program.Bake.cs">
+        <DependentUpon>Program.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Program.Config.cs">
+        <DependentUpon>Program.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Program.SiteRecipe.cs">
+        <DependentUpon>Program.cs</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
 </Project>
