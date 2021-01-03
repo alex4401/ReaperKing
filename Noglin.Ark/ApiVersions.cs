@@ -15,6 +15,8 @@ namespace Noglin.Ark
             public const string SpawningGroups = "spawn_groups";
             public const string Species = "species";
             public const string NpcSpawningManagers = "maps_npc_spawns";
+            
+            public const string Singleton = "singleton";
         }
     }
 }

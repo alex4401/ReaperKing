@@ -1,31 +1,30 @@
 /*!
- * This file is a part of the Poglin project, whose repository may be
- * found at https://github.com/alex4401/ReaperKing.
+ * This file is a part of the Poglin project, whose repository may be found at https://github.com/alex4401/ReaperKing.
  *
- * The project is free software: you can redistribute it and/or modify it
- * under the terms of the GNU Affero General Public License as published
- * by the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
+ * The project is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General
+ * Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option)
+ * any later version.
  *
- * This program is distributed in the hope that it will be useful, but
- * WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
- * Affero General Public License for more details.
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+ * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more
+ * details.
  *
- * You should have received a copy of the GNU Affero General Public License
- * along with this program. If not, see http://www.gnu.org/licenses/.
+ * You should have received a copy of the GNU Affero General Public License along with this program. If not, see
+ * https://www.gnu.org/licenses/.
  */
 
 using System.IO;
 using Microsoft.Extensions.Logging;
-using Noglin.Ark.Schemas;
-using Noglin.Core;
+
 using ReaperKing.Core;
 using ReaperKing.Plugins;
 
+using Noglin.Ark.Schemas;
+using Noglin.Core;
+
 namespace Poglin.Generation.ARK
 {
-    public class ArkDataContentGenerator : ISiteContentProvider
+    public class ArkDataContentGenerator : IDocumentProvider
     {
         private const int LookaheadSize = 256;
         
@@ -63,8 +62,7 @@ namespace Poglin.Generation.ARK
             {
                 string extension = Path.GetExtension(filePath);
 
-                // Check if the file has required fields in its head.
-                // Skip otherwise.
+                // Check if the file has required fields in its head. Skip otherwise.
                 bool mightBeValid = false;
                 switch (extension)
                 {
@@ -104,8 +102,7 @@ namespace Poglin.Generation.ARK
                 Log.LogInformation($"Building data for mod: {modSpec.Meta.Name}");
                 ModContentProvider provider = new ModContentProvider(this, modSpec);
                 
-                // Acquire a sitemap exclusion token (temporary state
-                // lock) if mod is unlisted from search engines.
+                // Acquire a sitemap exclusion token (temporary state lock) if mod is unlisted from search engines.
                 SitemapLocalExclusion? sitemapLock = null;
                 if (!modSpec.Generation.AllowSitemapping)
                 {

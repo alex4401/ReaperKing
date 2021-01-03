@@ -13,23 +13,30 @@
  * https://www.gnu.org/licenses/.
  */
 
-using ReaperKing.Core;
+using ReaperKing.Anhydrate;
+using ReaperKing.Core.Configuration;
 
-namespace Poglin.Generation.Tools
+using Poglin.Generation.ARK;
+using ReaperKing.Plugins;
+
+namespace Poglin.StaticConfiguration
 {
-    public class ToolsContentProvider : IDocumentProvider
+    [RkSchema("ReaperKing/v2+poglin1")]
+    public sealed class SchemaV2Poglin1 : ReaperKing.Core.Schemas.V2
     {
-        public void BuildContent(SiteContext ctx)
-        {
-            using (ctx.TryAddTemplateIncludeNamespace("ARKTools", "templates/Tools"))
-            using (ctx.TryAddTemplateIncludeNamespace("ARKTools", "templates/tools"))
-            using (ctx.TryAddTemplateDefaultIncludePath("templates/tools"))
+        public override PropertySetDescriptor[] PropertySets
+            => new PropertySetDescriptor[]
             {
-                ctx.EmitDocument(new LegacyCreatureStats());
-                ctx.EmitDocument(new CreatureStats());
-                ctx.EmitDocument(new ColorTable());
-                ctx.EmitDocument(new VexApplication());
-            }
-        }
+                new("modules", new PropertyDescriptor[]
+                {
+                    new("anhydrate", typeof(AnhydrateConfiguration)),
+                    new("uglify", typeof(RkUglifyConfiguration)),
+                }),
+                
+                new("site", new PropertyDescriptor[]
+                {
+                    new("ark", typeof(BuildConfigurationArk)),
+                }),
+            };
     }
 }
