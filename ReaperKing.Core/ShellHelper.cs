@@ -16,10 +16,12 @@
  * along with this program. If not, see http://www.gnu.org/licenses/.
  */
 
+using System;
 using System.Diagnostics;
 
 namespace ReaperKing.Core
 {
+    [Obsolete("This is soon going to be removed from the Core project.")]
     public static class ShellHelper
     {
         public static int Run(string cmd)

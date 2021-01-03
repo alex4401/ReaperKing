@@ -27,6 +27,7 @@ using Microsoft.Extensions.Logging;
 using McMaster.Extensions.CommandLineUtils;
 
 using ReaperKing.Core;
+using ReaperKing.Core.Configuration;
 
 namespace ReaperKing.Builder
 {
@@ -75,10 +76,6 @@ namespace ReaperKing.Builder
             // Initialize a logging factory and get a logger for ourselves
             ApplicationLogging.Initialize();
             Log = ApplicationLogging.Factory.CreateLogger("ReaperKing.Builder");
-            
-            // Initialize a configuration manager
-            Config = new ProjectConfigurationManager();
-            Config.AddType<BuildConfiguration>();
 
             // Clean up arguments
             AssemblyPath = PathUtils.EnsureRooted(AssemblyPath);
@@ -91,7 +88,11 @@ namespace ReaperKing.Builder
             Log.LogInformation("Static configuration assembly is now being loaded");
             AllowAssembliesFromUserPath();
             (siteAssembly, siteType) = GetSiteBuildRecipeType();
-            Config.ScanType(siteType);
+            
+            // Initialize a configuration manager
+            Config = new ProjectConfigurationManager(ApplicationLogging.Factory);
+            Config.InjectProperty<BuildConfiguration>("rk.build");
+            Config.SchemaManager.ImportFromAssembly(siteAssembly);
 
             // Set the ImmutableRuntimeConfiguration early.
             RuntimeConfig = new()
@@ -104,9 +105,7 @@ namespace ReaperKing.Builder
             
             // Create an instance of the build recipe class.
             Log.LogInformation("Static Site Configuration object is being created");
-            var instance = Activator.CreateInstance(siteType,
-                                                          Config,
-                                                          ApplicationLogging.Factory);
+            var instance = Activator.CreateInstance(siteType, Config, ApplicationLogging.Factory);
             if (!(instance is Site site))
             {
                 Log.LogCritical("Static Configuration instance is not valid.");

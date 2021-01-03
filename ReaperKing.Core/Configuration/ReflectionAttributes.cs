@@ -15,26 +15,14 @@
 
 using System;
 
-using ReaperKing.Core;
-
-namespace ReaperKing.Anhydrate.Extensions
+namespace ReaperKing.Core.Configuration
 {
-    public static class SiteAnhydrateExtension
+    [AttributeUsage(AttributeTargets.Class)]
+    public class RkSchemaAttribute : Attribute
     {
-        private const string Namespace = "ReaperKing.Anhydrate";
-        private const string RealDirectory = "ReaperKing.Anhydrate";
-        
-        public static void EnableAnhydrateTemplates(this Site site)
-        {
-            string selfDir = site.GetInternalResourcePath(RealDirectory);
+        public string Identifier { get; }
 
-            AnhydrateConfiguration config = site.ProjectConfig.Get<AnhydrateConfiguration>();
-            if (!String.IsNullOrEmpty(config.IncludePath))
-            {
-                selfDir = config.IncludePath;
-            }
-            
-            site.AddTemplateIncludeNamespace(Namespace, selfDir);
-        }
+        public RkSchemaAttribute(string identifier)
+            => Identifier = identifier;
     }
 }

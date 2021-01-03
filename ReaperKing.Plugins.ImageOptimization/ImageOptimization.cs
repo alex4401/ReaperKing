@@ -1,19 +1,16 @@
 /*!
- * This file is a part of Reaper King, and the project's repository may be
- * found at https://github.com/alex4401/ReaperKing.
+ * This file is a part of Reaper King, and the project's repository may be found at
+ * https://github.com/alex4401/ReaperKing.
  *
- * The project is free software: you can redistribute it and/or modify it
- * under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or (at
- * your option) any later version.
+ * The project is free software: you can redistribute it and/or modify it under the terms of the GNU General Public
+ * License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later
+ * version.
  *
- * This program is distributed in the hope that it will be useful, but
- * WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See
- * the GNU General Public License for more details.
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+ * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License
- * along with this program. If not, see http://www.gnu.org/licenses/.
+ * You should have received a copy of the GNU General Public License along with this program. If not, see
+ * https://www.gnu.org/licenses/.
  */
 
 using System.IO;
@@ -87,7 +84,8 @@ namespace ReaperKing.Plugins
                                 return;
                             }
 
-                            Log.LogWarning($"Failed to convert non-transparent PNG \"{resourceKey}\" to a JPEG file. Falling back to Oxipng.");
+                            Log.LogWarning($"Failed to convert non-transparent PNG \"{resourceKey}\" to a " +
+                                           "JPEG file. Falling back to Oxipng.");
                         }
                         
                         success = _invokeOxipng(filePath, optimizedPath);
@@ -99,13 +97,15 @@ namespace ReaperKing.Plugins
                         break;
 
                     default:
-                        Log.LogWarning("A file extension has been included for image optimization, but no optimizer is implemented.");
+                        Log.LogWarning("A file extension has been included for image optimization, but no " +
+                                       "optimizer is implemented.");
                         break;
                 }
 
                 if (!success)
                 {
-                    Log.LogError($"Failed to optimize \"{resourceKey}\": see above for more information. Original resource will be used.");
+                    Log.LogError($"Failed to optimize \"{resourceKey}\": see above for more information. " +
+                                 "Original resource will be used.");
                     return;
                 }
             }

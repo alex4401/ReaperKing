@@ -18,11 +18,8 @@
 
 using System.Collections.Generic;
 
-using ReaperKing.Core;
-
 namespace ReaperKing.Builder
 {
-    [RkProjectProperty("rk", "build")]
     internal record BuildConfiguration
     {
         public List<string> RazorWhitelist { get; init; } = new();

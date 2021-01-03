@@ -15,26 +15,9 @@
 
 using System;
 
-using ReaperKing.Core;
-
-namespace ReaperKing.Anhydrate.Extensions
+namespace ReaperKing.Core
 {
-    public static class SiteAnhydrateExtension
-    {
-        private const string Namespace = "ReaperKing.Anhydrate";
-        private const string RealDirectory = "ReaperKing.Anhydrate";
-        
-        public static void EnableAnhydrateTemplates(this Site site)
-        {
-            string selfDir = site.GetInternalResourcePath(RealDirectory);
-
-            AnhydrateConfiguration config = site.ProjectConfig.Get<AnhydrateConfiguration>();
-            if (!String.IsNullOrEmpty(config.IncludePath))
-            {
-                selfDir = config.IncludePath;
-            }
-            
-            site.AddTemplateIncludeNamespace(Namespace, selfDir);
-        }
-    }
+    [AttributeUsage(AttributeTargets.Class, Inherited = false)]
+    public class SiteRecipeAttribute : Attribute
+    { }
 }

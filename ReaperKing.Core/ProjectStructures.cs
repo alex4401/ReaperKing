@@ -13,28 +13,26 @@
  * https://www.gnu.org/licenses/.
  */
 
-using System;
+using System.Collections.Generic;
 
-using ReaperKing.Core;
-
-namespace ReaperKing.Anhydrate.Extensions
+namespace ReaperKing.Core
 {
-    public static class SiteAnhydrateExtension
+    public record WebConfiguration
     {
-        private const string Namespace = "ReaperKing.Anhydrate";
-        private const string RealDirectory = "ReaperKing.Anhydrate";
-        
-        public static void EnableAnhydrateTemplates(this Site site)
-        {
-            string selfDir = site.GetInternalResourcePath(RealDirectory);
-
-            AnhydrateConfiguration config = site.ProjectConfig.Get<AnhydrateConfiguration>();
-            if (!String.IsNullOrEmpty(config.IncludePath))
-            {
-                selfDir = config.IncludePath;
-            }
-            
-            site.AddTemplateIncludeNamespace(Namespace, selfDir);
-        }
+        public string Root { get; init; } = "/";
+        public string Resources { get; init; } = "/assets";
+        public string ExternalAddress { get; init; } = "http://example.localhost";
+    }
+    
+    public record ResourcesConfiguration
+    {
+        public List<string> CopyNonVersioned { get; init; } = new();
+    }
+    
+    public record ImmutableRuntimeConfiguration
+    {
+        public string ContentRoot { get; init; }
+        public string AssemblyRoot { get; init; }
+        public string DeploymentPath { get; init; }
     }
 }
