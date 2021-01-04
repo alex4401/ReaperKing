@@ -7,7 +7,7 @@ using McMaster.Extensions.CommandLineUtils;
 using Microsoft.Extensions.Logging;
 using ReaperKing.Core;
 
-namespace ReaperKing.Larvae
+namespace Larvae
 {
     internal abstract class BaseCommandWithSite : BaseCommandWithProject
     {

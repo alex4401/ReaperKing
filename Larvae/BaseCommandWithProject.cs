@@ -7,7 +7,7 @@ using ReaperKing.Core.Configuration;
 
 using UntypedProjectConfig = System.Collections.Generic.Dictionary<object, object>;
 
-namespace ReaperKing.Larvae
+namespace Larvae
 {
     internal abstract class BaseCommandWithProject : BaseCommand
     {

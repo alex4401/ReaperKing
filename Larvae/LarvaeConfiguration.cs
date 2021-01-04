@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 using ReaperKing.Core;
 
-namespace ReaperKing.Larvae
+namespace Larvae
 {
     internal record LarvaeConfiguration
     {

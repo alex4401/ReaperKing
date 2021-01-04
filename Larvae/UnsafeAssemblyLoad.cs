@@ -3,7 +3,7 @@ using System.Data;
 using System.IO;
 using System.Reflection;
 
-namespace ReaperKing.Larvae
+namespace Larvae
 {
     public static class UnsafeAssemblyLoad
     {

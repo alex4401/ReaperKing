@@ -1,33 +1,100 @@
 name: Build in debug configuration
 
 on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    push:
+#        branches: [ master ]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+    build:
+        runs-on: ubuntu-latest
 
-    steps:
-    - uses: actions/checkout@v2
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 5.0.100
-    
-    - name: Install dependencies
-      run: dotnet restore
-    - name: Build builder binary (GPLv3)
-      run: dotnet publish --configuration Debug --no-restore ReaperKing.Builder -o artifacts\
-    - name: Build Poglin library (AGPLv3)
-      run: dotnet publish --configuration Debug --no-restore Poglin.StaticConfiguration -o artifacts\
-    - name: Copy licenses
-      run: cp LICENSE LICENSE.PERSO artifacts/
+        steps:
+            - uses: actions/checkout@v2
+            - name: Setup .NET
+              uses: actions/setup-dotnet@v1
+              with:
+                  dotnet-version: 5.0.101
 
-    - uses: actions/upload-artifact@v2
-      with:
-        name: PRK-debug
-        path: artifacts/
-        if-no-files-found: error
+            - name: Install dependencies
+              run: dotnet restore
+              
+            # RK
+            
+            - name: Build core library
+              run: dotnet publish --no-restore
+                                  --configuration Debug --output builddir/rk/bin
+                                  /p:SatelliteResourceLanguages=en
+                                  ReaperKing.Core
+            - name: Build Larvae
+              run: dotnet publish --no-restore
+                                  --configuration Debug --output builddir/rk/bin
+                                  /p:SatelliteResourceLanguages=en
+                                  Larvae
+              
+            - name: Build common plugins
+              run: dotnet publish --no-restore
+                                  --configuration Debug --output builddir/rk/bin
+                                  /p:SatelliteResourceLanguages=en
+                                  ReaperKing.Plugins
+            - name: Build ImageOptimization plugin
+              run: dotnet publish --no-restore
+                                  --configuration Debug --output builddir/rk/bin
+                                  /p:SatelliteResourceLanguages=en
+                                  ReaperKing.Plugins.ImageOptimization
+              
+            - name: Build common template library
+              run: dotnet publish --no-restore
+                                  --configuration Debug --output builddir/rk/bin
+                                  /p:SatelliteResourceLanguages=en
+                                  ReaperKing.CommonTemplates
+            - name: Build Anhydrate template library
+              run: dotnet publish --no-restore
+                                  --configuration Debug --output builddir/rk/bin
+                                  /p:SatelliteResourceLanguages=en
+                                  ReaperKing.Anhydrate
+              
+            - name: Copy GPLv3 license
+              run: cp LICENSE builddir/rk/bin
+            - name: Split PDBs into a separate artifact
+              run: mkdir builddir/rk/pdb && mv builddir/rk/bin/*.pdb builddir/rk/pdb
+
+            - uses: actions/upload-artifact@v2
+              with:
+                  name: rk-larvae-debug-bins
+                  path: builddir/rk/bin
+                  if-no-files-found: error
+            - uses: actions/upload-artifact@v2
+              with:
+                  name: rk-larvae-debug-pdbs
+                  path: builddir/rk/pdb
+                  if-no-files-found: error
+
+            # POGLIN
+
+            - name: Build Poglin bake library
+              run: dotnet publish --no-restore
+                                  --configuration Debug --output builddir/poglin/bin
+                                  /p:SatelliteResourceLanguages=en
+                                  Poglin.StaticConfiguration
+
+            - name: Copy AGPLv3 license
+              run: cp LICENSE.POGLIN builddir/poglin/bin
+            - name: Remove duplicated files from Rk in Poglin build
+              run: cd builddir/rk/bin ;
+                   find . -type f -exec rm -rf ../../poglin/bin/{} \; ;
+                   cd ../pdb ;
+                   find . -type f -exec rm -rf ../../poglin/bin/{} \; ;
+                   cd ../..
+            - name: Split PDBs into a separate artifact
+              run: mkdir builddir/poglin/pdb && mv builddir/poglin/bin/*.pdb builddir/poglin/pdb
+
+            - uses: actions/upload-artifact@v2
+              with:
+                  name: poglin-agpl-debug-bin
+                  path: builddir/poglin/bin
+                  if-no-files-found: error
+            - uses: actions/upload-artifact@v2
+              with:
+                  name: poglin-agpl-debug-pdbs
+                  path: builddir/poglin/pdb
+                  if-no-files-found: error

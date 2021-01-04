@@ -28,7 +28,7 @@ using McMaster.Extensions.CommandLineUtils;
 
 using ReaperKing.Core;
 
-namespace ReaperKing.Larvae
+namespace Larvae
 {
     [Command("larvae")]
     [VersionOptionFromMember("--version", MemberName = nameof(GetVersion))]

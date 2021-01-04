@@ -1,7 +1,7 @@
 using System.IO;
 using ReaperKing.Core;
 
-namespace ReaperKing.Larvae
+namespace Larvae
 {
     internal sealed class BakeCommand : BaseCommandWithSite
     {

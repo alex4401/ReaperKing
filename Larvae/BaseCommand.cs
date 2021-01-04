@@ -4,7 +4,7 @@ using McMaster.Extensions.CommandLineUtils;
 using Microsoft.Extensions.Logging;
 using ReaperKing.Core;
 
-namespace ReaperKing.Larvae
+namespace Larvae
 {
     internal abstract class BaseCommand
     {
@@ -18,7 +18,7 @@ namespace ReaperKing.Larvae
             Log = Larvae.Instance.Log;
             App = app;
             
-            Log.LogInformation($"ReaperKing.Larvae, v{Program.GetVersion()}");
+            Log.LogInformation($"Larvae, v{Program.GetVersion()}");
             BeforeExecution();
             return Execute();
         }

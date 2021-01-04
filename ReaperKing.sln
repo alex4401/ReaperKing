@@ -22,7 +22,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReaperKing.Plugins", "Reape
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Noglin.Ark", "Noglin.Ark\Noglin.Ark.csproj", "{33169EC0-CAB3-4108-80CA-12C979E805E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReaperKing.Larvae", "ReaperKing.Larvae\ReaperKing.Larvae.csproj", "{80B04B5E-9663-4123-8081-AA3D82E91286}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Larvae", "Larvae\Larvae.csproj", "{80B04B5E-9663-4123-8081-AA3D82E91286}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Poglin", "Poglin", "{40657D45-D838-4CFC-ACEA-4B0DAEBE30E1}"
 EndProject

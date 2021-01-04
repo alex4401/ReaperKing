@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Logging;
 
-namespace ReaperKing.Larvae
+namespace Larvae
 {
     internal sealed class Larvae
     {

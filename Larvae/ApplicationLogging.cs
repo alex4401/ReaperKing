@@ -19,7 +19,7 @@
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Console;
 
-namespace ReaperKing.Larvae
+namespace Larvae
 {
     internal static class ApplicationLogging
     {
