@@ -31,7 +31,7 @@ namespace Noglin.Core
             public int SchemaVersion { get; init; }
         }
         
-        private ILogger Log { get; init; }
+        private ILogger Log { get; }
         private readonly List<SchemaDescriptor> _types = new();
 
         public JsonPackageLoader(ILoggerFactory factory)

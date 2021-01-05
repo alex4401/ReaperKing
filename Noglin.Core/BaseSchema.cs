@@ -11,7 +11,7 @@ namespace Noglin.Core
     {
         [Required] public string Version { get; init; }
         [Required] public string Format { get; init; }
-        public PackageModInfo Mod { get; init; }
+        public PackageModInfo Mod { get; init; } = new();
     }
 
     public record PackageModInfo

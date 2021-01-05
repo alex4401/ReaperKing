@@ -22,11 +22,7 @@ namespace Noglin.Ark
         {
             foreach (T package in registry.Find<T>())
             {
-                if (package.Mod == null && modId == Core)
-                {
-                    yield return package;
-                }
-                else if (package.Mod.Id == modId)
+                if (package.Mod.Id == modId)
                 {
                     yield return package;
                 }
