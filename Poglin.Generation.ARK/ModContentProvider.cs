@@ -42,13 +42,14 @@ namespace Poglin.Generation.ARK
 
         public void BuildContent(SiteContext ctx)
         {
-            var groups = ArkRegistry.FindByModId<RawSpawningGroupsData>(Info.Meta.WorkshopId).First();
-            var singleton = ArkRegistry.FindByModId<SingletonPackage>(Info.Meta.WorkshopId).First();
-            
-            using (ctx.TryAddTemplateIncludeNamespace("ARKMods", "templates/Mods"))
+            using TemplateNamespaceMount _ = ctx.TryAddTemplateIncludeNamespace("ARKMods", "templates/Mods");
+            ctx.EmitDocument<ModHomeGenerator>(new(Info));
+
+            if (!Info.Generation.OnlyPlaceholder)
             {
-                ctx.EmitDocument<ModHomeGenerator>(new(Info));
-                
+                var groups = ArkRegistry.FindByModId<RawSpawningGroupsData>(Info.Meta.WorkshopId).First();
+                var singleton = ArkRegistry.FindByModId<SingletonPackage>(Info.Meta.WorkshopId).First();
+
                 foreach (DataMap dataMap in Info.DataMaps)
                 {
                     ctx.EmitDocument<InteractiveMapGenerator>(new(Info, dataMap, singleton), "/latest");
