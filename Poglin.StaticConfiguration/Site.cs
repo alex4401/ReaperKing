@@ -42,14 +42,13 @@ namespace Poglin.StaticConfiguration
             AddModule(new RkUglifyModule(this));
             AddModule(new RkDocumentCollectionModule(this));
             AddModule(new RkImageOptimizationModule(this));
-            
-            _arkContentGenerator = new ArkDataContentGenerator(this, loggerFactory);
         }
 
         public override void PreBuild()
         {
             base.PreBuild();
             
+            _arkContentGenerator = new ArkDataContentGenerator(this, LogFactory);
             _arkContentGenerator.PreBuild();
         }
 

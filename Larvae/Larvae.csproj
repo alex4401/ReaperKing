@@ -9,6 +9,7 @@
         <FileVersion>0.1.0</FileVersion>
         <AssemblyName>larvae</AssemblyName>
         <Company>Reaper King</Company>
+        <PreserveCompilationContext>true</PreserveCompilationContext>
     </PropertyGroup>
 
     <ItemGroup>

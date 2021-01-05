@@ -40,21 +40,8 @@ namespace ReaperKing.Core.Configuration
         {
             Log = logFactory.CreateLogger<ProjectConfigurationManager>();
             SchemaManager = schemaManager;
+            UpdateTypesFromSchemaManager("ReaperKing/Minimal/v*");
         }
-
-        #region Obsolete methods
-        [Obsolete("This function is no longer available and serves merely as a compatibility stub.")]
-        public void AddType(Type type)
-        { }
-        
-        [Obsolete("This function is no longer available and serves merely as a compatibility stub.")]
-        public void AddType<T>()
-            => AddType(typeof(T));
-
-        [Obsolete("This function is no longer available and serves merely as a compatibility stub.")]
-        public void ScanType(Type type)
-        { }
-        #endregion
         
         public void InitType(Type type)
         {
@@ -122,10 +109,12 @@ namespace ReaperKing.Core.Configuration
             eventStream.Expect<MappingStart>();
 
             string schemaName = CheckFileSchemaType(eventStream);
+            Log.LogDebug($"Schema \"{schemaName}\" has been specified for \"{path}\"");
             if (schemaName == null)
             {
                 throw new SerializationException($"Failed to determine the property set for \"{path}\".");
             }
+            UpdateTypesFromSchemaManager(schemaName);
 
             while (!eventStream.Accept<MappingEnd>())
             {

@@ -64,7 +64,9 @@ namespace ReaperKing.Core
                 }
                 
                 // Compile the template and render the document.
+                Log.LogDebug($"Compiling: {result.Template}");
                 ITemplatePage template = await RazorEngine.CompileTemplateAsync(result.Template);
+                Log.LogDebug($"Rendering: {result.Template}");
                 intermediate.Content = await RazorEngine.RenderTemplateAsync(template, model);
             }
             else

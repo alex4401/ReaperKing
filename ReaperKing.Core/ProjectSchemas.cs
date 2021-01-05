@@ -22,6 +22,17 @@ namespace ReaperKing.Core
         [RkSchema("*")]
         public class Any : Schema
         { }
+
+        [RkSchema("ReaperKing/Minimal/v*")]
+        public class Minimal : Schema
+        {
+            public override PropertyDescriptor[] Properties
+                => new PropertyDescriptor[]
+                {
+                    new("a", typeof(WebConfiguration)),
+                    new("b", typeof(ImmutableRuntimeConfiguration)),
+                };
+        }
         
         [RkSchema("ReaperKing/v2")]
         public class V2 : Schema

@@ -30,7 +30,7 @@ namespace Larvae
          * See notes for SetProjectTargetValues about performance
          * concerns.
         */
-        protected void LoadProjectConfiguration(ImmutableRuntimeConfiguration runtimeConfig)
+        protected void LoadProjectConfiguration()
         {
             if (Config.SchemaManager.IsValid("*"))
             {
