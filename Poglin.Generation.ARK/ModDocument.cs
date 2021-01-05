@@ -39,7 +39,7 @@ namespace Poglin.Generation.ARK
             {
                 new NavigationItem("Spawn Maps", Context.GetRootUri()),
                 new NavigationItem("Workshop", $"https://steamcommunity.com/sharedfiles/filedetails/?id={Mod.Meta.WorkshopId}"),
-                new NavigationItem("Standalone.Ini", $"{Context.GetRootUri()}/latest/ini.html",
+                new NavigationItem("Standalone.Ini", Context.GetSubPath("/latest/ini.html"),
                                    Configuration.GenerateInis && Mod.Generation.GenerateInis),
             };
         }

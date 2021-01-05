@@ -78,11 +78,19 @@ namespace ReaperKing.Core
         }
         #endregion
 
+        public string RootUri
+            => Site.WebConfig.Root != "/"
+                ? PathEx.Prefix(Site.WebConfig.Root, PathPrefix)
+                : PathPrefix;
+        
         public string GetRootUri()
         {
-            return Site.WebConfig.Root != "/"
-                    ? Path.Combine(Site.WebConfig.Root, PathPrefix)
-                    : PathPrefix;
+            return RootUri;
+        }
+
+        public string GetSubPath(string b)
+        {
+            return PathEx.Prefix(GetRootUri(), b);
         }
 
         public T GetConfiguration<T>()

@@ -91,10 +91,10 @@ namespace ReaperKing.Core
             
             // Combine into final path and public URI
             string diskPath = Path.Join(DeploymentPath, uri);
-            string publicUri = Path.Combine(WebConfig.Root, uri);
+            string publicUri = PathEx.Prefix(WebConfig.Root, uri);
             
             // Ensure the directory exists.
-            Directory.CreateDirectory(Path.GetDirectoryName(diskPath));
+            Directory.CreateDirectory(Path.GetDirectoryName(diskPath)!);
             
             // Copy file to the path if it does not exist.
             if (!File.Exists(diskPath))
@@ -102,7 +102,8 @@ namespace ReaperKing.Core
                 Log.LogInformation($"Copying an asset: {filePath}");
                 File.Copy(filePath, diskPath);
             }
-            
+
+            Log.LogDebug($"Public URI for \"{inputFile}\": {publicUri}");
             return publicUri;
         }
 

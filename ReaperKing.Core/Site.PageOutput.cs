@@ -39,14 +39,14 @@ namespace ReaperKing.Core
             }
 
             // Construct an intermediate object to hold generated data.
-            var intermediate = new IntermediateGenerationResult
+            IntermediateGenerationResult intermediate = new()
             {
                 Meta = result,
                 Uri = Path.Combine(uri ?? "", result.Uri ?? "", $"{result.Name}.{result.Extension}"),
                 FilePath = Path.Join(DeploymentPath, uri),
             };
             intermediate.FilePath = Path.Join(DeploymentPath, intermediate.Uri);
-            intermediate.Uri = Path.Combine(WebConfig.Root, intermediate.Uri);
+            intermediate.Uri = PathEx.Prefix(WebConfig.Root, intermediate.Uri);
             
             Log.LogInformation($"Saving document: \"{intermediate.Uri}\"");
             
