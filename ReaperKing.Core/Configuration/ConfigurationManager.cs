@@ -266,8 +266,7 @@ namespace ReaperKing.Core.Configuration
                 super = "*";
             }
 
-            // Proceed to go up the tree if upper level is not the same
-            // as current.
+            // Proceed to go up the tree if upper level is not the same as current.
             if (super != schemaName)
             {
                 return IsPropertySetByName(super, name);

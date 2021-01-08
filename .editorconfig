@@ -53,7 +53,7 @@ resharper_web_config_wrong_module_highlighting = warning
 
 [*.scss]
 indent_style = space
-indent_size = 2
+indent_size = 4
 
 [*.{appxmanifest,asax,ascx,aspx,axaml,build,cg,cginc,compute,cs,cshtml,dtd,hlsl,hlsli,hlslinc,master,nuspec,paml,razor,resw,resx,skin,usf,ush,vb,xaml,xamlx,xoml,xsd}]
 indent_style = space
