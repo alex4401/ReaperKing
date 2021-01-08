@@ -15,6 +15,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 using ReaperKing.Anhydrate.Models;
@@ -27,11 +28,14 @@ namespace Poglin.Generation.ARK
 {
     public class StandaloneIniGenerator : ModDocument<StandaloneIniModel>
     {
+        private ProcessorConfigurationSchema GenerationConfig { get;  }
         private RawSpawningGroupsData SpawningGroups { get; init; }
 
-        public StandaloneIniGenerator(ModSpecificationSchema info, RawSpawningGroupsData data)
+        public StandaloneIniGenerator(ModSpecificationSchema info, ProcessorConfigurationSchema generationConfig,
+                                      RawSpawningGroupsData data)
             : base(info)
         {
+            GenerationConfig = generationConfig;
             SpawningGroups = data;
         }
 
@@ -80,6 +84,11 @@ namespace Poglin.Generation.ARK
 
                     foreach (NpcInfo npc in group.Species)
                     {
+                        if (GenerationConfig.ExcludeFromInis.Contains(npc.BlueprintPath.GetArkClassName()))
+                        {
+                            continue;
+                        }
+                        
                         npcClasses.Add($"\"{npc.BlueprintPath.GetArkClassName()}\"");
                         npcChances.Add(npc.Chance);
                     }
@@ -98,6 +107,11 @@ namespace Poglin.Generation.ARK
 
                 foreach (NpcLimitInfo limit in container.Limits)
                 {
+                    if (GenerationConfig.ExcludeFromInis.Contains(limit.BlueprintPath.GetArkClassName()))
+                    {
+                        continue;
+                    }
+                
                     StringBuilder entryBuilder = new();
                     
                     entryBuilder.Append("(");

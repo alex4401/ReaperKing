@@ -49,6 +49,7 @@ namespace Poglin.Generation.ARK
             {
                 var groups = ArkRegistry.FindByModId<RawSpawningGroupsData>(Info.Meta.WorkshopId).First();
                 var singleton = ArkRegistry.FindByModId<SingletonPackage>(Info.Meta.WorkshopId).First();
+                var generationConfig = ArkRegistry.Find<ProcessorConfigurationSchema>().First();
 
                 foreach (DataMap dataMap in Info.DataMaps)
                 {
@@ -57,7 +58,8 @@ namespace Poglin.Generation.ARK
 
                 if (Config.GenerateInis && Info.Generation.GenerateInis)
                 {
-                    ctx.EmitDocument<StandaloneIniGenerator>(new(Info, groups), "/latest");
+                    ctx.EmitDocument<StandaloneIniGenerator>(new(Info, generationConfig, groups),
+                                                             "/latest");
                 }
             }
 

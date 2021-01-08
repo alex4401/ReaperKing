@@ -13,10 +13,13 @@
  * https://www.gnu.org/licenses/.
  */
 
+using System.Collections.Generic;
+
 using ReaperKing.Anhydrate;
 using ReaperKing.Anhydrate.Models;
 using ReaperKing.Core;
 
+using Noglin.Ark;
 using Noglin.Ark.Schemas;
 using Poglin.Generation.ARK.Models;
 
@@ -38,7 +41,8 @@ namespace Poglin.Generation.ARK
             return new[]
             {
                 new NavigationItem("Spawn Maps", Context.GetRootUri()),
-                new NavigationItem("Workshop", $"https://steamcommunity.com/sharedfiles/filedetails/?id={Mod.Meta.WorkshopId}"),
+                new NavigationItem("Workshop", "https://steamcommunity.com/sharedfiles/filedetails" +
+                                                    $"/?id={Mod.Meta.WorkshopId}"),
                 new NavigationItem("Standalone.Ini", Context.GetSubPath("/latest/ini.html"),
                                    Configuration.GenerateInis && Mod.Generation.GenerateInis),
             };
