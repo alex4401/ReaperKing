@@ -22,7 +22,7 @@ namespace Xeno.Core
         public class Any : Schema
         { }
 
-        [RkSchema("ReaperKing/Minimal/v*")]
+        [RkSchema("Xeno/Minimal/v*")]
         public class Minimal : Schema
         {
             public override PropertyDescriptor[] Properties
@@ -33,7 +33,7 @@ namespace Xeno.Core
                 };
         }
         
-        [RkSchema("ReaperKing/v2")]
+        [RkSchema("Xeno/v2")]
         public class V2 : Schema
         {
             public override PropertySetDescriptor[] PropertySets

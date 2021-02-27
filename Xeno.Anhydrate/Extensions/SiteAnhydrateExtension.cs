@@ -21,6 +21,7 @@ namespace Xeno.Anhydrate.Extensions
     public static class SiteAnhydrateExtension
     {
         private const string Namespace = "Xeno.Anhydrate";
+        private const string AlternateNamespace = "ReaperKing.Anhydrate";
         private const string RealDirectory = "Xeno.Anhydrate";
         
         public static void EnableAnhydrateTemplates(this Site site)
@@ -34,6 +35,7 @@ namespace Xeno.Anhydrate.Extensions
             }
             
             site.AddTemplateIncludeNamespace(Namespace, selfDir);
+            site.AddTemplateIncludeNamespace(AlternateNamespace, selfDir);
         }
     }
 }

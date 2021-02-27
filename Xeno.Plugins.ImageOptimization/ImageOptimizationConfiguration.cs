@@ -25,17 +25,17 @@ namespace Xeno.Plugins
         
         public record PngConfiguration
         {
-            public bool UseOxipng { get; } = true;
-            public string OxipngBinaryPath { get; } = "oxipng";
-            public int PngCompressionLevel { get; } = 3;
+            public bool UseOxipng { get; init; } = true;
+            public string OxipngBinaryPath { get; init; } = "oxipng";
+            public int PngCompressionLevel { get; init; } = 3;
         }
         
         public record JpegConfiguration
         {
-            public bool UseRecompress { get; } = true;
-            public string RecompressBinaryPath { get; } = "jpeg-recompress";
-            public string RecompressAlgorithm { get; } = "ssim";
-            public int MinQualityLevel { get; } = 60;
+            public bool UseRecompress { get; init; } = true;
+            public string RecompressBinaryPath { get; init; } = "jpeg-recompress";
+            public string RecompressAlgorithm { get; init; } = "ssim";
+            public int MinQualityLevel { get; init; } = 60;
         }
     }
 }

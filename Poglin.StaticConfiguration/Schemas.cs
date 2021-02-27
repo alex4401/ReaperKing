@@ -21,7 +21,7 @@ using Xeno.Plugins;
 
 namespace Poglin.StaticConfiguration
 {
-    [RkSchema("ReaperKing/v2+poglin1")]
+    [RkSchema("Xeno/v2+poglin1")]
     public sealed class SchemaV2Poglin1 : Xeno.Core.Schemas.V2
     {
         public override PropertySetDescriptor[] PropertySets

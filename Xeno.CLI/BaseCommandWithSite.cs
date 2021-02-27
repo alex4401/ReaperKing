@@ -109,7 +109,7 @@ namespace Xeno.CLI
                 {
                     string assemblyName = refAssemblyName.Name;
                     
-                    if (assemblyName.StartsWith("ReaperKing.")
+                    if (assemblyName.StartsWith("Xeno.")
                         || BuildConfig.AllowRazorAssemblies.Contains(assemblyName)
                     )
                     {

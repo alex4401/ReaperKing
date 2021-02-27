@@ -39,7 +39,7 @@ namespace Xeno.Core.Configuration
         {
             Log = logFactory.CreateLogger<ProjectConfigurationManager>();
             SchemaManager = schemaManager;
-            UpdateTypesFromSchemaManager("ReaperKing/Minimal/v*");
+            UpdateTypesFromSchemaManager("Xeno/Minimal/v*");
         }
         
         public void InitType(Type type)

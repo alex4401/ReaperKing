@@ -25,7 +25,7 @@ namespace Xeno.CLI
         public string Requires { get; init; } = "any";
         public List<string> AllowRazorAssemblies { get; init; } = new();
         public List<string> BeforeBuild { get; init; } = new();
-        protected List<string> ExtraBeforeBuild { get; init; } = new();
+        public List<string> ExtraBeforeBuild { get; init; } = new();
 
         public void OnUpdated()
         {
