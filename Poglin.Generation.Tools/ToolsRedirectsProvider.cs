@@ -16,7 +16,7 @@
 using System.IO;
 
 using Xeno.Core;
-using ReaperKing.CommonTemplates.Extensions;
+using Xeno.CommonTemplates.Extensions;
 
 namespace Poglin.Generation.Tools
 {

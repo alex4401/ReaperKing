@@ -13,11 +13,11 @@
  * https://www.gnu.org/licenses/.
  */
 
-using ReaperKing.Anhydrate;
+using Xeno.Anhydrate;
 using Xeno.Core.Configuration;
 
 using Poglin.Generation.ARK;
-using ReaperKing.Plugins;
+using Xeno.Plugins;
 
 namespace Poglin.StaticConfiguration
 {

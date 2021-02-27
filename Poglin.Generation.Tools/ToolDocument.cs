@@ -13,8 +13,8 @@
  * https://www.gnu.org/licenses/.
  */
 
-using ReaperKing.Anhydrate;
-using ReaperKing.Anhydrate.Models;
+using Xeno.Anhydrate;
+using Xeno.Anhydrate.Models;
 
 namespace Poglin.Generation.Tools
 {

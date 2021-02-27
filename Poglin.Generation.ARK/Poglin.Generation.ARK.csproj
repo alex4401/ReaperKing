@@ -9,9 +9,9 @@
     <ItemGroup>
       <ProjectReference Include="..\Noglin.Ark\Noglin.Ark.csproj" />
       <ProjectReference Include="..\Noglin.Core\Noglin.Core.csproj" />
-      <ProjectReference Include="..\ReaperKing.Anhydrate\ReaperKing.Anhydrate.csproj" />
-      <ProjectReference Include="..\ReaperKing.Plugins\ReaperKing.Plugins.csproj" />
+      <ProjectReference Include="..\Xeno.Anhydrate\Xeno.Anhydrate.csproj" />
       <ProjectReference Include="..\Xeno.Core\Xeno.Core.csproj" />
+      <ProjectReference Include="..\Xeno.Plugins\Xeno.Plugins.csproj" />
     </ItemGroup>
 
 </Project>

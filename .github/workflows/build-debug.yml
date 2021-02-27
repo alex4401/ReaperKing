@@ -24,7 +24,7 @@ jobs:
               run: dotnet publish --no-restore
                                   --configuration Debug --output builddir/rk/bin
                                   /p:SatelliteResourceLanguages=en
-                                  ReaperKing.Core
+                                  Xeno.Core
             - name: Build command line tools
               run: dotnet publish --no-restore
                                   --configuration Debug --output builddir/rk/bin
@@ -35,23 +35,23 @@ jobs:
               run: dotnet publish --no-restore
                                   --configuration Debug --output builddir/rk/bin
                                   /p:SatelliteResourceLanguages=en
-                                  ReaperKing.Plugins
+                                  Xeno.Plugins
             - name: Build ImageOptimization plugin
               run: dotnet publish --no-restore
                                   --configuration Debug --output builddir/rk/bin
                                   /p:SatelliteResourceLanguages=en
-                                  ReaperKing.Plugins.ImageOptimization
+                                  Xeno.Plugins.ImageOptimization
               
             - name: Build common template library
               run: dotnet publish --no-restore
                                   --configuration Debug --output builddir/rk/bin
                                   /p:SatelliteResourceLanguages=en
-                                  ReaperKing.CommonTemplates
+                                  Xeno.CommonTemplates
             - name: Build Anhydrate template library
               run: dotnet publish --no-restore
                                   --configuration Debug --output builddir/rk/bin
                                   /p:SatelliteResourceLanguages=en
-                                  ReaperKing.Anhydrate
+                                  Xeno.Anhydrate
               
             - name: Copy GPLv3 license
               run: cp LICENSE builddir/rk/bin

@@ -7,8 +7,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\ReaperKing.Anhydrate\ReaperKing.Anhydrate.csproj" />
-      <ProjectReference Include="..\ReaperKing.CommonTemplates\ReaperKing.CommonTemplates.csproj" />
+      <ProjectReference Include="..\Xeno.Anhydrate\Xeno.Anhydrate.csproj" />
+      <ProjectReference Include="..\Xeno.CommonTemplates\Xeno.CommonTemplates.csproj" />
       <ProjectReference Include="..\Xeno.Core\Xeno.Core.csproj" />
     </ItemGroup>
 

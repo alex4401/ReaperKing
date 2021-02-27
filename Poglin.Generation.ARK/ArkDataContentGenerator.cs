@@ -17,7 +17,7 @@ using System.IO;
 using Microsoft.Extensions.Logging;
 
 using Xeno.Core;
-using ReaperKing.Plugins;
+using Xeno.Plugins;
 
 using Noglin.Ark.Schemas;
 using Noglin.Core;

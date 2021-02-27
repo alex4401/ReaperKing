@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <LangVersion>9</LangVersion>
+        <PreserveCompilationContext>true</PreserveCompilationContext>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <None Include="Templates\**\*" Link="Xeno.Anhydrate\%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <ProjectReference Include="..\Xeno.Core\Xeno.Core.csproj" />
+    </ItemGroup>
+
+</Project>

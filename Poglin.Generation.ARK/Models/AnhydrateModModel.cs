@@ -13,7 +13,7 @@
  * https://www.gnu.org/licenses/.
  */
 
-using ReaperKing.Anhydrate.Models;
+using Xeno.Anhydrate.Models;
 using Xeno.Core;
 
 using Noglin.Ark.Schemas;

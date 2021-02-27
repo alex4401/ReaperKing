@@ -8,15 +8,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Poglin.Generation.ARK", "Po
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Poglin.Generation.Tools", "Poglin.Generation.Tools\Poglin.Generation.Tools.csproj", "{7C9D4FA0-A483-4689-A612-F48222A0E92C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReaperKing.Anhydrate", "ReaperKing.Anhydrate\ReaperKing.Anhydrate.csproj", "{871FC3F2-BEBB-4A62-9E87-A08C7DEFFA07}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xeno.Anhydrate", "Xeno.Anhydrate\Xeno.Anhydrate.csproj", "{871FC3F2-BEBB-4A62-9E87-A08C7DEFFA07}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReaperKing.CommonTemplates", "ReaperKing.CommonTemplates\ReaperKing.CommonTemplates.csproj", "{7BAF9082-99A2-4821-BF98-C028EDA53015}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xeno.CommonTemplates", "Xeno.CommonTemplates\Xeno.CommonTemplates.csproj", "{7BAF9082-99A2-4821-BF98-C028EDA53015}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Noglin.Core", "Noglin.Core\Noglin.Core.csproj", "{D7847279-3F0B-4EDD-9402-3BA0178C9EA1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReaperKing.Plugins.ImageOptimization", "ReaperKing.Plugins.ImageOptimization\ReaperKing.Plugins.ImageOptimization.csproj", "{BA321F63-5D71-49E4-B005-950BFFAEDD80}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xeno.Plugins.ImageOptimization", "Xeno.Plugins.ImageOptimization\Xeno.Plugins.ImageOptimization.csproj", "{BA321F63-5D71-49E4-B005-950BFFAEDD80}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReaperKing.Plugins", "ReaperKing.Plugins\ReaperKing.Plugins.csproj", "{3EC210BF-8F87-4E22-953F-0A30E3F38C12}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xeno.Plugins", "Xeno.Plugins\Xeno.Plugins.csproj", "{3EC210BF-8F87-4E22-953F-0A30E3F38C12}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Noglin.Ark", "Noglin.Ark\Noglin.Ark.csproj", "{33169EC0-CAB3-4108-80CA-12C979E805E1}"
 EndProject

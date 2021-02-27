@@ -18,9 +18,9 @@ using Microsoft.Extensions.Logging;
 
 using Xeno.Core;
 using Xeno.Core.Configuration;
-using ReaperKing.CommonTemplates.Extensions;
-using ReaperKing.Anhydrate.Extensions;
-using ReaperKing.Plugins;
+using Xeno.CommonTemplates.Extensions;
+using Xeno.Anhydrate.Extensions;
+using Xeno.Plugins;
 
 using Poglin.Generation.ARK;
 using Poglin.Generation.Tools;

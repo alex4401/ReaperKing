@@ -24,11 +24,11 @@
       <ProjectReference Include="..\Noglin.Core\Noglin.Core.csproj" />
       <ProjectReference Include="..\Poglin.Generation.ARK\Poglin.Generation.ARK.csproj" />
       <ProjectReference Include="..\Poglin.Generation.Tools\Poglin.Generation.Tools.csproj" />
-      <ProjectReference Include="..\ReaperKing.Anhydrate\ReaperKing.Anhydrate.csproj" />
-      <ProjectReference Include="..\ReaperKing.CommonTemplates\ReaperKing.CommonTemplates.csproj" />
-      <ProjectReference Include="..\ReaperKing.Plugins.ImageOptimization\ReaperKing.Plugins.ImageOptimization.csproj" />
-      <ProjectReference Include="..\ReaperKing.Plugins\ReaperKing.Plugins.csproj" />
+      <ProjectReference Include="..\Xeno.Anhydrate\Xeno.Anhydrate.csproj" />
+      <ProjectReference Include="..\Xeno.CommonTemplates\Xeno.CommonTemplates.csproj" />
       <ProjectReference Include="..\Xeno.Core\Xeno.Core.csproj" />
+      <ProjectReference Include="..\Xeno.Plugins.ImageOptimization\Xeno.Plugins.ImageOptimization.csproj" />
+      <ProjectReference Include="..\Xeno.Plugins\Xeno.Plugins.csproj" />
     </ItemGroup>
 
 </Project>
