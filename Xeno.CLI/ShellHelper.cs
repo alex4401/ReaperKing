@@ -15,9 +15,8 @@
 using System;
 using System.Diagnostics;
 
-namespace Xeno.Core
+namespace Xeno.CLI
 {
-    [Obsolete("This is soon going to be removed from the Core project.")]
     public static class ShellHelper
     {
         public static int Run(string cmd)

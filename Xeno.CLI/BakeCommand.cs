@@ -33,7 +33,7 @@ namespace Xeno.CLI
             {
                 ContentRoot = Environment.CurrentDirectory,
                 AssemblyRoot = RecipeAssemblyPath,
-                DeploymentPath = PathUtils.EnsureRooted("public"),
+                DeploymentPath = PathEx.EnsureRooted("public"),
             });
             InstantiateBakeRecipe();
             LoadProjectConfiguration();

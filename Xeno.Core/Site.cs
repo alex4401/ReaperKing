@@ -137,7 +137,7 @@ namespace Xeno.Core
             _razorProject.Mount(new RazorIncludePathInfo
             {
                 Namespace = ns,
-                RealRoot = PathUtils.EnsureRooted(root),
+                RealRoot = PathEx.EnsureRooted(root),
             });
         }
 
@@ -153,7 +153,7 @@ namespace Xeno.Core
             _razorProject.MountUnsafe(new RazorIncludePathInfo
             {
                 Namespace = ns,
-                RealRoot = PathUtils.EnsureRooted(root),
+                RealRoot = PathEx.EnsureRooted(root),
             });
         }
 
@@ -165,7 +165,7 @@ namespace Xeno.Core
          */
         public void AddTemplateDefaultIncludePath(string root)
         {
-            _razorProject.Mount(PathUtils.EnsureRooted(root));
+            _razorProject.Mount(PathEx.EnsureRooted(root));
         }
 
         /**
@@ -177,7 +177,7 @@ namespace Xeno.Core
          */
         public void TryAddTemplateDefaultIncludePath(string root)
         {
-            _razorProject.MountUnsafe(PathUtils.EnsureRooted(root));
+            _razorProject.MountUnsafe(PathEx.EnsureRooted(root));
         }
         
         /**
@@ -203,7 +203,7 @@ namespace Xeno.Core
          */
         public void RemoveTemplateDefaultIncludePath(string root)
         {
-            _razorProject.DestroyNamespace("", PathUtils.EnsureRooted(root));
+            _razorProject.DestroyNamespace("", PathEx.EnsureRooted(root));
         }
         #endregion
         
