@@ -7,10 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\ReaperKing.Core\ReaperKing.Core.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
       <Compile Update="ImageOptimization.Imagemagick.cs">
         <DependentUpon>ImageOptimization.cs</DependentUpon>
       </Compile>
@@ -20,6 +16,10 @@
       <Compile Update="ImageOptimization.PNG.cs">
         <DependentUpon>ImageOptimization.cs</DependentUpon>
       </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Xeno.Core\Xeno.Core.csproj" />
     </ItemGroup>
 
 </Project>

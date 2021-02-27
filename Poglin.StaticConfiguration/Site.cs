@@ -16,8 +16,8 @@
 using System.Diagnostics.CodeAnalysis;
 using Microsoft.Extensions.Logging;
 
-using ReaperKing.Core;
-using ReaperKing.Core.Configuration;
+using Xeno.Core;
+using Xeno.Core.Configuration;
 using ReaperKing.CommonTemplates.Extensions;
 using ReaperKing.Anhydrate.Extensions;
 using ReaperKing.Plugins;

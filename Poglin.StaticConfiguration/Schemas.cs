@@ -14,7 +14,7 @@
  */
 
 using ReaperKing.Anhydrate;
-using ReaperKing.Core.Configuration;
+using Xeno.Core.Configuration;
 
 using Poglin.Generation.ARK;
 using ReaperKing.Plugins;
@@ -22,7 +22,7 @@ using ReaperKing.Plugins;
 namespace Poglin.StaticConfiguration
 {
     [RkSchema("ReaperKing/v2+poglin1")]
-    public sealed class SchemaV2Poglin1 : ReaperKing.Core.Schemas.V2
+    public sealed class SchemaV2Poglin1 : Xeno.Core.Schemas.V2
     {
         public override PropertySetDescriptor[] PropertySets
             => new PropertySetDescriptor[]

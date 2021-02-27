@@ -9,7 +9,7 @@ using McMaster.Extensions.CommandLineUtils;
 using Microsoft.CodeAnalysis;
 using Microsoft.Extensions.Logging;
 using RazorLight;
-using ReaperKing.Core;
+using Xeno.Core;
 
 namespace Xeno.CLI
 {

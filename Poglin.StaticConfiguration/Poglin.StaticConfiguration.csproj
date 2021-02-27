@@ -26,9 +26,9 @@
       <ProjectReference Include="..\Poglin.Generation.Tools\Poglin.Generation.Tools.csproj" />
       <ProjectReference Include="..\ReaperKing.Anhydrate\ReaperKing.Anhydrate.csproj" />
       <ProjectReference Include="..\ReaperKing.CommonTemplates\ReaperKing.CommonTemplates.csproj" />
-      <ProjectReference Include="..\ReaperKing.Core\ReaperKing.Core.csproj" />
       <ProjectReference Include="..\ReaperKing.Plugins.ImageOptimization\ReaperKing.Plugins.ImageOptimization.csproj" />
       <ProjectReference Include="..\ReaperKing.Plugins\ReaperKing.Plugins.csproj" />
+      <ProjectReference Include="..\Xeno.Core\Xeno.Core.csproj" />
     </ItemGroup>
 
 </Project>

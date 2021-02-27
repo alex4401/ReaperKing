@@ -26,7 +26,7 @@ using Microsoft.CodeAnalysis;
 using Microsoft.Extensions.Logging;
 using McMaster.Extensions.CommandLineUtils;
 
-using ReaperKing.Core;
+using Xeno.Core;
 
 namespace Xeno.CLI
 {

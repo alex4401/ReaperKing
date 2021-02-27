@@ -17,7 +17,7 @@ using System.IO;
 using System.Text;
 using System.Xml;
 
-using ReaperKing.Core;
+using Xeno.Core;
 
 namespace ReaperKing.Plugins
 {

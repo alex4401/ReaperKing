@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using McMaster.Extensions.CommandLineUtils;
 using Microsoft.Extensions.Logging;
-using ReaperKing.Core;
+using Xeno.Core;
 
 namespace Xeno.CLI
 {

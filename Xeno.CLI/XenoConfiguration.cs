@@ -18,7 +18,7 @@
 
 using System.Collections.Generic;
 
-using ReaperKing.Core.Configuration;
+using Xeno.Core.Configuration;
 
 // ReSharper disable CollectionNeverUpdated.Global
 

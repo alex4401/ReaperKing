@@ -2,8 +2,8 @@ using System;
 using System.Collections;
 using McMaster.Extensions.CommandLineUtils;
 using Microsoft.Extensions.Logging;
-using ReaperKing.Core;
-using ReaperKing.Core.Configuration;
+using Xeno.Core;
+using Xeno.Core.Configuration;
 
 using UntypedProjectConfig = System.Collections.Generic.Dictionary<object, object>;
 

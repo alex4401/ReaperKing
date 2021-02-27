@@ -15,8 +15,8 @@
 
 using System.Collections.Generic;
 
-using ReaperKing.Core;
-using ReaperKing.Core.Configuration;
+using Xeno.Core;
+using Xeno.Core.Configuration;
 
 namespace ReaperKing.Plugins
 {
