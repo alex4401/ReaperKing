@@ -11,7 +11,7 @@ using Microsoft.Extensions.Logging;
 using RazorLight;
 using ReaperKing.Core;
 
-namespace Larvae
+namespace Xeno.CLI
 {
     internal abstract class BaseCommandWithSite : BaseCommandWithProject
     {

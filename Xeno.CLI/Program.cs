@@ -28,7 +28,7 @@ using McMaster.Extensions.CommandLineUtils;
 
 using ReaperKing.Core;
 
-namespace Larvae
+namespace Xeno.CLI
 {
     [Command("larvae")]
     [VersionOptionFromMember("--version", MemberName = nameof(GetVersion))]

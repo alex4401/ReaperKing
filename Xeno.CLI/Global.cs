@@ -1,10 +1,10 @@
 using Microsoft.Extensions.Logging;
 
-namespace Larvae
+namespace Xeno.CLI
 {
-    internal sealed class Larvae
+    internal sealed class XenoCli
     {
-        internal static Larvae Instance { get; private set; }
+        internal static XenoCli Instance { get; private set; }
 
         internal static void TryInitialize(Program program)
             => Instance = new(program);
@@ -13,13 +13,13 @@ namespace Larvae
         internal ILogger Log { get; }
         internal bool IsVerbose { get; }
         
-        private Larvae(Program program)
+        private XenoCli(Program program)
         {
             Main = program;
             
             IsVerbose = Main.Verbose;
             ApplicationLogging.Initialize(IsVerbose);
-            Log = ApplicationLogging.Factory.CreateLogger("Larvae");
+            Log = ApplicationLogging.Factory.CreateLogger("Xeno.CLI");
         }
     }
 }

@@ -4,7 +4,7 @@ using McMaster.Extensions.CommandLineUtils;
 using Microsoft.Extensions.Logging;
 using ReaperKing.Core;
 
-namespace Larvae
+namespace Xeno.CLI
 {
     internal sealed class BakeCommand : BaseCommandWithSite
     {

@@ -4,7 +4,7 @@ using McMaster.Extensions.CommandLineUtils;
 using Microsoft.Extensions.Logging;
 using ReaperKing.Core;
 
-namespace Larvae
+namespace Xeno.CLI
 {
     internal abstract class BaseCommand
     {
@@ -14,11 +14,11 @@ namespace Larvae
 
         public int OnExecute(CommandLineApplication app)
         {
-            Larvae.TryInitialize(Parent);
-            Log = Larvae.Instance.Log;
+            XenoCli.TryInitialize(Parent);
+            Log = XenoCli.Instance.Log;
             App = app;
             
-            Log.LogInformation($"Larvae, v{Program.GetVersion()}");
+            Log.LogInformation($"Xeno.CLI, v{Program.GetVersion()}");
             BeforeExecution();
             return Execute();
         }

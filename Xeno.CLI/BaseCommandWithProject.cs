@@ -7,7 +7,7 @@ using ReaperKing.Core.Configuration;
 
 using UntypedProjectConfig = System.Collections.Generic.Dictionary<object, object>;
 
-namespace Larvae
+namespace Xeno.CLI
 {
     internal abstract class BaseCommandWithProject : BaseCommand
     {
@@ -18,7 +18,7 @@ namespace Larvae
         };
 
         public ProjectConfigurationManager Config { get; private set; }
-        public LarvaeConfiguration BuildConfig { get; private set; }
+        public XenoConfiguration BuildConfig { get; private set; }
 
         [Option(LongName = "target")]
         public string TargetName { get; } = "default";
@@ -76,24 +76,17 @@ namespace Larvae
             // Load requested project while overriding existing
             // fields.
             Config.LoadFile(filename);
-            
-            // Append pre-build commands
-            if (BuildConfig.ExtraBeforeBuild.Count > 0)
-            {
-                BuildConfig.BeforeBuild.AddRange(BuildConfig.ExtraBeforeBuild);
-                BuildConfig.ExtraBeforeBuild.Clear();
-            }
         }
 
         public override void BeforeExecution()
         {
             Config = new(ApplicationLogging.Factory);
-            Config.InjectProperty<LarvaeConfiguration>("larvae");
+            Config.InjectProperty<XenoConfiguration>("larvae");
             
-            Config.InitType<LarvaeConfiguration>();
+            Config.InitType<XenoConfiguration>();
             Config.InitType<ImmutableRuntimeConfiguration>();
             
-            BuildConfig = Config.Get<LarvaeConfiguration>();
+            BuildConfig = Config.Get<XenoConfiguration>();
         }
     }
 }

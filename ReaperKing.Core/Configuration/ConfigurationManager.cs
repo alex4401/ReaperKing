@@ -140,6 +140,12 @@ namespace ReaperKing.Core.Configuration
                     _objectPool[propertyType] = ParsingUtils.YamlReader.Deserialize(eventStream, propertyType,
                                                                                     _objectPool[propertyType]);
                     
+                    // Notify the property that its values may have changed.
+                    if (_objectPool[propertyType] is IRkConfigNotifiedWhenUpdated propertyNotifiable)
+                    {
+                        propertyNotifiable.OnUpdated();
+                    }
+                    
                     continue;
                 }
                 
@@ -165,6 +171,12 @@ namespace ReaperKing.Core.Configuration
                         InitType(propertyType);
                         _objectPool[propertyType] = ParsingUtils.YamlReader.Deserialize(eventStream, propertyType,
                                                                                         _objectPool[propertyType]);
+
+                        // Notify the property that its values may have changed.
+                        if (_objectPool[propertyType] is IRkConfigNotifiedWhenUpdated propertyNotifiable)
+                        {
+                            propertyNotifiable.OnUpdated();
+                        }
                     }
 
                     eventStream.Expect<MappingEnd>();

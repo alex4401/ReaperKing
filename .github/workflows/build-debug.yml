@@ -25,11 +25,11 @@ jobs:
                                   --configuration Debug --output builddir/rk/bin
                                   /p:SatelliteResourceLanguages=en
                                   ReaperKing.Core
-            - name: Build Larvae
+            - name: Build command line tools
               run: dotnet publish --no-restore
                                   --configuration Debug --output builddir/rk/bin
                                   /p:SatelliteResourceLanguages=en
-                                  Larvae
+                                  Xeno.CLI
               
             - name: Build common plugins
               run: dotnet publish --no-restore
@@ -60,12 +60,12 @@ jobs:
 
             - uses: actions/upload-artifact@v2
               with:
-                  name: rk-larvae-debug-bins
+                  name: xeno-cli-debug-bins
                   path: builddir/rk/bin
                   if-no-files-found: error
             - uses: actions/upload-artifact@v2
               with:
-                  name: rk-larvae-debug-pdbs
+                  name: xeno-cli-debug-pdbs
                   path: builddir/rk/pdb
                   if-no-files-found: error
 

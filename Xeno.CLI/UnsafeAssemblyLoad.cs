@@ -3,7 +3,7 @@ using System.Data;
 using System.IO;
 using System.Reflection;
 
-namespace Larvae
+namespace Xeno.CLI
 {
     public static class UnsafeAssemblyLoad
     {

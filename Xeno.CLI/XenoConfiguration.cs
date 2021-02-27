@@ -16,29 +16,29 @@
  * along with this program. If not, see http://www.gnu.org/licenses/.
  */
 
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Console;
+using System.Collections.Generic;
 
-namespace Larvae
+using ReaperKing.Core.Configuration;
+
+// ReSharper disable CollectionNeverUpdated.Global
+
+namespace Xeno.CLI
 {
-    internal static class ApplicationLogging
+    internal record XenoConfiguration : IRkConfigNotifiedWhenUpdated
     {
-        internal static ILoggerFactory Factory;
-        
-        internal static void Initialize(bool verbose)
+        public string Requires { get; init; } = "any";
+        public List<string> AllowRazorAssemblies { get; init; } = new();
+        public List<string> BeforeBuild { get; init; } = new();
+        protected List<string> ExtraBeforeBuild { get; init; } = new();
+
+        public void OnUpdated()
         {
-            Factory = LoggerFactory.Create(
-                builder =>
-                {
-                    builder.AddDebug();
-                    builder.AddSimpleConsole(options =>
-                    {
-                        options.ColorBehavior = LoggerColorBehavior.Disabled;
-                        options.SingleLine = true;
-                        options.IncludeScopes = false;
-                    });
-                    builder.SetMinimumLevel(verbose ? LogLevel.Debug : LogLevel.Information);
-                });
+            // Append pre-build commands
+            if (ExtraBeforeBuild.Count > 0)
+            {
+                BeforeBuild.AddRange(ExtraBeforeBuild);
+                ExtraBeforeBuild.Clear();
+            }
         }
     }
 }
