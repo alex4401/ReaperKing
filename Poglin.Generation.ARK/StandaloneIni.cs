@@ -44,10 +44,7 @@ namespace Poglin.Generation.ARK
 
         public override FooterInfo GetFooter()
             => base.GetFooter() with {
-                Paragraphs = new[]
-                {
-                    "This site is not affiliated with ARK: Survival Evolved or Wildcard Properties, LLC.",
-                },
+                Paragraphs = new[] { FooterStrings.NonAffiliate },
             };
 
         public override StandaloneIniModel GetModel()

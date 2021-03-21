@@ -42,12 +42,7 @@ namespace Poglin.Generation.ARK
         public override string GetTemplateName() => "/ARKMods/SpawningMap";
         public override FooterInfo GetFooter()
             => base.GetFooter() with {
-                    Paragraphs = new[]
-                    {
-                        @"The topographic map comes from " +
-                        @"<a href=""https://ark.gamepedia.com"">the Official ARK Wiki</a>",
-                        "This site is not affiliated with ARK: Survival Evolved or Wildcard Properties, LLC.",
-                    },
+                    Paragraphs = new[] { FooterStrings.TopomapSource, FooterStrings.NonAffiliate },
                 };
         
         public override InteractiveMapModel GetModel()
